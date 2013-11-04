@@ -1,0 +1,9 @@
+﻿@if (Request.IsAuthenticated) {
+    <p style="color:#ece9d7">Welcome, &nbsp <b><a href='@Url.Content("~/account/manage")'>@Context.User.Identity.Name</a></b><br />
+     @Html.ActionLink("Log Off", "LogOff", "Account") </p>
+}
+else {
+    @: @Html.ActionLink("Login", "Login", "Account") <br />
+    @: @Html.ActionLink("Register", "Register", "Account") <br />
+    @: @Html.ActionLink("Verify-New-Account", "VerifyEmailCode", "Account") 
+}

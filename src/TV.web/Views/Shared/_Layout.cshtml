@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Tenants Villige</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/new.css")
+   @* @Styles.Render("~/Content/TV.css")*@
+
+    <style>
+        body
+        {
+            padding-top: 115px;
+            padding-bottom:100px
+        }
+        
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="#">@Html.ActionLink("TenantsVillage.com", "Index", "Home")</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <li>@Html.ActionLink("Links", "Links", "Home")</li>
+                            </ul>
+                            <div style="float:right;">
+                                @Html.Partial("_LogonPartial")
+                            </div>
+                        </div>  
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid" style="padding-bottom:80px">
+            <div class="span12";
+            -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 4px 0px;
+            box-shadow: rgb(128, 128, 128) 0px 4px 7px 0px; 
+            -webkit-border-radius: 7px; border-radius: 7px;
+            padding-top:15px;
+            padding-bottom:15px;
+            padding-right:25px;
+            padding-left:45px; 
+            border:2px solid blue;">
+                
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/Bootstrap.js")
+
+
+
+    <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+    <footer style="height:80px">
+                <br />
+                <div class="row" style="text-align:center;">
+                    &copy; paradigm software 2010-@DateTime.Now.Year<br />
+                    
+                </div>
+            </footer>
+</html>

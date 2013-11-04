@@ -1,0 +1,100 @@
+﻿@model TV.web.ViewModels.CreatePostViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Post</h2>
+<hr />
+@if (Model.IsDeleted == true)
+{
+    <p>This Post has been previously deleted...To enable editing you must undelete the post
+        <br />
+        <br />
+        <a class="btn btn-primary" href="~/post/undelete/@Model.Id">Undelete</a><br />
+        <br />
+        <br />
+        <a class="btn" href="~/account/manage/">Cancel</a>
+    </p>
+    
+}else{
+    if (Model.Confirmed == false)
+     {
+          @Html.HiddenFor(p => p.Id)
+    <p>Your post is not Confirmed.  To enable editing please Confirm your post by pressing the link below....</p>
+    <br />
+    <br />
+          <a class="btn btn-primary" href="~/post/confirm/@Model.Id">Confirm</a>
+        <br />
+        <br />
+        <a class="btn" href="~/account/manage/">Cancel</a>
+     }else{
+ using (Html.BeginForm()) {
+            @Html.ValidationSummary(false)
+       
+        <br />
+    <div class="row">
+        <div class="span3">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title)
+        </div>
+    </div>
+<div class="row"> 
+    <div class="span3"> 
+        @Html.LabelFor(m => m.LandLord)
+        @Html.TextBoxFor(m => m.LandLord)
+    </div>
+    <div class="span6"> 
+        @Html.LabelFor(m => m.LLemail)
+        @Html.TextBoxFor(m => m.LLemail)
+    </div>
+</div>
+<div class="row"> 
+    <div class="span3">
+        @Html.LabelFor(m => m.LeaseYear)
+        @Html.TextBoxFor(m => m.LeaseYear)
+    </div>
+    <div class="span3">
+        @Html.LabelFor(m => m.Rent)
+        <div class="input-prepend input-append">
+            <span class="add-on"><b>$</b></span>@Html.TextBoxFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
+            @Html.ValidationMessageFor(model => model.Rent)
+        </div>
+    </div>
+</div>
+ <div class="row"> 
+    <div class="span3">
+        @Html.LabelFor(m => m.Deposit)
+        <div class="input-prepend input-append">
+            <span class="add-on"><b>$</b></span>@Html.TextBoxFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
+            @Html.ValidationMessageFor(model => model.Deposit)
+        </div>
+    </div>
+    <div class="span3">
+        @Html.LabelFor(m => m.AmountKept)
+        <div class="input-prepend input-append">
+            <span class="add-on"><b>$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { @class = "span2" })<span class="add-on">.00</span>
+            @Html.ValidationMessageFor(model => model.AmountKept)
+        </div>
+    </div>
+</div>
+<div class="row"> 
+    <div class="span10">
+        @Html.LabelFor(m => m.Post)
+        @Html.TextAreaFor(m => m.Post, new { @cols = 80, @rows = 10 })
+    </div>
+</div>
+<br />
+ 
+    <br />
+     
+  <input class="btn btn-primary" type="submit" value="Save Changes" /> 
+    <br />
+    <br />
+    <a class="btn" href="~/account/manage/">Cancel</a> 
+    
+    @Html.HiddenFor(m => m.UserId)
+}
+}
+}
+

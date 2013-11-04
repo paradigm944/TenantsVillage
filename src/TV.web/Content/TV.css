@@ -1,0 +1,46 @@
+﻿
+.gray-panel 
+{
+    border:1px solid black;
+    background-color:#dddcdc;
+    padding:10px;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.alert-message {
+    border: 2px solid Red;
+    background-color:#ffeeee;
+    padding: 5px 5px 5px 5px;
+}
+
+.client-context-header {
+ font-size:120%;
+ text-align:center;
+}
+
+

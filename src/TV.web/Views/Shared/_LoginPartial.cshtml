@@ -1,0 +1,44 @@
+﻿@model TV.web.Models.LoginModel
+
+@if (Request.IsAuthenticated) {
+   <li style="padding-top:5px; "> <text>
+        &nbspHello, <b>@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</b>
+      <br /> @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken() 
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log-off</a>
+        }
+    </text></li>
+} else {
+    
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <b class="caret"></b></a>
+                            <ul class="dropdown-menu" style="padding:10px 10px 10px 10px;">
+                            @using (Ajax.BeginForm("Login", "Account", null)) {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <li>
+                                @Html.LabelFor(m => m.UserName,  new { style = "font-size: 12px" })
+                                @Html.TextBoxFor(m => m.UserName)
+                                @Html.ValidationMessageFor(m => m.UserName)
+                                    
+                                  
+                                @Html.LabelFor(m => m.Password, new { style = "font-size: 12px" })
+                                @Html.PasswordFor(m => m.Password)
+                                @Html.ValidationMessageFor(m => m.Password)
+                                    
+                                   
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox", style = "font-size: 12px" })
+                            </li>
+                                <br />       
+                            <li> 
+                            <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Login">
+                            </li>
+                            }  
+
+                            
+                        </ul>
+                    </li>
+    
+}

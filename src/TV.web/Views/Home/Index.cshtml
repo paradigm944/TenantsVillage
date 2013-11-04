@@ -1,0 +1,138 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+        <style>
+            .shadow {
+                -moz-box-shadow:    3px 3px 5px 6px #ccc;
+                -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                 box-shadow:         3px 3px 5px 6px #ccc;
+            }
+        </style>
+
+        <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/home.css")" rel="stylesheet" type="text/css" />
+
+
+
+@section Scripts {
+
+     <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/JavaScript1.js")" type="text/javascript"></script>
+
+     <script>
+
+         $.ready(function() {
+             change_image(0);
+         });
+@*         var Image = new Array("@Model.PicUrls[0]", "@Url.Content("~/Images/IMAG0008.jpg")", "@Url.Content("~/Images/IMAG0007.jpg")");*@
+
+         var ImagePostIds = new Array (
+         @for(var i=0; i<=Model.Pics.Count - 1; i++){
+                 <text>"@Model.Pics[i].PostId"</text>
+                 if(i < Model.Pics.Count - 1){<text>,</text>}
+             }
+             );
+
+         var Image = new Array (
+          @for(var i=0; i<=Model.Pics.Count - 1; i++){
+                <text>"@Model.Pics[i].ImageUrl"</text>
+                if(i < Model.Pics.Count - 1){<text>,</text>}
+             }
+         );        
+         
+         var Image_Number = 0;
+         var Image_Length = Image.length - 1;
+         var Interval;
+
+
+         function change_image(num) {
+             console.log("change_image" + num);
+             Image_Number = Image_Number + num;
+
+             if (Image_Number > Image_Length) {
+                 Image_Number = 0;
+             }
+
+             if (Image_Number < 0) {
+                 Image_Number = Image_Length;
+             }
+
+             $("#slideShowLink").attr('href', '@Url.Action("viewpost", "search")/' + ImagePostIds[Image_Number]);
+             $("#slideShow").fadeOut('slow', function () {
+                 $(this).attr('src', Image[Image_Number]);
+             }).fadeIn('slow');
+
+             return false;
+         }
+
+         function play() {
+             
+             Interval = setInterval("change_image(1)", 5000);
+         }
+
+         function stop() {
+             
+             clearInterval(Interval);
+         }
+
+         
+    </script>
+
+}
+           
+       
+
+        <div id="container" > 
+                
+            <div class="row-fliud" id="demo">
+                <div class="span7" style="padding-top:15px;
+                            padding-bottom:15px;
+                            padding-right:25px;
+                            padding-left:25px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+                <table id="myDataTable" class="display">
+                    <thead>
+                        <tr style="color:#d5d7bf">
+                            <th>ID</th>
+                            <th>Landlord</th>
+                            <th>Title</th>
+                            <th>Street</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center;"> 
+                    </tbody>
+                </table>
+                </div>
+                <div class="span5"style="padding-top:15px;
+                            padding-bottom:15px;
+                            padding-right:25px;
+                            padding-left:25px;  
+                            -moz-box-shadow:3px 3px 5px 6px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
+                            background-color:rgb(224,224,224);-moz-border-radius: 15px;
+                            border-radius: 15px;">
+                  <body onload="play()">
+
+                    <center>
+                    @*<a href="@Url.Action("viewpost","search")/@Model.Pics[0].PostId" id="slideShowLink"><img src="@Model.Pics[0].ImageUrl" id="slideShow" width="500" height="300" /></a>*@
+                    
+
+                   
+                    
+                    </center>
+                      </body>
+                </div>
+            </div>
+        </div>
+
+
+

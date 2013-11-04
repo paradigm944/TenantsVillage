@@ -1,0 +1,69 @@
+﻿@{
+   ViewBag.Title = "Your Posts";
+}
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(function () {
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": '@Url.Content("~/Search/UserPostsAjaxHandler")',
+                "bProcessing": true,
+                "aoColumns": [
+                        {
+                            "sName": "ID",
+                            "bSearchable": false,
+                            "bSortable": false,
+                            "fnRender": function (oObj) {
+                                return '<div class="row"><div class="span3"><a class="btn btn-mini" href=@Url.Content("~/Search/ViewPost/")' + oObj.aData[0] + '\>View</a><a class="btn btn-mini" href=@Url.Content("~/Post/Edit/")' + oObj.aData[0] + '\>Edit</a><a class="btn btn-mini" href=@Url.Content("~/Post/Delete/")' + oObj.aData[0] + '\>Delete</a><a class="btn btn-mini" href=@Url.Content("~/Post/UnDelete/")' + oObj.aData[0] + '\>UnDelete</a></div></div>';
+                            }
+                        },
+			            { "sName": "Landlord" },
+			            { "sName": "Title" },
+			            { "sName": "Street" },
+                        { "sName": "Completed" },
+                        { "sName": "Deleted" }
+        ]
+            });
+        });
+
+
+    </script>
+    }
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        
+        <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
+        <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="demo">
+                <table id="myDataTable" class="display">
+                    <thead>
+                        <tr style="color:#d5d7bf">
+                            <th>ID</th>
+                            <th>Landlord</th>
+                            <th>Title</th>
+                            <th>Street</th>
+                            <th>IsCompleted</th>
+                            <th>IsDeleted</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+

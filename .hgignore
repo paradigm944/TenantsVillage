@@ -1,0 +1,16 @@
+syntax:glob
+
+src\packages
+
+*.docstates
+Temp\*.doc
+
+[B|b]in\*
+[O|o]bj\*
+
+*.ldf
+*.MDF
+
+buildoutput
+syntax: glob
+src/TenantsVillage.v11.suo

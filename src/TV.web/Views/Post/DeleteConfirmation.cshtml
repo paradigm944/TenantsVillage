@@ -1,0 +1,83 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+
+@{
+    ViewBag.Title = "DeleteConfirmation";
+}
+
+<h2>Delete Confirmation</h2>
+<hr />
+@using (Html.BeginForm()) {
+         @Html.ValidationSummary(false)
+
+    
+<h3><b>@Html.DisplayFor(m => m.Title)</b></h3>
+
+
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LandLord)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LandLord)
+    </div>
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LLemail)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LLemail)
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Rent)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Deposit)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LeaseYear)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LeaseYear)
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.AmtKept)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.AmountKept, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.Post)</em>
+        &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
+    </div>
+</div>
+    if (Model.Images != null)
+    {
+        foreach (var x in Model.Images)
+        {
+            <br />
+            <div class="row">
+                 <div class="span10">
+                     
+                    <img src="@x.ImageUrl"  style="width:500px;height:300px"/>
+                     
+                 </div>
+            </div>
+        }
+    }
+    
+    <br />
+  <input class="btn btn-primary" type="submit" value="Delete Post" />
+  <br />
+  <br />
+  <a class="btn" href="~/account/manage/">Cancel</a>   
+    
+}
+   
+
+@Html.HiddenFor(m => m.Id)

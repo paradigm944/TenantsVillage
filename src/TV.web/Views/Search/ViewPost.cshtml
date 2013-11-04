@@ -1,0 +1,161 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+
+@{
+    ViewBag.Title = "View a Post";
+}
+
+<h2 ><b>@Html.DisplayFor(m => m.Title)</b></h2>
+<br />
+<br />
+<div class="span12"style="padding-top:30px;
+                            padding-bottom:25px;
+                            padding-right:45px;
+                            padding-left:90px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LandLord)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LandLord)
+    </div>
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LLemail)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LLemail)
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+            <b><em>@Html.LabelFor(m => m.BuildingNumber)</em></b>
+           &nbsp &nbsp @Html.DisplayFor(model => model.BuildingNumber)
+     </div>
+        <div class="span3">
+            <b><em>@Html.LabelFor(m => m.AptNumber)</em></b>
+            &nbsp &nbsp @Html.DisplayFor(model => model.AptNumber)
+     </div>
+    <div class="span3">
+            <b><em>@Html.LabelFor(m => m.Street)</em></b>
+            &nbsp &nbsp @Html.DisplayFor(model => model.Street)
+     </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Rent)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Deposit)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LeaseYear)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LeaseYear)
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.AmountKept)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.AmountKept, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span7">
+        <em>@Html.LabelFor(m => m.Post)</em>
+        &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
+    </div>
+</div>
+<div class="row">
+    
+    <div class="span7">
+        @if (Model.Images != null)
+        {
+            foreach (var x in Model.Images)
+            {
+                <br />
+                <div class="row">
+                     <div class="span10">
+                     
+                        <img src="@x.ImageUrl"  style="width:500px;height:300px"/>
+                     
+                     </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="span4 offset1"style="padding-top:30px;
+                            padding-bottom:25px;
+                            padding-right:45px;
+                            padding-left:45px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+            <a href="#myModal" role="button" class="btn" data-toggle="modal">Add a Comment</a>
+            <br />
+            <ul>
+            @if (Model.Comments != null)
+            {
+                foreach (var x in Model.Comments)
+                {   
+                <li>
+                    @Html.ActionLink(x.Subject, "ViewCommentDetails", new {threadId=x.Id})<br />
+                    @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
+                </li>
+                        
+                     
+                
+                
+                }
+            }
+        </ul>
+    </div>
+
+</div>
+ </div>    
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+        <!-- this stuff goes into partial not the modal -->
+        @using (Ajax.BeginForm("createcomment", "comment", new { id = Model.Id } , null  )){
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Ask a Question</h3>
+          </div>
+          <div class="modal-body">
+              <div>
+                  @Html.LabelFor(m => m.Subject)<br />
+                  @Html.EditorFor(m => m.Subject)
+              </div>
+              <div>
+                  @Html.LabelFor(m => m.Body)<br />
+                  @Html.TextAreaFor(m => m.Body)
+              </div>
+              <br />
+              @Html.HiddenFor(m => m.Id)
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <input class="btn btn-primary "type="submit" value="Post" />
+          </div>
+        }
+
+
+    </div>
+    
+
+

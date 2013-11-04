@@ -1,0 +1,11 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+
+<div>
+    The recipient of your message is @Model.User.UserName
+</div>
+<br />
+<div>
+    @Html.LabelFor(m => m.message)<br />
+    @Html.TextAreaFor(m => m.message)
+</div>
+<br />

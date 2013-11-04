@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "slideShowTest";
+}
+
+<h2>slideShowTest</h2>
+<head>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "@Url.Content("~/Home/Ajaxtest")",
+                dataType: "text",
+                type: "POST",
+                data: {},
+                error: function (err) {
+                    alert("Error" + err.toString());
+                },
+                success: function (data) {
+                    $(document).html(data)
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="content" class="span3">
+
+    </div>
+    
+</body>

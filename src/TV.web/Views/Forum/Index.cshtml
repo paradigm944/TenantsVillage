@@ -1,0 +1,44 @@
+﻿@model TV.web.ViewModels.ForumRepositoryViewModel
+
+
+
+<!DOCTYPE html>
+
+<style>
+    .formattedList .oddItem {
+        background-color: lightgray;
+        color: White;
+}
+
+    .formattedList .evenItem {
+        background-color: White;
+        color: Black;
+}
+
+</style>
+    
+       <button class="btn">@Html.ActionLink("Create a new Thread", "CreateThread", "Forum")</button>
+        <br />
+        <br />
+        <ul id="myList" class="formattedList">
+       @foreach (var m in Model.Messages)
+       { 
+
+        <li>
+            @Html.ActionLink(m.Subject, "ViewThread", new {threadId=m.Id})<br />
+            @Html.Encode(m.Author) &nbsp&nbsp&nbsp @Html.Encode(m.EntryDate.ToShortDateString())  
+        </li>
+        <br /> 
+
+        } 
+    </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("ul.formattedList li:odd").addClass("oddItem");
+            $("ul.formattedList li:even").addClass("evenItem");
+        });
+    </script>
+}

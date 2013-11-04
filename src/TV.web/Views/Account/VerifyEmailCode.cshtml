@@ -1,0 +1,39 @@
+﻿@model TV.web.ViewModels.VerifyEmailCodeViewModel
+
+@{
+    ViewBag.Title = "VerifyEmailCode";
+}
+
+<h2>Verify Account</h2><br />
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+<div class="span7"style="padding-top:15px;
+                            padding-bottom:15px;
+                            padding-right:25px;
+                            padding-left:45px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+        <div class="row">
+            <div class="span4">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4">
+                @Html.LabelFor(m => m.Code)
+                @Html.TextBoxFor(m => m.Code)
+            </div>
+        </div>
+        <br />
+        <br />
+            @Html.HiddenFor(m => m.IsPasswordChange)
+    <div class="row">
+        <input class="btn btn-primary "type="submit" value="Verify" />
+      </div>
+</div>  }

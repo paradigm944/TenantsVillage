@@ -1,0 +1,8 @@
+﻿@model TV.web.ViewModels.ListOfPicsViewModel
+
+<form method="post" action="@Url.Action("UploadPhotos", "FileTest")" enctype="multipart/form-data">
+@Html.ValidationSummary(true)
+
+@Html.EditorFor(x => x.photos)
+<input type="submit" value="Submit" />
+</form>

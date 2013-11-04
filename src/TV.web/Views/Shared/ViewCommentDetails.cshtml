@@ -1,0 +1,30 @@
+﻿@model TV.web.ViewModels.CommentViewModel
+
+
+<html>
+<body>
+    <div class="row">
+        <div class="span4">
+            @Html.LabelFor(m => m.Author)
+            &nbsp @Html.Encode(@Model.Author)
+        </div>
+        <div class="span4">
+            @Html.LabelFor(m => m.EntryDate)
+            &nbsp @Html.DisplayFor(m => m.EntryDate)
+        </div>
+    
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="span4">
+            &nbsp @Html.Encode(@Model.Body)
+        </div>
+        
+
+    </div>
+        <br />
+        
+    
+</body>
+</html>

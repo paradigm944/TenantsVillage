@@ -1,0 +1,111 @@
+﻿@model TV.web.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<head>
+    <link href="@Url.Content("~/Content/home.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
+</head>
+<hgroup class="title">
+    <h5>You're logged in as <strong>@User.Identity.Name</strong>.</></h5><h5 style="float:right"><strong>These are your posts</strong></h5>
+    <hr />
+</hgroup>
+
+
+
+
+
+@if (ViewBag.HasLocalPassword)
+{
+    <div class="row-fluid">
+        <div class="span4" style="padding-top:30px;
+                            padding-bottom:25px;
+                            padding-right:45px;
+                            padding-left:45px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+        <a class="btn btn-primary" href="~/account/changepassword/">Change Password</a>
+        <br />
+        <br />
+        <a class="btn btn-primary" href="~/account/disassociate/">Delete Account</a>
+        <br />
+        <br />
+        <a class="btn btn-primary" href="~/post/create/">Create Post</a>
+        <br />
+        </div>
+        <div class="span8" style="padding-top:30px;
+                            padding-bottom:25px;
+                            padding-right:45px;
+                            padding-left:16px;  
+                            -moz-box-shadow:3px 3px 5px 5px #ccc;
+                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184); 
+                            background-color:rgb(224,224,224);
+                            -moz-border-radius: 15px;
+                            border-radius: 15px;">
+           <div id="demo" >
+                <table id="myDataTable" class="display">
+                    <thead>
+                        <tr style="color:#d5d7bf">
+                            <th>ID</th>
+                            <th>Landlord</th>
+                            <th>Title</th>
+                            <th>Street</th>
+                            <th>Is Completed</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center;"> 
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            var oTable = $('#myDataTable').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": '@Url.Content("~/Search/UserPostsAjaxHandler")',
+                "bProcessing": true,
+                "aoColumns": [
+                        {
+                            "sName": "ID",
+                            "bSearchable": false,
+                            "bSortable": false,
+                            "fnRender": function (oObj) {
+                                return '<div class="row"><div class="span3"><a class="btn btn-mini" href=@Url.Content("~/Search/ViewPost/")' + oObj.aData[0] + '\>View</a><a class="btn btn-mini" href=@Url.Content("~/Post/Edit/")' + oObj.aData[0] + '\>Edit</a><a class="btn btn-mini" href=@Url.Content("~/Post/Delete/")' + oObj.aData[0] + '\>Delete</a>';
+                            }
+                        },
+			            { "sName": "Landlord" },
+			            { "sName": "Title" },
+			            { "sName": "Street" },
+                        { "sName": "Completed" },
+                       
+                ]
+            });
+        });
+
+
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

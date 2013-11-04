@@ -1,0 +1,87 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+@{
+    ViewBag.Title = "Post Success";
+}
+<div id="container">
+<h2>Success!!</h2>
+<br />
+<p>
+    Thank you for your Post. An exact view of your post is below.  If there are any mistakes or you want to add more pictures you can edit the post in your Manage Posts section.
+    <br />
+    <br />
+    <a class="btn btn-primary" href="~/account/manage/">Return to Manage</a>
+</p>
+<hr />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LandLord)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LandLord)
+    </div>
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LLemail)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LLemail)
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+            <b><em>@Html.LabelFor(m => m.BuildingNumber)</em></b>
+           &nbsp &nbsp @Html.DisplayFor(model => model.BuildingNumber)
+     </div>
+        <div class="span3">
+            <b><em>@Html.LabelFor(m => m.AptNumber)</em></b>
+            &nbsp &nbsp @Html.DisplayFor(model => model.AptNumber)
+     </div>
+    <div class="span3">
+            <b><em>@Html.LabelFor(m => m.Street)</em></b>
+            &nbsp &nbsp @Html.DisplayFor(model => model.Street)
+     </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Rent)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.Deposit)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+    
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.LeaseYear)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.LeaseYear)
+    </div>
+    <div class="span3">
+        <div class="prepend append">
+            <b><em>@Html.LabelFor(m => m.AmountKept)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.AmtKept, new { @class = "span2" })<span class="add-on">.00</span>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span3">
+        <em>@Html.LabelFor(m => m.Post)</em>
+        &nbsp&nbsp @Html.DisplayFor(m => m.Post, new { @cols = 80, @rows = 10 })
+    </div>
+</div>
+    @if (Model.Images != null)
+    {
+        foreach (var x in Model.Images)
+        {
+            <br />
+            <div class="row">
+                 <div class="span10">
+                     
+                    <img src="@x.ImageUrl"  style="width:500px;height:300px"/>
+                     
+                 </div>
+            </div>
+        }
+    }
+    </div>
