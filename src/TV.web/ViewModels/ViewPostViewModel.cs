@@ -64,6 +64,10 @@ namespace TV.web.ViewModels
 
         public string currentUser { get; set; }
 
+        public string ImgUrl_1 { get; set; }
+
+        public string ImgUrl_2 { get; set; }
+
         [DisplayName("Attached Images")]
         public IEnumerable<ImageModel> Images { get; set; }
 
