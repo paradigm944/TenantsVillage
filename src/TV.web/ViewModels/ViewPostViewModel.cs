@@ -13,7 +13,7 @@ namespace TV.web.ViewModels
 {
     public class ViewPostViewModel 
     {
-        public List<ImageModel> Pics { get; set; }
+        public List<string> Pics { get; set; }
 
         [DisplayName("Post")]
         public string Post { get; set; }

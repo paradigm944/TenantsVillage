@@ -30,12 +30,11 @@ namespace TV.web.Controllers
         
         public ActionResult Index()
         {
-            
-            
-            var pics = _ctx.Image.Select(m => m).Where(m => m.IsDeleted == 1 && m.Post.IsDeleted == false).Take(50).ToList<ImageModel>();
 
-           
 
+            var pics = _ctx.Image.Where(m => m.IsDeleted == 1 && m.Post.IsDeleted == false).Select(m => m.ImageUrl).Take(5).ToList<string>();
+
+            
             var outModel = new ViewPostViewModel
             {
                 Pics = pics,
