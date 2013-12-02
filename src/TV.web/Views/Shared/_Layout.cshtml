@@ -8,8 +8,9 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
 
+   
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
     @Scripts.Render("~/bundles/modernizr")
 
     <style>
@@ -66,7 +67,7 @@
     <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
-    @Scripts.Render("~/scripts/bootstrap.js")
+    @Scripts.Render("~/scripts/bootstrap.min.js")
     @RenderSection("Scripts", required: false)
 
     <footer style="height:80px">
