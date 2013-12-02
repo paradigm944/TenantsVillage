@@ -24,59 +24,6 @@
 
      <script>
 
-         $.ready(function() {
-             change_image(0);
-         });
-@*         var Image = new Array("@Model.PicUrls[0]", "@Url.Content("~/Images/IMAG0008.jpg")", "@Url.Content("~/Images/IMAG0007.jpg")");*@
-
-         var ImagePostIds = new Array (
-         @for(var i=0; i<=Model.Pics.Count - 1; i++){
-                 <text>"@Model.Pics[i].PostId"</text>
-                 if(i < Model.Pics.Count - 1){<text>,</text>}
-             }
-             );
-
-         var Image = new Array (
-          @for(var i=0; i<=Model.Pics.Count - 1; i++){
-                <text>"@Model.Pics[i].ImageUrl"</text>
-                if(i < Model.Pics.Count - 1){<text>,</text>}
-             }
-         );        
-         
-         var Image_Number = 0;
-         var Image_Length = Image.length - 1;
-         var Interval;
-
-
-         function change_image(num) {
-             console.log("change_image" + num);
-             Image_Number = Image_Number + num;
-
-             if (Image_Number > Image_Length) {
-                 Image_Number = 0;
-             }
-
-             if (Image_Number < 0) {
-                 Image_Number = Image_Length;
-             }
-
-             $("#slideShowLink").attr('href', '@Url.Action("viewpost", "search")/' + ImagePostIds[Image_Number]);
-             $("#slideShow").fadeOut('slow', function () {
-                 $(this).attr('src', Image[Image_Number]);
-             }).fadeIn('slow');
-
-             return false;
-         }
-
-         function play() {
-             
-             Interval = setInterval("change_image(1)", 5000);
-         }
-
-         function stop() {
-             
-             clearInterval(Interval);
-         }
 
          
     </script>

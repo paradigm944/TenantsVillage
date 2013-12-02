@@ -11,6 +11,7 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
+
     <style>
         body
         {
@@ -24,17 +25,16 @@
 </head>
 
         <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-color:lightgray" role="banner">
-            <div class="container">
+            
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        
+                       
                     </button>
-                    <a class="navbar-brand" href="#">@Html.ActionLink("TenantsVillage", "Index", "Home")</a>
+                    <a style="padding-bottom: 5px; "class="navbar-brand" href="#">@Html.ActionLink("TenantsVillage", "Index", "Home")</a>
                 </div>
-            </div>
+            
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav">
 
@@ -51,15 +51,7 @@
         </header>
 
         <div class="row-fluid" style="padding-bottom:80px">
-            <div class="span12";
-            -webkit-box-shadow: rgb(0,0,0,0.2) 0px 1px 4px 0px;
-            box-shadow: rgb(128, 128, 128) 0px 4px 7px 0px; 
-            -webkit-border-radius: 7px; border-radius: 7px;
-            padding-top:15px;
-            padding-bottom:15px;
-            padding-right:25px;
-            padding-left:45px; 
-            border:2px solid blue;">
+            <div style="padding-left:10px; padding-right:10px"class="span12">
                 
                 @RenderBody()
             </div>
@@ -83,5 +75,5 @@
                     &copy; paradigm software 2010-@DateTime.Now.Year<br />
                     
                 </div>
-            </footer>
+   </footer>
 
