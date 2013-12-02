@@ -671,7 +671,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\DataTables-1.9.4\docs\media\js\" />
     <Folder Include="Content\images\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Services\" />
     <Folder Include="Thumbnails\" />
     <Folder Include="Views\UserImages\" />

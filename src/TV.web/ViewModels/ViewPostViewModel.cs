@@ -82,6 +82,16 @@ namespace TV.web.ViewModels
 
         public string Author { get; set; }
 
+        public string Pic_0 { get; set; }
+
+        public string Pic_1 { get; set; }
+
+        public string Pic_2 { get; set; }
+
+        public string Pic_3 { get; set; }
+
+        public string Pic_4 { get; set; }
+
         [DisplayName("Title")]
         [Required, MinLength(4)]
         public string Subject { get; set; }
