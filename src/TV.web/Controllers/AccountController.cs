@@ -97,7 +97,7 @@ namespace TV.web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(ViewPostViewModel model, string returnUrl)
+        public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (Membership.ValidateUser(model.UserName, model.Password))
             {
