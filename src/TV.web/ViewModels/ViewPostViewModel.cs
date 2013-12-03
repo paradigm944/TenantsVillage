@@ -94,21 +94,25 @@ namespace TV.web.ViewModels
 
         public string Author { get; set; }
 
-        public string Pic_0 { get; set; }
+        public ImageModel Pic_0 { get; set; }
 
-        public string Pic_1 { get; set; }
+        public ImageModel Pic_1 { get; set; }
 
-        public string Pic_2 { get; set; }
+        public ImageModel Pic_2 { get; set; }
 
-        public string Pic_3 { get; set; }
+        public ImageModel Pic_3 { get; set; }
 
-        public string Pic_4 { get; set; }
+        public ImageModel Pic_4 { get; set; }
 
-        public string Pic_5 { get; set; }
+        public ImageModel Pic_5 { get; set; }
 
-        public string Pic_6 { get; set; }
+        public ImageModel Pic_6 { get; set; }
 
-        public string Pic_7 { get; set; }
+        public ImageModel Pic_7 { get; set; }
+
+        public ImageModel Pic_8 { get; set; }
+
+        public ImageModel Pic_9 { get; set; }
 
         [DisplayName("Title")]
         [Required, MinLength(4)]
