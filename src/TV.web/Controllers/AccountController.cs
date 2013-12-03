@@ -97,13 +97,13 @@ namespace TV.web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(ViewPostViewModel model, string returnUrl)
         {
             if (Membership.ValidateUser(model.UserName, model.Password))
             {
                 var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
 
-                if (ModelState.IsValid && isVerified == true)
+                if ( isVerified == true)
                 {
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToLocal(returnUrl);
