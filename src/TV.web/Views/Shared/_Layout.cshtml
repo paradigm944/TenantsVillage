@@ -33,7 +33,8 @@
                         
                        
                     </button>
-                    <a style="padding-bottom: 5px; "class="navbar-brand" href="#">@Html.ActionLink("TenantsVillage", "Index", "Home")</a>
+                    @*<a href="@Html.Action("Index", "Home")" class="navbar-brand">TennantsVillage</a>*@
+                    <a style="padding-bottom: 5px; " class="navbar-brand" href="@Html.ActionLink("TenantsVillage", "Index", "Home")">TenantsVillage</a>
                 </div>
             
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
@@ -52,7 +53,7 @@
         </header>
 
     <div class="container-fluid">
-        <div class="row" style="padding-left:10px; padding-right:10px;">
+        <div class="row" style="padding-left:20px; padding-right:20px;">
 
             @RenderBody()
 

@@ -31,10 +31,10 @@
                 <fieldset>
                     <legend></legend>
                     
-                    <button class="btn btn-primary btn-xs" type="button"> @Html.ActionLink("Register", "Register")</button>&nbsp&nbsp&nbsp If you don't have an account
+                   @Html.ActionLink("Register", "Register", "Account" ) &nbsp&nbsp&nbsp If you don't have an account
                         <br />
                         <br />
-                    <button class="btn btn-primary btn-xs" type="button">@Html.ActionLink("Forgot Password", "ForgotPassword")</button>&nbsp&nbsp&nbsp If you forgot your password
+                    @Html.ActionLink("Forgot Password", "ForgotPassword") &nbsp&nbsp&nbsp If you forgot your password
                         <br />
                         <br />
                         @Html.LabelFor(m => m.UserName)
