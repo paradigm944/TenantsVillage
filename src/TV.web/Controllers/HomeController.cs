@@ -32,7 +32,7 @@ namespace TV.web.Controllers
         {
 
 
-            var pics = _ctx.Image.Where(m => m.IsDeleted == 1 && m.Post.IsDeleted == false).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
+            var pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
             var outModel = new ViewPostViewModel();
            
 
