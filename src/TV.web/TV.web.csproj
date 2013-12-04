@@ -218,7 +218,6 @@
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ForumRepository.cs" />
     <Compile Include="Models\IForumRepository.cs" />
     <Compile Include="Models\Message.cs" />
@@ -235,7 +234,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\DataRepository\DataRepository.cs" />
-    <Compile Include="Models\EditorInputModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\JQueryDataTableParamModel.cs" />
     <Compile Include="Models\TVDataIntitializer.cs" />
