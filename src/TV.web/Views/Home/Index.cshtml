@@ -21,26 +21,11 @@
      <script src="@Url.Content("~/Scripts/jquery-2.0.3.min.js")" type="text/javascript"></script>
      <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
      <script src="@Url.Content("~/Scripts/JavaScript1.js")" type="text/javascript"></script>
-     
-    <script>
-
-        @*document.getElementById("pic_0").setAttribute("src", '@Model.Pic_0.ImageUrl');
-        document.getElementById("pic_1").setAttribute("src", '@Model.Pic_1.ImageUrl');
-        document.getElementById("pic_2").setAttribute("src", '@Model.Pic_2.ImageUrl');
-        document.getElementById("pic_3").setAttribute("src", '@Model.Pic_3.ImageUrl');
-        document.getElementById("pic_4").setAttribute("src", '@Model.Pic_4.ImageUrl');
-        document.getElementById("pic_5").setAttribute("src", '@Model.Pic_5.ImageUrl');
-        document.getElementById("pic_6").setAttribute("src", '@Model.Pic_6.ImageUrl');
-        document.getElementById("pic_7").setAttribute("src", '@Model.Pic_7.ImageUrl');*@
-        
-                           
-
-    </script>  
-
+   
 } 
 
-
-              
+<h3 style="padding-left:9px;">Search posts via Landlord and Street</h3>
+ <hr />            
     <div class="row-fliud" id="demo" style="padding-left:12px; padding-right:18px;">
         <div class="col-lg-12" style="  padding-top:15px;
                     padding-bottom:35px;
@@ -70,6 +55,8 @@
         </div>
         </div>
         <br />
+<h3 style ="padding-left:9px;">The most recent pictures uploaded</h3>
+<hr />
         <div class="row-fliud" style="padding-left:12px; padding-right:18px;">
     <div class="col-lg-12" style="padding-top:15px;
                     padding-bottom:15px;
@@ -81,26 +68,16 @@
                     background-color:rgb(224,224,224);-moz-border-radius: 15px;
                     border-radius: 15px;">
 
-        @*<img id="pic_0" style="padding-right: 5px;  max-width:150px; padding-bottom:10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_1" style="padding-right: 5px; max-width: 150px; padding-bottom: 10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_2" style="padding-right: 5px; max-width: 150px; padding-bottom: 10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_3" style="padding-right: 5px;  max-width:150px; padding-bottom:10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_4" style="padding-right: 5px; max-width: 150px; padding-bottom: 10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_5" style="padding-right: 5px; max-width: 150px; padding-bottom: 10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_6" style="padding-right: 5px;  max-width:150px; padding-bottom:10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />
-        <img id="pic_7" style="padding-right: 5px; max-width: 150px; padding-bottom: 10px;" src="https://cloud.google.com/images/solutions/landing/mobile-icon.png" />*@
-
-
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="slideShowLink"><img src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="slideShowLink"><img src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="slideShowLink"><img src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="slideShowLink"><img src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="slideShowLink"><img src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="slideShowLink"><img src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="slideShowLink"><img src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="slideShowLink"><img src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="slideShowLink"><img src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="slideShowLink"><img src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
+        <a title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="slideShowLink"><img src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp LandLord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="slideShowLink"><img src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp LandLord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="slideShowLink"><img src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp LandLord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="slideShowLink"><img src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp LandLord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="slideShowLink"><img src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp LandLord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="slideShowLink"><img src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="slideShowLink"><img src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="slideShowLink"><img src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="slideShowLink"><img src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="slideShowLink"><img src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
     </div>
 </div>
 
