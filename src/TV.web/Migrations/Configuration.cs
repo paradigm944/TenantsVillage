@@ -61,6 +61,38 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
                     LandLord = "Heritage",
                     LLemail = "1hhh@fkkkk.com",
                     DatePosted = DateTime.Now.ToString(),
@@ -113,32 +145,97 @@ namespace TV.web.Migrations
             {
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0382.jpg",
+                    ImageUrl =   "/Images/ugly-goth1.jpg",
                     Post = posts[1]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0388.jpg",
+                    ImageUrl =   "/Images/Jeremy17.jpg",
                     Post = posts[1]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0389.jpg",
+                    ImageUrl =   "/Images/Jeremy16.jpg",
                     Post = posts[1]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0076.jpg",
+                    ImageUrl =   "/Images/Jeremy18.jpg",
                     Post = posts[1]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0382.jpg",
+                    ImageUrl =   "/Images/Jeremy11.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0388.jpg",
+                    ImageUrl =   "/Images/jeremy13.jpg",
+                    Post = posts[2]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/Jeremy14.jpg",
+                    Post = posts[2]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/Jeremy21.jpg",
+                    Post = posts[2]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IM000001.jpg",
+                    Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/CAM00001.jpg",
+                    Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/CAM00002.jpg",
+                    Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010203.jpg",
+                    Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010204.jpg",
+                    Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010207.jpg",
+                    Post = posts[1]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0166.jpg",
+                    Post = posts[1]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0409.jpg",
+                    Post = posts[1]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0394.jpg",
+                    Post = posts[1]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0393.jpg",
+                    Post = posts[2]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010217.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
@@ -173,7 +270,7 @@ namespace TV.web.Migrations
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0078.jpg",
+                    ImageUrl =   "/Images/CAM00098.jpg",
                     Post = posts[3]
                 }
 

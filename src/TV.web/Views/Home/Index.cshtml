@@ -24,7 +24,7 @@
 
     <script>
         function getPics() {
-            console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
+            //console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
             var picList = new Array();
             var resultList = new Array();
             var picId = { picId: '@Model.Pic_9.Id' }
@@ -37,8 +37,16 @@
                 traditional: true,
                 success:
                     function (picList) {
-                       
-                    alert(JSON.stringify(picList[0]));
+                        $.each(picList, function (){
+                            JSON.stringify();
+                        })
+                        alert(picList[0].ImageUrl);
+                        for (var i = 0; i < picList.length; i++) {
+                            //console.log("pic" + i);
+                            $('#pic' + i).attr("src", picList[i].ImageUrl);
+                            console.log($('#pic'+i))
+                        };    
+                        
                 },
                 failure: function (response) {          
                    alert(response);
@@ -112,16 +120,16 @@
             background-color:rgb(224,224,224);-moz-border-radius: 15px;
             border-radius: 15px;">
 
-        <a title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="pic_0"><img src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp LandLord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="pic_1"><img src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp LandLord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="pic_2"><img src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp LandLord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="pic_3"><img src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp LandLord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="pic_4"><img src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp LandLord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="pic_5"><img src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="pic_6"><img src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="pic_7"><img src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
+        <a title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="pic_0"><img id="pic0" src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp LandLord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="pic_1"><img id="pic1" src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp LandLord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="pic_2"><img id="pic2" src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp LandLord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="pic_3"><img id="pic3" src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp LandLord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="pic_4"><img id="pic4" src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp LandLord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="pic_5"><img id="pic5" src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="pic_6"><img id="pic6" src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="pic_7"><img id="pic7" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img id="pic8" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+        <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img id="pic9" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
         @*<a href="@Url.Content("~/Home/MorePictures/"+ @Model.Pic_9.Id )"   class="btn btn-primary btn-lg active">Primary button</a>*@
         <button class="btn btn-primary" onclick="getPics(@Model.Pic_9.Id)">More Pics</button>
      </div>
