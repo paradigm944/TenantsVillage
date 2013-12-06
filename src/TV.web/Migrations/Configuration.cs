@@ -256,12 +256,12 @@ namespace TV.web.Migrations
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy16.jpg",
+                    ImageUrl =   "/Images/000_0015.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy18.jpg",
+                    ImageUrl =   "/Images/100_0022.jpg",
                     Post = posts[3]
                 },
                 new ImageModel
