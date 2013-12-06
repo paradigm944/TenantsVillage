@@ -23,13 +23,13 @@
     <script src="@Url.Content("~/Scripts/JavaScript1.js")" type="text/javascript"></script>
 
     <script>
-        function getPics() {
-            //console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
-            var picList = new Array();
-            var resultList = new Array();
-            var picId = { picId: '@Model.Pic_9.Id' }
-            $.ajax({
-                url: "@Url.Content("~/Home/MorePictures/"+ Model.Pic_9.Id)",
+    function getPics() {
+        //console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
+        var picList = new Array();
+        var resultList = new Array();
+        var picId = { picId: '@Model.Pic_9.Id' }
+        $.ajax({
+            url: "@Url.Content("~/Home/MorePictures/"+ Model.Pic_9.Id)",
                 type: "POST",
                 datatype: "JSON",
                 data: JSON.stringify( picId),
@@ -44,16 +44,18 @@
                         for (var i = 0; i < picList.length; i++) {
                             //console.log("pic" + i);
                             //alert(picList[0].ImageUrl);
-                            console.log(picList[i].ImageUrl)
-                            $('#pic'+i).attr("src", picList[i].ImageUrl);
-                            //console.log($('#pic'+i))
-                        }   
-                        
+                            //console.log(picList[i].ImageUrl)
+                            $('#pic' + i).attr("src", picList[i].ImageUrl);
+                            $('#pic_' + i).attr("href", "@Url.Action("viewpost","search")/" + picList[i].PostId);
+                            console.log($('#pic_'+i))
+                        }
+
                 },
-                failure: function (response) {          
+                failure: function (response) {
                    alert(response);
                 }
             });
+            console.log(resultList);
        }
     </script>
 
