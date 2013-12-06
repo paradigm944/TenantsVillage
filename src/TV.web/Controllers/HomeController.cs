@@ -57,7 +57,7 @@ namespace TV.web.Controllers
         {
 
 
-            var pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).Where(m => m.Id > picId).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
+            var pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
             
 
             return Json(pics, JsonRequestBehavior.AllowGet);

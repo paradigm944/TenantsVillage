@@ -40,12 +40,14 @@
                         $.each(picList, function (){
                             JSON.stringify();
                         })
-                        alert(picList[0].ImageUrl);
+                        //alert(picList[0].ImageUrl);
                         for (var i = 0; i < picList.length; i++) {
                             //console.log("pic" + i);
-                            $('#pic' + i).attr("src", picList[i].ImageUrl);
-                            console.log($('#pic'+i))
-                        };    
+                            //alert(picList[0].ImageUrl);
+                            console.log(picList[i].ImageUrl)
+                            $('#pic'+i).attr("src", picList[i].ImageUrl);
+                            //console.log($('#pic'+i))
+                        }   
                         
                 },
                 failure: function (response) {          
@@ -130,8 +132,8 @@
         <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="pic_7"><img id="pic7" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
         <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img id="pic8" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
         <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img id="pic9" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
-        @*<a href="@Url.Content("~/Home/MorePictures/"+ @Model.Pic_9.Id )"   class="btn btn-primary btn-lg active">Primary button</a>*@
-        <button class="btn btn-primary" onclick="getPics(@Model.Pic_9.Id)">More Pics</button>
+        <a href="@Url.Content("~/Home/MorePictures/"+ @Model.Pic_9.Id )"   class="btn btn-primary btn-lg active">Primary button</a>
+        <button class="btn btn-primary" onclick="getPics(@Model.Pic_1.Id)">More Pics</button>
      </div>
 </div>
 @if (Request.IsAuthenticated) { 
