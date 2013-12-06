@@ -150,7 +150,7 @@ namespace TV.web.Migrations
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy17.jpg",
+                    ImageUrl =   "/Images/IMAG0014.jpg",
                     Post = posts[1]
                 },
                 new ImageModel
@@ -165,22 +165,22 @@ namespace TV.web.Migrations
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy11.jpg",
+                    ImageUrl =   "/Images/IMAG0012.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/jeremy13.jpg",
+                    ImageUrl =   "/Images/IMAG0006.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy14.jpg",
+                    ImageUrl =   "/Images/P1010207.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/Jeremy21.jpg",
+                    ImageUrl =   "/Images/P1010210.jpg",
                     Post = posts[2]
                 },
                 new ImageModel
