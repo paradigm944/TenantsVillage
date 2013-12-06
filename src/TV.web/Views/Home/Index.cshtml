@@ -26,6 +26,7 @@
         function getPics() {
             console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
             var picList = new Array();
+            var resultList = new Array();
             var picId = { picId: '@Model.Pic_9.Id' }
             $.ajax({
                 url: "@Url.Content("~/Home/MorePictures/"+ Model.Pic_9.Id)",
@@ -34,8 +35,10 @@
                 data: JSON.stringify( picId),
                 contentType: "application/json; charset=utf-8",
                 traditional: true,
-                success: function (picList) {
-                    alert(picList);
+                success:
+                    function (picList) {
+                       
+                    alert(JSON.stringify(picList[0]));
                 },
                 failure: function (response) {          
                    alert(response);
