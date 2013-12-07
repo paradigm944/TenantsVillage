@@ -661,7 +661,6 @@
     <Content Include="Views\Shared\ViewPost.cshtml" />
     <Content Include="Views\Home\Links.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
-    <Content Include="Views\Home\slideShowTest.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
