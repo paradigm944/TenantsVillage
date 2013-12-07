@@ -139,6 +139,102 @@ namespace TV.web.Migrations
                     Street = "Burlington"
 
                 },
+                new PostModel
+                {
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "Heritage",
+                    LLemail = "1hhh@fkkkk.com",
+                    DatePosted = DateTime.Now.ToString(),
+                    Post = "Hope is a good thing, maybe the best of things",
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "Apts Downtown",
+                    LLemail = "apt@dog.edu",
+                    Post = "There but for the grace of god go I",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
+                new PostModel
+                {
+                    LandLord = "Micheals",
+                    LLemail = "micheals@bbbb.com",
+                    Post = "Now yous's can't leave",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Burlington"
+
+                },
             };
                 context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Emkay Entertainments", LLemail = "bigMoney@hotmail.com", Post = "ivghcyuyxutxut", DatePosted = DateTime.Now.ToString() });
                 context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "The Empire", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
@@ -306,33 +402,93 @@ namespace TV.web.Migrations
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010204.jpg",
-                    Post = posts[0]
+                    ImageUrl =   "/Images/ugly-goth1.jpg",
+                    Post = posts[6]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0014.jpg",
+                    Post = posts[7]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/000_0015.jpg",
+                    Post = posts[8]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0022.jpg",
+                    Post = posts[9]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0012.jpg",
+                    Post = posts[10]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0006.jpg",
+                    Post = posts[11]
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010207.jpg",
-                    Post = posts[1]
+                    Post = posts[6]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010210.jpg",
+                    Post = posts[7]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IM000001.jpg",
+                    Post = posts[8]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/CAM00001.jpg",
+                    Post = posts[9]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/CAM00002.jpg",
+                    Post = posts[10]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010203.jpg",
+                    Post = posts[11]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010204.jpg",
+                    Post = posts[6]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/P1010207.jpg",
+                    Post = posts[7]
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/IMAG0166.jpg",
-                    Post = posts[2]
+                    Post = posts[8]
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/IMAG0409.jpg",
-                    Post = posts[3]
+                    Post = posts[9]
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/IMAG0394.jpg",
-                    Post = posts[4]
+                    Post = posts[10]
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/IMAG0393.jpg",
-                    Post = posts[5]
+                    Post = posts[11]
                 },
                 new ImageModel
                 {
