@@ -167,14 +167,14 @@ namespace TV.web.Controllers
 
                 filteredPosts = DataRepository.GetPosts()
                    .Where(c => isLandlordSearchable && c.LandLord.ToLower().Contains(param.sSearch.ToLower())
+                       //||
+                       //isTitleSearchable && c.Title.ToLower().Contains(param.sSearch.ToLower())
                                ||
-                               isTitleSearchable && c.Title.ToLower().Contains(param.sSearch.ToLower())
-                               ||
-                               isStreetSearchable && c.Street.ToLower().Contains(param.sSearch.ToLower())
-                               ||
-                               isIsCompletedSearchable && c.IsCompleted.ToString().Contains(param.sSearch.ToLower())
-                               ||
-                               isIsDeletedSearchable && c.IsDeleted.ToString().Contains(param.sSearch.ToLower()));
+                               isStreetSearchable && c.Street.ToLower().Contains(param.sSearch.ToLower()));
+                               //||
+                               //isIsCompletedSearchable && c.IsCompleted.ToString().Contains(param.sSearch.ToLower())
+                               //||
+                               //isIsDeletedSearchable && c.IsDeleted.ToString().Contains(param.sSearch.ToLower()));
             }
             else
             {
