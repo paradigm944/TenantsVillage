@@ -29,6 +29,7 @@
                     <br />@Html.ValidationMessageFor(m => m.Title)
                 </div>
             </div>
+            <hr />
             <div class="form-group has-error has-success" >
                 <div class="span4">
                     @Html.LabelFor(m => m.LandLord)
@@ -41,6 +42,110 @@
                     @Html.TextBoxFor(m => m.LLemail)
                     <br />@Html.ValidationMessageFor(m => m.LLemail)
                 </div>
+                <hr />
+                <div class="row-fluid">
+                    <div class="span3">
+                        @Html.LabelFor(m => m.BuildingNumber)
+                        @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:60px;" })
+                        <br />@Html.ValidationMessageFor(m => m.BuildingNumber)
+                    </div>
+                    <br />
+                    <div class="span2">
+                        @Html.LabelFor(m => m.AptNumber)
+                        @Html.TextBoxFor(m => m.AptNumber, new { style = "width:60px;" })
+                        <br />@Html.ValidationMessageFor(m => m.AptNumber)
+                    </div>
+                    <br />
+                    <div class="span4">
+                        @Html.DropDownListFor(m => m.Street, new SelectList(Model.StreetList), "Please Select...")
+                    </div>
+                </div>
+                <hr />
+                <div class="row-fluid">
+                    <div class="span5">
+                        @Html.LabelFor(m => m.LeaseYear)
+                        @Html.TextBoxFor(m => m.LeaseYear, new { style = "width:70px" })
+                        <br />@Html.ValidationMessageFor(m => m.LeaseYear)
+                    </div>
+                    <br />
+                    <div class="span5">
+                        @Html.LabelFor(m => m.Rent)
+                        <div class="input-prepend input-append">
+                            <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
+                        </div>
+                        <br />@Html.ValidationMessageFor(model => model.Rent)
+                    </div>       
+                </div>
+                <div class="row-fluid">
+                    <div class="span5">
+                        @Html.LabelFor(m => m.Deposit)
+                        <div class="input-prepend input-append">
+                            <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
+
+                        </div>
+                        <br />@Html.ValidationMessageFor(model => model.Deposit)
+                    </div>
+                    <div class="span5">
+                        @Html.LabelFor(m => m.AmountKept)
+                        <div class="input-prepend input-append">
+                            <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span>
+
+                        </div>
+                        <br />@Html.ValidationMessageFor(model => model.AmountKept)
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span10">
+                        @Html.LabelFor(m => m.Post)
+                        @Html.TextAreaFor(m => m.Post, new { @cols = 80, @rows = 10 })
+                        <br />@Html.ValidationMessageFor(m => m.Post)
+                    </div>
+                </div>
+                <br />
+                <div id="showImages" class="row-fluid">
+                    <div class="span10">
+                        @if (Model.Images != null && Model.IsEDitMode == true)
+                        {
+                            foreach (var x in Model.Images)
+                            {
+                                <br />
+                                <div class="row-fluid">
+                                    <div class="span10">
+
+                                        <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
+                                        @if (Model.IsEDitMode == true)
+                                        {
+                                            <button class="btn btn-mini">@Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, null)</button>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <hr />
+                <h2>Upload Pictures</h2>
+                <hr />
+                @*this is a total hack to get around the nested forms problem*@
+                <form>
+
+                    <fieldset><legend></legend></fieldset>
+                </form>
+                <div class="row-fluid">
+                    <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                    <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                    <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                </div>
+                <div class="row-fluid">
+                    <input class="btn btn-primary" type="submit" value="Submt" /><br />
+                </div>
+                <br />
+                <div class="row-fluid">
+                    <a class="btn btn-danger" href='~/account/manage'>Cancel</a>
+                </div>
+
+                @Html.HiddenFor(m => m.UserId)
+                @Html.HiddenFor(m => m.Id)
             </div>
         </form>
      </div>
@@ -50,144 +155,6 @@
 
 
 
-                @*<div class="span10"style="padding-top:15px;
-                                                padding-bottom:15px;
-                                                padding-right:25px;
-                                                padding-left:25px;
-                                                -moz-box-shadow:3px 3px 5px 5px #ccc;
-                                                -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                                                box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                                                background-color:rgb(224,224,224);
-                                                -moz-border-radius: 15px;
-                                                border-radius: 15px;">
-                        <fieldset>
-                            <legend></legend>
-                        @Html.ValidationSummary(false)
-                        <br />
-                        <div class="row-fluid">
-                            <div class="span5">
-                                @Html.LabelFor(m => m.Title)
-                                @Html.TextBoxFor(m => m.Title)
-                                <br />@Html.ValidationMessageFor(m => m.Title)
-                            </div>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span5">
-                                @Html.LabelFor(m => m.LandLord)
-                                @Html.TextBoxFor(m => m.LandLord)
-                                <br />@Html.ValidationMessageFor(m => m.LandLord)
-                            </div>
-                            <div class="span6">
-                                @Html.LabelFor(m => m.LLemail)
-                                @Html.TextBoxFor(m => m.LLemail)
-                                <br />@Html.ValidationMessageFor(m => m.LLemail)
-                            </div>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span3">
-                                @Html.LabelFor(m => m.BuildingNumber)
-                                @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:60px;" })
-                                <br />@Html.ValidationMessageFor(m => m.BuildingNumber)
-                            </div>
-                            <div class="span2">
-                                @Html.LabelFor(m => m.AptNumber)
-                                @Html.TextBoxFor(m => m.AptNumber, new { style = "width:60px;" })
-                                <br />@Html.ValidationMessageFor(m => m.AptNumber)
-                            </div>
-                            <br />
-                            <div class="span4">
-                                @Html.DropDownListFor(m => m.Street, new SelectList(Model.StreetList), "Please Select...")
-                            </div>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span5">
-                                @Html.LabelFor(m => m.LeaseYear)
-                                @Html.TextBoxFor(m => m.LeaseYear)
-                                <br />@Html.ValidationMessageFor(m => m.LeaseYear)
-                            </div>
-                            <div class="span5">
-                                @Html.LabelFor(m => m.Rent)
-                                <div class="input-prepend input-append">
-                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { @class = "span3" })<span class="add-on"><b style="color: green">.00</b></span>
-                                </div>
-                                <br />@Html.ValidationMessageFor(model => model.Rent)
-                            </div>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span5">
-                                @Html.LabelFor(m => m.Deposit)
-                                <div class="input-prepend input-append">
-                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { @class = "span3" })<span class="add-on"><b style="color: green">.00</b></span>
-
-                                </div>
-                                <br />@Html.ValidationMessageFor(model => model.Deposit)
-                            </div>
-                            <div class="span5">
-                                @Html.LabelFor(m => m.AmountKept)
-                                <div class="input-prepend input-append">
-                                    <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { @class = "span3" })<span class="add-on"><b style="color: red">.00</b></span>
-
-                                </div>
-                                <br />@Html.ValidationMessageFor(model => model.AmountKept)
-                            </div>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span10">
-                                @Html.LabelFor(m => m.Post)
-                                @Html.TextAreaFor(m => m.Post, new { @cols = 80, @rows = 10 })
-                                <br />@Html.ValidationMessageFor(m => m.Post)
-                            </div>
-                        </div>
-                        <br />
-                        <div id="showImages" class="row-fluid">
-                        <div class="span10">
-                            @if (Model.Images != null && Model.IsEDitMode == true)
-                            {
-                                foreach (var x in Model.Images)
-                                {
-                                    <br />
-                                    <div class="row-fluid">
-                                         <div class="span10">
-
-                                            <img src="@x.ImageUrl"  style="width:500px;height:300px"/>&nbsp&nbsp&nbsp&nbsp
-                                            @if (Model.IsEDitMode == true)
-                                            {
-                                             <button class ="btn btn-mini">@Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new {photoId=x.Id}, null)</button>
-                                            }
-                                         </div>
-                                    </div>
-                                }
-                            }
-                            </div>
-                        </div>
-                            <hr />
-                            <h2>Upload Pictures</h2>
-                            <hr />
-                         this is a total hack to get around the nested forms problem
-                        <form>
-
-                            <fieldset><legend></legend></fieldset>
-                        </form>
-                        <div class="row-fluid">
-                            <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id">
-                            </iframe>
-                            <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id">
-                            </iframe>
-                            <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id">
-                            </iframe>
-                        </div>
-                        <div class="row-fluid">
-                            <input class="btn btn-primary" type="submit" value="Submt" /><br />
-                        </div>
-                        <br />
-                        <div class="row-fluid">
-                            <a class="btn" href='~/account/manage'>Cancel</a>
-                        </div>
-
-                        @Html.HiddenFor(m => m.UserId)
-                        @Html.HiddenFor(m => m.Id)
-
-                        </fieldset>
-                    </div>*@
+                
 
 
