@@ -529,6 +529,16 @@ namespace TV.web.Migrations
                 {
                     ImageUrl =   "/Images/CAM00098.jpg",
                     Post = posts[3]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/IMAG0389.jpg",
+                    Post = posts[4]
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/CAM00098.jpg",
+                    Post = posts[3]
                 }
 
             };
