@@ -23,16 +23,17 @@
     <script src="@Url.Content("~/Scripts/JavaScript1.js")" type="text/javascript"></script>
 
     <script>
+
     function getPics() {
         //console.log("@Url.Content("~/Home/GetMorePictures/"+ Model.Pic_9.Id)")
         var picList = new Array();
         var resultList = new Array();
         var picId = { picId: '@Model.Pic_9.Id' }
         $.ajax({
-            url: "@Url.Content("~/Home/MorePictures/"+ Model.Pic_9.Id)",
+            url: "@Url.Content("~/Home/MorePictures/")/" + picId,
                 type: "POST",
                 datatype: "JSON",
-                data: JSON.stringify( picId),
+                data: JSON.stringify(picId),
                 contentType: "application/json; charset=utf-8",
                 traditional: true,
                 success:
