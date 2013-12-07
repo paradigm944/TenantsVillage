@@ -55,10 +55,29 @@ namespace TV.web.Controllers
         [HttpPost]
         public JsonResult MorePictures(int? picId)
         {
+            var quantity = new int?(10);
 
+            if (picId < quantity)
+            {
+                quantity = picId;
+            }
+            var hiId = new int?();
 
-            var pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
-            
+            var pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(quantity.Value).ToList<ImageModel>();
+
+            if (pics.Count == 0) {
+                hiId = picId;
+            }
+            else
+            {
+                hiId = pics.LastOrDefault<ImageModel>().Id;
+            }
+
+            if (hiId == picId)
+            {
+                pics = _ctx.Image.Where(m => m.IsDeleted == 0 && m.Post.IsDeleted == false).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
+
+            }
 
             return Json(pics, JsonRequestBehavior.AllowGet);
         }

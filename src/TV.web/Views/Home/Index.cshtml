@@ -42,10 +42,15 @@
                 traditional: true,
                 success:
                     function (picList) {
+                        var len = picList.length;
                         $.each(picList, function (){
                              JSON.stringify();
                         })
-                        hiId = picList[9].Id;
+                        if (hiId == picList[len-1].Id) {
+                            $('#picButton').prop("disabled", true);
+                        }else{
+                            hiId = picList[len-1].Id;
+                        }
                         //alert(picList[0].ImageUrl);
                         for (var i = 0; i < picList.length; i++) {
                             //console.log("pic" + i);
@@ -63,7 +68,6 @@
                    alert(response);
                 }
             });
-            console.log(resultList);
        }
     </script>
 
@@ -143,7 +147,7 @@
         <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img id="pic8" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
         <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img id="pic9" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
         
-        <button class="btn btn-primary" onclick="getPics(@Model.Pic_1.Id)">More Pics</button>
+        <button id="picButton" class="btn btn-primary" onclick="getPics(@Model.Pic_1.Id)">More Pics</button>
      </div>
 </div>
 @if (Request.IsAuthenticated) { 
