@@ -1,0 +1,25 @@
+﻿@model TV.web.ViewModels.ViewPostViewModel
+
+
+@using (Ajax.BeginForm("createcomment", "comment", new { id = Model.Id }, null))
+{
+        <div>
+            @Html.LabelFor(m => m.Subject)<br />
+            @Html.TextAreaFor(m => m.Subject)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Body)<br />
+            @Html.TextAreaFor(m => m.Body)
+        </div>
+        <br />
+        @Html.HiddenFor(m => m.Id)
+     
+
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <input class="btn btn-primary " type="submit" value="Send Message" />
+
+    </div>
+    
+    
+}
