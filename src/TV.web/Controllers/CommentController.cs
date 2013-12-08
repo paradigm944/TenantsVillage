@@ -43,11 +43,11 @@ namespace MvcForums.Controllers
             var recipient = post.User;
             var recipientEmail = recipient.Email;
             var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Message>();
-
-            if (!ModelState.IsValid)
-            {
-                return View(inModel);
-            }
+            
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(inModel);
+            //}
 
 
             var comment = new Message(); 
