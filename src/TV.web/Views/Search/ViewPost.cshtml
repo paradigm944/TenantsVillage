@@ -69,7 +69,7 @@
             </div>
         </div>
    </div>
-        <br />
+<div class="row visible-lg"></div>
 <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
             padding-bottom:15px;
             padding-right:25px;
@@ -103,35 +103,37 @@
                 }
             }
         </div>
-        <div class="span4 offset1" style="padding-top:30px;
-                            padding-bottom:25px;
-                            padding-right:45px;
-                            padding-left:45px;
-                            -moz-box-shadow:3px 3px 5px 5px #ccc;
-                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                            background-color:rgb(224,224,224);
-                            -moz-border-radius: 15px;
-                            border-radius: 15px;">
-            <a href="#myModal" role="button" class="btn" data-toggle="modal">Add a Comment</a>
-            <br />
-            <ul>
-                @if (Model.Comments != null)
+        </div></div>
+    <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
+            padding-bottom:15px;
+            padding-right:25px;
+            padding-left:25px;
+            -moz-box-shadow:3px 3px 5px 6px #ccc;
+            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
+            background-color:rgb(224,224,224);-moz-border-radius: 15px;
+            border-radius: 15px;">
+        <a href="#myModal" role="button" class="btn" data-toggle="modal">Add a Comment</a>
+        <br />
+        <ul>
+            @if (Model.Comments != null)
+            {
+                foreach (var x in Model.Comments)
                 {
-                    foreach (var x in Model.Comments)
-                    {
-                        <li>
-                            @Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id })<br />
-                            @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
-                        </li>
+                    <li>
+                        @Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id })<br />
+                        @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
+                    </li>
 
 
 
 
-                    }
                 }
-            </ul>
-        </div>
+            }
+        </ul>
+    </div>
+
+
 
     </div>
 </div>
