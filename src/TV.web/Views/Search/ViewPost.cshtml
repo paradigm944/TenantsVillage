@@ -7,8 +7,8 @@
 <h2 style="text-align: center; color: rgb(0, 148, 255);"><b>@Html.DisplayFor(m => m.Title)</b></h2>
 <br />
 <br />
-
-    <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
+<div class="row">
+    <div class="col-lg-3 col-lg-offset-1" style="padding-top:15px;
             padding-bottom:15px;
             padding-right:25px;
             padding-left:25px;
@@ -68,9 +68,8 @@
                 </div>
             </div>
         </div>
-   </div>
-<div class="row visible-lg"></div>
-<div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
+    </div>
+    <div class="col-lg-4 col-lg-offset-1" style="padding-top:15px;
             padding-bottom:15px;
             padding-right:25px;
             padding-left:25px;
@@ -79,31 +78,32 @@
             box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
             background-color:rgb(224,224,224);-moz-border-radius: 15px;
             border-radius: 15px;">
-    <div class="row">
-        <div class="span7">
-            <em>@Html.LabelFor(m => m.Post)</em>
-            &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
+        <div class="row">
+            <div class="span4">
+                <em>@Html.LabelFor(m => m.Post)</em>
+                &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4">
+                @if (Model.Images != null)
+                {
+                    foreach (var x in Model.Images)
+                    {
+                        <br />
+                        <div class="row">
+                            <div class="span4">
+
+                                <img src="@x.ImageUrl" style="padding-left:50px; max-width:500px;max-height:300px" />
+
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
         </div>
     </div>
-    <div class="row">
-
-        <div class="span7">
-            @if (Model.Images != null)
-            {
-                foreach (var x in Model.Images)
-                {
-                    <br />
-                    <div class="row">
-                        <div class="span10">
-
-                            <img src="@x.ImageUrl" style="padding-left:50px; max-width:500px;max-height:300px" />
-
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-        </div></div>
+</div>
     <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
             padding-bottom:15px;
             padding-right:25px;
