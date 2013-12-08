@@ -121,7 +121,7 @@
                         foreach (var x in Model.Comments)
                         {
                             <li>
-                                @Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id })<br />
+                                @Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id }, new { @style="color: white;", @class="btn btn-sm btn-primary" })
                                 @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
                             </li>
 
@@ -129,7 +129,7 @@
                     }
                 </ul>
                 <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
-                    Add a Comment
+                    Comment
                 </button>
             </div>
         </div>
