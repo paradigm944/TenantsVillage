@@ -662,7 +662,8 @@
     <Content Include="Views\Home\Links.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Comment.cshtml" />
+    <Content Include="Views\Shared\_CreateComment.cshtml" />
+    <Content Include="Views\Shared\_ViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
