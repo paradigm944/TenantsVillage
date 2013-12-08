@@ -82,26 +82,33 @@
                 &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
             </div>
         </div>
-        <div class="row">
-            <div class="span4">
+    </div>
+</div>    
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1" style="padding-top:15px;
+            padding-bottom:15px;
+            padding-right:25px;
+            padding-left:25px;
+            -moz-box-shadow:3px 3px 5px 6px #ccc;
+            -webkit-box-shadow:3px 3px 5px 6px #ccc;
+            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
+            background-color:rgb(224,224,224);-moz-border-radius: 15px;
+            border-radius: 15px;">
+        
+            <div class="span10">
                 @if (Model.Images != null)
                 {
                     foreach (var x in Model.Images)
                     {
-                        <br />
-                        <div class="row">
-                            <div class="span4">
-
-                                <img src="@x.ImageUrl" style="padding-left:50px; max-width:500px;max-height:300px" />
-
-                            </div>
-                        </div>
+                            <img src="@x.ImageUrl" style="padding-left:10px; padding-top:8px; max-width:300px;max-height:150px" />
                     }
                 }
             </div>
         </div>
     </div>
-</div>
+
+
+
     <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
             padding-bottom:15px;
             padding-right:25px;
