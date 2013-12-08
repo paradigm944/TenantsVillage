@@ -69,21 +69,7 @@ namespace TV.web.Controllers
             return View(outModel);
         }
 
-        [Authorize]
-        public ActionResult ViewCommentDetails(int threadId)
-        {
-            var thread = _ctx.Message.Where(m => m.Id == threadId).SingleOrDefault();
-            var outModel = new CommentViewModel
-            {
-                Messages = _repository.SelectMessages(threadId),
-                Author = thread.Author,
-                Subject = thread.Subject,
-                EntryDate = thread.EntryDate,
-                Body = thread.Body
-            };
-
-            return View(outModel);
-        }
+        
 
 
 

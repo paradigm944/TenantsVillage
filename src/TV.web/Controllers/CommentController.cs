@@ -33,6 +33,22 @@ namespace MvcForums.Controllers
             return View("Index", outModel);
         }
 
+        [Authorize]
+        public ActionResult ViewCommentDetails(int threadId)
+        {
+            var thread = _ctx.Message.Where(m => m.Id == threadId).SingleOrDefault();
+            var outModel = new CommentViewModel
+            {
+                Messages = _repository.SelectMessages(threadId),
+                Author = thread.Author,
+                Subject = thread.Subject,
+                EntryDate = thread.EntryDate,
+                Body = thread.Body
+            };
+
+            return PartialView(outModel);
+        }
+
         [HttpPost]
         public ActionResult CreateComment(ViewPostViewModel inModel)
         {
@@ -43,7 +59,8 @@ namespace MvcForums.Controllers
             var recipient = post.User;
             var recipientEmail = recipient.Email;
             var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Message>();
-            
+
+            //TODO
             //if (!ModelState.IsValid)
             //{
             //    return View(inModel);
