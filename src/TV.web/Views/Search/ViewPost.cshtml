@@ -107,7 +107,14 @@
     </div>
 
     <div class="row col-lg-12 col-lg-offset-2">
-        <div class="col-lg-3" style="padding-top: 15px; padding-bottom: 15px; padding-right: 25px; padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; -webkit-box-shadow: 3px 3px 5px 6px #ccc; box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); background-color: rgb(128,128,128); -moz-border-radius: 15px; border-radius: 15px;">
+        <div class="col-lg-3" style="padding-top: 15px; 
+             padding-bottom: 15px; padding-right: 25px; 
+             padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; 
+             -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
+             box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
+             background-color: rgb(128,128,128); 
+             -moz-border-radius: 15px; 
+             border-radius: 15px;">
 
             <em>@Html.LabelFor(m => m.Post)</em>
             &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
@@ -133,7 +140,10 @@
                     foreach (var x in Model.Comments)
                     {
                         <li>
-                            @Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id }, new { @style = "color: white;", @class = "btn btn-sm btn-primary" })
+                            <input class="btn btn-primary btn-sm" style="float:right;" onclick="location.href=@Url.Content("~/comment/viewcomment")" data-toggle=" modal" data-target="#viewCommentModal">
+                                x.Subject
+                           
+                            @*@Html.ActionLink(x.Subject, "ViewCommentDetails", new { threadId = x.Id }, new { @style = "color: white;", @class = "btn btn-sm btn-primary" })*@
                             @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
                         </li>
 
@@ -141,9 +151,7 @@
                 }
             </ul>
             <div class="row ">
-                <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
-                    Comment
-                </button>
+                
             </div>
         </div>
 
@@ -169,6 +177,22 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!-- Modal -->
+
+<div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_ViewComment")
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Modal -->
 
 
 
