@@ -11,7 +11,7 @@ $(document).ready(function () {
                             "bSearchable": false,
                             "bSortable": false,
                             "fnRender": function (oObj) {
-                                return '<a id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a>';
+                                return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a>';
                             }
                         },
 			            { "sName": "Landlord" },
