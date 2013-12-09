@@ -33,20 +33,24 @@ namespace MvcForums.Controllers
             return View("Index", outModel);
         }
 
-        [Authorize]
+        [HttpGet]
         public ActionResult ViewComment(int threadId)
         {
             var thread = _ctx.Message.Where(m => m.Id == threadId).SingleOrDefault();
+            var cModel = new CommentViewModel
+            {
+                Author = thread.Author,
+                Body = thread.Body,
+                EntryDate = thread.EntryDate,
+                Subject = thread.Subject
+            };
 
-            var outModel = new ViewPostViewModel();
+            var outModel = new ViewPostViewModel
+            {
+                ComViewModel = cModel
+            };
                 
-                outModel.ComViewModel.Author = thread.Author;
-                outModel.ComViewModel.Subject = thread.Subject;
-                outModel.ComViewModel.EntryDate = thread.EntryDate;
-                outModel.ComViewModel.Body = thread.Body;
-           
-
-            return PartialView(outModel);
+            return PartialView("_ViewComment", outModel);
         }
 
         [HttpPost]

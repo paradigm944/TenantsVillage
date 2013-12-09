@@ -658,7 +658,6 @@
     <Content Include="Views\Shared\ViewCommentDetails.cshtml" />
     <Content Include="Views\Forum\Create.cshtml" />
     <Content Include="Views\Forum\Success.cshtml" />
-    <Content Include="Views\Shared\ViewPost.cshtml" />
     <Content Include="Views\Home\Links.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
