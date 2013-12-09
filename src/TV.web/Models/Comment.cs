@@ -12,17 +12,16 @@ namespace TV.web.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Column("ParentPostId")]
-        public int? ParentPostId { get; set; }
        
         [Required]
         [Column("Author")]
         public string Author { get; set; }
 
+        [Required]
         [Column("LandLord")]
         public string LandLord { get; set; }
 
+        [Required]
         [Column("Recipient")]
         public  string Recipient { get; set; }
 
@@ -37,5 +36,9 @@ namespace TV.web.Models
         [Required]
         [Column("EntryDate")]
         public DateTime EntryDate { get; set; }
+
+        [Required]
+        [Column("PostId")]
+        public int? PostId { get; set; }
     }
 }
