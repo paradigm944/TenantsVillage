@@ -33,7 +33,7 @@ namespace TV.web.ViewModels
 
         public DateTime EntryDate { get; set; }
 
-        public IList<Message> Messages { get; set; }
+        public IList<Comment> Messages { get; set; }
 
     }
 }

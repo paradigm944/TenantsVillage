@@ -13,6 +13,8 @@ namespace TV.web.ViewModels
 {
     public class ViewPostViewModel 
     {
+
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -83,7 +85,7 @@ namespace TV.web.ViewModels
         [DisplayName("Recipient")]
         public virtual UserProfile User { get; set; }
 
-        public IEnumerable<Message> Comments { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
 
         /// <summary>
         /// everything below here is used for comenting on posts
@@ -124,7 +126,7 @@ namespace TV.web.ViewModels
 
         public DateTime EntryDate { get; set; }
 
-        public IList<Message> Messages { get; set; }
+        public IList<Comment> Messages { get; set; }
         
         
 

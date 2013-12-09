@@ -58,7 +58,7 @@ namespace MvcForums.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
             var recipient = post.User;
             var recipientEmail = recipient.Email;
-            var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Message>();
+            var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Comment>();
 
             //TODO
             //if (!ModelState.IsValid)
@@ -67,7 +67,7 @@ namespace MvcForums.Controllers
             //}
 
 
-            var comment = new Message(); 
+            var comment = new Comment(); 
             
 
             comment.Recipient = recipient.UserName;

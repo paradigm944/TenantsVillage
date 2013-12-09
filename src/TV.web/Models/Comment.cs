@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace TV.web.Models
 {
-    public class Message
+    public class Comment
     {
         [Key]
         public int Id { get; set; }

@@ -12,6 +12,6 @@ namespace TV.web.ViewModels
 
         public bool? DisplayMode { get; set; }
 
-        public IList<Message> Messages { get; set; }
+        public IList<Comment> Messages { get; set; }
     }
 }

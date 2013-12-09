@@ -74,7 +74,7 @@ namespace TV.web.ViewModels
         public bool? IsEDitMode { get; set; }
 
         [DisplayName("Comments")]
-        public IList<Message> Comments { get; set; }
+        public IList<Comment> Comments { get; set; }
 
         [DisplayName("Images")]
         public IList<ImageModel> Images { get; set; }

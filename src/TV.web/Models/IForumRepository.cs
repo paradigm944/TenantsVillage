@@ -6,8 +6,8 @@ namespace TV.web.Models
 {
     public interface IForumRepository
     {
-        IList<Message> SelectThreads();
-        IList<Message> SelectMessages(int threadId);
-        Message AddComment(Message messageToAdd);
+        IList<Comment> SelectThreads();
+        IList<Comment> SelectMessages(int threadId);
+        Comment AddComment(Comment messageToAdd);
     }
 }
