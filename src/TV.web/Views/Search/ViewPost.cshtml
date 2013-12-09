@@ -139,11 +139,11 @@
                 {
                     foreach (var x in Model.Comments)
                     {
-                        <li>
-                                                       
-                            @Html.ActionLink(x.Subject.Substring(0, 10)+"....", "ViewComment", "Comment", new { threadId = x.Id }, new { @style = "color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
-                            @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
+                        <li style="padding-bottom:10px;">                           
+                            @Html.ActionLink(x.Subject.Substring(0, 10)+"....", "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
+                            @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) 
                         </li>
+                        
 
                     }
                 }
