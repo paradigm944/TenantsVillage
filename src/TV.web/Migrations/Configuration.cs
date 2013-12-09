@@ -36,10 +36,12 @@ namespace TV.web.Migrations
                 var user = context.UserProfiles.Where(u => u.UserName == "seedAdmin").SingleOrDefault();
                 user.Email = "paradigm944@gmail.com";
                 user.isVerified = true;
+                
 
                 if (!Roles.GetRolesForUser("seedAdmin").Contains("Administrator"))
                     Roles.AddUsersToRoles(new[] { "seedAdmin" }, new[] { "Administrator" });
 
+                
 
                 var posts = new List<PostModel>
             {
@@ -556,7 +558,8 @@ namespace TV.web.Migrations
                 context.SaveChanges();
 
                 //errors = context.GetValidationErrors();
-
+                //user.RegistrationCode = WebSecurity.GeneratePasswordResetToken(user.UserName, 1440);
+                
                 base.Seed(context);
             
         }
