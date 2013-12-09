@@ -141,7 +141,7 @@
                     {
                         <li>
                                                        
-                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new { @style = "color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
+                            @Html.ActionLink(x.Subject.Substring(0, 10)+"....", "ViewComment", "Comment", new { threadId = x.Id }, new { @style = "color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
                             @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) <br />
                         </li>
 
