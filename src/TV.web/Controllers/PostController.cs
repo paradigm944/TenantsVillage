@@ -209,10 +209,16 @@ namespace TV.web.Controllers
         public ActionResult Delete(ViewPostViewModel inModel)
         {
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
-            post.IsDeleted = true;
-            
-            _ctx.SaveChanges();
-            return View("DeleteSuccess");
+
+            if (post.User.UserName != inModel.User.UserName) {
+                post.IsDeleted = true;
+                 _ctx.SaveChanges();
+                return View("DeleteSuccess");
+            }
+            else
+            {
+                return View("Error", inModel);
+            }
         }
 
         public ActionResult UnDelete(int? id)
