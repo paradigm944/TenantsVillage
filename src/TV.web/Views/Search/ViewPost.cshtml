@@ -24,7 +24,6 @@
 
 
     <div class="row col-lg-12 col-lg-offset-2">
-
         <div class="col-lg-3" style="padding-top: 15px; padding-bottom: 15px; padding-right: 25px; padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; -webkit-box-shadow: 3px 3px 5px 6px #ccc; box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); background-color: rgb(128,128,128); -moz-border-radius: 15px; border-radius: 15px;">
             <div class="row">
                 <div class="span3">
@@ -78,8 +77,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="row col-lg-12 col-lg-offset-2">
             <div class="hidden-lg col-lg-offset-2">
                 <br />
@@ -97,8 +94,6 @@
                     }
                 </div>
             </div>
-
-
         </div>
     </div>
     <div class="row">
@@ -142,9 +137,7 @@
                         <li style="padding-bottom:10px;">                           
                             @Html.ActionLink(x.Subject.Substring(0, 10)+"....", "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
                             @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) 
-                        </li>
-                        
-
+                        </li>   
                     }
                 }
             </ul>
@@ -152,17 +145,11 @@
                 <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
                     Comment
                 </button>
-
             </div>
         </div>
-
     </div>
-
 </div>
 
-
-
-    <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -174,19 +161,13 @@
                     @Html.Partial("_CreateComment")
                 </div>
 
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- Modal -->
+            </div>
+        </div>
+    </div>
 
-<div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   
-            
-            
-                @Html.Partial("_ViewComment")
-            
-            
-        </div><!-- /.modal-content -->
+    <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        @Html.Partial("_ViewComment")
+    </div>
    
 
 
