@@ -14,7 +14,7 @@ namespace TV.web.Models
         }
 
         public DbSet<ImageModel> Image { get; set; }
-        public DbSet<Comment> Message { get; set; }
+        public DbSet<Comment> Comment { get; set; }
         public DbSet<PostModel> Post { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
     }
