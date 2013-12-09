@@ -1,16 +1,16 @@
-﻿@model TV.web.ViewModels.CommentViewModel
+﻿@model TV.web.ViewModels.ViewPostViewModel
 
 
 <html>
 <body>
     <div class="row">
         <div class="span4">
-            @Html.LabelFor(m => m.Author)
-            &nbsp @Html.Encode(@Model.Author)
+            @Html.LabelFor(m => m.ComViewModel.Author)
+            &nbsp @Html.DisplayFor( m => m.ComViewModel.Author)
         </div>
         <div class="span4">
-            @Html.LabelFor(m => m.EntryDate)
-            &nbsp @Html.DisplayFor(m => m.EntryDate)
+            @Html.LabelFor(m => m.ComViewModel.EntryDate)
+            &nbsp @Html.DisplayFor(m => m.ComViewModel.EntryDate)
         </div>
 
     </div>
@@ -18,7 +18,7 @@
     <br />
     <div class="row">
         <div class="span4">
-            &nbsp @Html.Encode(@Model.Body)
+            &nbsp @Html.DisplayFor(m => m.ComViewModel.Body)
         </div>
 
 

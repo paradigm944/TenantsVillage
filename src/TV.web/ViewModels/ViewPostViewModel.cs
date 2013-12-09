@@ -13,7 +13,7 @@ namespace TV.web.ViewModels
 {
     public class ViewPostViewModel 
     {
-
+        public CommentViewModel ComViewModel { get; set; }
 
         [Required]
         [Display(Name = "User name")]

@@ -34,17 +34,17 @@ namespace MvcForums.Controllers
         }
 
         [Authorize]
-        public ActionResult ViewCommentDetails(int threadId)
+        public ActionResult ViewComment(int threadId)
         {
             var thread = _ctx.Message.Where(m => m.Id == threadId).SingleOrDefault();
-            var outModel = new CommentViewModel
-            {
-                Messages = _repository.SelectMessages(threadId),
-                Author = thread.Author,
-                Subject = thread.Subject,
-                EntryDate = thread.EntryDate,
-                Body = thread.Body
-            };
+
+            var outModel = new ViewPostViewModel();
+                
+                outModel.ComViewModel.Author = thread.Author;
+                outModel.ComViewModel.Subject = thread.Subject;
+                outModel.ComViewModel.EntryDate = thread.EntryDate;
+                outModel.ComViewModel.Body = thread.Body;
+           
 
             return PartialView(outModel);
         }
