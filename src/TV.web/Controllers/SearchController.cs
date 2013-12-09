@@ -44,7 +44,7 @@ namespace TV.web.Controllers
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var images = _ctx.Image.Where(i => i.Post.Id == id).AsEnumerable();
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
-            var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Comment>();
+            var comments = _ctx.Comment.Where(m => m.PostId == post.Id).ToList<Comment>();
             
             var outModel = new ViewPostViewModel()
             {

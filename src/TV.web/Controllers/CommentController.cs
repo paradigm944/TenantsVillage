@@ -36,7 +36,7 @@ namespace MvcForums.Controllers
         [HttpGet]
         public ActionResult ViewComment(int threadId)
         {
-            var thread = _ctx.Message.Where(m => m.Id == threadId).SingleOrDefault();
+            var thread = _ctx.Comment.Where(m => m.Id == threadId).SingleOrDefault();
             var cModel = new CommentViewModel
             {
                 Author = thread.Author,
@@ -62,7 +62,7 @@ namespace MvcForums.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
             var recipient = post.User;
             var recipientEmail = recipient.Email;
-            var comments = _ctx.Message.Where(m => m.ParentPostId == post.Id).ToList<Comment>();
+            var comments = _ctx.Comment.Where(c => c.PostId == post.Id).ToList<Comment>();
 
             //TODO
             //if (!ModelState.IsValid)
@@ -79,7 +79,8 @@ namespace MvcForums.Controllers
             comment.Subject = inModel.Subject;
             comment.Body = inModel.Body;
             comment.EntryDate = DateTime.Now;
-            comment.ParentPostId = post.Id;
+            comment.LandLord = post.LandLord;
+            comment.PostId = post.Id;
 
 
             _repository.AddComment(comment);

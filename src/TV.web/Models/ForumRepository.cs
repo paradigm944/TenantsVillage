@@ -21,7 +21,7 @@ namespace TV.web.Models
 
         public IList<Comment> SelectThreads()
         {
-            var messages = _ctx.Message.Select(m => m);
+            var messages = _ctx.Comment.Select(m => m);
             var threads = from m in messages
                           
                           select m;
@@ -30,7 +30,7 @@ namespace TV.web.Models
 
         public IList<Comment> SelectMessages(int threadId)
         {
-            var messages = _ctx.Message.Select(m => m);
+            var messages = _ctx.Comment.Select(m => m);
             var threads = from m in messages
                          
                           select m;
@@ -40,7 +40,7 @@ namespace TV.web.Models
 
         public Comment AddComment(Comment messageToAdd)
         {
-            _ctx.Message.Add(messageToAdd);
+            _ctx.Comment.Add(messageToAdd);
 
             //var errors = _ctx.GetValidationErrors();
 
