@@ -213,7 +213,8 @@ namespace TV.web.Controllers
                     newUser.isVerified = false;
                     newUser.RegistrationCode = registrationCode;
                     var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification", 
-                        "Thank you for registering with TenantsVillge.  This is your verification code.  " + registrationCode + "  Copy it and go to the Verify-New-Account link on our homepage.  "  );
+                        "Thank you for registering with TenantsVillge.  This is your verification code.  " + registrationCode + "  Copy it and go to the Verify-New-Account" + System.Environment.NewLine
+                          + "link at the top of our homepage our homepage.  "  );
 
                     var smtpServer = new SmtpClient();
         
@@ -244,25 +245,26 @@ namespace TV.web.Controllers
 
             var userId = WebSecurity.GetUserIdFromPasswordResetToken(code);
 
+            var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
+
             if (WebSecurity.GetUserId(inModel.UserName) != userId)
             {
                 ModelState.AddModelError("", "This is not the correct code for the user name provided");
                 return View(inModel);
             }
 
-            if (userId > 0)
-            {
+                if (user.UserName == inModel.UserName && user.RegistrationCode == inModel.Code 
+                    && userId > 0){
 
-                var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
-                user.isVerified = true;
-                _ctx.SaveChanges();
-                return View("VerifySuccessLogin");
-            }
+                    WebSecurity.Login(user.UserName, inModel.Password);
+                    user.isVerified = true;
+                    _ctx.SaveChanges();
+                    return RedirectToAction("Index", "Home");
 
 
-            return View("VerifyEmailCodeError");
+                }
 
-            
+            return View("VerifyEmailCodeError");          
         }
 
 
