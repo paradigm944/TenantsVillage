@@ -19,14 +19,6 @@ namespace TV.web.ViewModels
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
-
         public List<string> Pics { get; set; }
 
         [DisplayName("Post")]
@@ -81,9 +73,8 @@ namespace TV.web.ViewModels
         [DisplayName("Attached Images")]
         public IEnumerable<ImageModel> Images { get; set; }
 
-        [ForeignKey("customer_ref")]
-        [DisplayName("Recipient")]
-        public virtual UserProfile User { get; set; }
+        
+        public UserProfile User { get; set; }
 
         public IEnumerable<Comment> Comments { get; set; }
 

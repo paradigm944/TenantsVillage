@@ -183,6 +183,7 @@ namespace TV.web.Controllers
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+            //var user = _ctx.UserProfiles.Find(post.User.UserId);
 
             var outModel = new ViewPostViewModel
             {
@@ -199,7 +200,8 @@ namespace TV.web.Controllers
                 AptNumber = post.AptNumber,
                 Images = images,
                 BuildingNumber = post.BuildingNumber,
-                Street = post.Street
+                Street = post.Street,
+                UserName = post.User.UserName
             };
 
             return View("DeleteConfirmation", outModel);
@@ -210,7 +212,7 @@ namespace TV.web.Controllers
         {
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
 
-            if (post.User.UserName != inModel.User.UserName) {
+            if (post.User.UserName == inModel.UserName) {
                 post.IsDeleted = true;
                  _ctx.SaveChanges();
                 return View("DeleteSuccess");

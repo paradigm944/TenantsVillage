@@ -7,7 +7,7 @@
 <h2>Delete Confirmation</h2>
 <hr />
 @using (Html.BeginForm()) {
-         @Html.ValidationSummary(false)
+         @Html.ValidationSummary(true)
 
     
 <h3><b>@Html.DisplayFor(m => m.Title)</b></h3>
@@ -76,8 +76,8 @@
   <br />
   <br />
   <a class="btn" href="~/account/manage/">Cancel</a>   
-    
+   
+   @Html.HiddenFor(m => m.UserName)
 }
    
 
-@Html.HiddenFor(m => m.Id)
