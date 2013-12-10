@@ -84,6 +84,7 @@ namespace TV.web.Controllers
             if (inModel.UserName == user.UserName){
 
                 WebSecurity.ResetPassword(inModel.Token, inModel.NewPassword);
+                WebSecurity.Login(inModel.UserName, inModel.NewPassword, true);
                 return RedirectToAction("Index", "Home");
             }
         else{
