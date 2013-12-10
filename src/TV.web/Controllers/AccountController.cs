@@ -24,10 +24,72 @@ namespace TV.web.Controllers
         {
             _ctx = ctx;
         }
+
+        public bool SendPasswordToken(string userName)
+        {
+            try{
+                var user = _ctx.UserProfiles.Where(m => m.UserName == userName).SingleOrDefault();
+                var userEmail = user.Email;
+            
+                var resetToken = WebSecurity.GeneratePasswordResetToken(user.UserName, 1440);
+
+                var bemail = new MailMessage("registration@tenantsvillage.com", userEmail.ToString(), "Password Reset Request",
+                    "You have requested to have your password reset, or have forgot your password. This is your reset code:   " + resetToken + "  Copy it and return to tenantsvillage and use this code to reset your password." + System.Environment.NewLine
+                    + Url.Content("~/Account/ForgotPassword/" + resetToken));
+                var smtpServer = new SmtpClient();
+                smtpServer.Send(bemail);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
+
+        [AllowAnonymous]
+        public ActionResult ChangePassword(string token)
+        {
+            var userId = WebSecurity.GetUserIdFromPasswordResetToken(token);
+            
+            if (userId > 0)
+            {
+                
+                var outModel = new ChangePasswordViewModel{
+                    UserId = userId,
+                    Token = token
+                };
+                return View(outModel);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel inModel)
+        {
+            
+            var user = _ctx.UserProfiles.Find(inModel.UserId);
+
+            if (inModel.UserName == user.UserName){
+
+                WebSecurity.ResetPassword(inModel.Token, inModel.Password);
+                return RedirectToAction("Index", "Home");
+            }
+        else{
+
+                ModelState.AddModelError("", "There was a problem reseting your password.  Please try again");
+                return View(inModel);
+            }
+        }
         
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+
             return View();
         }
 
@@ -35,56 +97,85 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword(ForgotPasswordViewModel inModel)
         {
-            if (_ctx.UserProfiles.Where(m => m.UserName == inModel.UserName).Any())
+            if (_ctx.UserProfiles.Where(m => m.UserName == inModel.UserName && m.Email == inModel.Email).Any())
             {
-                var user = _ctx.UserProfiles.Where(m => m.UserName == inModel.UserName).SingleOrDefault();
-                var checkEmail = user.Email;
-                if (checkEmail == inModel.Email)
-                {
-                    var resetToken = WebSecurity.GeneratePasswordResetToken(inModel.UserName, 1440);
+                var emailSent = SendPasswordToken(inModel.UserName);
 
-                    var bemail = new MailMessage("registration@tenantsvillage.com", inModel.Email.ToString(), "Password Reset Request",
-                        "You have requested to have your password reset. This is your reset code:   " + resetToken + "  Copy it and return to tenantsvillage and use this code to reset your password.");
-                    var smtpServer = new SmtpClient();
-                    smtpServer.Send(bemail);
+                if (emailSent)
+                {
                     return View("ForgotPasswordSuccess");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The UserNmae and Email do not match.");
+                    ModelState.AddModelError("", "The was a problem sending a reset email, please try again.");
                     return View(inModel);
+                }
+
+
+                //var user = _ctx.UserProfiles.Where(m => m.UserName == inModel.UserName).SingleOrDefault();
+                //var checkEmail = user.Email;
+                //if (checkEmail == inModel.Email)
+                //{
+                //    var resetToken = WebSecurity.GeneratePasswordResetToken(inModel.UserName, 1440);
+
+                //    var bemail = new MailMessage("registration@tenantsvillage.com", inModel.Email.ToString(), "Password Reset Request",
+                //        "You have requested to have your password reset. This is your reset code:   " + resetToken + "  Copy it and return to tenantsvillage and use this code to reset your password." + System.Environment.NewLine
+                //        + Url.Content("~/Account/ForgotPassword/" + resetToken));
+                //    var smtpServer = new SmtpClient();
+                //    smtpServer.Send(bemail);
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "The UserNmae and Email do not match.");
+                return View(inModel);
+            }
+            
+            
+        }
+
+        
+        public ActionResult ResetPassword()
+        {
+            return View("ForgotPassword");
+        }
+
+ 
+        [HttpPost]
+        public ActionResult ResetPassword(ForgotPasswordViewModel inModel)
+        {
+            if (_ctx.UserProfiles.Where(m => m.UserName == inModel.UserName && m.Email == inModel.Email).Any())
+            {
+                var emailSent = SendPasswordToken(inModel.UserName);
+
+                if (emailSent)
+                {
+                    return View("ForgotPasswordSuccess");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The was a problem sending a reset email, please try again.");
+                    return View("ForgotPassword", inModel);
                 }
             }
             else
             {
-                ModelState.AddModelError("", "There is a problem with the entered UserName");
-                return View(inModel);
+                ModelState.AddModelError("", "The UserNmae and Email do not match.");
+                return View("ForgotPassword", inModel);
             }
-  
-        }
-
-        [AllowAnonymous]
-        public ActionResult ResetPassword()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        public ActionResult ResetPassword(ResetPasswordViewModel inModel)
-        {
-            var userId = WebSecurity.GetUserIdFromPasswordResetToken(inModel.ResetToken);
-            if (userId > 0)
-            {
-                var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
-                WebSecurity.ResetPassword(inModel.ResetToken, inModel.Password);
-                return View("ResetPasswordSuccess");
-            }
-            else
-            {
-                ModelState.AddModelError("", "There is a problem with the reset code.  Please check your entry...");
-                return View(inModel);
-            }
+            
+            //var userId = WebSecurity.GetUserIdFromPasswordResetToken(inModel.ResetToken);
+            //if (userId > 0)
+            //{
+            //    var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
+            //    WebSecurity.ResetPassword(inModel.ResetToken, inModel.Password);
+            //    return View("ResetPasswordSuccess");
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "There is a problem with the reset code.  Please check your entry...");
+            //    return View(inModel);
+            //}
         }
 
         [AllowAnonymous]
@@ -228,7 +319,7 @@ namespace TV.web.Controllers
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+           
             return View(model);
         }
         [AllowAnonymous]
