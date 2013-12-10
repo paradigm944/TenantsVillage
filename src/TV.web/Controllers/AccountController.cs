@@ -310,13 +310,28 @@ namespace TV.web.Controllers
                     newUser.Email = model.Email;
                     newUser.isVerified = false;
                     newUser.RegistrationCode = registrationCode;
-                    var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification", 
-                        "Thank you for registering with TenantsVillge.  This is your verification code.  " + registrationCode + "  Copy it and go to the Verify-New-Account" + System.Environment.NewLine
-                          + "link at the top of our homepage our homepage.  "  );
 
+
+
+                    var hosturl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
+                        "/Account/VerifyEmailCode/?token=" + registrationCode;
+
+                    //var confirmationLink = string.Format("<a href=\'{0}\'>Clink to confirm your registration</a>",
+                    //                                      hosturl);
+                    var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification", 
+                        "Thank you for registering with TenantsVillge. Click the link below to complete your registration."+ System.Environment.NewLine +
+                       hosturl);
+                    //var bemail = new MailMessage("registration@tenantsvillage.com", userEmail.ToString(), "Password Reset Request",
+                    //    "You have requested to have your password reset, or have forgot your password. Click the link below to reset your password." + System.Environment.NewLine +
+                    //   hosturl);
                     var smtpServer = new SmtpClient();
-        
                     smtpServer.Send(bemail);
+
+                    
+
+                    //var smtpServer = new SmtpClient();
+        
+                    
                     _ctx.SaveChanges();  
                     return View("VerifyAccount");
                 }
@@ -329,40 +344,70 @@ namespace TV.web.Controllers
            
             return View(model);
         }
+
         [AllowAnonymous]
-        public ActionResult VerifyEmailCode()
+        public ActionResult VerifyEmailCode(string token)
         {
-            return View();
+            var userId = WebSecurity.GetUserIdFromPasswordResetToken(token);
+
+            if (userId > 0)
+            {
+
+                var outModel = new VerifyEmailCodeViewModel
+                {
+                    UserId = userId,
+                    Token = token
+                };
+                return View(outModel);
+            }
+            else
+            {
+                return View("Error");
+            }
         }
 
         [HttpPost]
         [AllowAnonymous]
         public ActionResult VerifyEmailCode(VerifyEmailCodeViewModel inModel)
-        {   
-            var code = inModel.Code;
-
-            var userId = WebSecurity.GetUserIdFromPasswordResetToken(code);
-
-            var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
-
-            if (WebSecurity.GetUserId(inModel.UserName) != userId)
+        {
+            try
             {
-                ModelState.AddModelError("", "This is not the correct code for the user name provided");
+                var user = _ctx.UserProfiles.Find(inModel.UserId);
+                user.isVerified = true;
+                WebSecurity.Login(inModel.UserName, inModel.Password);
+                return RedirectToAction("Index", "Home");
+            }
+            catch
+            {
+                ModelState.AddModelError("", "There was a problem logging in, please try again.");
                 return View(inModel);
             }
 
-                if (user.UserName == inModel.UserName && user.RegistrationCode == inModel.Code 
-                    && userId > 0){
 
-                    WebSecurity.Login(user.UserName, inModel.Password);
-                    user.isVerified = true;
-                    _ctx.SaveChanges();
-                    return RedirectToAction("Index", "Home");
+            //var code = inModel.Code;
+
+            //var userId = WebSecurity.GetUserIdFromPasswordResetToken(code);
+
+            //var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
+
+            //if (WebSecurity.GetUserId(inModel.UserName) != userId)
+            //{
+            //    ModelState.AddModelError("", "This is not the correct code for the user name provided");
+            //    return View(inModel);
+            //}
+
+            //    if (user.UserName == inModel.UserName && user.RegistrationCode == inModel.Code 
+            //        && userId > 0){
+
+            //        WebSecurity.Login(user.UserName, inModel.Password);
+            //        user.isVerified = true;
+            //        _ctx.SaveChanges();
+            //        return RedirectToAction("Index", "Home");
 
 
-                }
+            //    }
 
-            return View("VerifyEmailCodeError");          
+            //return View("VerifyEmailCodeError");          
         }
 
 

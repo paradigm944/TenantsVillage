@@ -30,16 +30,16 @@
             @Html.PasswordFor(m => m.Password)
         </div>
     </div>
-        <div class="row">
-            <div class="span4">
-                @Html.LabelFor(m => m.Code)
-                @Html.TextBoxFor(m => m.Code)
-            </div>
-        </div>
+        
         <br />
         <br />
-            @Html.HiddenFor(m => m.IsPasswordChange)
+           
     <div class="row">
         <input class="btn btn-primary "type="submit" value="Verify" />
       </div>
-</div>  }
+</div>  
+    
+     @Html.HiddenFor(m => m.UserId)
+     @Html.HiddenFor(m => m.UserName)
+
+}
