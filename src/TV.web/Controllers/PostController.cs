@@ -240,7 +240,7 @@ namespace TV.web.Controllers
 
             var postId = _ctx.Post.Where(m => m.Id == photo.PostId).SingleOrDefault().Id;
 
-            photo.IsDeleted = 0;
+            
             _ctx.Image.Remove(photo);
             _ctx.SaveChanges();
 
