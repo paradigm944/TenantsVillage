@@ -230,46 +230,46 @@ namespace TV.web.Controllers
 
 
        
-        public ActionResult ChangePassword()
-        {
+        //public ActionResult ChangePassword()
+        //{
 
-            var outModel = new LocalPasswordModel();
-            return View(outModel);
-        }
+        //    var outModel = new LocalPasswordModel();
+        //    return View(outModel);
+        //}
 
 
-        [HttpPost]
-        public ActionResult ChangePassword(LocalPasswordModel inModel)
-        {
-            var user = _ctx.UserProfiles.Where(m => m.UserName == User.Identity.Name).SingleOrDefault();
+        //[HttpPost]
+        //public ActionResult ChangePassword(LocalPasswordModel inModel)
+        //{
+        //    var user = _ctx.UserProfiles.Where(m => m.UserName == User.Identity.Name).SingleOrDefault();
 
-            if (!Membership.ValidateUser(User.Identity.Name, inModel.OldPassword))
-            {
-                ModelState.AddModelError("", "The current password is not correct.");
-                return View(inModel);
+        //    if (!Membership.ValidateUser(User.Identity.Name, inModel.OldPassword))
+        //    {
+        //        ModelState.AddModelError("", "The current password is not correct.");
+        //        return View(inModel);
 
-            }
-            else
-            {
-                try
-                {
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
                     
-                    WebSecurity.ChangePassword(user.UserName, inModel.OldPassword, inModel.NewPassword);
-                    WebSecurity.Logout();
-                    var bemail = new MailMessage("registration@tenantsvillage.com", user.Email.ToString(), "Registration Verification",
-                        "The password for your account at tenantsvillage.com has been changed.  If you did not authorize this change please contact us immediately. ");
-                    var smtpServer = new SmtpClient();
-                    smtpServer.Send(bemail);
-                    return View("Login");
-                }
-                catch
-                {
-                    ModelState.AddModelError("", "The current password is not correct.");
-                    return View(inModel);
-                }
-            }
+        //            WebSecurity.ChangePassword(user.UserName, inModel.OldPassword, inModel.NewPassword);
+        //            WebSecurity.Logout();
+        //            var bemail = new MailMessage("registration@tenantsvillage.com", user.Email.ToString(), "Registration Verification",
+        //                "The password for your account at tenantsvillage.com has been changed.  If you did not authorize this change please contact us immediately. ");
+        //            var smtpServer = new SmtpClient();
+        //            smtpServer.Send(bemail);
+        //            return View("Login");
+        //        }
+        //        catch
+        //        {
+        //            ModelState.AddModelError("", "The current password is not correct.");
+        //            return View(inModel);
+        //        }
+        //    }
             
-        }
+        //}
 
 
         [AllowAnonymous]
