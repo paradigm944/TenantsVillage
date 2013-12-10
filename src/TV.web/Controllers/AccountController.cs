@@ -35,7 +35,7 @@ namespace TV.web.Controllers
 
                 var bemail = new MailMessage("registration@tenantsvillage.com", userEmail.ToString(), "Password Reset Request",
                     "You have requested to have your password reset, or have forgot your password. This is your reset code:   " + resetToken + "  Copy it and return to tenantsvillage and use this code to reset your password." + System.Environment.NewLine
-                    + Url.Content("~/Account/ForgotPassword/" + resetToken));
+                    + @Url.Content("~/Account/ChangePassword/?token=" + resetToken));
                 var smtpServer = new SmtpClient();
                 smtpServer.Send(bemail);
                 return true;
@@ -76,7 +76,7 @@ namespace TV.web.Controllers
 
             if (inModel.UserName == user.UserName){
 
-                WebSecurity.ResetPassword(inModel.Token, inModel.Password);
+                WebSecurity.ResetPassword(inModel.Token, inModel.NewPassword);
                 return RedirectToAction("Index", "Home");
             }
         else{
