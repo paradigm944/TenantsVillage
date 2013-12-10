@@ -32,10 +32,21 @@ namespace TV.web.Controllers
                 var userEmail = user.Email;
             
                 var resetToken = WebSecurity.GeneratePasswordResetToken(user.UserName, 1440);
+                
+                
+                
+                
+                
+                var hosturl =
+                        System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
+                        "/Account/ChangePassword/?token=" + resetToken;
+
+               //var confirmationLink = string.Format("<a href=\'{0}\'>Clink to confirm your registration</a>",
+               //                                      hosturl);
 
                 var bemail = new MailMessage("registration@tenantsvillage.com", userEmail.ToString(), "Password Reset Request",
-                    "You have requested to have your password reset, or have forgot your password. This is your reset code:   " + resetToken + "  Copy it and return to tenantsvillage and use this code to reset your password." + System.Environment.NewLine
-                    + @Url.Content("~/Account/ChangePassword/?token=" + resetToken));
+                    "You have requested to have your password reset, or have forgot your password. Click the link below to reset your password."+ System.Environment.NewLine+   
+                   hosturl );
                 var smtpServer = new SmtpClient();
                 smtpServer.Send(bemail);
                 return true;
