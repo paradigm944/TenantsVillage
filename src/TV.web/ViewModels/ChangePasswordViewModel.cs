@@ -33,7 +33,7 @@ namespace TV.web.ViewModels
 
         
         [Display(Name = "Confirm password")]
-        [System.ComponentModel.DataAnnotations.CompareAttribute("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
     }
