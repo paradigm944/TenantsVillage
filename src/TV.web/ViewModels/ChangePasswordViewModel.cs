@@ -21,6 +21,9 @@ namespace TV.web.ViewModels
         public string Token { get; set; }
 
         [Required]
+        public string NewPassword { get; set; }
+
+        [Required]
         public string UserName { get; set; }
 
         [Required]
