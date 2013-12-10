@@ -244,7 +244,7 @@
     <Compile Include="ViewModels\DisassociateUserViewModel.cs" />
     <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\ListOfPicsViewModel.cs" />
-    <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\ShowProfileViewModel.cs" />
     <Compile Include="ViewModels\UploadPicViewModel.cs" />
     <Compile Include="ViewModels\VerifyEmailCodeViewModel.cs" />
