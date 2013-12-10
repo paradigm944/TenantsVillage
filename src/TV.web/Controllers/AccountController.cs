@@ -32,11 +32,7 @@ namespace TV.web.Controllers
                 var userEmail = user.Email;
             
                 var resetToken = WebSecurity.GeneratePasswordResetToken(user.UserName, 1440);
-                
-                
-                
-                
-                
+
                 var hosturl =
                         System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
                         "/Account/ChangePassword/?token=" + resetToken;
