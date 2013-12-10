@@ -669,7 +669,6 @@
     <Folder Include="Content\images\" />
     <Folder Include="Services\" />
     <Folder Include="Thumbnails\" />
-    <Folder Include="Views\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
