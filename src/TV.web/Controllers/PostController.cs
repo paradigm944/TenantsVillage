@@ -233,7 +233,8 @@ namespace TV.web.Controllers
             return View("UserPosts");
         }
 
-        public  ActionResult DeletePhoto(int photoId)
+       
+        public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
 

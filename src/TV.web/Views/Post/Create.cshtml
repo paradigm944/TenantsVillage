@@ -115,7 +115,7 @@
                                         <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
                                         @if (Model.IsEDitMode == true)
                                         {
-                                            <button class="btn btn-mini">@Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, null)</button>
+                                           @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, null)
                                         }
                                     </div>
                                 </div>
