@@ -61,7 +61,15 @@
     <br />
     <br />
     <div class="row col-lg-12 col-lg-offset-2">
-        <div class="col-lg-3" style="padding-top: 15px; padding-bottom: 15px; padding-right: 25px; padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; -webkit-box-shadow: 3px 3px 5px 6px #ccc; box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); background-color: rgb(128,128,128); -moz-border-radius: 15px; border-radius: 15px;">
+        <div class="col-lg-3" style="padding-top: 15px; 
+             padding-bottom: 15px; padding-right: 25px; 
+             padding-left: 25px; 
+             -moz-box-shadow: 3px 3px 5px 6px #ccc; 
+             -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
+             box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
+             background-color: rgb(128,128,128); 
+             -moz-border-radius: 15px; 
+             border-radius: 15px;">
             <div class="row">
                 <div class="span3">
                     <em>@Html.LabelFor(m => m.LandLord)</em>
@@ -119,7 +127,14 @@
                 <br />
                 <br />
             </div>
-            <div class="col-lg-4 col-lg-offset-1" style="padding-top: 20px; padding-bottom: 20px; padding-right: 25px; padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; -webkit-box-shadow: 3px 3px 5px 6px #ccc; box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); background-color: rgb(128,128,128); -moz-border-radius: 15px; border-radius: 15px;">
+            <div class="col-lg-4 col-lg-offset-1" 
+                 style="padding-top: 20px; padding-bottom: 20px; 
+                 padding-right: 25px; padding-left: 25px; 
+                 -moz-box-shadow: 3px 3px 5px 6px #ccc; 
+                 -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
+                 box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
+                 background-color: rgb(128,128,128); 
+                 -moz-border-radius: 15px; border-radius: 15px;">
 
                 <div class="span10">
                     @if (Model.Images != null)
@@ -172,7 +187,8 @@
                     foreach (var x in Model.Comments)
                     {
                         <li style="padding-bottom:10px;">                           
-                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal", @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
+                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal", 
+                                    @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
                             @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) 
                         </li>   
                     }
