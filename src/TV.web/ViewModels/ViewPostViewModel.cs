@@ -78,9 +78,7 @@ namespace TV.web.ViewModels
 
         public IEnumerable<Comment> Comments { get; set; }
 
-        /// <summary>
-        /// everything below here is used for comenting on posts
-        /// </summary>
+        
 
 
         public int? ParentPostId { get; set; }
