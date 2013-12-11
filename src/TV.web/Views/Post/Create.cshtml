@@ -113,10 +113,9 @@
                                     <div class="span10">
 
                                         <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
-                                        @if (Model.IsEDitMode == true)
-                                        {
-                                           @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, null)
-                                        }
+                                        
+                                         @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, new { @class="btn-warning btn sm"})
+                                       
                                     </div>
                                 </div>
                             }
@@ -136,6 +135,25 @@
                     <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                     <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                 </div>
+                <ul>
+                    @if (Model.Comments != null && Model.IsEDitMode == true)
+                    {
+                        foreach (var x in Model.Comments)
+                        {
+                            <li style="padding-bottom:10px;">
+                                @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new
+                       {
+                           @style = "color: white;",
+                           @data_toggle = "modal",
+                           @data_target = "#viewCommentModal",
+                           @class = "btn btn-sm btn-primary"
+                       })       @*TODO Encodes*@
+                                @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString())
+                                @Html.ActionLink("Delete Comment", "DeleteComment", "Post", new { commentId = x.Id }, new { @class="btn-warning btn-sm"})
+                            </li>
+                        }
+                    }
+                </ul>
                 <div class="row-fluid">
                     <input class="btn btn-primary" type="submit" value="Submt" /><br />
                 </div>
@@ -150,7 +168,9 @@
         </form>
      </div>
 </div>
-
+<div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        @Html.Partial("_EditViewComment")
+    </div>
 }                
 
 

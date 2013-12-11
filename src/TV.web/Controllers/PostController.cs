@@ -102,6 +102,7 @@ namespace TV.web.Controllers
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var postId = post.Id;
             var images = _ctx.Image.Where(m => m.PostId == postId).ToList<ImageModel>();
+            var commentz = _ctx.Comment.Where(m => m.PostId == postId).ToList<Comment>();
 
             var outModel = new CreatePostViewModel
             {
@@ -121,7 +122,8 @@ namespace TV.web.Controllers
                 StreetList = StreetList,
                 IsEDitMode = true,
                 BuildingNumber = post.BuildingNumber,
-                Street = post.Street
+                Street = post.Street,
+                Comments = commentz
                 
             };
             
@@ -154,6 +156,7 @@ namespace TV.web.Controllers
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
+
 
 
             var outModel = new ViewPostViewModel
@@ -242,6 +245,19 @@ namespace TV.web.Controllers
 
             
             _ctx.Image.Remove(photo);
+            _ctx.SaveChanges();
+
+            return RedirectToAction("Edit", "Post", new { id = postId });
+        }
+
+        public ActionResult DeleteComment(int? commentId)
+        {
+            var comment = _ctx.Comment.Where(m => m.Id == commentId).SingleOrDefault();
+
+            var postId = _ctx.Post.Where(m => m.Id == comment.PostId).SingleOrDefault().Id;
+
+
+            _ctx.Comment.Remove(comment);
             _ctx.SaveChanges();
 
             return RedirectToAction("Edit", "Post", new { id = postId });

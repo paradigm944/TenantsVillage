@@ -662,6 +662,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_CreateComment.cshtml" />
     <Content Include="Views\Shared\_ViewComment.cshtml" />
+    <Content Include="Views\Shared\_EditViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

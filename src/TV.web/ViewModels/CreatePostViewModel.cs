@@ -20,6 +20,8 @@ namespace TV.web.ViewModels
 
         public bool Confirmed { get; set; }
 
+        public CommentViewModel ComViewModel { get; set; }
+
         [Required]
         [DisplayName("Feedback")]
         public string Post { get; set; }
@@ -78,5 +80,6 @@ namespace TV.web.ViewModels
 
         [DisplayName("Images")]
         public IList<ImageModel> Images { get; set; }
+
     }
 }
