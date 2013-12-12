@@ -209,10 +209,8 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FileTestController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
@@ -235,7 +233,6 @@
     <Compile Include="Models\DataRepository\DataRepository.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\JQueryDataTableParamModel.cs" />
-    <Compile Include="Models\TVDataIntitializer.cs" />
     <Compile Include="Models\TVContext.cs" />
     <Compile Include="Other\AjaxOnlyAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -413,9 +410,7 @@
     <Content Include="Content\DataTables\media\images\sort_both.png" />
     <Content Include="Content\DataTables\media\images\sort_desc.png" />
     <Content Include="Content\DataTables\media\images\sort_desc_disabled.png" />
-    <Content Include="Content\new.css" />
     <Content Include="Content\Style.css" />
-    <Content Include="Content\home.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
