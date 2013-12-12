@@ -87,7 +87,7 @@ namespace TV.web.Controllers
                 WebSecurity.Login(inModel.UserName, inModel.NewPassword, true);
                 return RedirectToAction("Index", "Home");
             }
-        else{
+            else{
 
                 ModelState.AddModelError("", "There was a problem reseting your password.  Please try again");
                 return View(inModel);
@@ -198,19 +198,20 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
+            var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
+
+            if (isVerified == false || isVerified == null)
+            {
+                ModelState.AddModelError("", "This account has not been verified.");
+            }
+
             if (Membership.ValidateUser(model.UserName, model.Password))
             {
-                var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
-
                 if ( isVerified == true)
                 {
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToLocal(returnUrl);
-                }
-                if (isVerified == false || isVerified == null)
-                {
-                    ModelState.AddModelError("", "This account has not been verified.");
-                }
+                }   
             }
             else
             {
@@ -350,7 +351,12 @@ namespace TV.web.Controllers
         public ActionResult VerifyEmailCode(string token)
         {
             var userId = WebSecurity.GetUserIdFromPasswordResetToken(token);
+            var user = _ctx.UserProfiles.Find(userId);
 
+            if (user.isVerified == true)
+            {
+                return View("Error");
+            }
             if (userId > 0)
             {
 
@@ -371,16 +377,24 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult VerifyEmailCode(VerifyEmailCodeViewModel inModel)
         {
-            try
+           var user = _ctx.UserProfiles.Find(inModel.UserId);
+           if (user.isVerified == true)
+           {
+               ModelState.AddModelError("", "This account has already been verified. ");
+               return View(inModel);
+
+           }
+           if (Membership.ValidateUser(inModel.UserName, inModel.Password))
             {
-                var user = _ctx.UserProfiles.Find(inModel.UserId);
+                
                 user.isVerified = true;
+                _ctx.SaveChanges();
                 WebSecurity.Login(inModel.UserName, inModel.Password);
                 return RedirectToAction("Index", "Home");
             }
-            catch
+           else
             {
-                ModelState.AddModelError("", "There was a problem logging in, please try again.");
+                ModelState.AddModelError("", "The Username and Password do not match, please try again.");
                 return View(inModel);
             }
 
