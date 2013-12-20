@@ -44,6 +44,19 @@ namespace TV.web.Controllers
             return View(outModel);
         }
 
+        public ActionResult CancelCreate(int? id)
+        {
+            var post = _ctx.Post.Find(id);
+
+            if (post != null)
+            {
+                _ctx.Post.Remove(post);
+                _ctx.SaveChanges();
+
+            }
+            return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Your Post has been canceled" });
+        }
+
         [HttpPost]
         public ActionResult Create(CreatePostViewModel inModel)
         {
