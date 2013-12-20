@@ -8,7 +8,11 @@
 @using (Html.BeginForm()) {
 @Html.AntiForgeryToken()
 @Html.ValidationSummary(false)
-<h3 style="text-align:center; color: rgb(0, 148, 255);"><strong>Edit</strong></h3>
+    
+    if (@Model.IsEDitMode == true) { 
+        <h3 style="text-align:center; color: rgb(0, 148, 255);"><strong>Edit</strong></h3>
+    
+        }
     
 <div class="container" style="padding-left:12px; padding-right:18px;">
     <div class="span5" style="padding-top: 15px; padding-bottom: 15px; padding-right: 25px; padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; -webkit-box-shadow: 3px 3px 5px 6px #ccc; box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); background-color: rgb(128,128,128); -moz-border-radius: 15px; border-radius: 15px;">
