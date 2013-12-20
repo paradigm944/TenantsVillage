@@ -75,26 +75,28 @@ namespace TV.web.Controllers
             
             _ctx.SaveChanges();
 
-            var outModel = new ViewPostViewModel
-            {
-                
-                Title = post.Title,
-                LandLord = post.LandLord,
-                LeaseYear = post.LeaseYear,
-                LLemail = post.LLemail,
-                Post = post.Post,
-                Rent = post.Rent,
-                Deposit = post.Deposit,
-                AmountKept = post.AmountKept,
-                IsDeleted = post.IsDeleted,
-                Id = post.Id,
-                AptNumber = post.AptNumber,
-                Images = images,
-                BuildingNumber = post.BuildingNumber,
-                Street = post.Street
+            return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
 
-            };
-            return View("CreatePostSuccess", outModel);
+            //var outModel = new ViewPostViewModel
+            //{
+                
+            //    Title = post.Title,
+            //    LandLord = post.LandLord,
+            //    LeaseYear = post.LeaseYear,
+            //    LLemail = post.LLemail,
+            //    Post = post.Post,
+            //    Rent = post.Rent,
+            //    Deposit = post.Deposit,
+            //    AmountKept = post.AmountKept,
+            //    IsDeleted = post.IsDeleted,
+            //    Id = post.Id,
+            //    AptNumber = post.AptNumber,
+            //    Images = images,
+            //    BuildingNumber = post.BuildingNumber,
+            //    Street = post.Street
+
+            //};
+            //return View("CreatePostSuccess", outModel);
         }
 
         public ActionResult Edit(int? id)
@@ -157,29 +159,31 @@ namespace TV.web.Controllers
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
 
+             _ctx.SaveChanges();
 
+             return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Any changes made have been saved" });
 
-            var outModel = new ViewPostViewModel
-            {
+            //var outModel = new ViewPostViewModel
+            //{
                 
-                Title = post.Title,
-                LandLord = post.LandLord,
-                LeaseYear = post.LeaseYear,
-                LLemail = post.LLemail,
-                Post = post.Post,
-                Rent = post.Rent,
-                Deposit = post.Deposit,
-                AmountKept = post.AmountKept,
-                IsDeleted = post.IsDeleted,
-                Id = post.Id,
-                AptNumber = post.AptNumber,
-                Images = images,
-                BuildingNumber = post.BuildingNumber,
-                Street = post.Street
-            };
+            //    Title = post.Title,
+            //    LandLord = post.LandLord,
+            //    LeaseYear = post.LeaseYear,
+            //    LLemail = post.LLemail,
+            //    Post = post.Post,
+            //    Rent = post.Rent,
+            //    Deposit = post.Deposit,
+            //    AmountKept = post.AmountKept,
+            //    IsDeleted = post.IsDeleted,
+            //    Id = post.Id,
+            //    AptNumber = post.AptNumber,
+            //    Images = images,
+            //    BuildingNumber = post.BuildingNumber,
+            //    Street = post.Street
+            //};
 
-            _ctx.SaveChanges();
-            return View("EditPostSuccess", outModel);
+           
+            //return View("EditPostSuccess", outModel);
         }
 
         public ActionResult Delete(int? id)

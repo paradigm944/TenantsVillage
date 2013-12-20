@@ -1,4 +1,4 @@
-﻿@model TV.web.Models.LocalPasswordModel
+﻿@model TV.web.ViewModels.ManageViewModel
 @{
     ViewBag.Title = "Manage Account";
 }
@@ -14,7 +14,11 @@
 
 @if (Request.IsAuthenticated)
 {
-    
+    if (@Model.needStatusMessage == true)
+    {
+        <div style="text-align:center; color:green;" class="row"><h3>@Model.statusMessage</h3> </div>
+    <br />
+    }
      <div class="row-fliud" style="padding-left:12px; padding-right:18px;">
 
         <div class="col-lg-2" style="  padding-top:15px;
