@@ -88,82 +88,79 @@
 @if (!Request.IsAuthenticated)
 {
 
-    <div class="row-fliud" id="demo" style="padding-left:12px; padding-right:18px;">
-        <div class="col-lg-8 col-lg-offset-2"  style="  padding-top:15px;
-                    padding-bottom:35px;
-                    padding-right:25px;
-                    padding-left:25px;
-                    -moz-box-shadow:3px 3px 5px 5px #ccc;
-                    -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                    box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                    background-color:rgb(224,224,224);
-                    -moz-border-radius: 15px;
-                    border-radius: 15px;">
-
-            This is new content
-
+    <div class="row" style="padding-left:12px; padding-right:18px;">
+        <div class="col-lg-12 col-lg-offset-2 col-md-12 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Welcome To TenantsVillage
+                    </div>
+                </div>
+                <div class="panel-body">
+                    jytfv iybouifubvituk<br />
+                    tfybkbkufyhgnlyb
+                </div>
+            </div>
         </div>
     </div>
 }
 
-<div class=" row visible-lg"></div> 
-<h3 class="col-lg-offset-1" style="color: rgb(0, 148, 255); padding-left: 9px;">Search posts via Landlord and Street</h3>
-<hr />
-<div class="row-fliud" id="demo" style="padding-left:12px; padding-right:18px;">
-    <div class="col-lg-8 col-lg-offset-2" style="  padding-top:15px;
-            padding-bottom:35px;
-            padding-right:25px;
-            padding-left:25px;
-            -moz-box-shadow:3px 3px 5px 5px #ccc;
-            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-            background-color:rgb(224,224,224);
-            -moz-border-radius: 15px;
-            border-radius: 15px;">
-        <div class="table-responsive">
-            <table id="myDataTable" class="display">
-                <thead>
-                    <tr style="color:#d5d7bf">
-                        <th style="text-align:center">ID</th>
-                        <th style="text-align:center">Landlord</th>
-                        <th style="text-align:center">Title</th>
-                        <th style="text-align:center">Street</th>
-                    </tr>
-                </thead>
-                <tbody style="text-align:center;"></tbody>
-            </table>
+<div class="row" id="demo" style="padding-left:12px; padding-right:18px;">
+    <div class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Search posts via Landlord and Street
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="myDataTable" class="display">
+                        <thead>
+                            <tr style="color:#d5d7bf">
+                                <th style="text-align:center">ID</th>
+                                <th style="text-align:center">Landlord</th>
+                                <th style="text-align:center">Title</th>
+                                <th style="text-align:center">Street</th>
+                            </tr>
+                        </thead>
+                        <tbody style="text-align:center;"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+    
 </div>
 <div class="row visible-lg"></div> 
-<br />
-<h3 class="col-lg-offset-1" style="color: rgb(0, 148, 255); padding-left: 9px;">The most recent pictures uploaded</h3>
-<hr />
-<div class="row-fliud" style="padding-left:12px; padding-right:18px;">
-    <div class="col-lg-8 col-lg-offset-2" style="padding-top:15px;
-            padding-bottom:15px;
-            padding-right:25px;
-            padding-left:25px;
-            -moz-box-shadow:3px 3px 5px 6px #ccc;
-            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-            background-color:rgb(224,224,224);-moz-border-radius: 15px;
-            border-radius: 15px;">
 
-        <a title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="pic_0"><img id="pic0" src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp LandLord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="pic_1"><img id="pic1" src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp LandLord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="pic_2"><img id="pic2" src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp LandLord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="pic_3"><img id="pic3" src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp LandLord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="pic_4"><img id="pic4" src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp LandLord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="pic_5"><img id="pic5" src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="pic_6"><img id="pic6" src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="pic_7"><img id="pic7" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img id="pic8" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
-        <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img id="pic9" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
-        <button id="resetButton" class="btn btn-primary" onclick="resetPics(@Model.Pic_1.Id)">Reset Pics</button>
-        <button id="picButton" class="btn btn-primary" onclick="getPics(@Model.Pic_1.Id)">More Pics</button>
+<div class="row" style="padding-left:12px; padding-right:18px;">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    The most recent pictures, click to see the post
+                </div>
+            </div>
+            <div class="panel-body">
+                <a title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_0.PostId" id="pic_0"><img id="pic0" src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp LandLord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_1.PostId" id="pic_1"><img id="pic1" src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp LandLord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_2.PostId" id="pic_2"><img id="pic2" src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp LandLord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_3.PostId" id="pic_3"><img id="pic3" src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp LandLord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_4.PostId" id="pic_4"><img id="pic4" src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp LandLord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_5.PostId" id="pic_5"><img id="pic5" src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.PostId" id="pic_6"><img id="pic6" src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.PostId" id="pic_7"><img id="pic7" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.PostId" id="pic_8"><img id="pic8" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px; " /></a>
+                <a title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.PostId" id="pic_9"><img id="pic9" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="max-width: 150px; max-height: 100px; padding-bottom: 6px;" /></a>
+                <button id="resetButton" class="btn btn-primary" onclick="resetPics(@Model.Pic_1.Id)">Reset Pics</button>
+                <button id="picButton" class="btn btn-primary" onclick="getPics(@Model.Pic_1.Id)">More Pics</button>
+
+            </div>
+        </div>  
     </div>
 </div>
+
 @if (Request.IsAuthenticated) { 
 <br />
 <div class="row visible-lg">
@@ -173,24 +170,23 @@
 <h4 class="col-lg-offset-1" style="padding-top:20px; color: rgb(0, 148, 255); padding-left: 9px;">Below are links to sites that provide information and services to renters.
                 TenantsVillage is not responsible for the content of these sites.  <br />You will be leaving
                 TenantsVillage.com when the link is clicked.</h4>
-<hr />
-<div class="row-fliud" style="padding-left:12px; padding-right:18px;">
-    <div class="col-lg-8 col-lg-offset-2"   style="padding-top:15px;
-            padding-bottom:15px;
-            padding-right:25px;
-            padding-left:25px;
-            -moz-box-shadow:3px 3px 5px 6px #ccc;
-            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-            background-color:rgb(224,224,224);-moz-border-radius: 15px;
-            border-radius: 15px;">
-            <br />
 
-        <a href="http://portal.hud.gov/hudportal/HUD?src=/states/iowa/renting/tenantrights" class="btn btn-primary btn-lg active" role="button">Federal HUD site</a>
-        <a href="http://www.iowalegalaid.org/issues/housing/landlord-and-tenant-issues" class="btn btn-default btn-lg active" style="border-color: rgb(0, 148, 255);" role="button">Iowa Legal Aid</a>
-        <a href="http://www.iowabar.org/?page=LandlordTenant" class="btn btn-primary btn-lg active" role="button">Iowa Bar Landlord/Tenant page</a>
-        <a href="http://coolice.legis.iowa.gov/Cool-ICE/default.asp?Category=billinfo&Service=IowaCode&input=562A" class="btn btn-default btn-lg active" style="border-color: rgb(0, 148, 255);" role="button">Iowa Landlord/Tenant Law</a>
-        <a href="http://www.icgov.org/?id=1149" class="btn btn-primary btn-lg active" role="button">Iowa City Code Enforcement</a>  
+<div class="row" style="padding-left:12px; padding-right:18px;">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Useful Links
+                </div>
+            </div>
+            <div class="panel-body">
+                <a href="http://portal.hud.gov/hudportal/HUD?src=/states/iowa/renting/tenantrights" class="btn btn-primary btn-lg active" role="button">Federal HUD site</a>
+                <a href="http://www.iowalegalaid.org/issues/housing/landlord-and-tenant-issues" class="btn btn-default btn-lg active" style="border-color: rgb(0, 148, 255);" role="button">Iowa Legal Aid</a>
+                <a href="http://www.iowabar.org/?page=LandlordTenant" class="btn btn-primary btn-lg active" role="button">Iowa Bar Landlord/Tenant page</a>
+                <a href="http://coolice.legis.iowa.gov/Cool-ICE/default.asp?Category=billinfo&Service=IowaCode&input=562A" class="btn btn-default btn-lg active" style="border-color: rgb(0, 148, 255);" role="button">Iowa Landlord/Tenant Law</a>
+                <a href="http://www.icgov.org/?id=1149" class="btn btn-primary btn-lg active" role="button">Iowa City Code Enforcement</a>
+            </div>
+        </div> 
     </div>
 </div>
 }
