@@ -30,6 +30,7 @@
         $(document).ready(function () {
             $('#resetButton').hide();
         })
+
         function resetPics() {
             $.getJSON('@Url.Content("~/Home/ResetPictures/"+ Model.Pic_9.Id)', function (picList) {
                 $.each(picList, function () {
@@ -46,51 +47,53 @@
         };
                 
        
-            var hiId; 
-            var previouslyRun = false;
-            function getPics() {
-                var picList = new Array();
-                if (!previouslyRun) {
-                    var picId = { picId: '@Model.Pic_9.Id' };
-                } else {
-                    var picId = { picId: hiId };
-                }
-                previouslyRun = true;
-                $.ajax({
-                    url: "@Url.Content("~/Home/MorePictures/")/" + picId,
-                        type: "POST",
-                        datatype: "JSON",
-                        data: JSON.stringify(picId),
-                        contentType: "application/json; charset=utf-8",
-                        traditional: true,
-                        success:
-                            function (picList) {
-                                var len = picList.length;
-
-                                $.each(picList, function (){
-                                     JSON.stringify();
-                                })
-                                if (picList.length < 10) {
-                                    $('#picButton').prop('disabled', true);
-                                    $('#resetButton').show();
-                                }
-                                hiId = picList[len - 1].Id;
-                                for (var i = 0; i < picList.length; i++) {
-                                    $('#pic' + i).attr("src", picList[i].ImageUrl);
-                                    $('#pic_' + i).attr("href", "@Url.Action("viewpost","search")/" + picList[i].PostId);
-                                    $('#pic_' + i).attr("title", "Street: " + picList[i].Post.Street + "   LandLord: " + picList[i].Post.LandLord);
-                                }
-                        },
-                        failure: function (response) {
-                           console.log(response);
-                        }
-                    });
+        var hiId; 
+        var previouslyRun = false;
+        function getPics() {
+            var picList = new Array();
+            if (!previouslyRun) {
+                var picId = { picId: '@Model.Pic_9.Id' };
+            } else {
+                var picId = { picId: hiId };
             }
+            previouslyRun = true;
+            $.ajax({
+                url: "@Url.Content("~/Home/MorePictures/")/" + picId,
+                    type: "POST",
+                    datatype: "JSON",
+                    data: JSON.stringify(picId),
+                    contentType: "application/json; charset=utf-8",
+                    traditional: true,
+                    success:
+                        function (picList) {
+                            var len = picList.length;
+
+                            $.each(picList, function (){
+                                    JSON.stringify();
+                            })
+                            if (picList.length < 10) {
+                                $('#picButton').prop('disabled', true);
+                                $('#resetButton').show();
+                            }
+                            hiId = picList[len - 1].Id;
+                            for (var i = 0; i < picList.length; i++) {
+                                $('#pic' + i).attr("src", picList[i].ImageUrl);
+                                $('#pic_' + i).attr("href", "@Url.Action("viewpost","search")/" + picList[i].PostId);
+                                $('#pic_' + i).attr("title", "Street: " + picList[i].Post.Street + "   LandLord: " + picList[i].Post.LandLord);
+                            }
+                    },
+                    failure: function (response) {
+                        console.log(response);
+                    }
+                });
+        }
+
         $(function () {
             $("#accordion").accordion({
                 collapsible: true
             });
         });
+
     </script>
 
 }
@@ -105,6 +108,8 @@
   </div>
  
 </div>
+    <br />
+    <br />
 
 }
 
@@ -163,16 +168,8 @@
         </div>  
     </div>
 </div>
-
-@if (Request.IsAuthenticated) { 
-<br />
-<div class="row visible-lg">
-    <br />
-    </div>
 <div class="row visible-lg"></div> 
-<h4 class="col-lg-offset-1" style="padding-top:20px; color: rgb(0, 148, 255); padding-left: 9px;">Below are links to sites that provide information and services to renters.
-                TenantsVillage is not responsible for the content of these sites.  <br />You will be leaving
-                TenantsVillage.com when the link is clicked.</h4>
+
 
 <div class="row" style="padding-left:12px; padding-right:18px;">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2">
@@ -183,6 +180,11 @@
                 </div>
             </div>
             <div class="panel-body">
+                <p style="color: rgb(0, 148, 255); padding-left: 9px;">
+                    Below are links to sites that provide information and services to renters.
+                    TenantsVillage is not responsible for the content of these sites.  <br />You will be leaving
+                    TenantsVillage.com when the link is clicked.
+                </p>
                 <a href="http://portal.hud.gov/hudportal/HUD?src=/states/iowa/renting/tenantrights" class="btn btn-primary btn-lg active" role="button">Federal HUD site</a>
                 <a href="http://www.iowalegalaid.org/issues/housing/landlord-and-tenant-issues" class="btn btn-default btn-lg active" style="border-color: rgb(0, 148, 255);" role="button">Iowa Legal Aid</a>
                 <a href="http://www.iowabar.org/?page=LandlordTenant" class="btn btn-primary btn-lg active" role="button">Iowa Bar Landlord/Tenant page</a>
@@ -192,6 +194,6 @@
         </div> 
     </div>
 </div>
-}
+
 
 
