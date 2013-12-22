@@ -16,63 +16,41 @@
 {
     if (@Model.needStatusMessage == true)
     {
-        <div style="text-align:center; color:green;" class="row"><h3>@Model.statusMessage</h3> </div>
+        <div class="alert alert-success alert-dismissable col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-2">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>@Model.statusMessage</p>
+        </div>
+        @*<div style="text-align:center; color:green;" class="row"><h3>@Model.statusMessage</h3> </div>*@
     <br />
     }
-     <div class="row-fliud" style="padding-left:12px; padding-right:18px;">
-
-        <div class="col-lg-2" style="  padding-top:15px;
-                    padding-bottom:35px;
-                    padding-right:25px;
-                    padding-left:25px;
-                    -moz-box-shadow:3px 3px 5px 5px #ccc;
-                    -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                    box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                    background-color:rgb(224,224,224);
-                    -moz-border-radius: 15px;
-                    border-radius: 15px;">
-            <h4 style="color: rgb(0, 148, 255); padding-left: 9px;">You're logged in as <strong>@User.Identity.Name</strong>.</h4>
-            <hr />
-            <a class="btn btn-primary" href="~/account/resetpassword/">Change Password</a>
-            <br />
-            <br />
-            <a class="btn btn-primary" href="~/account/disassociate/">Delete Account</a>
-            <br />
-            <br />
-            <a class="btn btn-primary" href="~/post/create/">Create Post</a>
-            <br />
-
-        </div>
-
-    <div class="visible-md visible-sm visible-xs"><br /></div>
-
-    <div class="col-lg-7 col-lg-offset-1" style="  padding-top:15px;
-            padding-bottom:35px;
-            padding-right:25px;
-            padding-left:25px;
-            -moz-box-shadow:3px 3px 5px 5px #ccc;
-            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-            background-color:rgb(224,224,224);
-            -moz-border-radius: 15px;
-            border-radius: 15px;">
-        <h4 style="color: rgb(0, 148, 255); padding-left: 9px;">Your Posts</h4><hr />
-            <div class="table-responsive">
-                <table id="myDataTable" class="display ">
-                    <thead>
-                        <tr style="color:#d5d7bf">
-                            <th>ID</th>
-                            <th>Landlord</th>
-                            <th>Title</th>
-                            <th>Street</th>
-                            <th>Is Completed</th>
-
-                        </tr>
-                    </thead>
-                    <tbody style="text-align:center;"></tbody>
-                </table>
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4 style="padding-left: 9px;">Your Posts</h4>
+                </div>
             </div>
-</div></div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="myDataTable" class="display ">
+                        <thead>
+                            <tr style="color:#d5d7bf">
+                                <th>ID</th>
+                                <th>Landlord</th>
+                                <th>Title</th>
+                                <th>Street</th>
+                                <th>Is Completed</th>
+
+                            </tr>
+                        </thead>
+                        <tbody style="text-align:center;"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 }    
     
