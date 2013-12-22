@@ -7,8 +7,8 @@
     <title>Tenants Villige</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-
    
+    
     @*@Styles.Render("~/Content/css")*@
     @Styles.Render("~/Content/bootstrapAdmin.css")
     @Styles.Render("~/Content/sb-admin.css")
@@ -42,22 +42,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         @if (Request.IsAuthenticated)
-        {
-            <ul class="nav navbar-nav side-nav hidden-sm hidden-xs" style="max-width: 150px; background-color: #e7e7e7;">
-                <li class="active"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="@Url.Action("Manage", "Account")"><i class="fa fa-tags"></i> Manage Posts</a></li>
-                <li><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create Post</a></li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Manage User &nbsp; <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
-                        <li><a href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
-                        <li><a href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
-                    </ul>
-                </li>
+{
+    <ul id="sideNav" class="nav navbar-nav side-nav  hidden-sm hidden-xs" style="max-width: 150px; background-color: #e7e7e7;">
+        <li id="homeTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
+        <li id="manageTab"><a href="@Url.Action("Manage", "Account")"><i class="fa fa-tags"></i> Manage Posts</a></li>
+        <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create Post</a></li>
+
+        <li id="userTab" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Manage User &nbsp; <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li id="userTab1"><a href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
+                <li id="userTab2"><a href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
+                <li id="userTab3"><a href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
             </ul>
-        }
+        </li>
+    </ul>
+}
         <ul class="nav navbar-nav navbar-right navbar-user">
             @*<li class="dropdown messages-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
@@ -157,3 +157,25 @@
 <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
 @Scripts.Render("~/scripts/bootstrap.min.js")
 @RenderSection("Scripts", required: false)
+
+<script>
+   
+    //$('ul.nav li a').click(function (e) {
+    //    console.log("yoyoyoyoy");
+    //    $('ul li.active').removeclass('active')
+    //    $(this).parent('li').addclass('active')
+    //});
+
+    //$('#sidenav li a').click(function (e) {
+    //    console.log(this);
+    //    $('ul.side-nav li.active').removeclass('active')
+    //    $(this).parent('li').addclass('active')
+    //})
+
+    //$('#sideNav li a').click(function () {
+    //    console.log(this);
+    //    $('#sideNav li.active').removeClass('active');
+    //    $(this).addClass('active');
+    //})
+
+</script>

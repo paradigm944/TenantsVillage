@@ -4,6 +4,19 @@
     ViewBag.Title = "Create a New Post";
 }
 
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            $('#sideNav').children('li').each(function () {
+                $(this).removeClass('active');
+            });
+
+            $('#crPostTab').addClass('active');
+        })
+
+    </script>
+    }
 
 @using (Html.BeginForm()) {
 @Html.AntiForgeryToken()

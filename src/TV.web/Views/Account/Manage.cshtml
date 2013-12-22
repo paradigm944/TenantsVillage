@@ -62,6 +62,11 @@
     <script>
 
         $(document).ready(function () {
+            $('#sideNav').children('li').each(function () {
+                $(this).removeClass('active');
+            });
+
+            $('#manageTab').addClass('active');
 
             var oTable = $('#myDataTable').dataTable({
                 "bServerSide": true,

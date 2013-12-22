@@ -28,6 +28,11 @@
         
 
         $(document).ready(function () {
+            $('#sideNav').children('li').each(function () {
+                $(this).removeClass('active');
+            });
+
+            $('#homeTab').addClass('active');
             $('#resetButton').hide();
         })
 
@@ -102,7 +107,7 @@
 
     <div id="accordion">
 
-  <h3>Section 1</h3>
+  <h3>Welcome to Tenant's Village</h3>
   <div>
     <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
   </div>
