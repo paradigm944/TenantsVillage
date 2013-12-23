@@ -25,7 +25,7 @@ namespace TV.web.Models
         [Column("Recipient")]
         public  string Recipient { get; set; }
 
-        [Required, MinLength(4)]
+        [Required]
         [Column("Subject")]
         public string Subject { get; set; }
 

@@ -42,7 +42,7 @@ namespace TV.web.Models
         {
             _ctx.Comment.Add(messageToAdd);
 
-            //var errors = _ctx.GetValidationErrors();
+            var errors = _ctx.GetValidationErrors();
 
             _ctx.SaveChanges();
 

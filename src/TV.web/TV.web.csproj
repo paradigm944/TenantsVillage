@@ -415,6 +415,24 @@
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\jQuerySlider\img\background-paralax.jpg" />
+    <Content Include="Content\jQuerySlider\img\bootstrap.png" />
+    <Content Include="Content\jQuerySlider\img\closedhand.cur.bmp" />
+    <Content Include="Content\jQuerySlider\img\css3.png" />
+    <Content Include="Content\jQuerySlider\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\jQuerySlider\img\glyphicons-halflings.png" />
+    <Content Include="Content\jQuerySlider\img\html5.png" />
+    <Content Include="Content\jQuerySlider\img\image-bg.jpg" />
+    <Content Include="Content\jQuerySlider\img\jquery.png" />
+    <Content Include="Content\jQuerySlider\img\openhand.cur.bmp" />
+    <Content Include="Content\jQuerySlider\img\openhand.cur.gif" />
+    <Content Include="Content\jQuerySlider\img\paypal-logo.png" />
+    <Content Include="Content\jQuerySlider\img\slide-1.jpg" />
+    <Content Include="Content\jQuerySlider\img\slide-2.jpg" />
+    <Content Include="Content\jQuerySlider\img\slide-3.jpg" />
+    <Content Include="Content\jQuerySlider\img\slide-4.jpg" />
+    <Content Include="Content\jQuerySlider\responsive-slider-paralax.css" />
+    <Content Include="Content\jQuerySlider\responsive-slider.css" />
     <Content Include="Content\jqueryUIsmoothness.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\Style.css" />
@@ -576,6 +594,7 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\jQuerySlider\less\responsive-slider.less" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\tenantsvillage - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tenantsvillage - FTP %283%29.pubxml" />
@@ -608,6 +627,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jQuerySlider\jquery.event.move.js" />
+    <Content Include="Scripts\jQuerySlider\responsive-slider.js" />
+    <Content Include="Scripts\jQuerySlider\responsive-slider.min.js" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
@@ -696,6 +718,7 @@
     <Content Include="Views\Shared\_CreateComment.cshtml" />
     <Content Include="Views\Shared\_ViewComment.cshtml" />
     <Content Include="Views\Shared\_EditViewComment.cshtml" />
+    <Content Include="Scripts\jQuerySlider\coffee\responsive-slider.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
