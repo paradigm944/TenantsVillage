@@ -13,8 +13,8 @@
 
 <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/jqueryUIsmoothness.css")" rel="stylesheet" type="text/css" />
-<link href="@Url.Content("~/Content/jQuerySlider/resposive-slider.css")" rel="stylesheet" type="text/css" />
-<link href="@Url.Content("~/Content/jQuerySlider/resposive-slider-parallax.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/jQuerySlider/responsive-slider.css")" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -26,8 +26,8 @@
     <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/JavaScript1.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jQuerySlider/jquery.event.move.js")"></script>
-    <script src="@Url.Content("~/Scripts/jQuerySlider/responsive-slider.js")"></script>
+    <script src="@Url.Content("~/Scripts/jQuerySlider/jquery.event.move.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jQuerySlider/responsive-slider.js")" type="text/javascript"></script>
     
 
     <script>
@@ -38,14 +38,12 @@
                 $(this).removeClass('active');
             });
 
-           
+            $('.responsive-slider').responsiveSlider();
             $('#homeTab').addClass('active');
             $('#resetButton').hide();
         })
 
-        $(document).ready(function () {
-            $('.responsive-slider').responsiveSlider();
-        });
+       ;
 
         function resetPics() {
             $.getJSON('@Url.Content("~/Home/ResetPictures/"+ Model.Pic_9.Id)', function (picList) {
@@ -115,39 +113,72 @@
 }
 @if (!Request.IsAuthenticated)
 {
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div id="accordion">
 
-    <div id="accordion">
+                <h3>Welcome to Tenant's Village</h3>
+                <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+                    <div class="slides" data-group="slides">
+                        <ul>
+                            <li>
+                                <div class="slide-body" data-group="slide">
+                                    <img src="~/Content/jQuerySlider/img/slide-1.jpg">
+                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2>Responsive slider</h2>
+                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
+                                    </div>
+                                    <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
+                                        <img src="~/Content/jQuerySlider/img/html5.png">
+                                    </div>
+                                    <div class="caption img-css3" data-animate="slideAppearLeftToRight">
+                                        <img src="~/Content/jQuerySlider/img/css3.png">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide-body" data-group="slide">
+                                    <img src="~/Content/jQuerySlider/img/slide-2.jpg">
+                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2>Twitter Boostrap</h2>
+                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
+                                    </div>
+                                    <div class="caption img-bootstrap" data-animate="slideAppearDownToUp" data-delay="200">
+                                        <img src="~/Content/jQuerySlider/img/bootstrap.png">
+                                    </div>
+                                    <div class="caption img-twitter" data-animate="slideAppearUpToDown">
+                                        <img src="~/Content/jQuerySlider/img/twitter.png">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide-body" data-group="slide">
+                                    <img src="~/Content/jQuerySlider/img/slide-3.jpg">
+                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2>Custom animations</h2>
+                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
+                                    </div>
+                                    <div class="caption img-jquery" data-animate="slideAppearDownToUp" data-delay="200">
+                                        <img src="~/Content/jQuerySlider/img/jquery.png">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="slider-control left" href="#" data-jump="prev"><</a>
+                    <a class="slider-control right" href="#" data-jump="next">></a>
+                    <div class="pages">
+                        <a class="page" href="#" data-jump-to="1">1</a>
+                        <a class="page" href="#" data-jump-to="2">2</a>
+                        <a class="page" href="#" data-jump-to="3">3</a>
+                    </div>
+                </div>
 
-  <h3>Welcome to Tenant's Village</h3>
-  <div>
-      <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000" data-transitiontime="300">
-          <div class="slides" data-group="slides">
-              <ul>
-                  <li>
-                      <div class="slide-body" data-group="slide">
-                          <img src="@Url.Content("~/content/jQuerySlider/img/slide-1")">
-                          <div class="caption" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                              <h2><i class="icon-gift"></i> Responsive slider</h2>
-                              <div class="caption" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
-                          </div>
-                      </div>
-                  </li>
-                  . . .
-              </ul>
-          </div>
-          <a class="slider-control left" href="#" data-jump="prev"><i class="icon-angle-left"></i></a>
-          <a class="slider-control right" href="#" data-jump="next"><i class="icon-angle-right"></i></a>
-          <div class="pages">
-              <a class="page" href="#" data-jump-to="1">1</a>
-              <a class="page" href="#" data-jump-to="2">2</a>
-              <a class="page" href="#" data-jump-to="3">3</a>
-          </div>
-      </div>
-  </div>
- 
-</div>
-    <br />
-    <br />
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
 
 }
 
