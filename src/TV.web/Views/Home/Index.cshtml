@@ -9,6 +9,12 @@
         -webkit-box-shadow: 3px 3px 5px 6px #ccc;
         box-shadow: 3px 3px 5px 6px #ccc;
     }
+
+    .captionheader{
+        color:lightsalmon;
+    }
+
+   
 </style>
 
 <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
@@ -117,54 +123,47 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <div id="accordion">
-
                 <h3>Welcome to Tenant's Village<i style="float:right;" class="fa fa-times"></i></h3>
                 <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
                     <div class="slides" data-group="slides">
                         <ul>
                             <li>
                                 <div class="slide-body" data-group="slide">
-                                    <img style="width:1300px; height:548px;" src="~/Content/jQuerySlider/img/slide-4.jpg">
-                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                        <h2>Responsive slider</h2>
-                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">With one to one swipe movement!</div>
+                                    <img style="width:1300px; height:548px; opacity:.6;" src="~/Content/jQuerySlider/img/slide-4.jpg">
+                                    <div class="caption header" style="color:lightsalmon;" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2>Lookup a perspective Landlord....</h2>
+                                        <div class="caption sub" style="color:black;" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300"> or Register and leave feedback about your current Landlord</div>
                                     </div>
-                                    <div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
+                                    @*<div class="caption img-html5" data-animate="slideAppearLeftToRight" data-delay="200">
                                         <img src="~/Content/jQuerySlider/img/html5.png">
                                     </div>
                                     <div class="caption img-css3" data-animate="slideAppearLeftToRight">
                                         <img src="~/Content/jQuerySlider/img/css3.png">
-                                    </div>
+                                    </div>*@
                                 </div>
                             </li>
                             <li>
                                 <div class="slide-body" data-group="slide">
-                                    <img style="width:1300px; height:548px;" src="~/Content/jQuerySlider/img/slide-5.jpg">
-                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                        <h2>Twitter Boostrap</h2>
-                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Compatible!</div>
+                                    <img style="width: 1300px; height: 548px; opacity: .6;" src="~/Content/jQuerySlider/img/slide-6.png">
+                                    <div class="caption header" style="color:lightsalmon;" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2></h2>
+                                        <div class="caption sub" style="color:black; left:50px;" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300"></div>
                                     </div>
-                                    <div class="caption img-bootstrap" data-animate="slideAppearDownToUp" data-delay="200">
-                                        <img src="~/Content/jQuerySlider/img/bootstrap.png">
-                                    </div>
-                                    <div class="caption img-twitter" data-animate="slideAppearUpToDown">
-                                        <img src="~/Content/jQuerySlider/img/twitter.png">
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slide-body" data-group="slide">
-                                    <img style="width:1300px; height:548px;" src="~/Content/jQuerySlider/img/slide-6.png">
-                                    <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                                        <h2>Custom animations</h2>
-                                        <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">For any caption you use!</div>
-                                    </div>
-                                    <div class="caption img-jquery" data-animate="slideAppearDownToUp" data-delay="200">
+                                    @*<div class="caption img-jquery" style="color:lightsalmon;" data-animate="slideAppearDownToUp" data-delay="200">
                                         <img src="~/Content/jQuerySlider/img/jquery.png">
+                                    </div>*@
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide-body" data-group="slide">
+                                    <img style="width:1300px; height:548px; opacity:.6;" src="~/Content/jQuerySlider/img/slide-1.jpg">
+                                    <div class="caption header" style="color:lightsalmon;" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                                        <h2>Tenant's Village</h2>
+                                        <div class="caption sub" style="color:black; left:48px;" data-animate="slideAppearLeftToRight" data-delay="800" data-length="300">Your FREE and impartial source for Landlord ratings</div>
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+                         </ul>
                     </div>
                     <a class="slider-control left" href="#" data-jump="prev"><</a>
                     <a class="slider-control right" href="#" data-jump="next">></a>
