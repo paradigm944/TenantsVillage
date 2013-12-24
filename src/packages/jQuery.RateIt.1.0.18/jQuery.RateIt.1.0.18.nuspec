@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jQuery.RateIt</id>
+    <version>1.0.18</version>
+    <title>jQuery.RateIt</title>
+    <authors>Gidon Junge</authors>
+    <owners>Gidon Junge</owners>
+    <licenseUrl>http://rateit.codeplex.com/license</licenseUrl>
+    <projectUrl>http://rateit.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A rating plugin for jQuery. 
+    
+Features: fast, progressive enhancement, touch support, customizable (just swap out the images, or change some CSS), unobtrusive javaScript (using HTML5 data-* attributes), RTL support, ARIA and Keyboard support  (*new). Use as many stars as you'd like, and also any step size. 
+    
+Check out the examples link on the project page for implementation and examples.</description>
+    <summary>A rating plugin for jQuery.</summary>
+    <releaseNotes>==== CHANGE LOG ====
+          1.0.18
+          Bug fix: #1747 Continuation...
+
+          1.0.17
+          Bug fix: #1747 Initialization fail with data-rateit-value=0
+          
+          1.0.16
+          Bug fix: #1741 Using arrow keys after a rating changes rating.
+
+          1.0.15
+          Bug fix: #1728 Compatibility with jQuery mobile
+
+          1.0.14
+          Feature: #1712 Added a programmatic reset method which reverts to initial settings.
+          Bug fix: #1711 On changing starheight/width some artifacts show up. (Thanks to JoeyBradshaw)
+
+          1.0.13
+          Bug fix: #1648 Removed console.log
+
+          1.0.12
+          Feature: ARIA support. Added basic ARIA support including keyboard navigation.
+          Feature: Suggestion: use span instead of div.
+          Bug fix: #1639 Firefox showing too many stars
+
+          1.0.9
+          Bug fix: #1203 Dynamically changing a property causes events to be re-registered, thanks to WeyenDrote
+
+          1.0.8
+          Bug fix: #1142 backingfield and readonly is broken. thanks to mathletics
+
+          1.0.7
+          Bug fix: #729 Setting initial value issue, thanks to fctown
+
+          1.0.6
+          Feature: if a backing field is disabled at instantiation, start RateIt as readonly, thanks to dgon!
+
+          1.0.5
+          Bug fix: #634 Setting value to 0 doesn't work
+          Feature: now you can reset the rating by $(SELECTOR).rateit('value', null) , thanks to jeffgman!
+
+          1.0.4
+          Two bug fixes:
+          1) #523 RateIt doesn't work in jQuery 1.7.2
+          2) #417 Bug for hover event with jQuery 1.7 -&gt; The 'hover' event got an extra name: 'over' . Because the bug leading to this is not fixed yet in jQuery.
+      
+      1.0.3
+      Minor change. Call to register all elements with .rateit class occurs now only on document.ready
+      
+      1.0.2.11
+      Corresponds with RateIt version 1.0.2.1
+      Fixed CSS bug, when container is in text-align: right mode. (thanks to DefconDotNet)
+
+      1.0.2.1 - NuGet Only
+      Corresponds with version 1.0.2. Fixed a bug in the nuget package, in which the files where not packed.
+
+      1.0.2
+      Compatible with jQuery 1.6.2 . Had to drop compatibility with anything older than 1.6.0
+
+      1.0.1
+      Updated CSS file, to include better support for IE6 &amp; 7 and FF 2
+
+      1.0
+      Added ispreset property</releaseNotes>
+    <copyright>http://rateit.codeplex.com/license</copyright>
+    <language>en-US</language>
+    <tags>rating jquery unobtrusive progressive enhancement rateit</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.6.2" />
+    </dependencies>
+  </metadata>
+</package>
