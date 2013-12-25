@@ -72,6 +72,9 @@ namespace TV.web.Models
         [Column("NearestIntersection")]
         public string Intersection { get; set; }
 
+        [Column("Rating")]
+        public int? Rating { get; set; }
+
         public virtual UserProfile User { get; set; }
     }
 }

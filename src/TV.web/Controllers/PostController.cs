@@ -22,6 +22,31 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost]
+        public JsonResult Rate(int? postId, int? value)
+        { 
+            var message = "";
+
+            if (postId == null)
+            {
+                message = "There was a problem with the post Id";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+            var post = _ctx.Post.Find(postId);
+
+            if (post == null)
+            {
+                message = "There was an error setting your rating";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+
+            post.Rating = value;
+            _ctx.SaveChanges();
+            message = "Your rating has been saved";
+
+            return Json(message, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Create()
         {
             
