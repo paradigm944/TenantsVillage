@@ -58,7 +58,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -74,7 +75,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -90,7 +92,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -106,7 +109,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -122,7 +126,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -138,7 +143,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -154,7 +160,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -170,7 +177,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -186,7 +194,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -202,7 +211,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -218,7 +228,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
                 new PostModel
@@ -234,110 +245,111 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington"
+                    Street = "Burlington",
+                    Rating = 3
 
                 },
             };
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Emkay Entertainments", LLemail = "bigMoney@hotmail.com", Post = "ivghcyuyxutxut", DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "The Empire", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Asadul Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Gargamel ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Ashley Mark Publishing Company", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "MuchMoreMusic Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Victoria Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Abacus Agent", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Atomic", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Pyramid Posters", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Kingston Smith Financial Services Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Garrett Axford PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Derek Boulton Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Total Concept Management (TCM)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Billy Russell Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Stage Audio Services", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Windsong International", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Vivante Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Way to Blue", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Glasgow City Halls", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "The List", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Wilkinson Turner King", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "GSC Solicitors", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Vanessa Music Co", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "Regent Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "BBC Radio Lancashire", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, LandLord = "The Citadel Arts Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Villa Audio Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Astra travel", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Idle Eyes Printshop", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Miggins Music (UK)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Magic 999", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Delga Group", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Zane Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Universal Music Operations", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Gotham Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Timbuktu Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Online Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Irish Music Magazine", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Savoy Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Temple Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Gravity Shack Studio", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Dovehouse Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Citysounds Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Revolver Music Publishing", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Jug Of Ale", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Isles FM 103", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Headscope", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Universal Music Ireland", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Zander Exports", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Midem (UK)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "La Rocka Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Warner Home DVD", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Music Room", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Blue Planet", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Dream 107.7FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Moneypenny Agency", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Artsun", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Clyde 2", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "9PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "River Studio's", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Start Entertainments Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Vinyl Tap Mail Order Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, LandLord = "Passion Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "SuperVision Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Lite FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "ISIS Duplicating Company", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Vanderbeek & Imrie Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Glamorgan University", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Web User", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Farnborough Recreation Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Robert Owens/Musical Directions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Magick Eye Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Alexandra Theatre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Keda Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Independiente Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Shurwood Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Fury Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Northumbria University", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Pop Muzik", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Jonsongs Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Hermana PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Sugarcane Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "JFM Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Black Market Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Float Your Boat Productions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Creation Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "Bryter Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "The Headline Agency", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, LandLord = "MP Promotions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Modo Production Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Nomadic Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Reverb Records Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "SIBC", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Marken Time Critical Express", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "102.2 Smooth FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Chesterfield Arts Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "The National Indoor Arena", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Salisbury City Hall", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
-                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, LandLord = "Minder Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Emkay Entertainments", LLemail = "bigMoney@hotmail.com", Post = "ivghcyuyxutxut", DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "The Empire", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Asadul Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Gargamel ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Ashley Mark Publishing Company", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "MuchMoreMusic Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Victoria Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Abacus Agent", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Atomic", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Pyramid Posters", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Kingston Smith Financial Services Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 7, LandLord = "Garrett Axford PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Derek Boulton Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Total Concept Management (TCM)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Billy Russell Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Stage Audio Services", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Windsong International", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Vivante Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Way to Blue", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Glasgow City Halls", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "The List", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Wilkinson Turner King", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "GSC Solicitors", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Vanessa Music Co", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "Regent Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "BBC Radio Lancashire", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Burlington", User = user, Rating = 5, LandLord = "The Citadel Arts Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Villa Audio Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Astra travel", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Idle Eyes Printshop", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Miggins Music (UK)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Magic 999", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Delga Group", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Zane Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Universal Music Operations", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Gotham Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Timbuktu Music Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Online Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Irish Music Magazine", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Savoy Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Temple Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Gravity Shack Studio", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Dovehouse Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Citysounds Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 2.5, LandLord = "Revolver Music Publishing", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Jug Of Ale", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Isles FM 103", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Headscope", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Universal Music Ireland", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Zander Exports", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Midem (UK)", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "La Rocka Studios", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Warner Home DVD", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Music Room", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Blue Planet", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Dream 107.7FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Moneypenny Agency", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Artsun", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Clyde 2", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "9PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "River Studio's", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Start Entertainments Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Vinyl Tap Mail Order Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "N. Linn", User = user, Rating = 6.5, LandLord = "Passion Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "SuperVision Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "Lite FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "ISIS Duplicating Company", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "Vanderbeek & Imrie Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "Glamorgan University", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "Web User", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 6.5, LandLord = "Farnborough Recreation Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Robert Owens/Musical Directions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Magick Eye Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Alexandra Theatre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Keda Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Independiente Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Shurwood Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Fury Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Northumbria University", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Pop Muzik", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Jonsongs Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Hermana PR", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Sugarcane Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "JFM Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Black Market Records", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Float Your Boat Productions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Creation Management", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "Bryter Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "The Headline Agency", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Govenor", User = user, Rating = 9, LandLord = "MP Promotions", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Modo Production Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Nomadic Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Reverb Records Ltd", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "SIBC", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Marken Time Critical Express", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "102.2 Smooth FM", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Chesterfield Arts Centre", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "The National Indoor Arena", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Salisbury City Hall", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
+                context.Post.Add(new PostModel() { IsCompleted = 1, Street = "Dodge", User = user, Rating = 7, LandLord = "Minder Music", LLemail = "bigMoney@hotmail.com", IsDeleted = false, Title = "Seeded", LeaseYear = 2012, Rent = 900, Deposit = 750, DatePosted = DateTime.Now.ToString() });
 
 
                 var images = new List<ImageModel>

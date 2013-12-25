@@ -23,7 +23,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Rate(int? postId, int? value)
+        public JsonResult Rate(int? postId, float? value)
         { 
             var message = "";
 

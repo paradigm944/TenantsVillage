@@ -21,6 +21,8 @@ namespace TV.web.ViewModels
 
         public List<string> Pics { get; set; }
 
+        public double? Rating { get; set; }
+
         [DisplayName("Post")]
         public string Post { get; set; }
 

@@ -62,7 +62,8 @@ namespace TV.web.Controllers
                 User = user,
                 Comments = comments,
                 AptNumber = post.AptNumber,
-                BuildingNumber = post.BuildingNumber
+                BuildingNumber = post.BuildingNumber,
+                Rating = post.Rating
                 
             };
 

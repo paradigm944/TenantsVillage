@@ -73,7 +73,7 @@ namespace TV.web.Models
         public string Intersection { get; set; }
 
         [Column("Rating")]
-        public int? Rating { get; set; }
+        public double? Rating { get; set; }
 
         public virtual UserProfile User { get; set; }
     }
