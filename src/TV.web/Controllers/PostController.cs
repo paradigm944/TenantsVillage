@@ -163,7 +163,8 @@ namespace TV.web.Controllers
                 IsEDitMode = true,
                 BuildingNumber = post.BuildingNumber,
                 Street = post.Street,
-                Comments = commentz
+                Comments = commentz,
+                Rating = post.Rating
                 
             };
             
@@ -196,6 +197,7 @@ namespace TV.web.Controllers
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
+            
 
              _ctx.SaveChanges();
 

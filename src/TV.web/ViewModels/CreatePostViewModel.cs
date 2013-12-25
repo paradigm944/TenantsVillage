@@ -22,6 +22,8 @@ namespace TV.web.ViewModels
 
         public CommentViewModel ComViewModel { get; set; }
 
+        public double? Rating { get; set; }
+
         [Required]
         [DisplayName("Feedback")]
         public string Post { get; set; }
