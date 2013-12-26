@@ -176,6 +176,7 @@ namespace TV.web.Controllers
             Func<PostModel, string> orderingFunction = (c => sortColumnIndex == 1 && isLandlordSortable ? c.LandLord :
                                                            sortColumnIndex == 2 && isTitleSortable ? c.Title :
                                                            sortColumnIndex == 3 && isStreetSortable ? c.Street :
+                                                           sortColumnIndex == 4 && isStreetSortable ? c.Rating.ToString() :
                                                            "");
 
             var sortDirection = Request["sSortDir_0"]; // asc or desc
@@ -185,7 +186,7 @@ namespace TV.web.Controllers
                 filteredPosts = filteredPosts.OrderByDescending(orderingFunction);
 
             var displayedPosts = filteredPosts.Skip(param.iDisplayStart).Take(param.iDisplayLength);
-            var result = from c in displayedPosts select new[] { Convert.ToString(c.Id), c.LandLord, c.Title, c.Street, c.IsCompleted.ToString(), c.IsDeleted.ToString() };
+            var result = from c in displayedPosts select new[] { Convert.ToString(c.Id), c.LandLord, c.Title, c.Street, c.Rating.ToString() };
             return Json(new
             {
                 sEcho = param.sEcho,
