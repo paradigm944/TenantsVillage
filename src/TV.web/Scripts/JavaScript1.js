@@ -16,7 +16,8 @@ $(document).ready(function () {
                         },
 			            { "sName": "Landlord" },
 			            { "sName": "Title" },
-			            { "sName": "Street" }
+			            { "sName": "Street" },
+                        {"sName:": "Rating"}
         ]
     });
 });
