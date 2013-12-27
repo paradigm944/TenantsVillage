@@ -63,189 +63,276 @@
           <input class="btn btn-primary"  type="submit" value="Submt" /><a class="btn btn-danger" style="float: right" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
       </div>
       <br />
-        <div class="span5">
-        <form class="form-inline" role="form">
-       
-            <div class="form-group has-error has-success">
-                <div class="span4">
-                    @Html.LabelFor(m => m.Title)
-                    @Html.TextBoxFor(m => m.Title)
-                    <br />@Html.ValidationMessageFor(m => m.Title)
-                </div>
-            </div>
-            <hr />
-            <div class="form-group has-error has-success">
-                <div class="row">
+        
+            <form class="form-inline" role="form">
+
+                <div class="form-group has-error has-success">
                     <div class="span4">
-                        @Html.LabelFor(m => m.LandLord)
-                        @Html.TextBoxFor(m => m.LandLord)
-                        <br />@Html.ValidationMessageFor(m => m.LandLord)
-                    </div>
-                    <br />
-                    <div class="span4">
-                        @Html.LabelFor(m => m.LLemail)
-                        @Html.TextBoxFor(m => m.LLemail)
-                        <br />@Html.ValidationMessageFor(m => m.LLemail)
+                        @Html.LabelFor(m => m.Title)
+                        @Html.TextBoxFor(m => m.Title)
+                        <br />@Html.ValidationMessageFor(m => m.Title)
                     </div>
                 </div>
-                <div class="col-lg-3" style="float:right;">
+                <hr />
+                <div class="col-lg-11">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="panel-title">
-                                Rate your Landlord
+                                Landlord/Management Company Info
                             </div>
                         </div>
-                        <div class="panel-body">
-                            @if (Model.IsEDitMode == true)
-                            {
-                                <div id="rating">
-                                    <input type="range" value="@Model.Rating" step="0.25" id="backing4">
-                                    <div class="rateit" data-rateit-backingfld="#backing4"
-                                         data-rateit-resetable="false" data-rateit-ispreset="true"
-                                         data-rateit-min="0" data-rateit-max="10">
+                        <div class="panel-body" style="padding-left:15px; padding-bottom:10px; padding-right:15px;">
+                            <div class="form-group has-error has-success">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        @Html.LabelFor(m => m.LandLord)<br />
+                                        @Html.TextBoxFor(m => m.LandLord)<br />
+                                        @Html.ValidationMessageFor(m => m.LandLord)
+                                    </div>
+                                    <div class="col-lg-4">
+                                        @Html.LabelFor(m => m.LLemail)<br />
+                                        @Html.TextBoxFor(m => m.LLemail) <br />
+                                        @Html.ValidationMessageFor(m => m.LLemail)
                                     </div>
                                 </div>
-                            }
-                            else
-                            {
+                                <div class="col-lg-4 hidden-sm hidden-xs" style="float:right;">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                Rate your Landlord
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            @if (Model.IsEDitMode == true)
+                                            {
+                                                <div id="rating">
+                                                    <input type="range" value="@Model.Rating" step="0.25" id="backing4">
+                                                    <div class="rateit" data-rateit-backingfld="#backing4"
+                                                         data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                         data-rateit-min="0" data-rateit-max="10">
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
 
-                                <div id="rating">
-                                    <input type="range" value="0" step="0.25" id="backing4">
-                                    <div class="rateit" data-rateit-backingfld="#backing4"
-                                         data-rateit-resetable="false" data-rateit-ispreset="true"
-                                         data-rateit-min="0" data-rateit-max="10">
+                                                <div id="rating">
+                                                    <input type="range" value="0" step="0.25" id="backing4">
+                                                    <div class="rateit" data-rateit-backingfld="#backing4"
+                                                         data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                         data-rateit-min="0" data-rateit-max="10">
+                                                    </div>
+                                                </div>
+
+                                            }
+                                        </div>
                                     </div>
                                 </div>
 
-                            }
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        @Html.LabelFor(m => m.BuildingNumber)<br />
+                                        @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:60px;" }) <br />
+                                        @Html.ValidationMessageFor(m => m.BuildingNumber)
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.LabelFor(m => m.AptNumber)<br />
+                                        @Html.TextBoxFor(m => m.AptNumber, new { style = "width:60px;" })<br />
+                                        @Html.ValidationMessageFor(m => m.AptNumber)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        @Html.DropDownListFor(m => m.Street, new SelectList(Model.StreetList), "Please Select...")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row hidden-lg hidden-md">
+                        <div class="col-lg-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        Rate your Landlord
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    @if (Model.IsEDitMode == true)
+                                    {
+                                        <div id="rating">
+
+                                            <div class="rateit" data-rateit-backingfld="#backing4"
+                                                 data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                 data-rateit-min="0" data-rateit-max="10">
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+                                        <div id="rating">
+
+                                            <div class="rateit" data-rateit-backingfld="#backing4"
+                                                 data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                 data-rateit-min="0" data-rateit-max="10">
+                                            </div>
+                                        </div>
+
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                            <hr />
-                            <div class="row">
-                                <div class="span3">
-                                    @Html.LabelFor(m => m.BuildingNumber)
-                                    @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:60px;" })
-                                    <br />@Html.ValidationMessageFor(m => m.BuildingNumber)
-                                </div>
-                                <br />
-                                <div class="span2">
-                                    @Html.LabelFor(m => m.AptNumber)
-                                    @Html.TextBoxFor(m => m.AptNumber, new { style = "width:60px;" })
-                                    <br />@Html.ValidationMessageFor(m => m.AptNumber)
-                                </div>
-                                <br />
-                                <div class="span4">
-                                    @Html.DropDownListFor(m => m.Street, new SelectList(Model.StreetList), "Please Select...")
-                                </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                                <div class="span5">
-                                    @Html.LabelFor(m => m.LeaseYear)
-                                    @Html.TextBoxFor(m => m.LeaseYear, new { style = "width:70px" })
-                                    <br />@Html.ValidationMessageFor(m => m.LeaseYear)
-                                </div>
-                                <br />
-                                <div class="span5">
-                                    @Html.LabelFor(m => m.Rent)
-                                    <div class="input-prepend input-append">
-                                        <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        Financial and Post
                                     </div>
-                                    <br />@Html.ValidationMessageFor(model => model.Rent)
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="span5">
-                                    @Html.LabelFor(m => m.Deposit)
-                                    <div class="input-prepend input-append">
-                                        <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
-
-                                    </div>
-                                    <br />@Html.ValidationMessageFor(model => model.Deposit)
-                                </div>
-                                <div class="span5">
-                                    @Html.LabelFor(m => m.AmountKept)
-                                    <div class="input-prepend input-append">
-                                        <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span>
-
-                                    </div>
-                                    <br />@Html.ValidationMessageFor(model => model.AmountKept)
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="span10">
-                                    @Html.LabelFor(m => m.Post)
-                                    @Html.TextAreaFor(m => m.Post, new { @cols = 80, @rows = 10 })
-                                    <br />@Html.ValidationMessageFor(m => m.Post)
-                                </div>
-                            </div>
-                            <br />
-                            <div id="showImages" class="row">
-                                <div class="span10">
-                                    @if (Model.Images != null && Model.IsEDitMode == true)
-                                    {
-                                        foreach (var x in Model.Images)
-                                        {
-                                            <br />
-                                            <div class="row-fluid">
-                                                <div class="span10">
-
-                                                    <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
-
-                                                    @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, new { @class = "btn-warning btn sm" })
-
-                                                </div>
+                                <div class="panel-body" style="padding-left:15px; padding-bottom:10px; padding-right:15px;">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.LeaseYear)<br />
+                                            @Html.TextBoxFor(m => m.LeaseYear, new { style = "width:70px" })<br />
+                                            @Html.ValidationMessageFor(m => m.LeaseYear)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.Rent)<br />
+                                            <div class="input-prepend input-append">
+                                                <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
                                             </div>
-                                        }
-                                    }
+                                            @Html.ValidationMessageFor(model => model.Rent)
+                                        </div>
+                                    
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.Deposit)<br />
+                                            <div class="input-prepend input-append">
+                                                <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
+
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.Deposit)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.AmountKept)<br />
+                                            <div class="input-prepend input-append">
+                                                <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span><br />
+
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.AmountKept)
+                                        </div>
+                                    </div>
+                                    <br />
+                                  
                                 </div>
                             </div>
-                            <hr />
-                            <h2>Upload Pictures</h2>
-                            <hr />
-                            @*this is a total hack to get around the nested forms problem*@
-                            <form>
-
-                                <fieldset><legend></legend></fieldset>
-                            </form>
-                            <div class="row">
-                                <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
-                                <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
-                                <iframe class="span4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                        </div>
+                    </div>
+                    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Post
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="padding-left:15px; padding-bottom:10px; padding-right:15px;">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                @Html.LabelFor(m => m.Post)
+                                                @Html.TextAreaFor(m => m.Post, new { @cols = 150, @rows = 5 })
+                                                <br />@Html.ValidationMessageFor(m => m.Post)
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <ul>
-                                @if (Model.Comments != null && Model.IsEDitMode == true)
+                        </div> 
+                        <div id="showImages" class="row">
+                            <div class="col-lg-10">
+                                @if (Model.Images != null && Model.IsEDitMode == true)
                                 {
-                                    foreach (var x in Model.Comments)
+                                    foreach (var x in Model.Images)
                                     {
-                                        <li style="padding-bottom:10px;">
-                                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new
-                       {
-                           @style = "color: white;",
-                           @data_toggle = "modal",
-                           @data_target = "#viewCommentModal",
-                           @class = "btn btn-sm btn-primary"
-                       })       @*TODO Encodes*@
-                    @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString())
-                    @Html.ActionLink("Delete Comment", "DeleteComment", "Post", new { commentId = x.Id }, new { @class = "btn-warning btn-sm" })
-                </li>
+                                        <br />
+                                        <div class="row-fluid">
+                                            <div class="col-lg-10">
+
+                                                <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
+
+                                                @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, new { @class = "btn-warning btn sm" })
+
+                                            </div>
+                                        </div>
                                     }
                                 }
-                            </ul>
-                            <div class="row">
-                                <input class="btn btn-primary" type="submit" value="Submt" />
+                            </div>
+                        </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                       Upload Pictures
+                                    </div>
+                                </div>
+                                <div class="panel-body" style="padding-left:15px; padding-bottom:10px; padding-right:15px;">
+                                    
+                                    @*this is a total hack to get around the nested forms problem*@
+                                    <form>
 
-
-                                <a class="btn btn-danger" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                                        <fieldset><legend></legend></fieldset>
+                                    </form>
+                                    <div class="row">
+                                        <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                        <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                        <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                    </div>
+                                    <ul>
+                                        @if (Model.Comments != null && Model.IsEDitMode == true)
+                                        {
+                                            foreach (var x in Model.Comments)
+                                            {
+                                                <li style="padding-bottom:10px;">
+                                                    @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new
+                                            {
+                                                @style = "color: white;",
+                                                @data_toggle = "modal",
+                                                @data_target = "#viewCommentModal",
+                                                @class = "btn btn-sm btn-primary"
+                                            })       @*TODO Encodes*@
+                                                @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString())
+                                                @Html.ActionLink("Delete Comment", "DeleteComment", "Post", new { commentId = x.Id }, new { @class = "btn-warning btn-sm" })
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                </div>
+                                </div>
                             </div>
 
-                            @Html.HiddenFor(m => m.UserId)
-                            @Html.HiddenFor(m => m.Id)
-                        </div>
+                                <div class="row">
+                                    <input class="btn btn-primary" type="submit" value="Submt" />
+
+
+                                    <a class="btn btn-danger" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                                </div>
+
+                                @Html.HiddenFor(m => m.UserId)
+                                @Html.HiddenFor(m => m.Id)
+                            </div>
+
 </form>
-     </div>
-</div>
+     
+      </div>
 <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         @Html.Partial("_EditViewComment")
     </div>
