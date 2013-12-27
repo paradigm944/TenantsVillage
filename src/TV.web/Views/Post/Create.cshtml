@@ -53,11 +53,7 @@
 @Html.AntiForgeryToken()
 @Html.ValidationSummary(false)
     
-    if (@Model.IsEDitMode == true) { 
-        <h3 style="text-align:center; color: rgb(0, 148, 255);"><strong>Edit</strong></h3>
-    
-        }
-    
+   
   <div class="container" style="padding-left:12px; padding-right:18px;">
       <div class="row">
           <input class="btn btn-primary"  type="submit" value="Submt" /><a class="btn btn-danger" style="float: right" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
@@ -260,16 +256,18 @@
                                 {
                                     foreach (var x in Model.Images)
                                     {
-                                        <br />
-                                        <div class="row-fluid">
-                                            <div class="col-lg-10">
+                                        
+                                        
+                                            <div class="col-lg-5">
 
-                                                <img src="@x.ImageUrl" style="width:500px;height:300px" />&nbsp&nbsp&nbsp&nbsp
+                                                <img src="@x.ImageUrl" style="width:250px;height:120px" />&nbsp&nbsp&nbsp&nbsp
 
                                                 @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, new { @class = "btn-warning btn sm" })
-
+                                               
                                             </div>
-                                        </div>
+                                           
+                                       
+                                    
                                     }
                                 }
                             </div>
