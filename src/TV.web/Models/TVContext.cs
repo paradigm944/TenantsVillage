@@ -17,5 +17,6 @@ namespace TV.web.Models
         public DbSet<Comment> Comment { get; set; }
         public DbSet<PostModel> Post { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<UserBookmark> UserBookmark { get; set; }
     }
 }
