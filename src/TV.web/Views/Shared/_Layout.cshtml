@@ -44,10 +44,10 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             @if (Request.IsAuthenticated)
             {
-                <ul id="sideNav" class="nav navbar-nav">
-                    <li id="homeTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
+                <ul class="nav navbar-nav">
+                    <li id="homeTab" class="navTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
 
-                    <li id="postTab" class="dropdown">
+                    <li id="postTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Posts<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create New Post</a></li>
@@ -55,7 +55,7 @@
                         </ul>
                     </li>
 
-                    <li id="userTab" class="dropdown">
+                    <li id="userTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; @Context.User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li id="userTab1"><a href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
