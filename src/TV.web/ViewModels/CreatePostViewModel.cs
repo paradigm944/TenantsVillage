@@ -28,7 +28,7 @@ namespace TV.web.ViewModels
         [DisplayName("Feedback")]
         public string Post { get; set; }
 
-        [DisplayName("Building/House Number")]
+        [DisplayName("Residence Building/House Number")]
         [Range(0, 10000)]
         public int? BuildingNumber { get; set; }
 
@@ -38,6 +38,12 @@ namespace TV.web.ViewModels
 
         [DisplayName("Street")]
         public IList<String> StreetList { get; set; }
+
+        [DisplayName("City")]
+        public string City { get; set; }
+
+        [DisplayName("State")]
+        public string State { get; set; }
 
         [DisplayName("Zip")]
         [Range(52200, 52250)]

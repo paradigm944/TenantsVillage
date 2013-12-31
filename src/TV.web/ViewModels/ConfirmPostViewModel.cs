@@ -36,6 +36,15 @@ namespace TV.web.ViewModels
         [DisplayName("Amount of Deposit Kept")]
         public int? AmountKept { get; set; }
 
+        [DisplayName("Street")]
+        public String Street { get; set; }
+
+        [DisplayName("City")]
+        public string City { get; set; }
+
+        [DisplayName("State")]
+        public string State { get; set; }
+
         [DisplayName("Nearest Intersection")]
         public string Intersection { get; set; }
     }

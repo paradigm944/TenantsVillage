@@ -49,7 +49,12 @@ namespace TV.web.Models
         [Column("Street")]
         public string Street { get; set; }
 
-        
+        [Column("City")]
+        public string City { get; set; }
+
+        [Column("State")]
+        public string State { get; set; }
+
         [Range(2000, 2013)]
         [Column("LeaseYear")]
         public int? LeaseYear { get; set; }
