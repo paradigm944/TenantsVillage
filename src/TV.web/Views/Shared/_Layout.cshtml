@@ -40,16 +40,17 @@
             <a href="@Url.Action("Index", "Home")" class="navbar-brand">TenantsVillage</a>
         </div>
 
+
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             @if (Request.IsAuthenticated)
             {
-                <ul id="sideNav" class="nav navbar-nav  hidden-sm hidden-xs">
+                <ul id="sideNav" class="nav navbar-nav hidden-xs">
                     <li id="homeTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
                     <li id="manageTab"><a href="@Url.Action("Manage", "Account")"><i class="fa fa-tags"></i> Manage Posts</a></li>
                     <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create Post</a></li>
 
                     <li id="userTab" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Manage User &nbsp; <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; @Context.User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li id="userTab1"><a href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
                             <li id="userTab2"><a href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
