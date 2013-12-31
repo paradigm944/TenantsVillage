@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             @if (Request.IsAuthenticated)
             {
-                <ul id="sideNav" class="nav navbar-nav hidden-xs">
+                <ul id="sideNav" class="nav navbar-nav">
                     <li id="homeTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
                     <li id="manageTab"><a href="@Url.Action("Manage", "Account")"><i class="fa fa-tags"></i> Manage Posts</a></li>
                     <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create Post</a></li>
