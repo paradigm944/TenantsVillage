@@ -25,25 +25,6 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
-        public ActionResult Manage(bool? needStatusUpdate, string statusMessage)
-        {
-            var outModel = new ManageViewModel();
-
-            if (needStatusUpdate == true)
-            {
-                outModel.needStatusMessage = true;
-                outModel.statusMessage = statusMessage;
-
-            }
-            else
-            {
-                outModel.needStatusMessage = false;
-                //outModel.statusMessage = statusMessage;
-            }
-            return View(outModel);
-        }
-
-
         public bool SendPasswordToken(string userName)
         {
             try{
