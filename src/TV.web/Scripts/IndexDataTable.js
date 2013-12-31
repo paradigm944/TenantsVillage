@@ -11,7 +11,7 @@ $(document).ready(function () {
                             "bSearchable": false,
                             "bSortable": false,
                             "fnRender": function (oObj) {
-                                return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a><a class="btn btn-sm btn-waning" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Bookmark/Set/' + oObj.aData[0] + '\">BkMk</a>';
+                                return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a><a class="btn btn-sm btn-warning" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Bookmark/Set/' + oObj.aData[0] + '\">BkMk</a>';
                             }
                         },
 			            { "sName": "Landlord" },
