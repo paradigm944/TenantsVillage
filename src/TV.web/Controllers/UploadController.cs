@@ -31,12 +31,13 @@ namespace non_profit.Controllers
 
             var image = WebImage.GetImageFromRequest();
 
+
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
 
 
             if (image.Width > 500)
             {
-                image.Resize(500, ((500 * image.Height) / image.Width));
+                image.Resize(250, ((250 * image.Height) / image.Width));
             }
 
             var filename = Path.GetFileName(image.FileName);
