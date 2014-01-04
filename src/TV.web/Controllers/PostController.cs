@@ -99,7 +99,7 @@ namespace TV.web.Controllers
                 _ctx.SaveChanges();
 
             }
-            return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Your Post has been canceled" });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been canceled" });
         }
 
         [HttpPost]
@@ -133,7 +133,7 @@ namespace TV.web.Controllers
             
             _ctx.SaveChanges();
 
-            return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
 
             //var outModel = new ViewPostViewModel
             //{
@@ -221,7 +221,7 @@ namespace TV.web.Controllers
 
              _ctx.SaveChanges();
 
-             return RedirectToAction("Manage", "Account", new { needStatusUpdate = true, statusMessage = "Any changes made have been saved" });
+             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Any changes made have been saved" });
 
             //var outModel = new ViewPostViewModel
             //{
