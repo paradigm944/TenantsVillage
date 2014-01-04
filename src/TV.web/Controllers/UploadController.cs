@@ -35,7 +35,7 @@ namespace non_profit.Controllers
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
 
 
-            if (image.Width > 500)
+            if (image.Width > 250)
             {
                 image.Resize(250, ((250 * image.Height) / image.Width));
             }
