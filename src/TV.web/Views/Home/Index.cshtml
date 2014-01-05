@@ -112,8 +112,6 @@
             var jssor_slider1 = new $JssorSlider$("slider1_container", options);
         });
 
-       
-
         function resetPics() {
             $.getJSON('@Url.Content("~/Home/ResetPictures/"+ Model.Pic_9.Id)', function (picList) {
                 $.each(picList, function () {
@@ -127,6 +125,23 @@
                     $('#pic_' + i).attr("title", "Street: " + picList[i].Post.Street + "   LandLord: " + picList[i].Post.LandLord);
                 }
             })
+        };
+
+        function Bookmark(postId) {
+
+            var Id = postId;
+            console.log(postId);
+            $.ajax({
+                url: '@Url.Content("~/UserBookmark/Bookmark/")',
+                data: { postId: Id },
+                type: 'POST',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (data) {
+                    console.log(e.error);
+                }
+            });
         };
                 
        

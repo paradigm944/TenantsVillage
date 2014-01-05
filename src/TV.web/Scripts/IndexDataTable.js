@@ -34,6 +34,8 @@ $(document).ready(function () {
         return this;
     };
 
+    
+
     var oTable = $('#myDataTable').dataTable({
         "bServerSide": true,
         "sAjaxSource": "Search/AjaxHandler",
@@ -44,7 +46,7 @@ $(document).ready(function () {
                             "bSearchable": false,
                             "bSortable": false,
                             "fnRender": function (oObj) {
-                                return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a> &nbsp; <a class="btn btn-sm btn-warning" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Bookmark/Set/' + oObj.aData[0] + '\">BkMk</a>';
+                                return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a> &nbsp; <button id="bookmarkButton" class="btn btn-sm btn-warning" onclick="Bookmark(' + oObj.aData[0] + ')">bookmark</button>';
                             }
                         },
 			            { "sName": "Landlord" },
