@@ -26,22 +26,39 @@
     <script src="@Url.Content("~/Scripts/RateIt/jquery.rateit.min.js.map")" type="text/javascript"></script>
     <script>
 
-        function showImage(imgName) {
-            //console.log(imgName);
-            document.getElementById('largeImg').src = imgName;
-            showLargeImagePanel();
-            unselectAll();
-        }
-        function showLargeImagePanel() {
-            document.getElementById('largeImgPanel').style.visibility = 'visible';
-        }
-        function unselectAll() {
-            if (document.selection) document.selection.empty();
-            if (window.getSelection) window.getSelection().removeAllRanges();
-        }
-        function hideMe(obj) {
-            obj.style.visibility = 'hidden';
-        }
+    function showImage(imgName) {
+        //console.log(imgName);
+        document.getElementById('largeImg').src = imgName;
+        showLargeImagePanel();
+        unselectAll();
+    }
+    function showLargeImagePanel() {
+        document.getElementById('largeImgPanel').style.visibility = 'visible';
+    }
+    function unselectAll() {
+        if (document.selection) document.selection.empty();
+        if (window.getSelection) window.getSelection().removeAllRanges();
+    }
+    function hideMe(obj) {
+        obj.style.visibility = 'hidden';
+    }
+
+    function Bookmark() {
+        
+        var postId = '@Model.Id';
+        console.log(postId);
+        $.ajax({
+            url: '@Url.Content("~/UserBookmark/Bookmark/")',
+            data: { postId: postId },
+            type: 'POST',
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                console.log(e.error);
+            }
+        });
+    }
 
     </script>
 }
@@ -68,7 +85,7 @@
                      data-rateit-min="0" data-rateit-max="10">
                 </div>
             </div>
-
+            <button id="bookmarkButton" class="btn btn-primary" onclick="Bookmark()">Bookmark Post</button>
             <div class="row">
                 <div class="span3">
                     <em>@Html.LabelFor(m => m.LandLord)</em>
