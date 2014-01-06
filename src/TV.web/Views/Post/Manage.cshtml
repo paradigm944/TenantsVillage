@@ -116,6 +116,7 @@
 
             var oTable = $('#myDataTable').dataTable({
                 "bServerSide": true,
+                "bStateSave" : true,
                 "sAjaxSource": '@Url.Content("~/Search/UserPostsAjaxHandler")',
                 "bProcessing": true,
                 "aoColumns": [

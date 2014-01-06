@@ -38,6 +38,7 @@ $(document).ready(function () {
 
     var oTable = $('#myDataTable').dataTable({
         "bServerSide": true,
+        "bStateSave" : true,
         "sAjaxSource": "Search/AjaxHandler",
         "bProcessing": true,
         "aoColumns": [
