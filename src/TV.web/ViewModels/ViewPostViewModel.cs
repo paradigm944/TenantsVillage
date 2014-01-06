@@ -23,6 +23,8 @@ namespace TV.web.ViewModels
 
         public double? Rating { get; set; }
 
+        public bool? IsBookmarked { get; set; }
+
         [DisplayName("Post")]
         public string Post { get; set; }
 

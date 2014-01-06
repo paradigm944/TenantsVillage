@@ -45,7 +45,7 @@ namespace TV.web.Controllers
             var images = _ctx.Image.Where(i => i.Post.Id == id).AsEnumerable();
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
             var comments = _ctx.Comment.Where(m => m.PostId == post.Id).ToList<Comment>();
-            
+
             var outModel = new ViewPostViewModel()
             {
                 Id = post.Id,
@@ -64,8 +64,18 @@ namespace TV.web.Controllers
                 AptNumber = post.AptNumber,
                 BuildingNumber = post.BuildingNumber,
                 Rating = post.Rating
-                
+
             };
+
+            if (_ctx.UserBookmark.Where(m => m.User.UserId == user.UserId).Where(m => m.Post.Id == post.Id).Any())
+            {
+                outModel.IsBookmarked = true;
+            }
+
+
+            
+            
+            
 
             return View(outModel);
         }

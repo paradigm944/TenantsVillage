@@ -38,7 +38,7 @@ namespace TV.web.Controllers
             _ctx.UserBookmark.Add(newBookmark);
             _ctx.SaveChanges();
 
-            message = "Bokkmark Success";
+            message = "Bookmark Success";
             
             return Json(message, JsonRequestBehavior.AllowGet);
         }
