@@ -128,20 +128,27 @@
         };
 
         function Bookmark(postId) {
-
-            var Id = postId;
-            console.log(postId);
-            $.ajax({
-                url: '@Url.Content("~/UserBookmark/Bookmark/")',
-                data: { postId: Id },
-                type: 'POST',
-                success: function (data) {
-                    alert(data);
-                },
-                error: function (data) {
-                    console.log(e.error);
-                }
-            });
+            var loggedIn = '@Request.IsAuthenticated';
+            console.log(loggedIn);
+            if(loggedIn == true){
+                var Id = postId;
+                console.log(postId);
+                $.ajax({
+                    url: '@Url.Content("~/UserBookmark/Bookmark/")',
+                    data: { postId: Id },
+                    type: 'POST',
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (data) {
+                        console.log(e.error);
+                    }
+                });
+            } else {
+                alert("Log in to bookmark this post")
+            }
+            
+        
         };
                 
        

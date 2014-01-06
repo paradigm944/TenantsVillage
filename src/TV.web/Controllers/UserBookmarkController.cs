@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using TV.web.Models;
 
 namespace TV.web.Controllers
-{
+{   [Authorize]
     public class UserBookmarkController : Controller
     {
         private readonly TVContext _ctx;
