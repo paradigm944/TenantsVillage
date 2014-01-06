@@ -24,7 +24,11 @@ namespace TV.web.Controllers
 
         public ActionResult Manage(bool? needStatusUpdate, string statusMessage)
         {
+            var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
+
             var outModel = new ManageViewModel();
+
+            outModel.Bookmarks = _ctx.UserBookmark.Where(m => m.User.UserId == currentUser.UserId).ToList<UserBookmark>();
 
             if (needStatusUpdate == true)
             {
