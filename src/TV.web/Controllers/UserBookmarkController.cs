@@ -43,5 +43,29 @@ namespace TV.web.Controllers
             return Json(message, JsonRequestBehavior.AllowGet);
         }
 
+        
+        public ActionResult DeleteBookmark(int? postId)
+        {
+            var message = "";
+            var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
+            var post = _ctx.Post.Find(postId);
+
+            if (currentUser == null || post == null)
+            {
+                message = "Problem with UserName or Post";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+
+            var bookmark = _ctx.UserBookmark.Where(m => m.Post.Id == post.Id).Where(m => m.User.UserId == currentUser.UserId).SingleOrDefault();
+
+
+
+            _ctx.UserBookmark.Remove(bookmark);
+            _ctx.SaveChanges();
+
+
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your bookmark has been removed" });
+        }
+
     }
 }

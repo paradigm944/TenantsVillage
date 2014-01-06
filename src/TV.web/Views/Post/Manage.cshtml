@@ -75,7 +75,10 @@
                             @for (int i = 0; i < Model.Bookmarks.Count; i++)
                             {
                                 <tr>
-                                    <td><a class="btn btn-mini" href="@Url.Content("~/Search/ViewPost/")@Model.Bookmarks[i].Post.Id">View</a></td>
+                                    <td>
+                                        <a class="btn btn-mini" href="@Url.Content("~/Search/ViewPost/")@Model.Bookmarks[i].Post.Id">View</a>
+                                        <a class="btn btn-mini" href="@Url.Content("~/UserBookmark/DeleteBookmark/?postId=")@Model.Bookmarks[i].Post.Id">Delete</a>
+                                    </td>
                                     <td>@Model.Bookmarks[i].Post.LandLord</td>
                                     <td>@Model.Bookmarks[i].Post.Title</td>
                                     <td>@Model.Bookmarks[i].Post.Street</td>
