@@ -106,7 +106,6 @@ namespace MvcForums.Controllers
                 LLemail = post.LLemail,
                 Post = post.Post,
                 Rent = post.Rent,
-                Intersection = post.Intersection,
                 Deposit = post.Deposit,
                 AmtKept = post.AmountKept,
                 LeaseYear = post.LeaseYear,

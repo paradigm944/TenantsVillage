@@ -20,6 +20,9 @@ namespace TV.web.Models
         [Column("ImageQuantity")]
         public int? ImageQuantity { get; set; }
 
+        [Column("ZipCode")]
+        [Range(0,99999)]
+        public int? ZipCode { get; set; }
         
         [Column("Post")]
         public string Post { get; set; }
@@ -73,9 +76,6 @@ namespace TV.web.Models
 
         [Column("AmountKept")]
         public int? AmountKept { get; set; }
-
-        [Column("NearestIntersection")]
-        public string Intersection { get; set; }
 
         [Column("Rating")]
         public double? Rating { get; set; }
