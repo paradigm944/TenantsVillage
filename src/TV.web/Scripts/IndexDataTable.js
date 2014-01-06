@@ -53,19 +53,23 @@ $(document).ready(function () {
 			            { "sName": "Landlord" },
 			            { "sName": "Title" },
 			            { "sName": "Street" },
-                        {
-                            "sName": "Rating",
-                            "fnRender": function (oObj) {
+                        { "sName": "City" },
+                        { "sName": "Zip Code" },
+                        { "sName": "Rating",
+                          "fnRender": function (oObj) {
+                            console.log("render fx");
                                 var htmlString = "";
-                                var loopIndex = oObj.aData[4]
+                                var loopIndex = oObj.aData[6]
                                 while (loopIndex > 0) {
                                     if (loopIndex == .5) {
                                         htmlString = htmlString + '<i class="fa fa-star-half-full" style="color:gold;"></i>';
+                                        console.log(htmlString);
                                         return htmlString;
                                     }
                                     htmlString = htmlString + '<i class="fa fa-star" style="color:gold;"></i>';
                                     loopIndex--;
                                 }
+                                console.log(htmlString + "last");
                                 return htmlString;
                             }
                         }
