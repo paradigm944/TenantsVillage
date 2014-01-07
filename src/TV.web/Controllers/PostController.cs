@@ -188,7 +188,9 @@ namespace TV.web.Controllers
                 BuildingNumber = post.BuildingNumber,
                 Street = post.Street,
                 Comments = commentz,
-                Rating = post.Rating
+                Rating = post.Rating, 
+                City = post.City,
+                Zip = post.ZipCode
                 
             };
             
@@ -221,6 +223,8 @@ namespace TV.web.Controllers
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
+            post.City = inModel.City;
+            post.ZipCode = inModel.Zip;
             
 
              _ctx.SaveChanges();
@@ -272,7 +276,11 @@ namespace TV.web.Controllers
                 Images = images,
                 BuildingNumber = post.BuildingNumber,
                 Street = post.Street,
-                UserName = post.User.UserName
+                UserName = post.User.UserName,
+                City = post.City,
+                ZipCode = post.ZipCode,
+                Rating = post.Rating,
+                IsDeleteMode = true
             };
 
             return View("DeleteConfirmation", outModel);
@@ -286,22 +294,12 @@ namespace TV.web.Controllers
             if (post.User.UserName == inModel.UserName) {
                 post.IsDeleted = true;
                  _ctx.SaveChanges();
-                return View("DeleteSuccess");
+                 return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been deleted" }); 
             }
             else
             {
                 return View("Error", inModel);
             }
-        }
-
-        public ActionResult UnDelete(int? id)
-        {
-            var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
-            post.IsDeleted = false;
-            _ctx.SaveChanges();
-
-            
-            return View("UserPosts");
         }
 
        

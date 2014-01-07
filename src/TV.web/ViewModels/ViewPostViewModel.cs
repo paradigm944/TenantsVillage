@@ -25,10 +25,18 @@ namespace TV.web.ViewModels
 
         public bool? IsBookmarked { get; set; }
 
+        public bool? IsDeleteMode { get; set; }
+
         [DisplayName("Post")]
         public string Post { get; set; }
 
         public int? Id { get; set; }
+
+        [DisplayName("Zip Code")]
+        public int? ZipCode { get; set; }
+
+        [DisplayName("City")]
+        public string City { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -66,8 +74,7 @@ namespace TV.web.ViewModels
         [DisplayName("Amount of Deposit with-held")]
         public int? AmtKept { get; set; }
 
-        [DisplayName("Nearest Intersection")]
-        public string Intersection { get; set; }
+        
 
         [DisplayName("Message")]
         public string message { get; set; }
@@ -82,10 +89,7 @@ namespace TV.web.ViewModels
 
         public IEnumerable<Comment> Comments { get; set; }
 
-        
-
-
-        public int? ParentPostId { get; set; }
+       
 
         public string Author { get; set; }
 
