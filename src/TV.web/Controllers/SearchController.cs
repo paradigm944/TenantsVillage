@@ -46,6 +46,10 @@ namespace TV.web.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
             var comments = _ctx.Comment.Where(m => m.PostId == post.Id).ToList<Comment>();
 
+            if (post.IsDeleted == true)
+            {
+                return View("DeletedPostError");
+            }
             var outModel = new ViewPostViewModel()
             {
                 Id = post.Id,
