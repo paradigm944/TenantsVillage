@@ -56,9 +56,18 @@
     <div class="container" style="padding-left: 12px; padding-right: 18px;">
         <div class="row">
             <div class="col-lg-12">
-                <input class="btn btn-primary" type="submit" value="Submt" /><a class="btn btn-danger" style="float: right" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                @if (Model.IsEDitMode == true)
+                {
+                    <input class="btn btn-primary col-lg-1 col-md-1 col-sm-2" type="submit" value="Submit" /><a class="btn btn-danger col-lg-1 col-md-1 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" href=@Url.Action("Manage", "Post")>Cancel</a>
+                }
+                else
+                {
+                    <input class="btn btn-primary col-lg-1 col-md-1 col-sm-2" type="submit" value="Submit" /><a class="btn btn-danger col-lg-1 col-md-1 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                }
+
             </div>
         </div>
+
         <br />
         <div class="row">
             <div class="col-lg-12">
@@ -244,9 +253,9 @@
                                     </div>
                                     <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
                                         <div class="row">
-                                            <div class="col-lg-10">
+                                            <div class="col-lg-10 table-responsive">
                                                 @Html.LabelFor(m => m.Post)
-                                                @Html.TextAreaFor(m => m.Post, new { @cols = 150, @rows = 5 })
+                                                @Html.TextAreaFor(m => m.Post, new { @cols = 100, @rows = 5 })
                                                 <br />@Html.ValidationMessageFor(m => m.Post)
                                             </div>
                                         </div>
@@ -320,20 +329,27 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
-                            <input class="btn btn-primary" type="submit" value="Submt" />
+                            <div class="col-lg-12">
+                               @if (Model.IsEDitMode == true)
+                                {
+                                    <input class="btn btn-primary col-lg-1 col-md-1 col-sm-2" type="submit" value="Submit" /><a class="btn btn-danger col-lg-1 col-md-1 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" href=@Url.Action("Manage", "Post")>Cancel</a>
+                                }
+                               else
+                               {
+                                    <input class="btn btn-primary col-lg-1 col-md-1 col-sm-2" type="submit" value="Submit" /><a class="btn btn-danger col-lg-1 col-md-1 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                               }
 
-
-                            <a class="btn btn-danger" href='~/post/cancelcreate/@Model.Id'>Cancel</a>
+                            </div>
                         </div>
+
 
                         @Html.HiddenFor(m => m.UserId)
                         @Html.HiddenFor(m => m.Id)
                     </div>
 
                 </form>
-                0
+                
             </div>
         </div>
 
