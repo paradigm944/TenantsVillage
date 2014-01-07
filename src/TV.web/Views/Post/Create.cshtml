@@ -25,6 +25,23 @@
             $('#postTab').addClass('active');
         });
 
+        function showImage(imgName) {
+            console.log(imgName);
+            document.getElementById('largeImg').src = imgName;
+            showLargeImagePanel();
+            unselectAll();
+        }
+        function showLargeImagePanel() {
+            document.getElementById('largeImgPanel').style.visibility = 'visible';
+        }
+        function unselectAll() {
+            if (document.selection) document.selection.empty();
+            if (window.getSelection) window.getSelection().removeAllRanges();
+        }
+        function hideMe(obj) {
+            obj.style.visibility = 'hidden';
+        }
+
         $('#rating .rateit').bind('rated', function (e) {
             var ri = $(this);
             var value = ri.rateit('value');
@@ -271,7 +288,7 @@
                                     { 
                                     <div class="row col-lg-5" style="padding-bottom:10px;">
 
-                                        <img src="@x.ImageUrl" style="width:250px;height:120px; padding-bottom:6px;" />&nbsp&nbsp&nbsp&nbsp
+                                        <img src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; width:250px;height:120px; padding-bottom:6px;" />&nbsp&nbsp&nbsp&nbsp
 
                                                     @Html.ActionLink("Delete Photo", "DeletePhoto", "Post", new { photoId = x.Id }, new { @class = "btn-warning btn sm" })
 
@@ -286,7 +303,7 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            Upload Pictures<div style="float:right; font-size: 10px">* there is a limit of 4 pictures, delete to add more</div>
+                                            Upload Pictures<div style="float:right; font-size: 10px">* there is a limit of 4 jpeg or png images, delete to add more</div>
                                         </div>
                                     </div>
                                     <div class="panel-body" style="padding-left: 15px; padding-bottom: 11px; padding-right: 15px;">
@@ -324,6 +341,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="table-responsive" id="largeImgPanel" onclick="hideMe(this);">
+                            <img id="largeImg" style="height: 100%; margin: 0; padding: 0;" />
+                        </div>
                         <div class="row">
                             <div class="col-lg-12">
                                @if (Model.IsEDitMode == true)
@@ -347,6 +367,7 @@
                 
             </div>
         </div>
+        
 
 
     </div>

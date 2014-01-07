@@ -30,38 +30,43 @@ namespace non_profit.Controllers
             bool success = false;
 
             var image = WebImage.GetImageFromRequest();
-
-
+            var imgFormat = image.ImageFormat.ToString();
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
-
             var imgQuantity = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>().Count;
 
-            if (imgQuantity >= 4)
+            if (imgFormat == "jpeg" || imgFormat == "png" )
+            {
+                if (imgQuantity >= 4)
+                {
+                    return Json(new { success, testforurl = MakeThumbnail(image, post.Id, true) });
+                }
+
+                if (image.Width > 250)
+                {
+                    image.Resize(250, ((250 * image.Height) / image.Width));
+                }
+
+                var filename = Path.GetFileName(image.FileName);
+                image.Save(Path.Combine("~/Images", filename));
+
+                var postImage = new ImageModel
+                {
+                    ImageUrl = ("/Images/" + filename),
+                    IsDeleted = 1,
+                    PostId = post.Id
+
+                };
+
+                _ctx.Image.Add(postImage);
+                _ctx.SaveChanges();
+
+                success = true;
+                return Json(new { success, testforurl = MakeThumbnail(image, post.Id, false) });
+            }
+            else
             {
                 return Json(new { success, testforurl = MakeThumbnail(image, post.Id, true) });
             }
-
-            if (image.Width > 250)
-            {
-                image.Resize(250, ((250 * image.Height) / image.Width));
-            }
-
-            var filename = Path.GetFileName(image.FileName);
-            image.Save(Path.Combine("~/Images", filename));
-
-            var postImage = new ImageModel
-            {
-                ImageUrl = ("/Images/" + filename),
-                IsDeleted = 1,
-                PostId = post.Id
-
-            };
-
-            _ctx.Image.Add(postImage);
-            _ctx.SaveChanges();
-
-            success = true;
-            return Json( new { success, testforurl = MakeThumbnail(image, post.Id, false) });
         }
 
 
