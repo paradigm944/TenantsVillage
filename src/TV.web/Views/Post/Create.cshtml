@@ -282,10 +282,10 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            Upload Pictures
+                                            Upload Pictures<div style="float:right; font-size: 10px">* there is a limit of 4 pictures, delete to add more</div>
                                         </div>
                                     </div>
-                                    <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                                    <div class="panel-body" style="padding-left: 15px; padding-bottom: 11px; padding-right: 15px;">
 
                                         @*this is a total hack to get around the nested forms problem*@
                                         <form>
@@ -293,9 +293,9 @@
                                             <fieldset><legend></legend></fieldset>
                                         </form>
                                         <div class="row">
-                                            <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
-                                            <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
-                                            <iframe class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                            <iframe id ="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                            <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                            <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                         </div>
                                         <ul>
                                             @if (Model.Comments != null && Model.IsEDitMode == true)

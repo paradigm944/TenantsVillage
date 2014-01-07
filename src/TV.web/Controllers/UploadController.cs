@@ -34,6 +34,12 @@ namespace non_profit.Controllers
 
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
 
+            var imgQuantity = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>().Count;
+
+            if (imgQuantity >= 4)
+            {
+                return Json(new { success, testforurl = MakeThumbnail(image, post.Id, true) });
+            }
 
             if (image.Width > 250)
             {
@@ -55,7 +61,7 @@ namespace non_profit.Controllers
             _ctx.SaveChanges();
 
             success = true;
-            return Json( new { success, testforurl = MakeThumbnail(image, post.Id) });
+            return Json( new { success, testforurl = MakeThumbnail(image, post.Id, false) });
         }
 
 
@@ -66,7 +72,7 @@ namespace non_profit.Controllers
         }
 
 
-        public string MakeThumbnail(WebImage image, int? postId)
+        public string MakeThumbnail(WebImage image, int? postId, bool reachedPicLimit)
         {
             image.Resize(110, 110, true, true);
 
@@ -80,6 +86,11 @@ namespace non_profit.Controllers
                 PostId = null
 
             };
+
+            if (reachedPicLimit)
+            {
+                postImage.ImageUrl = "You have reached your picture limit of 4. ";
+            }
 
             _ctx.Image.Add(postImage);
             _ctx.SaveChanges();

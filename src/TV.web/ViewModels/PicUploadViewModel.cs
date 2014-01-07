@@ -8,5 +8,7 @@ namespace TV.web.ViewModels
     public class PicUploadViewModel
     {
         public int postId { get; set; }
+
+        public bool? ReachedPicLimit { get; set; }
     }
 }
