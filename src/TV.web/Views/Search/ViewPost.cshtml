@@ -51,9 +51,9 @@
             url: '@Url.Content("~/UserBookmark/Bookmark/")',
             data: { postId: postId },
             type: 'POST',
-            success: function () {
+            success: function (data) {
                 $('#bookmarkButton').hide();
-                
+                alert(data);
             },
             error: function (data) {
                 console.log(e.error);

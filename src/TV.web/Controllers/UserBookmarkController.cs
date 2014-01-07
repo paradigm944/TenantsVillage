@@ -29,6 +29,12 @@ namespace TV.web.Controllers
                 return Json(message, JsonRequestBehavior.AllowGet);
             }
 
+            if (_ctx.UserBookmark.Any(m => m.Post.Id == post.Id && m.User.UserId == currentUser.UserId))
+            {
+                message = "You have already bookmarked this page";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+
             var newBookmark = new UserBookmark
             {
                 Post = post,
