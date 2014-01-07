@@ -649,16 +649,8 @@
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage - FTP %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tenantsvillage - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tenantsvillage - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage.com - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\tenantsvillage.com - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\tennantsvillage - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\tennantsvillage - Web Deploy.pubxml" />
     <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\ZeroClipboard.js" />
     <Content Include="Scripts\DataTables-1.9.4\media\js\jquery.dataTables.js" />
     <Content Include="Scripts\DataTables-1.9.4\media\js\jquery.dataTables.min.js" />
