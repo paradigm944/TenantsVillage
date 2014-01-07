@@ -9,6 +9,17 @@
 
     <link href="@Url.Content("~/Content/RateIt/rateit.css")" rel="stylesheet" type="text/css" />
 
+    <style>
+        .field-validation-error
+        {
+            color: red;
+        }
+        .validation-summary-errors
+        {
+            color: red;
+        }
+    </style>
+
 </head>
 
 @section scripts{
@@ -156,22 +167,37 @@
 
                                     <br />
                                     <div class="row">
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-4">
                                             @Html.LabelFor(m => m.BuildingNumber)<br />
-                                            @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:60px;" })
+                                            @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:80px;" })
                                             <br />
                                             @Html.ValidationMessageFor(m => m.BuildingNumber)
                                         </div>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-2">
                                             @Html.LabelFor(m => m.AptNumber)<br />
-                                            @Html.TextBoxFor(m => m.AptNumber, new { style = "width:60px;" })<br />
+                                            @Html.TextBoxFor(m => m.AptNumber, new { style = "width:80px;" })<br />
                                             @Html.ValidationMessageFor(m => m.AptNumber)
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.Street)<br />
+                                            @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })
+                                            <br />
+                                            @Html.ValidationMessageFor(m => m.Street)
+                                        </div>
                                         <div class="col-lg-2">
-                                            @Html.DropDownListFor(m => m.Street, new SelectList(Model.StreetList), "Please Select...")
+                                            @Html.LabelFor(m => m.Zip)<br />
+                                            @Html.TextBoxFor(m => m.Zip, new { style = "width:80px;" })
+                                            <br />
+                                            @Html.ValidationMessageFor(m => m.Zip)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.City)<br />
+                                            @Html.TextBoxFor(m => m.City)
+                                            <br />
+                                            @Html.ValidationMessageFor(m => m.City)
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +244,7 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            Financial and Post
+                                            Financial
                                         </div>
                                     </div>
                                     <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">

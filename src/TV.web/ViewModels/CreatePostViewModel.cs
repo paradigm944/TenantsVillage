@@ -22,17 +22,18 @@ namespace TV.web.ViewModels
 
         public CommentViewModel ComViewModel { get; set; }
 
+        [Required(ErrorMessage = "Please provide a rating")]
         public double? Rating { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please provide some description")]
         [DisplayName("Feedback")]
         public string Post { get; set; }
 
-        [DisplayName("Residence Building/House Number")]
+        [DisplayName("Building/House Number")]
         [Range(0, 10000)]
         public int? BuildingNumber { get; set; }
 
-        [DisplayName("Apartment #/letter")]
+        [DisplayName("Apt #/letter")]
         [RegularExpression("^[a-zA-Z0-9]+$")]
         public string AptNumber { get; set; }
 
@@ -40,40 +41,42 @@ namespace TV.web.ViewModels
         public IList<String> StreetList { get; set; }
 
         [DisplayName("City")]
+        [Required(ErrorMessage = "Please provide a City")]
         public string City { get; set; }
 
         [DisplayName("State")]
         public string State { get; set; }
 
-        [DisplayName("Zip")]
-        [Range(52200, 52250)]
+        [DisplayName("Zip Code")]
+        [Required(ErrorMessage = "Please provide a Zip")]
         public int? Zip { get; set; }
 
-        [Required]
-        [DisplayName("LandLord/Mgmt Company")]
+        [Required(ErrorMessage = "Please provide a Landlord/Mgmt Company")]
+        [DisplayName("Landlord/Mgmt Company")]
         public string LandLord { get; set; }
 
         [DisplayName("LandLord/Mgmt Email")]
         [EmailAddress]
         public string LLemail { get; set; }
 
-        [DisplayName("Lease ended in Year:")]
-        [Range(2000, 2013, ErrorMessage="The year must be between 2000 and 2013")]
+        [DisplayName("Lease ends/ended in year:")]
+        [Range(1980, 2020, ErrorMessage="The year must be between 1980 and 2020")]
         public int? LeaseYear {get; set;}
 
-        [DisplayName("Rent")]
-        [Range(0, 5000, ErrorMessage = "The amount must be from 0 to $5000")]
+        [DisplayName("Monthly Rent")]
+        [Range(0, 5000, ErrorMessage = "The amount must be from 0 to $,5000")]
         public int? Rent { get; set; }
 
         [DisplayName("Deposit Amount")]
-        [Range(0, 5000, ErrorMessage = "The amount must be from 0 to $5000")]
+        [Range(0, 5000, ErrorMessage = "The amount must be from 0 to $5,000")]
         public int? Deposit { get; set; }
 
-        [DisplayName("Amount of Deposit Kept")]
-        [Range(0, 5000, ErrorMessage="The amount must be from 0 to $5000")]
+        [DisplayName("Amount of deposit withheld from you")]
+        [Range(0, 10000, ErrorMessage="The amount must be from 0 to $10,000")]
         public int? AmountKept { get; set; }
 
         [DisplayName("Street")]
+        [Required(ErrorMessage = "Please provide a Street")]
         public string Street{ get; set; }
 
         [Required]
