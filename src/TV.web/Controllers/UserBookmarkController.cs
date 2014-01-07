@@ -20,6 +20,13 @@ namespace TV.web.Controllers
         public JsonResult Bookmark(int? postId)
         {
             var message = "";
+
+            if (!Request.IsAuthenticated)
+            {
+                message = "You must Logon to bookmark posts";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+            
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
             var post = _ctx.Post.Find(postId);
 

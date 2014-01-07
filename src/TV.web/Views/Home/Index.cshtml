@@ -78,6 +78,7 @@
         
 
         $(document).ready(function () {
+            
             $('#navTab').each(function () {
                 $(this).removeClass('active');
             });
@@ -127,31 +128,23 @@
             })
         };
 
-        function Bookmark(postId) {
-            var loggedIn = '@Request.IsAuthenticated';
-            console.log(loggedIn);
-            if(loggedIn == true){
+        function Bookmark(postId) {           
                 var Id = postId;
-                console.log(postId);
                 $.ajax({
                     url: '@Url.Content("~/UserBookmark/Bookmark/")',
                     data: { postId: Id },
                     type: 'POST',
                     success: function (data) {
-                        alert(data);
-                    },
-                    error: function (data) {
-                        console.log(e.error);
-                    }
-                });
-            } else {
-                alert("Log in to bookmark this post")
-            }
-            
-        
+                        alert(data)
+                    }   
+                });    
         };
                 
-       
+        var loggedIn = '@Request.IsAuthenticated';
+        if (!loggedIn) {
+            $('#bookmarkButton').hide();
+        };
+
         var hiId; 
         var previouslyRun = false;
         function getPics() {

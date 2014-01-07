@@ -47,6 +47,7 @@ $(document).ready(function () {
                             "bSearchable": false,
                             "bSortable": false,
                             "fnRender": function (oObj) {
+                               
                                 return '<a class="btn btn-sm btn-primary" style="color: white; height: 25px; padding-bottom: 3px;" id="viewLink" href=\"Search/ViewPost/' + oObj.aData[0] + '\">View</a> &nbsp; <button id="bookmarkButton" class="btn btn-sm btn-warning" onclick="Bookmark(' + oObj.aData[0] + ')">bookmark</button>';
                             }
                         },
@@ -57,19 +58,17 @@ $(document).ready(function () {
                         { "sName": "Zip Code" },
                         { "sName": "Rating",
                           "fnRender": function (oObj) {
-                            console.log("render fx");
                                 var htmlString = "";
                                 var loopIndex = oObj.aData[6]
                                 while (loopIndex > 0) {
                                     if (loopIndex == .5) {
                                         htmlString = htmlString + '<i class="fa fa-star-half-full" style="color:gold;"></i>';
-                                        console.log(htmlString);
                                         return htmlString;
                                     }
                                     htmlString = htmlString + '<i class="fa fa-star" style="color:gold;"></i>';
                                     loopIndex--;
                                 }
-                                console.log(htmlString + "last");
+                                
                                 return htmlString;
                             }
                         }
