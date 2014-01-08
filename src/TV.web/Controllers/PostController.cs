@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using TV.web.Models;
 using TV.web.ViewModels;
+using Recaptcha.Web;
+using Recaptcha.Web.Mvc;
 
 namespace TV.web.Controllers
 {
@@ -123,16 +125,37 @@ namespace TV.web.Controllers
         [HttpPost]
         public ActionResult Create(CreatePostViewModel inModel)
         {
+            var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
+            var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
+            var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+
+            if (!post.Rating.HasValue)
+            {
+                ModelState.AddModelError("", "Please provide a rating");
+                return View(inModel);
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(inModel);
             }
 
-            var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
-            var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
-            var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
 
-            
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(inModel);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+                return View(inModel);
+            }
+
             post.User = user;
             post.Title = inModel.Title;
             post.LandLord = inModel.LandLord;

@@ -1,4 +1,5 @@
-﻿@model TV.web.ViewModels.CreatePostViewModel
+﻿@using Recaptcha.Web.Mvc;
+@model TV.web.ViewModels.CreatePostViewModel
 
 @{
     ViewBag.Title = "Create a New Post";
@@ -329,7 +330,8 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            Upload Pictures<div style="float:right; font-size: 10px">* there is a limit of 4 jpeg or png images, delete to add more</div>
+                                            Upload Pictures @if(Model.IsEDitMode == true){ <div style="float:right; font-size: 10px">* there is a limit of 4 jpeg or png images, delete to add more</div>}
+                                                            else { <div style="float:right; font-size: 10px">* there is a limit of 4 jpeg or png images</div> }                                                                                                                                                            
                                         </div>
                                     </div>
                                     <div class="panel-body" style="padding-left: 15px; padding-bottom: 11px; padding-right: 15px;">
@@ -341,6 +343,7 @@
                                         </form>
                                         <div class="row">
                                             <iframe id ="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                            <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                             <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                             <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                         </div>
@@ -367,6 +370,13 @@
                                 </div>
                             </div>
                         </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-8">
+                                @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean);
+                            </div>
+                        </div>
+                        <br />
                         <div class="table-responsive" id="largeImgPanel" onclick="hideMe(this);">
                             <img id="largeImg" style="height: 100%; margin: 0; padding: 0;" />
                         </div>

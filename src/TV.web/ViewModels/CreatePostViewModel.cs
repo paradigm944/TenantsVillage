@@ -22,7 +22,7 @@ namespace TV.web.ViewModels
 
         public CommentViewModel ComViewModel { get; set; }
 
-        [Required(ErrorMessage = "Please provide a rating")]
+        
         public double? Rating { get; set; }
 
         [Required(ErrorMessage = "Please provide some description")]
