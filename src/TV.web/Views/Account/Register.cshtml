@@ -63,13 +63,15 @@
                         @Html.PasswordFor(m => m.ConfirmPassword)
                     </div>
                 </div>
+                <br />
+                <br />
                 <div class="row">
                     <div class="span8">
                         @Html.Recaptcha(theme:Recaptcha.Web.RecaptchaTheme.Clean);
                     </div>
                 </div>
                 <br />
-                <br />
+                
                 <div class="row">
                     <input class="btn btn-primary " type="submit" value="Register" />
                 </div>
