@@ -49,14 +49,22 @@ namespace TV.web.Controllers
         [HttpPost]
         public JsonResult Rate(int? postId, float? value)
         { 
+            var post = _ctx.Post.Find(postId);
             var message = "";
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                message = "There was a problem with the post Id";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
 
             if (postId == null)
             {
                 message = "There was a problem with the post Id";
                 return Json(message, JsonRequestBehavior.AllowGet);
             }
-            var post = _ctx.Post.Find(postId);
+            
 
             if (post == null)
             {
@@ -96,8 +104,12 @@ namespace TV.web.Controllers
         public ActionResult CancelCreate(int? id)
         {
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
-
             var post = _ctx.Post.Find(id);
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             if (post != null)
             {
@@ -169,6 +181,12 @@ namespace TV.web.Controllers
             var postId = post.Id;
             var images = _ctx.Image.Where(m => m.PostId == postId).ToList<ImageModel>();
             var commentz = _ctx.Comment.Where(m => m.PostId == postId).ToList<Comment>();
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             var outModel = new CreatePostViewModel
             {
@@ -209,6 +227,13 @@ namespace TV.web.Controllers
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             post.User = user;
             post.Title = inModel.Title;
@@ -261,6 +286,12 @@ namespace TV.web.Controllers
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
             //var user = _ctx.UserProfiles.Find(post.User.UserId);
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             var outModel = new ViewPostViewModel
             {
@@ -292,6 +323,12 @@ namespace TV.web.Controllers
         public ActionResult Delete(ViewPostViewModel inModel)
         {
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             if (post.User.UserName == inModel.UserName) {
                 post.IsDeleted = true;
@@ -308,27 +345,38 @@ namespace TV.web.Controllers
         public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
+            var post = _ctx.Post.Where(m => m.Id == photo.PostId).SingleOrDefault();
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
-            var postId = _ctx.Post.Where(m => m.Id == photo.PostId).SingleOrDefault().Id;
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
             
             _ctx.Image.Remove(photo);
             _ctx.SaveChanges();
 
-            return RedirectToAction("Edit", "Post", new { id = postId });
+            return RedirectToAction("Edit", "Post", new { id = post.Id });
         }
 
         public ActionResult DeleteComment(int? commentId)
         {
             var comment = _ctx.Comment.Where(m => m.Id == commentId).SingleOrDefault();
 
-            var postId = _ctx.Post.Where(m => m.Id == comment.PostId).SingleOrDefault().Id;
+            var post = _ctx.Post.Where(m => m.Id == comment.PostId).SingleOrDefault();
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
+            if (post.User.UserId != currentUserId)
+            {
+                return View("Error");
+            }
 
 
             _ctx.Comment.Remove(comment);
             _ctx.SaveChanges();
 
-            return RedirectToAction("Edit", "Post", new { id = postId });
+            return RedirectToAction("Edit", "Post", new { id = post.Id });
         }
     }
 }
