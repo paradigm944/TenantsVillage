@@ -72,7 +72,7 @@ namespace TV.web.Controllers
 
             if (post.User.UserId != currentUser.UserId)
             {
-                message = "There was a problem");
+                message = "There was a problem";
                 return Json(message, JsonRequestBehavior.AllowGet);
             }
 
