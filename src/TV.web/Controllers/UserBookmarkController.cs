@@ -29,7 +29,13 @@ namespace TV.web.Controllers
             
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
             var post = _ctx.Post.Find(postId);
+            
 
+            if (post.User.UserId != currentUser.UserId)
+            {
+                message = "There was a problem";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
             if (currentUser == null || post == null)
             {
                 message = "Problem with UserName or Post";
@@ -62,6 +68,13 @@ namespace TV.web.Controllers
             var message = "";
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
             var post = _ctx.Post.Find(postId);
+            
+
+            if (post.User.UserId != currentUser.UserId)
+            {
+                message = "There was a problem");
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
 
             if (currentUser == null || post == null)
             {
