@@ -153,26 +153,18 @@ namespace TV.web.Controllers
                 var LandlordFilter = Convert.ToString(Request["sSearch_1"]);
                 var TitleFilter = Convert.ToString(Request["sSearch_2"]);
                 var StreetFilter = Convert.ToString(Request["sSearch_3"]);
-                var IsCompletedFilter = Convert.ToString(Request["sSearch_4"]);
-                var IsDeletedFilter = Convert.ToString(Request["sSearch_5"]);
+                var CityFilter = Convert.ToString(Request["sSearch_4"]);
+                var ZipCodeFilter = Convert.ToString(Request["sSearch_5"]);
 
                 //Optionally check whether the columns are searchable at all 
                 var isLandlordSearchable = Convert.ToBoolean(Request["bSearchable_1"]);
                 var isTitleSearchable = Convert.ToBoolean(Request["bSearchable_2"]);
                 var isStreetSearchable = Convert.ToBoolean(Request["bSearchable_3"]);
-                var isIsCompletedSearchable = Convert.ToBoolean(Request["bSearchable_4"]);
-                var isIsDeletedSearchable = Convert.ToBoolean(Request["bSearchable_5"]);
+                var isCitySearchable = Convert.ToBoolean(Request["bSearchable_4"]);
+                var isZipCodeSearchable = Convert.ToBoolean(Request["bSearchable_5"]);
 
                 filteredPosts = DataRepository.GetPosts()
-                   .Where(c => isLandlordSearchable && c.LandLord.ToLower().Contains(param.sSearch.ToLower())
-                       //||
-                       //isTitleSearchable && c.Title.ToLower().Contains(param.sSearch.ToLower())
-                               ||
-                               isStreetSearchable && c.Street.ToLower().Contains(param.sSearch.ToLower()));
-                               //||
-                               //isIsCompletedSearchable && c.IsCompleted.ToString().Contains(param.sSearch.ToLower())
-                               //||
-                               //isIsDeletedSearchable && c.IsDeleted.ToString().Contains(param.sSearch.ToLower()));
+                   .Where(c => c.ZipCode.ToString().Contains(param.sSearch) || c.LandLord.ToLower().Contains(param.sSearch.ToLower()) || c.Street.ToLower().Contains(param.sSearch.ToLower()) || c.City.ToLower().Contains(param.sSearch.ToLower()));
             }
             else
             {
@@ -182,11 +174,16 @@ namespace TV.web.Controllers
             var isLandlordSortable = Convert.ToBoolean(Request["bSortable_1"]);
             var isTitleSortable = Convert.ToBoolean(Request["bSortable_2"]);
             var isStreetSortable = Convert.ToBoolean(Request["bSortable_3"]);
+            var isCitySortable = Convert.ToBoolean(Request["bSortable_4"]);
+            var isZipCodeSortable = Convert.ToBoolean(Request["bSortable_5"]);
+            var isRatingSortable = Convert.ToBoolean(Request["bSortable_6"]);
             var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
             Func<PostModel, string> orderingFunction = (c => sortColumnIndex == 1 && isLandlordSortable ? c.LandLord :
                                                            sortColumnIndex == 2 && isTitleSortable ? c.Title :
                                                            sortColumnIndex == 3 && isStreetSortable ? c.Street :
-                                                           sortColumnIndex == 4 && isStreetSortable ? c.Rating.ToString() :
+                                                           sortColumnIndex == 4 && isCitySortable ? c.City :
+                                                           sortColumnIndex == 5 && isZipCodeSortable ? c.ZipCode.ToString() :
+                                                           sortColumnIndex == 6 && isRatingSortable ? c.Rating.ToString() :
                                                            "");
 
             var sortDirection = Request["sSortDir_0"]; // asc or desc
@@ -196,7 +193,7 @@ namespace TV.web.Controllers
                 filteredPosts = filteredPosts.OrderByDescending(orderingFunction);
 
             var displayedPosts = filteredPosts.Skip(param.iDisplayStart).Take(param.iDisplayLength);
-            var result = from c in displayedPosts select new[] { Convert.ToString(c.Id), c.LandLord, c.Title, c.Street, c.Rating.ToString() };
+            var result = from c in displayedPosts select new[] { Convert.ToString(c.Id), c.LandLord, c.Title, c.Street, c.City, c.ZipCode.ToString(), c.Rating.ToString() };
             return Json(new
             {
                 sEcho = param.sEcho,
@@ -206,7 +203,6 @@ namespace TV.web.Controllers
             },
                         JsonRequestBehavior.AllowGet);
         }
-
         
 
         

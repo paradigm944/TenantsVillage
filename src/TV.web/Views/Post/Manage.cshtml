@@ -41,6 +41,8 @@
                                 <th>Landlord</th>
                                 <th>Title</th>
                                 <th>Street</th>
+                                <th>City</th>
+                                <th>Zip Code</th>
                                 <th>Rating</th>
 
                             </tr>
@@ -131,11 +133,13 @@
 			            { "sName": "Landlord" },
 			            { "sName": "Title" },
 			            { "sName": "Street" },
+                        { "sName": "City" },
+                        { "sName": "ZipCode" },
                         {
                             "sName": "Rating",
                             "fnRender": function (oObj) {
                                 var htmlString = "";
-                                var loopIndex = oObj.aData[4]
+                                var loopIndex = oObj.aData[6]
                                 while (loopIndex > 0) {
                                     if (loopIndex == .5) {
                                         htmlString = htmlString + '<i class="fa fa-star-half-full" style="color:gold;"></i>';
