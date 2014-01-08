@@ -95,6 +95,8 @@ namespace TV.web.Controllers
 
         public ActionResult CancelCreate(int? id)
         {
+            var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
+
             var post = _ctx.Post.Find(id);
 
             if (post != null)
