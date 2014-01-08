@@ -1,4 +1,7 @@
-﻿@model TV.web.Models.RegisterModel
+﻿@using Recaptcha.Web.Mvc;
+
+@model TV.web.Models.RegisterModel
+
 @{
     ViewBag.Title = "Register";
 }
@@ -58,6 +61,11 @@
                         @Html.ValidationMessageFor(m => m.ConfirmPassword)
                         @Html.LabelFor(m => m.ConfirmPassword) &nbsp&nbsp
                         @Html.PasswordFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span8">
+                        @Html.Recaptcha(theme:Recaptcha.Web.RecaptchaTheme.Clean);
                     </div>
                 </div>
                 <br />

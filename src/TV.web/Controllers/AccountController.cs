@@ -12,6 +12,9 @@ using TV.web.Filters;
 using TV.web.Models;
 using TV.web.ViewModels;
 using System.Net.Mail;
+using Recaptcha.Web;
+using Recaptcha.Web.Mvc;
+
 namespace TV.web.Controllers
 {
     [Authorize]
@@ -255,9 +258,23 @@ namespace TV.web.Controllers
                 }
                 try
                 {
-                    //WebSecurity.Login(model.UserName, model.Password);
+                    RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+                    if (String.IsNullOrEmpty(recaptchaHelper.Response))
+                    {
+                        ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                        return View(model);
+                    }
+
+                    RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+                    if (recaptchaResult != RecaptchaVerificationResult.Success)
+                    {
+                        ModelState.AddModelError("", "Incorrect captcha answer.");
+                    }
 
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
                     var registrationCode = WebSecurity.GeneratePasswordResetToken(model.UserName, 1440);
                     var newUser = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault();
                     newUser.Email = model.Email;
@@ -269,22 +286,14 @@ namespace TV.web.Controllers
                     var hosturl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
                         "/Account/VerifyEmailCode/?token=" + registrationCode;
 
-                    //var confirmationLink = string.Format("<a href=\'{0}\'>Clink to confirm your registration</a>",
-                    //                                      hosturl);
+                    
                     var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification", 
                         "Thank you for registering with TenantsVillge. Click the link below to complete your registration."+ System.Environment.NewLine +
                        hosturl);
-                    //var bemail = new MailMessage("registration@tenantsvillage.com", userEmail.ToString(), "Password Reset Request",
-                    //    "You have requested to have your password reset, or have forgot your password. Click the link below to reset your password." + System.Environment.NewLine +
-                    //   hosturl);
+                    
                     var smtpServer = new SmtpClient();
                     smtpServer.Send(bemail);
 
-                    
-
-                    //var smtpServer = new SmtpClient();
-        
-                    
                     _ctx.SaveChanges();  
                     return View("VerifyAccount");
                 }
