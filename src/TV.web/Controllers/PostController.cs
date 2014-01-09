@@ -132,6 +132,7 @@ namespace TV.web.Controllers
             if (!post.Rating.HasValue)
             {
                 ModelState.AddModelError("", "Please provide a rating");
+                ModelState.AddModelError("", "Any pictures Upload are already saved.");
                 return View(inModel);
             }
 
@@ -145,6 +146,7 @@ namespace TV.web.Controllers
             if (String.IsNullOrEmpty(recaptchaHelper.Response))
             {
                 ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                ModelState.AddModelError("", "Any pictures Upload are already saved.");
                 return View(inModel);
             }
 
@@ -153,6 +155,7 @@ namespace TV.web.Controllers
             if (recaptchaResult != RecaptchaVerificationResult.Success)
             {
                 ModelState.AddModelError("", "Incorrect captcha answer.");
+                ModelState.AddModelError("", "Any pictures Upload are already saved.");
                 return View(inModel);
             }
 
@@ -233,7 +236,8 @@ namespace TV.web.Controllers
                 Comments = commentz,
                 Rating = post.Rating, 
                 City = post.City,
-                Zip = post.ZipCode
+                Zip = post.ZipCode,
+                UserId = post.User.UserId
                 
             };
             
