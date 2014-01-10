@@ -730,9 +730,7 @@
     <Content Include="Views\Shared\UserPosts.cshtml" />
     <Content Include="Views\Post\DeleteConfirmation.cshtml" />
     <Content Include="Views\Account\VerifyAccount.cshtml" />
-    <Content Include="Views\Account\VerifySuccessLogin.cshtml" />
     <Content Include="Views\Account\VerifyEmailCode.cshtml" />
-    <Content Include="Views\Shared\ValTest.cshtml" />
     <Content Include="Views\FileTest\UploadPhotos.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\UpLoadPicViewModel.cshtml" />
     <Content Include="Views\Shared\VerifyEmailCodeError.cshtml" />
@@ -740,8 +738,6 @@
     <Content Include="Views\Account\DeleteAccountSuccess.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordSuccess.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordSuccess.cshtml" />
     <Content Include="Views\Upload\PicUpload.cshtml" />
     <Content Include="Views\Search\MessageSuccess.cshtml" />
     <Content Include="Views\Shared\_SendMessagePartial.cshtml" />
