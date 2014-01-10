@@ -728,10 +728,7 @@
     <Content Include="Views\Search\ViewPost.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Shared\UserPosts.cshtml" />
-    <Content Include="Views\Post\Edit.cshtml" />
-    <Content Include="Views\Post\EditPostSuccess.cshtml" />
     <Content Include="Views\Post\DeleteConfirmation.cshtml" />
-    <Content Include="Views\Post\DeleteSuccess.cshtml" />
     <Content Include="Views\Account\VerifyAccount.cshtml" />
     <Content Include="Views\Account\VerifySuccessLogin.cshtml" />
     <Content Include="Views\Account\VerifyEmailCode.cshtml" />
