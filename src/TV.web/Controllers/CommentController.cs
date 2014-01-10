@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using TV.web.Controllers;
 using TV.web.Models;
 using TV.web.ViewModels;
 using WebMatrix.WebData;
@@ -34,6 +35,7 @@ namespace MvcForums.Controllers
         }
 
         [HttpGet]
+        [SessionExpireFilter]
         public ActionResult ViewComment(int threadId)
         {
             var thread = _ctx.Comment.Where(m => m.Id == threadId).SingleOrDefault();
@@ -54,6 +56,7 @@ namespace MvcForums.Controllers
         }
 
         [HttpPost]
+        [SessionExpireFilter]
         public ActionResult CreateComment(ViewPostViewModel inModel)
         {
 

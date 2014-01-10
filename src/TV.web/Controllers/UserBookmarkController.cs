@@ -17,6 +17,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
+        [SessionExpireFilter]
         public JsonResult Bookmark(int? postId)
         {
             var message = "";
@@ -62,7 +63,7 @@ namespace TV.web.Controllers
             return Json(message, JsonRequestBehavior.AllowGet);
         }
 
-        
+        [SessionExpireFilter]
         public ActionResult DeleteBookmark(int? postId)
         {
             var message = "";

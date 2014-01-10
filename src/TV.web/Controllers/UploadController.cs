@@ -69,7 +69,7 @@ namespace non_profit.Controllers
             }
         }
 
-
+        [SessionExpireFilter]
         public ActionResult PicUpload(int postId)
         {
             var outModel = new PicUploadViewModel { postId = postId };

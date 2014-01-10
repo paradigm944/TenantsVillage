@@ -7,6 +7,8 @@ using TV.web.Models;
 using TV.web.ViewModels;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
+using System.Web.Helpers;
+using System.Runtime.Remoting.Contexts;
 
 namespace TV.web.Controllers
 {
@@ -24,6 +26,7 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
+        [SessionExpireFilter]
         public ActionResult Manage(bool? needStatusUpdate, string statusMessage)
         {
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
@@ -41,7 +44,7 @@ namespace TV.web.Controllers
             else
             {
                 outModel.needStatusMessage = false;
-                //outModel.statusMessage = statusMessage;
+                
             }
             return View(outModel);
         }
@@ -49,6 +52,7 @@ namespace TV.web.Controllers
 
         
         [HttpPost]
+        [SessionExpireFilter]
         public JsonResult Rate(int? postId, float? value)
         { 
             var post = _ctx.Post.Find(postId);
@@ -103,6 +107,7 @@ namespace TV.web.Controllers
             return View(outModel);
         }
 
+        [SessionExpireFilter]
         public ActionResult CancelCreate(int? id)
         {
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
@@ -123,12 +128,15 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
+        [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreatePostViewModel inModel)
         {
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
 
+           
             if (!post.Rating.HasValue)
             {
                 ModelState.AddModelError("", "Please provide a rating");
@@ -179,28 +187,9 @@ namespace TV.web.Controllers
 
             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
 
-            //var outModel = new ViewPostViewModel
-            //{
-                
-            //    Title = post.Title,
-            //    LandLord = post.LandLord,
-            //    LeaseYear = post.LeaseYear,
-            //    LLemail = post.LLemail,
-            //    Post = post.Post,
-            //    Rent = post.Rent,
-            //    Deposit = post.Deposit,
-            //    AmountKept = post.AmountKept,
-            //    IsDeleted = post.IsDeleted,
-            //    Id = post.Id,
-            //    AptNumber = post.AptNumber,
-            //    Images = images,
-            //    BuildingNumber = post.BuildingNumber,
-            //    Street = post.Street
-
-            //};
-            //return View("CreatePostSuccess", outModel);
         }
 
+        [SessionExpireFilter]
         public ActionResult Edit(int? id)
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
@@ -245,6 +234,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
+        [SessionExpireFilter]
         public ActionResult Edit(CreatePostViewModel inModel)
         {
             if (!ModelState.IsValid)
