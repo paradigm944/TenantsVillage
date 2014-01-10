@@ -3,6 +3,9 @@
 
 @using (Ajax.BeginForm("createcomment", "comment", new { id = Model.Id }, null))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    
         <div>
             @Html.LabelFor(m => m.Subject)<br />
             @Html.TextAreaFor(m => m.Subject)

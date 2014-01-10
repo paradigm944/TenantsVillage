@@ -57,6 +57,7 @@ namespace MvcForums.Controllers
 
         [HttpPost]
         [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateComment(ViewPostViewModel inModel)
         {
 

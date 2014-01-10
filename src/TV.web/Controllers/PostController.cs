@@ -108,6 +108,7 @@ namespace TV.web.Controllers
         }
 
         [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult CancelCreate(int? id)
         {
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
@@ -182,7 +183,10 @@ namespace TV.web.Controllers
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
             post.IsCompleted = 1;
-            
+            post.City = inModel.City;
+
+            var errors = _ctx.GetValidationErrors();
+
             _ctx.SaveChanges();
 
             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
@@ -235,6 +239,7 @@ namespace TV.web.Controllers
 
         [HttpPost]
         [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(CreatePostViewModel inModel)
         {
             if (!ModelState.IsValid)
@@ -337,6 +342,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(ViewPostViewModel inModel)
         {
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
@@ -358,7 +364,8 @@ namespace TV.web.Controllers
             }
         }
 
-       
+        [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
@@ -377,6 +384,8 @@ namespace TV.web.Controllers
             return RedirectToAction("Edit", "Post", new { id = post.Id });
         }
 
+        [ValidateAntiForgeryToken]
+        [SessionExpireFilter]
         public ActionResult DeleteComment(int? commentId)
         {
             var comment = _ctx.Comment.Where(m => m.Id == commentId).SingleOrDefault();

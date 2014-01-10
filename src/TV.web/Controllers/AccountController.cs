@@ -106,6 +106,7 @@ namespace TV.web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult ForgotPassword(ForgotPasswordViewModel inModel)
         {
             if (!ModelState.IsValid)
@@ -161,6 +162,7 @@ namespace TV.web.Controllers
  
         [HttpPost]
         [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ForgotPasswordViewModel inModel)
         {
             if (!ModelState.IsValid)
@@ -422,6 +424,7 @@ namespace TV.web.Controllers
 
         [HttpPost]
         [SessionExpireFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult Disassociate(DisassociateUserViewModel inModel)
         {
             var user = _ctx.UserProfiles.Where(m => m.UserId == inModel.UserId).Where(m => m.Email == inModel.Email).
