@@ -23,8 +23,6 @@ namespace non_profit.Controllers
             _ctx = ctx;
         }
 
-//        [AjaxOnly]
-
         public JsonResult JSUpload(int postId)
         {
             bool success = false;
@@ -34,7 +32,7 @@ namespace non_profit.Controllers
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
             var imgQuantity = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>().Count;
 
-            if (imgFormat == "jpeg" || imgFormat == "png" )
+            if (imgFormat == "jpeg" || imgFormat == "png" || imgFormat == "jpg" )
             {
                 if (imgQuantity >= 4)
                 {
