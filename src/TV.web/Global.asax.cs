@@ -25,9 +25,7 @@ namespace TV.web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
-    //        Database.SetInitializer<TVContext>(new TVDataIntitializer());
-        
+  
         }
     }
 }
