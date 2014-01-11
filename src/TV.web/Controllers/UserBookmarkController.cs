@@ -91,7 +91,7 @@ namespace TV.web.Controllers
             _ctx.SaveChanges();
 
 
-            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your bookmark has been removed" });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 5 });
         }
 
     }

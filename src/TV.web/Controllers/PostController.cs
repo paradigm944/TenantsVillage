@@ -17,28 +17,35 @@ namespace TV.web.Controllers
     {
         private readonly TVContext _ctx;
 
-        public IList<string> StreetList = new List<String>{"Iowa", "Burlington", "Govenor", "Dodge", "Washinton", "Jefferson", "Bloominton", "Glibert", "Luscas", "Johnson", "Benton", "Van Bruen South",
-                "Prentiss", "Dubuque", "Clinton", "Market", "E. Davenport", "Linn", "Hotz", "Summit", "Muscatine", "Clark", "Church", "Fairchild", "Ronalds", "Brown", "College", "Center", "Reno", 
-                "Pleasant" , "Union", "Mott", "Cedar", "Van Bruen North", "Maiden Ln", "Capitol", "Madison", "Lafayette", "Webster", "Page", "Walnut", "Kirkwood", "Mormen Trek", "Melrose"};
-
         public PostController(TVContext ctx)
         {
             _ctx = ctx;
         }
 
         //[SessionExpireFilter]
-        public ActionResult Manage(bool? needStatusUpdate, string statusMessage)
+        public ActionResult Manage(bool? needStatusUpdate, int statusMessage)
         {
+            var StatusMessages = new List<string>();
+            StatusMessages.Add("");
+            StatusMessages.Add("Your delete has been canceled");
+            StatusMessages.Add("Any changes made have been saved");
+            StatusMessages.Add("Your post has been canceled");
+            StatusMessages.Add("Your Post has been successfully created");
+            StatusMessages.Add("Your Post has been deleted");
+            StatusMessages.Add("Your bookmark has been removed");
+
+            
+
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
 
             var outModel = new ManageViewModel();
 
             outModel.Bookmarks = _ctx.UserBookmark.Where(m => m.User.UserId == currentUser.UserId).ToList<UserBookmark>();
 
-            if (needStatusUpdate == true)
+            if (needStatusUpdate == true )
             {
                 outModel.needStatusMessage = true;
-                outModel.statusMessage = statusMessage;
+                outModel.statusMessage = StatusMessages[statusMessage];
 
             }
             else
@@ -97,8 +104,7 @@ namespace TV.web.Controllers
                 IsCompleted = 0
                 
             };
-            outModel.StreetList = StreetList;
-            //TODO sort array abc
+            
             outModel.UserId = user.UserId;
             _ctx.Post.Add(post);
             _ctx.SaveChanges();
@@ -125,7 +131,7 @@ namespace TV.web.Controllers
                 _ctx.SaveChanges();
 
             }
-            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been canceled" });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 2 });
         }
 
         [HttpPost]
@@ -189,7 +195,7 @@ namespace TV.web.Controllers
 
             _ctx.SaveChanges();
 
-            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been successfully created" });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 3 });
 
         }
 
@@ -278,7 +284,7 @@ namespace TV.web.Controllers
 
              _ctx.SaveChanges();
 
-             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Any changes made have been saved" });
+             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 1 });
 
             //var outModel = new ViewPostViewModel
             //{
@@ -315,6 +321,12 @@ namespace TV.web.Controllers
                 return View("Error");
             }
 
+            if (post.IsDeleted == true)
+            {
+                ModelState.AddModelError("", "This post has already been deleted");
+                return View();
+            }
+
             var outModel = new ViewPostViewModel
             {
                 Title = post.Title,
@@ -335,7 +347,8 @@ namespace TV.web.Controllers
                 City = post.City,
                 ZipCode = post.ZipCode,
                 Rating = post.Rating,
-                IsDeleteMode = true
+                IsDeleteMode = true,
+               
             };
 
             return View("DeleteConfirmation", outModel);
@@ -356,7 +369,7 @@ namespace TV.web.Controllers
             if (post.User.UserName == inModel.UserName) {
                 post.IsDeleted = true;
                  _ctx.SaveChanges();
-                 return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = "Your Post has been deleted" }); 
+                 return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 4 }); 
             }
             else
             {
