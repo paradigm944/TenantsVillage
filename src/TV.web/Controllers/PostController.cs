@@ -26,7 +26,7 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult Manage(bool? needStatusUpdate, string statusMessage)
         {
             var currentUser = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
@@ -52,7 +52,7 @@ namespace TV.web.Controllers
 
         
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public JsonResult Rate(int? postId, float? value)
         { 
             var post = _ctx.Post.Find(postId);
@@ -107,7 +107,7 @@ namespace TV.web.Controllers
             return View(outModel);
         }
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult CancelCreate(int? id)
         {
@@ -129,7 +129,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreatePostViewModel inModel)
         {
@@ -193,7 +193,7 @@ namespace TV.web.Controllers
 
         }
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult Edit(int? id)
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
@@ -238,7 +238,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CreatePostViewModel inModel)
         {
@@ -364,7 +364,7 @@ namespace TV.web.Controllers
             }
         }
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public  ActionResult DeletePhoto(int? photoId)
         {
@@ -385,7 +385,7 @@ namespace TV.web.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult DeleteComment(int? commentId)
         {
             var comment = _ctx.Comment.Where(m => m.Id == commentId).SingleOrDefault();

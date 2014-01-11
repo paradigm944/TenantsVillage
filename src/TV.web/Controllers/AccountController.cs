@@ -152,7 +152,7 @@ namespace TV.web.Controllers
             
         }
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult ResetPassword()
         {
             
@@ -161,7 +161,7 @@ namespace TV.web.Controllers
 
  
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ForgotPasswordViewModel inModel)
         {
@@ -407,7 +407,7 @@ namespace TV.web.Controllers
 
 
 
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult Disassociate()
         {
 
@@ -423,7 +423,7 @@ namespace TV.web.Controllers
         }
 
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(DisassociateUserViewModel inModel)
         {

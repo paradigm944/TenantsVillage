@@ -35,7 +35,7 @@ namespace MvcForums.Controllers
         }
 
         [HttpGet]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult ViewComment(int threadId)
         {
             var thread = _ctx.Comment.Where(m => m.Id == threadId).SingleOrDefault();
@@ -56,7 +56,7 @@ namespace MvcForums.Controllers
         }
 
         [HttpPost]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
         public ActionResult CreateComment(ViewPostViewModel inModel)
         {

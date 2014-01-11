@@ -39,7 +39,7 @@ namespace TV.web.Controllers
         }
 
         [Authorize]
-        [SessionExpireFilter]
+        //[SessionExpireFilter]
         public ActionResult ViewPost(int id)
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
