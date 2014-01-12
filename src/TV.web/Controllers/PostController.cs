@@ -23,7 +23,7 @@ namespace TV.web.Controllers
         }
 
         //[SessionExpireFilter]
-        public ActionResult Manage(bool? needStatusUpdate, int statusMessage)
+        public ActionResult Manage(bool? needStatusUpdate, int? statusMessage)
         {
             var StatusMessages = new List<string>();
             StatusMessages.Add("");
@@ -42,10 +42,10 @@ namespace TV.web.Controllers
 
             outModel.Bookmarks = _ctx.UserBookmark.Where(m => m.User.UserId == currentUser.UserId).ToList<UserBookmark>();
 
-            if (needStatusUpdate == true )
+            if (needStatusUpdate == true && statusMessage.HasValue )
             {
                 outModel.needStatusMessage = true;
-                outModel.statusMessage = StatusMessages[statusMessage];
+                outModel.statusMessage = StatusMessages[statusMessage.GetValueOrDefault()];
 
             }
             else
@@ -114,7 +114,7 @@ namespace TV.web.Controllers
         }
 
         //[SessionExpireFilter]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult CancelCreate(int? id)
         {
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
@@ -131,7 +131,7 @@ namespace TV.web.Controllers
                 _ctx.SaveChanges();
 
             }
-            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 2 });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 3 });
         }
 
         [HttpPost]
@@ -195,7 +195,7 @@ namespace TV.web.Controllers
 
             _ctx.SaveChanges();
 
-            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 3 });
+            return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 4 });
 
         }
 
@@ -228,7 +228,6 @@ namespace TV.web.Controllers
                 Id = post.Id,
                 AptNumber = post.AptNumber,
                 Images = images,
-                StreetList = StreetList,
                 IsEDitMode = true,
                 BuildingNumber = post.BuildingNumber,
                 Street = post.Street,
@@ -284,29 +283,8 @@ namespace TV.web.Controllers
 
              _ctx.SaveChanges();
 
-             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 1 });
-
-            //var outModel = new ViewPostViewModel
-            //{
-                
-            //    Title = post.Title,
-            //    LandLord = post.LandLord,
-            //    LeaseYear = post.LeaseYear,
-            //    LLemail = post.LLemail,
-            //    Post = post.Post,
-            //    Rent = post.Rent,
-            //    Deposit = post.Deposit,
-            //    AmountKept = post.AmountKept,
-            //    IsDeleted = post.IsDeleted,
-            //    Id = post.Id,
-            //    AptNumber = post.AptNumber,
-            //    Images = images,
-            //    BuildingNumber = post.BuildingNumber,
-            //    Street = post.Street
-            //};
-
-           
-            //return View("EditPostSuccess", outModel);
+             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 2 });
+     
         }
 
         public ActionResult Delete(int? id)
@@ -369,7 +347,7 @@ namespace TV.web.Controllers
             if (post.User.UserName == inModel.UserName) {
                 post.IsDeleted = true;
                  _ctx.SaveChanges();
-                 return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 4 }); 
+                 return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 5 }); 
             }
             else
             {
