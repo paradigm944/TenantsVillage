@@ -114,9 +114,7 @@ namespace TV.web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "";
-
-            return View();
+            throw new Exception("Test");       
         }
 
         public ActionResult Contact()
