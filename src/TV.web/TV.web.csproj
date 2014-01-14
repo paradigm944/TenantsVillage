@@ -546,9 +546,6 @@
     <Content Include="Global.asax" />
     <Content Include="grrengloabe.jpg" />
     <Content Include="images.jpg" />
-    <Content Include="Images\IMAG0006.jpg" />
-    <Content Include="Images\IMAG0007.jpg" />
-    <Content Include="Images\IMAG0008.jpg" />
     <Content Include="RecaptchaNet.ReadMe.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
