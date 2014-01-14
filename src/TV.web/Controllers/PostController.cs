@@ -270,7 +270,7 @@ namespace TV.web.Controllers
             {
                 ModelState.AddModelError("", "Captcha answer cannot be empty.");
                 ModelState.AddModelError("", "Any pictures Upload are already saved.");
-                return View(inModel);
+                return View("Create", inModel);
             }
 
             RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
@@ -279,7 +279,7 @@ namespace TV.web.Controllers
             {
                 ModelState.AddModelError("", "Incorrect captcha answer.");
                 ModelState.AddModelError("", "Any pictures Upload are already saved.");
-                return View(inModel);
+                return View("Create", inModel);
             }
 
             post.User = user;
