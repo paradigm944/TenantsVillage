@@ -385,52 +385,33 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult VerifyEmailCode(VerifyEmailCodeViewModel inModel)
         {
-           var user = _ctx.UserProfiles.Find(inModel.UserId);
-           if (user.isVerified == true)
-           {
-               ModelState.AddModelError("", "This account has already been verified. ");
-               return View(inModel);
+            try
+            {
+                var user = _ctx.UserProfiles.Find(inModel.UserId);
+                if (user.isVerified == true)
+                {
+                    ModelState.AddModelError("", "This account has already been verified");
+                    return View(inModel);
+                }
+                if (Membership.ValidateUser(inModel.UserName, inModel.Password) && user.isVerified == false)
+                {
+                    user.isVerified = true;
+                    _ctx.SaveChanges();
+                    WebSecurity.Login(inModel.UserName, inModel.Password);
+                    return RedirectToAction("Index", "Home");
+                 }
+                else
+                {
+                    ModelState.AddModelError("", "The user name and password do not match");
+                    return View(inModel);
+                }
 
-           }
-           if (Membership.ValidateUser(inModel.UserName, inModel.Password))
-            {
-                
-                user.isVerified = true;
-                _ctx.SaveChanges();
-                WebSecurity.Login(inModel.UserName, inModel.Password);
-                return RedirectToAction("Index", "Home");
             }
-           else
+            catch
             {
-                ModelState.AddModelError("", "The Username and Password do not match, please try again.");
+                ModelState.AddModelError("", "The user name and password do not match  the account does not exist");
                 return View(inModel);
             }
-
-
-            //var code = inModel.Code;
-
-            //var userId = WebSecurity.GetUserIdFromPasswordResetToken(code);
-
-            //var user = _ctx.UserProfiles.Where(m => m.UserId == userId).SingleOrDefault();
-
-            //if (WebSecurity.GetUserId(inModel.UserName) != userId)
-            //{
-            //    ModelState.AddModelError("", "This is not the correct code for the user name provided");
-            //    return View(inModel);
-            //}
-
-            //    if (user.UserName == inModel.UserName && user.RegistrationCode == inModel.Code 
-            //        && userId > 0){
-
-            //        WebSecurity.Login(user.UserName, inModel.Password);
-            //        user.isVerified = true;
-            //        _ctx.SaveChanges();
-            //        return RedirectToAction("Index", "Home");
-
-
-            //    }
-
-            //return View("VerifyEmailCodeError");          
         }
 
 
