@@ -220,25 +220,53 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
-
-            if (isVerified == false || isVerified == null)
-            {
-                ModelState.AddModelError("", "This account has not been verified.");
-            }
-
-            if (Membership.ValidateUser(model.UserName, model.Password))
-            {
-                if ( isVerified == true)
+            try
+            {   var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
+                if (Membership.ValidateUser(model.UserName, model.Password) && isVerified == false)
+                {
+                    ModelState.AddModelError("", "Please verify your account by clicking the link in the registration email");
+                    return View(model);
+                }
+                if (Membership.ValidateUser(model.UserName, model.Password) && isVerified == true)
                 {
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToLocal(returnUrl);
-                }   
+                }
+                
+                else
+                {
+                    ModelState.AddModelError("", "The user name and password do not match");
+                    return View(model);
+                }
+
             }
-            else
+            catch
             {
-                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                ModelState.AddModelError("", "The user name and password do not match or an account does not exist");
+                return View(model);
             }
+
+            //var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
+
+            //if (isVerified == false || isVerified == null)
+            //{
+            //    ModelState.AddModelError("", "This account has not been verified.");
+            //    return View(model);
+            //}
+
+            //if (Membership.ValidateUser(model.UserName, model.Password))
+            //{
+            //    if ( isVerified == true)
+            //    {
+            //        WebSecurity.Login(model.UserName, model.Password);
+            //        return RedirectToLocal(returnUrl);
+            //    }   
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //    return View(model);
+            //}
                         
             return View(model);
         }
