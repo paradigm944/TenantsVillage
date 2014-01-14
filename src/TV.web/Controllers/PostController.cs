@@ -356,7 +356,7 @@ namespace TV.web.Controllers
         }
 
         //[SessionExpireFilter]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
@@ -375,7 +375,7 @@ namespace TV.web.Controllers
             return RedirectToAction("Edit", "Post", new { id = post.Id });
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         //[SessionExpireFilter]
         public ActionResult DeleteComment(int? commentId)
         {
