@@ -247,10 +247,7 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CreatePostViewModel inModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(inModel);
-            }
+            
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
@@ -260,6 +257,29 @@ namespace TV.web.Controllers
             if (post.User.UserId != currentUserId)
             {
                 return View("Error");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(inModel);
+            }
+
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                ModelState.AddModelError("", "Any pictures Upload are already saved.");
+                return View(inModel);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+                ModelState.AddModelError("", "Any pictures Upload are already saved.");
+                return View(inModel);
             }
 
             post.User = user;
