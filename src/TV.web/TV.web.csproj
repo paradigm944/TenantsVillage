@@ -759,6 +759,7 @@
     <Content Include="Scripts\Slider\jssor.sliderc.mini.compress.bat" />
     <Content Include="Scripts\Slider\jssor.sliders.mini.compress.bat" />
     <Content Include="Views\Shared\DeletedPostError.cshtml" />
+    <Content Include="Views\Post\Sample.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

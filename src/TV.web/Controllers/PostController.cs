@@ -415,5 +415,44 @@ namespace TV.web.Controllers
 
             return RedirectToAction("Edit", "Post", new { id = post.Id });
         }
+
+        [AllowAnonymous]
+        public ActionResult Sample()
+        {
+            var post = "These people were ok.  Maintainence was done pretty quickly. Snow removal was lacking at times, " +
+                        "but overall the parking was clear.  Parking was expensive, $500 a year, and there was no visitor parking. " +
+                       "These people definitey gouge tenants on parking.  At the end of the lease, only a portion of my deposit was returned. "+
+                       "Money was kept for carpet cleaning and minor repairs.  I am not too happy about the amount of my deposit withheld, but I did not take "+
+                       "pictures so it will be difficult to counter their claims.  I would recommend this unit and company if the person renting is prepared "+
+                       "to takes pictures and stand their ground come deposit time.";
+
+            var images = _ctx.Image.Where(m => m.PostId == 8).ToList<ImageModel>();
+
+            var outModel = new ViewPostViewModel
+            {
+                Title = "Sample Post",
+                LandLord = "Sample Management",
+                LeaseYear = 2012,
+                LLemail = "sample@mail.com",
+                Post = post,
+                Rent = 650,
+                Deposit = 650,
+                AmountKept = 400,
+                IsDeleted = false,
+                Id = 0,
+                AptNumber = "1",
+                Images = images,
+                BuildingNumber = 419,
+                Street = "Poplar",
+                UserName = "samplePostUser",
+                City = "Iowa City",
+                ZipCode = 52246,
+                Rating = 6.5,
+                IsDeleteMode = false,
+
+            };
+
+            return View(outModel);
+        }
     }
 }
