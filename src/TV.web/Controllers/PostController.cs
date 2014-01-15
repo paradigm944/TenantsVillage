@@ -147,6 +147,8 @@ namespace TV.web.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+
+            //Check for use of back button after cancel was pressed
             if (post.IsDeleted)
             {
                 ModelState.AddModelError("", "This Post has previously been deleted");
