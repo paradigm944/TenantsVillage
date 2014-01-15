@@ -54,12 +54,12 @@
             {
                 <ul class="nav navbar-nav">
                     <li id="homeTab" class="navTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
-
+                    <li><a href="@Url.Action("Links", "Home")"><i class="fa fa-external-link-square"></i>&nbsp;Links</a></li>
                     <li id="postTab" class="navTab dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Posts<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>&nbsp;Posts<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil-square-o"></i> Create New Post</a></li>
-                            <li id="manageTab"><a href="@Url.Action("Manage", "Post", new { needStatusUpdate = false, statusMessage = 0}))"><i class="fa fa-tags"></i> Manage Posts</a></li>
+                            <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil"></i> Create New Post</a></li>
+                            <li id="manageTab"><a href="@Url.Action("Manage", "Post", new { needStatusUpdate = false, statusMessage = 0}))"><i class="fa fa-wrench"></i> Manage Posts</a></li>
                         </ul>
                     </li>
 
