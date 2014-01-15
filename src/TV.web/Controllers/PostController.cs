@@ -127,10 +127,15 @@ namespace TV.web.Controllers
 
             if (post != null)
             {
-                _ctx.Post.Remove(post);
+                post.IsDeleted = true;
                 _ctx.SaveChanges();
 
             }
+            else
+            {
+                return View("Error");
+            }
+
             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 3 });
         }
 
@@ -142,7 +147,10 @@ namespace TV.web.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
-
+            if (post.IsDeleted)
+            {
+                ModelState.AddModelError("", "This Post has previously been deleted");
+            }
            
             if (!post.Rating.HasValue)
             {

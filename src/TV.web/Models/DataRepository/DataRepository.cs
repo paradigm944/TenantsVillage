@@ -27,7 +27,7 @@ namespace TV.web.Models.DataRepository
         {
             var ctx = ObjectFactory.GetInstance<TVContext>();
 
-            postData = ctx.Post.Select(p => p).Where(p => p.User.UserName == HttpContext.Current.User.Identity.Name && p.IsDeleted == false).ToList<PostModel>();
+            postData = ctx.Post.Select(p => p).Where(p => p.User.UserName == HttpContext.Current.User.Identity.Name && p.IsDeleted == false && p.IsCompleted == 1).ToList<PostModel>();
             return postData;
         }  
     }
