@@ -60,6 +60,7 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult ChangePassword(string token)
         {
+            
             var userId = WebSecurity.GetUserIdFromPasswordResetToken(token);
             
             if (userId > 0)
@@ -81,19 +82,49 @@ namespace TV.web.Controllers
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordViewModel inModel)
         {
-            
-            var user = _ctx.UserProfiles.Find(inModel.UserId);
-
-            if (inModel.UserName == user.UserName){
-
-                WebSecurity.ResetPassword(inModel.Token, inModel.NewPassword);
-                WebSecurity.Login(inModel.UserName, inModel.NewPassword, true);
-                return RedirectToAction("Index", "Home");
-            }
-            else{
-
-                ModelState.AddModelError("", "There was a problem reseting your password.  Please try again");
+            if(inModel.Password != inModel.ConfirmPassword)
+            {
+                ModelState.AddModelError("", "The passwords do not match");
                 return View(inModel);
+            }
+
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty");
+                return View(inModel);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer");
+                return View(inModel);
+            }
+
+            try
+            {
+                var user = _ctx.UserProfiles.Find(inModel.UserId);
+
+                if (inModel.UserName == user.UserName)
+                {
+
+                    WebSecurity.ResetPassword(inModel.Token, inModel.Password);
+                    WebSecurity.Login(inModel.UserName, inModel.Password, true);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+
+                    ModelState.AddModelError("", "The user name does not match our records");
+                    return View(inModel);
+                }
+            }
+            catch
+            {
+                throw new Exception("Change Password forgery");
             }
         }
         
@@ -111,14 +142,14 @@ namespace TV.web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "The UserNmae and Email do not match.");
                 return View(inModel);
             }
+
             RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
 
             if (String.IsNullOrEmpty(recaptchaHelper.Response))
             {
-                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                ModelState.AddModelError("", "Captcha answer cannot be empty");
                 return View(inModel);
             }
 
@@ -126,9 +157,10 @@ namespace TV.web.Controllers
 
             if (recaptchaResult != RecaptchaVerificationResult.Success)
             {
-                ModelState.AddModelError("", "Incorrect captcha answer.");
+                ModelState.AddModelError("", "Incorrect captcha answer");
                 return View(inModel);
             }
+
             if (_ctx.UserProfiles.Where(m => m.UserName == inModel.UserName && m.Email == inModel.Email).Any())
             {
                 var emailSent = SendPasswordToken(inModel.UserName);
@@ -139,13 +171,13 @@ namespace TV.web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The was a problem sending a reset email, please try again.");
+                    ModelState.AddModelError("", "The was a problem sending a reset email, please try again later");
                     return View(inModel);
                 }
             }
             else
             {
-                ModelState.AddModelError("", "The UserNmae and Email do not match.");
+                ModelState.AddModelError("", "The UserNmae and Email do not match");
                 return View(inModel);
             }
             
@@ -221,7 +253,8 @@ namespace TV.web.Controllers
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             try
-            {   var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
+            {
+                var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
                 if (Membership.ValidateUser(model.UserName, model.Password) && isVerified == false)
                 {
                     ModelState.AddModelError("", "Please verify your account by clicking the link in the registration email");
@@ -232,7 +265,7 @@ namespace TV.web.Controllers
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToLocal(returnUrl);
                 }
-                
+
                 else
                 {
                     ModelState.AddModelError("", "The user name and password do not match");
@@ -245,34 +278,8 @@ namespace TV.web.Controllers
                 ModelState.AddModelError("", "The user name and password do not match or an account does not exist");
                 return View(model);
             }
-
-            //var isVerified = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault().isVerified;
-
-            //if (isVerified == false || isVerified == null)
-            //{
-            //    ModelState.AddModelError("", "This account has not been verified.");
-            //    return View(model);
-            //}
-
-            //if (Membership.ValidateUser(model.UserName, model.Password))
-            //{
-            //    if ( isVerified == true)
-            //    {
-            //        WebSecurity.Login(model.UserName, model.Password);
-            //        return RedirectToLocal(returnUrl);
-            //    }   
-            //}
-            //else
-            //{
-            //    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            //    return View(model);
-            //}
-                        
-            return View(model);
         }
 
-       
-        
         
         public ActionResult LogOff()
         {
