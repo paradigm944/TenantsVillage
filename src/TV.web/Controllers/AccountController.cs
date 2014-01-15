@@ -288,71 +288,91 @@ namespace TV.web.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Register
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+
+            var checkUserEmail = _ctx.UserProfiles.Where(m => m.Email == model.Email).Any();
+            var checkUserName = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).Any();
+            
+            if (!ModelState.IsValid)
             {
-                if (_ctx.UserProfiles.Where(m => m.Email == model.Email).Where(m => m.isVerified == true).Any())
+                return View(model);
+            }
+            if (checkUserName)
+            {
+                ModelState.AddModelError("", "The User Name is taken");
+                return View(model);
+            }
+
+            if (checkUserEmail)
+            {
+                if(checkUserEmail && _ctx.UserProfiles.Where(m => m.Email == model.Email).SingleOrDefault().isVerified == false)
                 {
-                    ModelState.AddModelError("", "That Email is already taken.");
+                    ModelState.AddModelError("", "This email address is awaiting verification");
                     return View(model);
                 }
+                else
+                {
+                    ModelState.AddModelError("", "That email address is already taken");
+                    return View(model);
+                }
+            }
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(model);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+                return View(model);
+            }
+            
+            try
+            {
+                WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                var registrationCode = WebSecurity.GeneratePasswordResetToken(model.UserName, 1440);
+                var newUser = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault();
+                newUser.Email = model.Email;
+                newUser.isVerified = false;
+                newUser.RegistrationCode = registrationCode;
+                _ctx.SaveChanges();
                 try
                 {
-                    RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
-
-                    if (String.IsNullOrEmpty(recaptchaHelper.Response))
-                    {
-                        ModelState.AddModelError("", "Captcha answer cannot be empty.");
-                        return View(model);
-                    }
-
-                    RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
-
-                    if (recaptchaResult != RecaptchaVerificationResult.Success)
-                    {
-                        ModelState.AddModelError("", "Incorrect captcha answer.");
-                        return View(model);
-                    }
-
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-
-                    var registrationCode = WebSecurity.GeneratePasswordResetToken(model.UserName, 1440);
-                    var newUser = _ctx.UserProfiles.Where(m => m.UserName == model.UserName).SingleOrDefault();
-                    newUser.Email = model.Email;
-                    newUser.isVerified = false;
-                    newUser.RegistrationCode = registrationCode;
-
-
 
                     var hosturl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
                         "/Account/VerifyEmailCode/?token=" + registrationCode;
 
-                    
-                    var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification", 
-                        "Thank you for registering with TenantsVillge. Click the link below to complete your registration."+ System.Environment.NewLine +
-                       hosturl);
-                    
+
+                    var bemail = new MailMessage("registration@tenantsvillage.com", model.Email.ToString(), "Registration Verification",
+                        "Thank you for registering with TenantsVillge. Click the link below to complete your registration." + System.Environment.NewLine +
+                        hosturl);
+
                     var smtpServer = new SmtpClient();
                     smtpServer.Send(bemail);
-
-                    _ctx.SaveChanges();  
-                    return View("VerifyAccount");
                 }
-                catch (MembershipCreateUserException e)
+                catch
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                }
-            }
+                    throw new Exception("Register email failure");
 
-           
-            return View(model);
+                }
+                
+                return View("VerifyAccount");
+            }
+            catch (MembershipCreateUserException e)
+            {
+                ModelState.AddModelError("", e.StatusCode.ToString());
+                return View(model);
+            }    
         }
 
         [AllowAnonymous]

@@ -34,33 +34,31 @@
 
                 <div class="row">
                     <div class="span8">
-                        @Html.LabelFor(m => m.UserName) &nbsp&nbsp
-                        @Html.TextBoxFor(m => m.UserName)
-                        @Html.ValidationMessageFor(m => m.UserName)
+                        @Html.LabelFor(m => m.UserName)<br />
+                        @Html.TextBoxFor(m => m.UserName)&nbsp;@Html.ValidationMessageFor(m => m.UserName)
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="span8">
-                        @Html.LabelFor(m => m.Email) &nbsp&nbsp
-                        @Html.TextBoxFor(m => m.Email)
-                        @Html.ValidationMessageFor(m => m.Email)
+                        @Html.LabelFor(m => m.Email) <br />
+                        @Html.TextBoxFor(m => m.Email, new { style="width: 200px;"})&nbsp;@Html.ValidationMessageFor(m => m.Email)
+                        
                     </div>
                 </div>
                 <hr />
                 <div class="row">
                     <div class="span8">
-                        @Html.LabelFor(m => m.Password) &nbsp&nbsp
-                        @Html.PasswordFor(m => m.Password) 
-                        @Html.ValidationMessageFor(m => m.Password)
+                        @Html.LabelFor(m => m.Password)<br />
+                        @Html.PasswordFor(m => m.Password)&nbsp;@Html.ValidationMessageFor(m => m.Password)
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="span8">
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                        @Html.LabelFor(m => m.ConfirmPassword) &nbsp&nbsp
-                        @Html.PasswordFor(m => m.ConfirmPassword)
+                       <br />
+                        @Html.LabelFor(m => m.ConfirmPassword)<br />
+                        @Html.PasswordFor(m => m.ConfirmPassword)&nbsp;@Html.ValidationMessageFor(m => m.ConfirmPassword)
                     </div>
                 </div>
                 <br />
