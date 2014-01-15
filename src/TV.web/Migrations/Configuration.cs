@@ -581,6 +581,30 @@ namespace TV.web.Migrations
 
             };
 
+            var comments = new List<Comment>{
+                new Comment
+            {
+                    Author = "John Doe",
+                    LandLord = "Sample Company",
+                    Recipient = "Sample Smith",
+                    Subject = "Include Utilities??",
+                    Body = "Did you have to pay for heat?",
+                    EntryDate = DateTime.Now,
+                    PostId = 0
+
+            },
+                new Comment{
+                    Author = "Sample Smith",
+                    LandLord = "Sample Company",
+                    Recipient = "John Doe",
+                    Subject = "Re: Include Utilities??",
+                    Body = "I had to pay for all utilities.",
+                    EntryDate = DateTime.Now,
+                    PostId = 0
+
+            }
+        };
+
                 
 
                 ////add to context
@@ -590,7 +614,7 @@ namespace TV.web.Migrations
 
                 posts.ForEach(x => context.Post.Add(x));
                 images.ForEach(x => context.Image.Add(x));
-
+                comments.ForEach(x => context.Comment.Add(x));
                 context.SaveChanges();
 
                 //errors = context.GetValidationErrors();
