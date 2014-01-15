@@ -55,6 +55,29 @@ namespace MvcForums.Controllers
             return PartialView("_ViewComment", outModel);
         }
 
+        [HttpGet]
+        //[SessionExpireFilter]
+        [AllowAnonymous]
+        public ActionResult ViewSampleComment(int threadId)
+        {
+            var thread = _ctx.Comment.Where(m => m.Id == threadId).SingleOrDefault();
+            var cModel = new CommentViewModel
+            {
+                Author = thread.Author,
+                Body = thread.Body,
+                EntryDate = thread.EntryDate,
+                Subject = thread.Subject
+            };
+
+            var outModel = new ViewPostViewModel
+            {
+                ComViewModel = cModel
+            };
+
+            return PartialView("_ViewComment", outModel);
+        }
+
+
         [HttpPost]
         //[SessionExpireFilter]
         //[ValidateAntiForgeryToken]

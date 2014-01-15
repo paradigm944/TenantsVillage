@@ -26,10 +26,16 @@
     <script src="@Url.Content("~/Scripts/RateIt/jquery.rateit.min.js.map")" type="text/javascript"></script>
     <script>
 
-        $(document).ready(function () {
-            $('#bookmarkButton').prop('disabled', true);
-            $('#commentButton').prop('disabled', true);
-        });
+    $(document).ready(function () {
+        $('#bookmarkButton').prop('disabled', true);
+        $('#commentButton').prop('disabled', true);
+    });
+
+    $('body').on('hidden.bs.modal', '.modal', function () {
+        console.log("Goolviyygli;hu");
+        $(this).removeData('bs.modal');
+    });
+
     function showImage(imgName) {
         //console.log(imgName);
         document.getElementById('largeImg').src = imgName;
@@ -67,7 +73,7 @@
 
     </script>
 }
-
+<div class="body">
 <div class="container col-lg-10 col-lg-offset-1">
     <div class="row">
         <h2 style="text-align: center; color: rgb(0, 148, 255);"><b>@Html.DisplayFor(m => m.Title)</b></h2>
@@ -216,7 +222,7 @@
                     foreach (var x in Model.Comments)
                     {
                         <li style="padding-bottom:10px;">
-                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new
+                            @Html.ActionLink(x.Subject, "ViewSampleComment", "Comment", new { threadId = x.Id }, new
                        {
                            @style = "color: white;",
                            @data_toggle = "modal",
@@ -259,6 +265,6 @@
     @Html.Partial("_ViewComment")
 </div>
 
-
+</div>
 
 

@@ -428,6 +428,10 @@ namespace TV.web.Controllers
 
             var images = _ctx.Image.Where(m => m.PostId == 8).ToList<ImageModel>();
 
+            var comments = _ctx.Comment.Where(m => m.PostId == 0).ToList<Comment>();
+            
+                                
+
             var outModel = new ViewPostViewModel
             {
                 Title = "Sample Post",
@@ -449,6 +453,7 @@ namespace TV.web.Controllers
                 ZipCode = 52246,
                 Rating = 6.5,
                 IsDeleteMode = false,
+                Comments = comments
 
             };
 
