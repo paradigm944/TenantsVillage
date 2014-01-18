@@ -28,9 +28,9 @@ namespace non_profit.Controllers
             bool success = false;
 
             var image = WebImage.GetImageFromRequest();
-            var imgFormat = image.ImageFormat.ToString();
+            var imgFormat = image.ImageFormat.ToString().ToLower();
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
-            var imgQuantity = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>().Count;
+            var imgQuantity = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>().Count;
 
             if (imgFormat == "jpeg" || imgFormat == "png" || imgFormat == "jpg" )
             {
@@ -50,8 +50,8 @@ namespace non_profit.Controllers
                 var postImage = new ImageModel
                 {
                     ImageUrl = ("/Images/" + filename),
-                    IsDeleted = 1,
-                    PostId = post.Id
+                    IsDeleted = false,
+                    Post = post
 
                 };
 
@@ -63,7 +63,7 @@ namespace non_profit.Controllers
             }
             else
             {
-                return Json(new { success, testforurl = MakeThumbnail(image, post.Id, true) });
+                return Json(new { success, testforurl = "/Images/wrongFileType.png" });
             }
         }
 
@@ -77,6 +77,7 @@ namespace non_profit.Controllers
 
         public string MakeThumbnail(WebImage image, int? postId, bool reachedPicLimit)
         {
+            var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
             image.Resize(110, 110, true, true);
 
             var filename = Path.GetFileName(image.FileName);
@@ -85,14 +86,14 @@ namespace non_profit.Controllers
             var postImage = new ImageModel
             {
                 ImageUrl = ("/Thumbnails/" + filename),
-                IsDeleted = 1,
-                PostId = null
+                IsDeleted = false,
+                Post = post
 
             };
 
             if (reachedPicLimit)
             {
-                postImage.ImageUrl = "You have reached your picture limit of 4. ";
+                postImage.ImageUrl = "/Images/picLimit.png";
             }
 
             _ctx.Image.Add(postImage);

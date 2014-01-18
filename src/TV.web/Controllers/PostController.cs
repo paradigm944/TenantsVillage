@@ -146,7 +146,7 @@ namespace TV.web.Controllers
         {
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
-            var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
 
             //Check for use of back button after cancel was pressed
             if (post.IsDeleted)
@@ -214,7 +214,7 @@ namespace TV.web.Controllers
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var postId = post.Id;
-            var images = _ctx.Image.Where(m => m.PostId == postId).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == postId).ToList<ImageModel>();
             var commentz = _ctx.Comment.Where(m => m.PostId == postId).ToList<Comment>();
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -260,7 +260,7 @@ namespace TV.web.Controllers
             
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
-            var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
 
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -320,7 +320,7 @@ namespace TV.web.Controllers
         public ActionResult Delete(int? id)
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
-            var images = _ctx.Image.Where(m => m.PostId == post.Id).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
             //var user = _ctx.UserProfiles.Find(post.User.UserId);
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -390,7 +390,7 @@ namespace TV.web.Controllers
         public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
-            var post = _ctx.Post.Where(m => m.Id == photo.PostId).SingleOrDefault();
+            var post = _ctx.Post.Where(m => m.Id == photo.Post.Id).SingleOrDefault();
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
             if (post.User.UserId != currentUserId)
@@ -398,8 +398,8 @@ namespace TV.web.Controllers
                 return View("Error");
             }
 
-            
-            _ctx.Image.Remove(photo);
+
+            photo.IsDeleted = true;
             _ctx.SaveChanges();
 
             return RedirectToAction("Edit", "Post", new { id = post.Id });
@@ -436,7 +436,7 @@ namespace TV.web.Controllers
                        "pictures so it will be difficult to counter their claims.  I would recommend this unit and company if the person renting is prepared "+
                        "to takes pictures and stand their ground come deposit time.";
 
-            var images = _ctx.Image.Where(m => m.PostId == 8).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == 8).ToList<ImageModel>();
 
             var comments = _ctx.Comment.Where(m => m.PostId == 0).ToList<Comment>();
             

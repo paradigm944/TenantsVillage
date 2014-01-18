@@ -9,16 +9,17 @@ namespace TV.web.Models
 {
     public class ImageModel 
     {
+        
         [Column("PkId")]
         public int? Id { get; set; }
 
         [Column("ImageUrl")]
         public string ImageUrl { get; set; }
 
-        public int? PostId { get; set; }
+        [Column("IsDeleted")]
+        public bool IsDeleted { get; set; }
 
-        public int IsDeleted { get; set; }
-
+        [Column("Post")]
         public virtual PostModel Post { get; set; }
     }
 }
