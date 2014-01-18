@@ -380,124 +380,148 @@ namespace TV.web.Migrations
             {
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/ugly-goth1.jpg",
-                    Post = posts[0]
+                    ImageUrl =   "/Images/100_0007.jpg",
+                    Post = posts[0],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0014.jpg",
+                    ImageUrl =   "/Images/100_0009.jpg",
                     Post = posts[1],
+                    IsDeleted = false
 
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/000_0015.jpg",
-                    Post = posts[2]
+                    ImageUrl =   "/Images/100_0012.jpg",
+                    Post = posts[2],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0014.jpg",
+                    Post = posts[3],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0015.jpg",
+                    Post = posts[4],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0017.jpg",
+                    Post = posts[5],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0019.jpg",
+                    Post = posts[0],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0020.jpg",
+                    Post = posts[1],
+                    IsDeleted = false
+                },
+                new ImageModel
+                {
+                    ImageUrl =   "/Images/100_0021.jpg",
+                    Post = posts[2],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0022.jpg",
-                    Post = posts[3]
+                    Post = posts[3],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0012.jpg",
-                    Post = posts[4]
+                    ImageUrl =   "/Images/100_0023.jpg",
+                    Post = posts[4],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0006.jpg",
-                    Post = posts[5]
+                    ImageUrl =   "/Images/P1010016.jpg",
+                    Post = posts[5],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010207.jpg",
-                    Post = posts[0]
+                    ImageUrl =   "/Images/P1010016.jpg",
+                    Post = posts[6],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010210.jpg",
-                    Post = posts[1]
+                    ImageUrl =   "/Images/P1010077.jpg",
+                    Post = posts[7],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IM000001.jpg",
-                    Post = posts[2]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/CAM00001.jpg",
-                    Post = posts[3]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/CAM00002.jpg",
-                    Post = posts[4]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/P1010203.jpg",
-                    Post = posts[5]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/ugly-goth1.jpg",
-                    Post = posts[6]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/IMAG0014.jpg",
-                    Post = posts[7]
-                },
-                new ImageModel
-                {
-                    ImageUrl =   "/Images/000_0015.jpg",
-                    Post = posts[8]
+                    ImageUrl =   "/Images/P1010077.jpg",
+                    Post = posts[8],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0022.jpg",
-                    Post = posts[9]
+                    Post = posts[9],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0012.jpg",
-                    Post = posts[10]
+                    ImageUrl =   "/Images/P1010064.jpg",
+                    Post = posts[10],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IMAG0006.jpg",
-                    Post = posts[11]
+                    ImageUrl =   "/Images/P1010044.jpg",
+                    Post = posts[11],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010207.jpg",
-                    Post = posts[6]
+                    ImageUrl =   "/Images/P1010064.jpg",
+                    Post = posts[6],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010210.jpg",
-                    Post = posts[7]
+                    ImageUrl =   "/Images/P1010064.jpg",
+                    Post = posts[7],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/IM000001.jpg",
-                    Post = posts[8]
+                    ImageUrl =   "/Images/P1010043.jpg",
+                    Post = posts[8],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/CAM00001.jpg",
-                    Post = posts[9]
+                    ImageUrl =   "/Images/P1010072.jpg",
+                    Post = posts[9],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/CAM00002.jpg",
-                    Post = posts[10]
+                    ImageUrl =   "/Images/Picture_007.jpg",
+                    Post = posts[10],
+                    IsDeleted = false
                 },
                 new ImageModel
                 {
-                    ImageUrl =   "/Images/P1010203.jpg",
-                    Post = posts[11]
+                    ImageUrl =   "/Images/Picture_008.jpg",
+                    Post = posts[11],
+                    IsDeleted = false
                 },
                 //new ImageModel
                 //{
