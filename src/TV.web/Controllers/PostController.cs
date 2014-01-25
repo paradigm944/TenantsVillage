@@ -214,7 +214,7 @@ namespace TV.web.Controllers
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var postId = post.Id;
-            var images = _ctx.Image.Where(m => m.Post.Id == postId).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == postId && m.IsDeleted == false).ToList<ImageModel>();
             var commentz = _ctx.Comment.Where(m => m.PostId == postId).ToList<Comment>();
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
