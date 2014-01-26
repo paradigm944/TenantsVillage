@@ -692,6 +692,9 @@
     <Content Include="Scripts\Slider\jssor.sliderc.mini.js" />
     <Content Include="Scripts\Slider\jssor.sliders.mini.js" />
     <Content Include="Scripts\Slider\jssor.utils.js" />
+    <Content Include="Scripts\Upload\jquery.fileupload.js" />
+    <Content Include="Scripts\Upload\jquery.iframe-transport.js" />
+    <Content Include="Scripts\Upload\jquery.ui.widget.js" />
     <Content Include="Scripts\userPosts.js" />
     <Content Include="Scripts\Validate.js" />
     <Content Include="Web.config">
@@ -777,6 +780,7 @@
     <Content Include="Scripts\Slider\jssor.sliders.mini.compress.bat" />
     <Content Include="Views\Shared\DeletedPostError.cshtml" />
     <Content Include="Views\Post\Sample.cshtml" />
+    <Content Include="Views\Shared\UploadTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

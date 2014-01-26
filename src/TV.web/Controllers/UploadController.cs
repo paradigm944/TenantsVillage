@@ -13,7 +13,7 @@ using TV.web.Controllers;
 
 namespace non_profit.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UploadController : Controller
     {
         private readonly TVContext _ctx;
@@ -23,10 +23,44 @@ namespace non_profit.Controllers
             _ctx = ctx;
         }
 
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return View("UploadTest");
+        }
+
+        [HttpPost]
+        public ContentResult UploadFiles(int? postId)
+        {
+            var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
+            var r = new List<ImageModel>();
+
+            foreach (string file in Request.Files)
+            {
+                HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
+                if (hpf.ContentLength == 0)
+                    continue;
+
+                string savedFileName = Path.Combine(Server.MapPath("~/App_Data"), Path.GetFileName(hpf.FileName));
+                hpf.SaveAs(savedFileName);
+
+                r.Add(new ImageModel()
+                {
+                    ImageUrl = savedFileName,
+                    IsDeleted = false,
+                    Post = post
+                    //Name = hpf.FileName,
+                    //Length = hpf.ContentLength,
+                    //Type = hpf.ContentType
+                });
+            }
+            return Content("{\"name\":\"" + r[0].Id + "\",\"type\":\"" + r[0].ImageUrl + "\",\"size\":\"" + string.Format("{0} bytes", r[0].Post.City) + "\"}", "application/json");
+        }
+
         public JsonResult JSUpload(int postId)
         {
             bool success = false;
-
+         
             var image = WebImage.GetImageFromRequest();
             var imgFormat = image.ImageFormat.ToString().ToLower();
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
