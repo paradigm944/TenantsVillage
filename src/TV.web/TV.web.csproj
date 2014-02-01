@@ -225,7 +225,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BackloadDemoController.cs" />
+    <Compile Include="Controllers\BackloadUploadController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SessionExpireFilterAttributeController.cs" />
@@ -911,7 +911,7 @@
     <Content Include="Views\Shared\DeletedPostError.cshtml" />
     <Content Include="Views\Post\Sample.cshtml" />
     <Content Include="Views\Shared\UploadTest.cshtml" />
-    <Content Include="Views\BackloadDemo\Index.cshtml" />
+    <Content Include="Views\BackloadUpload\Index.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd">
       <SubType>Designer</SubType>
