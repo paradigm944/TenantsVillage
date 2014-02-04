@@ -15,11 +15,19 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using TV.web.Models;
 
 namespace TV.web.ApiControllers
 {
     public class Upload2Controller : ApiController
     {
+        private readonly TVContext _ctx;
+       
+        public Upload2Controller(TVContext ctx)
+        {
+            _ctx = ctx;
+        }
+
         private readonly JavaScriptSerializer _js = new JavaScriptSerializer { MaxJsonLength = 41943040 };
         private readonly string _storageRoot = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["FileUploadPath"]);
         public bool _isReusable { get { return false; } }
