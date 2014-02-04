@@ -15,7 +15,7 @@
 $(function () {
     'use strict';
 
-    var url = '/BackloadUpload/FileHandler';
+    var url = '/Upload/UploadFiles/?postId=1';
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
