@@ -4,59 +4,69 @@
     ViewBag.Title = "Log in";
 }
 
-<div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8" style="padding-left: 100px">
-        <h3>Login to your account</h3>
-    </div>
-</div>
 <br />
-<div class="row" style="padding-left: 100px">
-    <div class="col-lg-5 col-md-8 col-sm-6 col-xs-8" style="padding-top:15px;
-                            padding-bottom:15px;
-                            padding-right:25px;
-                            padding-left:45px;
-                            -moz-box-shadow:3px 3px 5px 5px #ccc;
-                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                            background-color:rgb(224,224,224);
-                            -moz-border-radius: 15px;
-                            border-radius: 15px;">
-       
+<br />
+<br />
+<div class="col-lg-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Log in to your Account
+            </div>
+        </div>
+        <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+
 
             @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
 
-                <fieldset>
-                    <legend></legend>
-                    <div><a class=' btn btn-primary' style="font-size:small;" href='@Url.Action("Register", "Account" )'>Register</a>&nbsp&nbsp&nbsp If you don't have an account</div>
-                    
-                        <br />
-                        <br />
-                    <div>
-                        <a class=' btn btn-primary' style="font-size:small;" href='@Url.Action("ForgotPassword", "Account" )'>Forgot Password</a> &nbsp&nbsp&nbsp If you forgot your password</div>
-                        <br />
-                        <br />
-                        @Html.LabelFor(m => m.UserName)
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a class=' btn btn-success'  href='@Url.Action("Register", "Account" )'>Register</a>&nbsp&nbsp&nbsp If you don't have an account
+                    </div>
+                </div>
+                    <br />
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a class=' btn btn-warning' style="font-size:small;" href='@Url.Action("ForgotPassword", "Account" )'>Forgot Password</a> &nbsp&nbsp&nbsp If you forgot your password
+                    </div>
+                </div>
+                    <hr />
+                    <br />
+                <div class="row">
+                    <div class="col-lg-4">
+                        @Html.LabelFor(m => m.UserName)&nbsp;
                         @Html.TextBoxFor(m => m.UserName)
                         @Html.ValidationMessageFor(m => m.UserName)
-                        <br />
-                        <br />
-                        @Html.LabelFor(m => m.Password)
+                    </div>
+                </div>
+                    <br />
+                <div class="row">
+                    <div class="col-lg-4">
+                        @Html.LabelFor(m => m.Password)&nbsp;
                         @Html.PasswordFor(m => m.Password)
                         @Html.ValidationMessageFor(m => m.Password)
-                        <br />
-                        <br />
-                        @Html.CheckBoxFor(m => m.RememberMe)
-                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-                        <br />
-                        <br />
+                    </div>
+                </div>
+                    <br />
+                <div class="row">
+                    <div class="col-lg-7">
+                        @Html.LabelFor(m => m.RememberMe)&nbsp;&nbsp;@Html.CheckBoxFor(m => m.RememberMe)
+                        
+                    </div>
+                </div>
+                    <br />
+                <div class="row">
+                    <div class="col-lg-4">
                         <input class="btn btn-primary" type="submit" value="Log in" />
-</fieldset>
+                    </div>
+                </div>
 
             }
-        
+
+        </div>
     </div>
     </div>
 
