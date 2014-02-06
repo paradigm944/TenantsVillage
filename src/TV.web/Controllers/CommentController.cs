@@ -114,7 +114,8 @@ namespace MvcForums.Controllers
 
             try
             {
-                var bemail = new MailMessage(recipientEmail, user.Email, "Someone commented on your Tenant's Village post", inModel.Body);
+                var bemail = new MailMessage(recipientEmail, user.Email, "Someone commented on your Tenant's Village post", comment.Author + " commented on your post for " + comment.LandLord + "." + 
+                    System.Environment.NewLine + "Here is " + comment.Author + "'s comment:  "  +  inModel.Body);
                 var smtpServer = new SmtpClient();
                 smtpServer.Send(bemail);
 
