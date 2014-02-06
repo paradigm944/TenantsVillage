@@ -5,78 +5,72 @@
 @{
     ViewBag.Title = "Register";
 }
-
-
- <div class="row" >
-     <div class="col-lg-5 col-md-8 col-sm-6 col-xs-8" style="padding-left: 100px">
-         <h3>Create a new account</h3>
-     </div>
- </div>
 <br />
-<div class="row" style="padding-left: 100px">
-    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8"  style="padding-top:15px;
-                            padding-bottom:15px;
-                            padding-right:25px;
-                            padding-left:45px;
-                            -moz-box-shadow:3px 3px 5px 5px #ccc;
-                            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                            background-color:rgb(224,224,224);
-                            -moz-border-radius: 15px;
-                            border-radius: 15px;">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(false)
+<br />
+<br />
+<div class="col-lg-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Register your new Account
+            </div>
+        </div>
+        <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false)
 
-            <fieldset>
-                <legend></legend>
 
-                <div class="row">
-                    <div class="span8">
-                        @Html.LabelFor(m => m.UserName)<br />
-                        @Html.TextBoxFor(m => m.UserName)&nbsp;@Html.ValidationMessageFor(m => m.UserName)
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @Html.LabelFor(m => m.UserName)<br />
+                            @Html.TextBoxFor(m => m.UserName)&nbsp;@Html.ValidationMessageFor(m => m.UserName)
+                        </div>
                     </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="span8">
-                        @Html.LabelFor(m => m.Email) <br />
-                        @Html.TextBoxFor(m => m.Email, new { style="width: 200px;"})&nbsp;@Html.ValidationMessageFor(m => m.Email)
-                        
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @Html.LabelFor(m => m.Email) <br />
+                            @Html.TextBoxFor(m => m.Email, new { style = "width: 200px;" })&nbsp;@Html.ValidationMessageFor(m => m.Email)
+
+                        </div>
                     </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="span8">
-                        @Html.LabelFor(m => m.Password)<br />
-                        @Html.PasswordFor(m => m.Password)&nbsp;@Html.ValidationMessageFor(m => m.Password)
+                    <hr />
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @Html.LabelFor(m => m.Password)<br />
+                            @Html.PasswordFor(m => m.Password)&nbsp;@Html.ValidationMessageFor(m => m.Password)
+                        </div>
                     </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="span8">
-                       <br />
-                        @Html.LabelFor(m => m.ConfirmPassword)<br />
-                        @Html.PasswordFor(m => m.ConfirmPassword)&nbsp;@Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <br />
+                            @Html.LabelFor(m => m.ConfirmPassword)<br />
+                            @Html.PasswordFor(m => m.ConfirmPassword)&nbsp;@Html.ValidationMessageFor(m => m.ConfirmPassword)
+                        </div>
                     </div>
-                </div>
-                <br />
-                <br />
-                <div class="row">
-                    <div class="span8">
-                        @Html.Recaptcha(theme:Recaptcha.Web.RecaptchaTheme.Clean);
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-6">
+                            @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean);
+                        </div>
                     </div>
-                </div>
-                <br />
-                
-                <div class="row">
-                    <input class="btn btn-primary " type="submit" value="Register" />
-                </div>
-            </fieldset>
-        }
+                    <br />
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input class="btn btn-primary " type="submit" value="Register" />
+                        </div>
+                    </div>
+
+            }
+        </div>
     </div>
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+  </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
