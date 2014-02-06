@@ -177,7 +177,7 @@ namespace TV.web.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "The UserNmae and Email do not match");
+                ModelState.AddModelError("", "The user name and email do not match");
                 return View(inModel);
             }
             
