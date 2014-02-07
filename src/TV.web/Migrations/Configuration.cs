@@ -382,68 +382,79 @@ namespace TV.web.Migrations
                 {
                     ImageUrl =   "/Images/100_0007.jpg",
                     Post = posts[0],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0009.jpg",
                     Post = posts[1],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
 
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0012.jpg",
                     Post = posts[2],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0014.jpg",
                     Post = posts[3],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0015.jpg",
                     Post = posts[4],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0017.jpg",
                     Post = posts[5],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0019.jpg",
                     Post = posts[0],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0020.jpg",
                     Post = posts[1],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0021.jpg",
                     Post = posts[2],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0022.jpg",
                     Post = posts[3],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0023.jpg",
                     Post = posts[4],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
@@ -455,73 +466,85 @@ namespace TV.web.Migrations
                 {
                     ImageUrl =   "/Images/P1010016.jpg",
                     Post = posts[6],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010077.jpg",
                     Post = posts[7],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010077.jpg",
                     Post = posts[8],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/100_0022.jpg",
                     Post = posts[9],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010064.jpg",
                     Post = posts[10],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010044.jpg",
                     Post = posts[11],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010064.jpg",
                     Post = posts[6],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010064.jpg",
                     Post = posts[7],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010043.jpg",
                     Post = posts[8],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/P1010072.jpg",
                     Post = posts[9],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/Picture_007.jpg",
                     Post = posts[10],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 new ImageModel
                 {
                     ImageUrl =   "/Images/Picture_008.jpg",
                     Post = posts[11],
-                    IsDeleted = false
+                    IsDeleted = false,
+                    IsThumbnail = false
                 },
                 //new ImageModel
                 //{

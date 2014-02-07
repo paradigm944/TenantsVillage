@@ -19,6 +19,9 @@ namespace TV.web.Models
         [Column("IsDeleted")]
         public bool IsDeleted { get; set; }
 
+        [Column("IsThumbnail")]
+        public bool IsThumbnail { get; set; }
+
         [Column("Post")]
         public virtual PostModel Post { get; set; }
     }
