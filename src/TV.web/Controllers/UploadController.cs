@@ -23,7 +23,6 @@ namespace non_profit.Controllers
             _ctx = ctx;
         }
 
-        [AllowAnonymous]
         public ActionResult Index()
         {
             return View("UploadTest");

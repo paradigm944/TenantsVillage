@@ -8,6 +8,17 @@ namespace TV.web
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/bluimp").Include(
+                "~/Scripts/bluimp/vendor/jquery.ui.widget.js",
+                "~/Scripts/bluimp/tmpl.js",
+                "~/Scripts/bluimp/load-image.js",
+                "~/Scripts/bluimp/canvas-to-blob.js",
+                "~/Scripts/bluimp/jquery.iframe-transport.js",
+                "~/Scripts/bluimp/jquery.fileupload.js",
+                "~/Scripts/bluimp/jquery.fileupload-fp.js",
+                "~/Scripts/bluimp/jquery.fileupload-ui.js",
+                "~/Scripts/bluimp/main.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
