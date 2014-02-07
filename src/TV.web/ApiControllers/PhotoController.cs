@@ -1,8 +1,4 @@
-﻿/*
- * WebApi Implementation: Luke Baughan https://github.com/bUKaneer/jQuery-File-Upload
- * based on HttpHandler Implementation: Max Pavlov https://github.com/maxpavlov/jQuery-File-Upload.MVC3
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
@@ -13,13 +9,11 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using TV.web.Models;
 
 namespace TV.web.ApiControllers
 {
-    public class Upload2Controller : ApiController
+    public class PhotoController : ApiController
     {
         private readonly JavaScriptSerializer _js = new JavaScriptSerializer { MaxJsonLength = 41943040 };
         private readonly string _storageRoot = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["FileUploadPath"]);
@@ -59,7 +53,6 @@ namespace TV.web.ApiControllers
 
         public HttpResponseMessage Get()
         {
-           
             if (!string.IsNullOrEmpty(HttpContext.Current.Request["f"]))
             {
                 return DownloadFileContent();
@@ -246,7 +239,4 @@ namespace TV.web.ApiControllers
         }
     }
     #endregion
-
-
-
 }

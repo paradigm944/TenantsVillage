@@ -22,6 +22,11 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
+        public ActionResult UploadPhotos()
+        {
+            return View("UploadTest");
+        }
+
         //[SessionExpireFilter]
         public ActionResult Manage(bool? needStatusUpdate, int? statusMessage)
         {
