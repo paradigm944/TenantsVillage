@@ -63,7 +63,7 @@ namespace non_profit.Controllers
             var image = WebImage.GetImageFromRequest();
             var imgFormat = image.ImageFormat.ToString().ToLower();
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
-            var imgQuantity = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>().Count;
+            var imgQuantity = _ctx.Image.Where(m => m.Post.Id == post.Id && m.IsThumbnail == false && m.IsDeleted == false).ToList<ImageModel>().Count;
 
             if (imgFormat == "jpeg" || imgFormat == "png" || imgFormat == "jpg" )
             {
@@ -84,7 +84,8 @@ namespace non_profit.Controllers
                 {
                     ImageUrl = ("/Images/" + filename),
                     IsDeleted = false,
-                    Post = post
+                    Post = post,
+                    IsThumbnail = false
 
                 };
 
@@ -120,7 +121,8 @@ namespace non_profit.Controllers
             {
                 ImageUrl = ("/Thumbnails/" + filename),
                 IsDeleted = false,
-                Post = post
+                Post = post,
+                IsThumbnail = true
 
             };
 

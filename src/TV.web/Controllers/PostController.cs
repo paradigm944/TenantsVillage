@@ -147,8 +147,13 @@ namespace TV.web.Controllers
         [HttpPost]
         //[SessionExpireFilter]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreatePostViewModel inModel)
+        public ActionResult Create(CreatePostViewModel inModel, IEnumerable<HttpPostedFileBase> files)
         {
+
+            if (files.Any())
+            {
+                var yo = "";
+            }
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
@@ -219,7 +224,7 @@ namespace TV.web.Controllers
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
             var postId = post.Id;
-            var images = _ctx.Image.Where(m => m.Post.Id == postId && m.IsDeleted == false).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == post.Id && m.IsThumbnail == false && m.IsDeleted == false).ToList<ImageModel>();
             var commentz = _ctx.Comment.Where(m => m.PostId == postId).ToList<Comment>();
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -265,7 +270,7 @@ namespace TV.web.Controllers
             
             var post = _ctx.Post.Where(p => p.Id == inModel.Id).SingleOrDefault();
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
-            var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
+            var images = _ctx.Image.Where(m => m.Post.Id == post.Id  && m.IsThumbnail == false).ToList<ImageModel>();
 
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -395,6 +400,7 @@ namespace TV.web.Controllers
         public  ActionResult DeletePhoto(int? photoId)
         {
             var photo = _ctx.Image.Where(m => m.Id == photoId).SingleOrDefault();
+            var thumbnail = _ctx.Image.Where(m => m.Post.Id == photo.Post.Id && m.IsThumbnail == true).ToList<ImageModel>();
             var post = _ctx.Post.Where(m => m.Id == photo.Post.Id).SingleOrDefault();
             var currentUserId = _ctx.UserProfiles.Where(m => m.UserName == HttpContext.User.Identity.Name).SingleOrDefault().UserId;
 
@@ -402,9 +408,14 @@ namespace TV.web.Controllers
             {
                 return View("Error");
             }
-
-
+            
             photo.IsDeleted = true;
+
+            for (int i = 0; i < thumbnail.Count; i++)
+            {
+                thumbnail[i].IsDeleted = true;
+            }
+            
             _ctx.SaveChanges();
 
             return RedirectToAction("Edit", "Post", new { id = post.Id });
