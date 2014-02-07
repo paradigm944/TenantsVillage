@@ -43,7 +43,7 @@ namespace TV.web.Controllers
         public ActionResult ViewPost(int id)
         {
             var post = _ctx.Post.Where(p => p.Id == id).SingleOrDefault();
-            var images = _ctx.Image.Where(i => i.Post.Id == id).AsEnumerable();
+            var images = _ctx.Image.Where(i => i.Post.Id == id && i.IsDeleted == false && i.IsThumbnail == false).AsEnumerable();
             var user = _ctx.UserProfiles.Where(u => u.UserId == post.User.UserId).SingleOrDefault();
             var comments = _ctx.Comment.Where(m => m.PostId == post.Id).ToList<Comment>();
 
