@@ -63,7 +63,8 @@ namespace TV.web.Controllers
             }
             var hiId = new int?();
 
-            var pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false).Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(quantity.Value).ToList<ImageModel>();
+            var pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false && m.IsThumbnail == false)
+                .Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(quantity.Value).ToList<ImageModel>();
 
             if (pics.Count == 0) {
                 hiId = picId;
@@ -75,7 +76,8 @@ namespace TV.web.Controllers
 
             if (hiId == picId)
             {
-                pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
+                pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false && m.IsThumbnail == false)
+                    .OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
 
             }
 
@@ -92,7 +94,8 @@ namespace TV.web.Controllers
             }
             var hiId = new int?();
 
-            var pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false).Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(quantity.Value).ToList<ImageModel>();
+            var pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false && m.IsThumbnail == false)
+                .Where(m => m.Id < picId).OrderByDescending(m => m.Id).Take(quantity.Value).ToList<ImageModel>();
 
             if (pics.Count == 0)
             {
@@ -105,7 +108,8 @@ namespace TV.web.Controllers
 
             if (hiId == picId)
             {
-                pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false).OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
+                pics = _ctx.Image.Where(m => m.IsDeleted == false && m.Post.IsDeleted == false && m.IsThumbnail == false)
+                    .OrderByDescending(m => m.Id).Take(10).ToList<ImageModel>();
 
             }
 
