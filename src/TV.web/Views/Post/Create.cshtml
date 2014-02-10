@@ -43,7 +43,9 @@
             });
             $('#streetTooltip').tooltip();
             $('#streetTooltip2').tooltip();
+            $('#uploadTooltip').tooltip();
             $('#postTab').addClass('active');
+            $('#loadingGif').hide();
         });
 
         function showImage(imgName) {
@@ -339,7 +341,7 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            Upload Pictures<i id="streetTooltip" style="color:red; float: right;" class="fa fa-asterisk" data-toggle="tooltip" data-placement="right" title="There is a limit to 4 pics.  ONLY CLICK 'UPLOAD' ONCE"></i>
+                                            Upload Pictures<i id="uploadTooltip" style="color:red; float: right;" class="fa fa-asterisk" data-toggle="tooltip" data-placement="right" title="There is a limit to 4 pics.  ONLY CLICK 'UPLOAD' ONCE"></i>
                                         </div>
                                     </div>
                                     <div class="panel-body" style="padding-left: 15px; padding-bottom: 11px; padding-right: 15px;">
@@ -351,7 +353,7 @@
                                         </form>
                                         <div class="row">
                                             
-                                            <iframe id="picUploadButton" class="col-lg-4" onload="@Url.Content("~/Content/FileUpload/img/loading.gif")" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
+                                            <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                             <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                             <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>
                                             <iframe id="picUploadButton" class="col-lg-4" style="height:200px;border:none;overflow:hidden;" src="@Url.Content("~/upload/picupload/")?postId=@Model.Id"></iframe>

@@ -6,26 +6,34 @@
 }
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width" />
     <script src="@Url.Content("~/Scripts/jquery-2.0.3.min.js")" type="text/javascript"></script>
+
 </head>
 <body style="overflow:hidden;">
     <form enctype="multipart/form-data" method="post" name="upload">
             <input type="file" name="file" /> <br />
-            <a id="uploadlink" href="#">Upload File</a>
+            <a id="uploadlink" href="#">Upload File</a><br /><br />
+            <img id="loadingGif" style="max-height:65px; max-width:65px;" src="@Url.Content("~/Content/FileUpload/img/loading.gif")" />
     </form>
     <br />        
     <div id="outputupload">
     </div>
 
         <script>
-
+            $(document).ready(function () {
+                $('#loadingGif').hide();
+            })
             $(function () {
                 $("#uploadlink").click(function () {
+                    $('#loadingGif').show();
                     uploadImage("upload");
                     return false;
                 });
             });
+
+            
 
             function uploadImage(fileUpload) {
                 console.log("you are most definitely here");
@@ -34,16 +42,17 @@
                 var oReq = new XMLHttpRequest();
                 oReq.open("POST", "@Url.Content("~/upload/jsupload")/?postId=@Model.postId", true);
                 oReq.onload = function (oEvent) {
+
                     if (oReq.status == 200) {
                         var jsonResponse = JSON.parse(oReq.responseText);
-
+                        $('#loadingGif').hide();
                         // here is the line where I have the issue
                         oOutput.innerHTML = "<img src=" + jsonResponse.testforurl + "></img>";
-                    
                         console.log(jsonResponse.testforurl);
                     
-                } else {
-                    oOutput.innerHTML = "Error " + oReq.status;
+                    } else {
+                        $('#loadingGif').hide();
+                        oOutput.innerHTML = "Error " + oReq.status;
                 }
             }
 
