@@ -69,192 +69,401 @@
     </script>
 }
 <div class="body">
-<div class="container col-lg-10 col-lg-offset-1">
-    <div class="row">
-        <h2 style="text-align: center; color: rgb(0, 148, 255);"><b>@Html.DisplayFor(m => m.Title)</b></h2>
-    </div>
-    <br />
-    <br />
-    <div class="row col-lg-12 col-lg-offset-2">
-        <div class="col-lg-3" style="padding-top: 15px; 
-             padding-bottom: 15px; padding-right: 25px; 
-             padding-left: 25px; 
-             -moz-box-shadow: 3px 3px 5px 6px #ccc; 
-             -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
-             box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
-             background-color: rgb(128,128,128); 
-             -moz-border-radius: 15px; 
-             border-radius: 15px;">
-            <div class="row">
-                <input type="range" value="@Model.Rating" step="0.25" id="backing4">
-                <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-readonly="true" data-rateit-resetable="false" data-rateit-ispreset="true"
-                     data-rateit-min="0" data-rateit-max="10">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title" style="padding-left:100px;">
+                   <strong>@Html.DisplayFor(m => m.Title)</strong>
+                    
                 </div>
             </div>
-            @if (Model.IsBookmarked != true)
-            {
-                <button id="bookmarkButton" class="btn btn-primary" onclick="Bookmark()">Bookmark Post</button>    
-            }
-            else
-            {
-                <div class="col-lg-3">You have this Post bookmarked</div>
-            }
-            
-            <div class="row">
-                <div class="span3">
-                    <em>@Html.LabelFor(m => m.LandLord)</em>
-                    &nbsp&nbsp @Html.DisplayFor(m => m.LandLord)
-                </div>
-                <div class="span3">
-                    <em>@Html.LabelFor(m => m.LLemail)</em>
-                    &nbsp&nbsp @Html.DisplayFor(m => m.LLemail)
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="span3">
-                    <b><em>@Html.LabelFor(m => m.BuildingNumber)</em></b>
-                    &nbsp &nbsp @Html.DisplayFor(model => model.BuildingNumber)
-                </div>
-                <div class="span3">
-                    <b><em>@Html.LabelFor(m => m.AptNumber)</em></b>
-                    &nbsp &nbsp @Html.DisplayFor(model => model.AptNumber)
-                </div>
-                <div class="span3">
-                    <b><em>@Html.LabelFor(m => m.Street)</em></b>
-                    &nbsp &nbsp @Html.DisplayFor(model => model.Street)
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="span3">
-                    <div class="prepend append">
-                        <b><em>@Html.LabelFor(m => m.Rent)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="prepend append">
-                        <b><em>@Html.LabelFor(m => m.Deposit)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
-                    </div>
-                </div>
-
-            </div>
-            <br />
-            <div class="row">
-                <div class="span3">
-                    <em>@Html.LabelFor(m => m.LeaseYear)</em>
-                    &nbsp&nbsp @Html.DisplayFor(m => m.LeaseYear)
-                </div>
-                <div class="span3">
-                    <div class="prepend append">
-                        <b><em>@Html.LabelFor(m => m.AmountKept)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.AmountKept, new { @class = "span2" })<span class="add-on">.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row col-lg-12 col-lg-offset-2">
-            <div class="hidden-lg col-lg-offset-2">
-                <br />
-                <br />
-            </div>
-            <div class="col-lg-4 col-lg-offset-1" 
-                 style="padding-top: 20px; padding-bottom: 20px; 
-                 padding-right: 25px; padding-left: 25px; 
-                 -moz-box-shadow: 3px 3px 5px 6px #ccc; 
-                 -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
-                 box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
-                 background-color: rgb(128,128,128); 
-                 -moz-border-radius: 15px; border-radius: 15px;">
-
-                <div class="span10">
-                    @if (Model.Images != null)
-                    {
-                        foreach (var x in Model.Images)
+            <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-4 col-sm-5 col-sm-offset-4 col-xs-5 col-xs-offset-4">
+                        @if (Model.IsBookmarked != true)
                         {
-                            <img src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; padding-left:10px; padding-top: 8px; max-width: 300px; max-height: 150px" />
+                            <button id="bookmarkButton" class="btn btn-primary" onclick="Bookmark()">Bookmark Post</button>
                         }
-                    }
+                        else
+                        {
+                            <div style="color:green"><i class="fa fa-check fa-2x" style="color:green"></i>&nbsp;<strong><em>Bookmarked</em></strong></div>
+                        }
+                    </div>
                 </div>
+                    <div class="col-lg-8 col-lg-offset-1" >
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    Landlord/Management Company Info
+                                    
+                                </div>
+                            </div>
+                            <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                                <div class="form-group has-error has-success">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            @Html.LabelFor(m => m.LandLord)<br />
+                                            @Html.TextBoxFor(m => m.LandLord)<br />
+                                            @Html.ValidationMessageFor(m => m.LandLord)
+                                        </div>
+                                        <div class="col-lg-4">
+                                            @Html.LabelFor(m => m.LLemail)<br />
+                                            @Html.TextBoxFor(m => m.LLemail)
+                                            <br />
+                                            @Html.ValidationMessageFor(m => m.LLemail)
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 hidden-sm hidden-xs" style="float: right;">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    Rate your Landlord
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                               
+
+                                                    <div id="rating">
+                                                        <input type="range" value="0" step="0.25" id="backing4">
+                                                        <div class="rateit" data-rateit-backingfld="#backing4"
+                                                             data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                             data-rateit-min="0" data-rateit-max="10">
+                                                        </div>
+                                                    </div>
+
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            @Html.LabelFor(m => m.BuildingNumber)<br />
+                                            @Html.TextBoxFor(m => m.BuildingNumber, new { style = "width:80px;" })
+                                           
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            @Html.LabelFor(m => m.AptNumber)<br />
+                                            @Html.TextBoxFor(m => m.AptNumber, new { style = "width:80px;" })
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.Street)
+                                            @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })
+                                           
+                                           
+                                        </div>
+                                        <div class="col-lg-2">
+                                            @Html.LabelFor(m => m.ZipCode)<br />
+                                            @Html.TextBoxFor(m => m.ZipCode, new { style = "width:80px;" })
+                                          
+                                          
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(m => m.City)<br />
+                                            @Html.TextBoxFor(m => m.City)
+                                      
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row hidden-lg hidden-md">
+                            <div class="col-lg-4">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Rate your Landlord
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                       
+                                            <div id="rating">
+
+                                                <div class="rateit" data-rateit-backingfld="#backing4"
+                                                     data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                     data-rateit-min="0" data-rateit-max="10">
+                                                </div>
+                                            </div>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-1" >
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Financial
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                @Html.LabelFor(m => m.LeaseYear)<br />
+                                                @Html.TextBoxFor(m => m.LeaseYear, new { style = "width:70px" })
+                                                
+                                            </div>
+                                            <div class="col-lg-3">
+                                                @Html.LabelFor(m => m.Rent)<br />
+                                                <div class="input-prepend input-append">
+                                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
+                                                </div>
+                                            
+                                            </div>
+
+                                            <div class="col-lg-3">
+                                                @Html.LabelFor(m => m.Deposit)<br />
+                                                <div class="input-prepend input-append">
+                                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span>
+
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="col-lg-3">
+                                                @Html.LabelFor(m => m.AmountKept)<br />
+                                                <div class="input-prepend input-append">
+                                                    <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span>
+
+                                                </div>
+                                           
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-1" >
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            Post
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                                        <div class="row">
+                                            <div class="col-lg-10 table-responsive">
+                                                @Html.LabelFor(m => m.Post)
+                                                @Html.TextAreaFor(m => m.Post, new { @cols = 100, @rows = 5 })
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="showImages" class="row">
+                            <div class="col-lg-10">
+                                @if (Model.Images != null)
+                                {
+                                    foreach (var x in Model.Images)
+                                    {
+                                        <div class="row col-lg-5" style="padding-bottom:10px;">
+
+                                            <img src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; width:250px;height:120px; padding-bottom:6px;" />
+
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
             </div>
         </div>
-    </div>
-    <div class="row">
-        <br />
-        <br />
-    </div>
-
-    <div class="row col-lg-12 col-lg-offset-2">
-        <div class="col-lg-3" style="padding-top: 15px; 
-             padding-bottom: 15px; padding-right: 25px; 
-             padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc; 
-             -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
-             box-shadow: 3px 3px 5px 5px rgb(184, 184, 184); 
-             background-color: rgb(128,128,128); 
-             -moz-border-radius: 15px; 
-             border-radius: 15px;">
-
-            <em>@Html.LabelFor(m => m.Post)</em>
-            &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
-        </div>
-        <div class="row hidden-lg">
-            <br />
-            <br />
-        </div>
-
-        <div class="col-lg-4 col-lg-offset-1" style="padding-top:15px;
-            padding-bottom:15px;
-            padding-right:45px;
-            padding-left:25px;
-            -moz-box-shadow:3px 3px 5px 6px #ccc;
-            -webkit-box-shadow:3px 3px 5px 6px #ccc;
-            box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-            background-color:rgb(128,128,128);-moz-border-radius: 15px;
-            border-radius: 15px;">
-            <br />
-            <ul>
-                @if (Model.Comments != null)
-                {
-                    foreach (var x in Model.Comments)
-                    {
-                        <li style="padding-bottom:10px;">                           
-                            @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal", 
-                                    @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
-                            @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString()) 
-                        </li>   
-                    }
-                }
-            </ul>
-            <div class="row ">
-                <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
-                    Comment
-                </button>
-            </div>
-        </div>
-    </div>
 </div>
-<div class="table-responsive" id="largeImgPanel" onclick="hideMe(this);">
-    <img id="largeImg" style="height: 60%; margin: 0; padding: 0;" />
-</div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
-                </div>
-                <div class="modal-body">
-                    @Html.Partial("_CreateComment")
-                </div>
+                @*<div class="container col-lg-10 col-lg-offset-1">
+                        <div class="row">
+                            <h2 style="text-align: center; color: rgb(0, 148, 255);"><b>@Html.DisplayFor(m => m.Title)</b></h2>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="row col-lg-12 col-lg-offset-2">
+                            <div class="col-lg-3" style="padding-top: 15px;
+                                 padding-bottom: 15px; padding-right: 25px;
+                                 padding-left: 25px;
+                                 -moz-box-shadow: 3px 3px 5px 6px #ccc;
+                                 -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                                 box-shadow: 3px 3px 5px 5px rgb(184, 184, 184);
+                                 background-color: rgb(128,128,128);
+                                 -moz-border-radius: 15px;
+                                 border-radius: 15px;">
+                                <div class="row">
+                                    <input type="range" value="@Model.Rating" step="0.25" id="backing4">
+                                    <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-readonly="true" data-rateit-resetable="false" data-rateit-ispreset="true"
+                                         data-rateit-min="0" data-rateit-max="10">
+                                    </div>
+                                </div>
+                                
 
+                                <div class="row">
+                                    <div class="span3">
+                                        <em>@Html.LabelFor(m => m.LandLord)</em>
+                                        &nbsp&nbsp @Html.DisplayFor(m => m.LandLord)
+                                    </div>
+                                    <div class="span3">
+                                        <em>@Html.LabelFor(m => m.LLemail)</em>
+                                        &nbsp&nbsp @Html.DisplayFor(m => m.LLemail)
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="span3">
+                                        <b><em>@Html.LabelFor(m => m.BuildingNumber)</em></b>
+                                        &nbsp &nbsp @Html.DisplayFor(model => model.BuildingNumber)
+                                    </div>
+                                    <div class="span3">
+                                        <b><em>@Html.LabelFor(m => m.AptNumber)</em></b>
+                                        &nbsp &nbsp @Html.DisplayFor(model => model.AptNumber)
+                                    </div>
+                                    <div class="span3">
+                                        <b><em>@Html.LabelFor(m => m.Street)</em></b>
+                                        &nbsp &nbsp @Html.DisplayFor(model => model.Street)
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="span3">
+                                        <div class="prepend append">
+                                            <b><em>@Html.LabelFor(m => m.Rent)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Rent, new { @class = "span2" })<span class="add-on">.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="span3">
+                                        <div class="prepend append">
+                                            <b><em>@Html.LabelFor(m => m.Deposit)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.Deposit, new { @class = "span2" })<span class="add-on">.00</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="span3">
+                                        <em>@Html.LabelFor(m => m.LeaseYear)</em>
+                                        &nbsp&nbsp @Html.DisplayFor(m => m.LeaseYear)
+                                    </div>
+                                    <div class="span3">
+                                        <div class="prepend append">
+                                            <b><em>@Html.LabelFor(m => m.AmountKept)</em></b>&nbsp&nbsp<span class="add-on"><b>$</b></span>@Html.DisplayFor(model => model.AmountKept, new { @class = "span2" })<span class="add-on">.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-lg-12 col-lg-offset-2">
+                                <div class="hidden-lg col-lg-offset-2">
+                                    <br />
+                                    <br />
+                                </div>
+                                <div class="col-lg-4 col-lg-offset-1"
+                                     style="padding-top: 20px; padding-bottom: 20px;
+                                     padding-right: 25px; padding-left: 25px;
+                                     -moz-box-shadow: 3px 3px 5px 6px #ccc;
+                                     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                                     box-shadow: 3px 3px 5px 5px rgb(184, 184, 184);
+                                     background-color: rgb(128,128,128);
+                                     -moz-border-radius: 15px; border-radius: 15px;">
+
+                                    <div class="span10">
+                                        @if (Model.Images != null)
+                                        {
+                                            foreach (var x in Model.Images)
+                                            {
+                                                <img src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; padding-left:10px; padding-top: 8px; max-width: 300px; max-height: 150px" />
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br />
+                            <br />
+                        </div>
+
+                        <div class="row col-lg-12 col-lg-offset-2">
+                            <div class="col-lg-3" style="padding-top: 15px;
+                                 padding-bottom: 15px; padding-right: 25px;
+                                 padding-left: 25px; -moz-box-shadow: 3px 3px 5px 6px #ccc;
+                                 -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                                 box-shadow: 3px 3px 5px 5px rgb(184, 184, 184);
+                                 background-color: rgb(128,128,128);
+                                 -moz-border-radius: 15px;
+                                 border-radius: 15px;">
+
+                                <em>@Html.LabelFor(m => m.Post)</em>
+                                &nbsp&nbsp @Html.DisplayTextFor(m => m.Post)
+                            </div>
+                            <div class="row hidden-lg">
+                                <br />
+                                <br />
+                            </div>
+
+                            <div class="col-lg-4 col-lg-offset-1" style="padding-top:15px;
+                                padding-bottom:15px;
+                                padding-right:45px;
+                                padding-left:25px;
+                                -moz-box-shadow:3px 3px 5px 6px #ccc;
+                                -webkit-box-shadow:3px 3px 5px 6px #ccc;
+                                box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
+                                background-color:rgb(128,128,128);-moz-border-radius: 15px;
+                                border-radius: 15px;">
+                                <br />
+                                <ul>
+                                    @if (Model.Comments != null)
+                                    {
+                                        foreach (var x in Model.Comments)
+                                        {
+                                            <li style="padding-bottom:10px;">
+                                                @Html.ActionLink(x.Subject, "ViewComment", "Comment", new { threadId = x.Id }, new { @style="color: white;", @data_toggle="modal",
+                                                        @data_target="#viewCommentModal", @class = "btn btn-sm btn-primary" })
+                                                @Html.Encode(x.Author) &nbsp&nbsp&nbsp @Html.Encode(x.EntryDate.ToShortDateString())
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                                <div class="row ">
+                                    <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
+                                        Comment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" id="largeImgPanel" onclick="hideMe(this);">
+                        <img id="largeImg" style="height: 60%; margin: 0; padding: 0;" />
+                    </div>
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        @Html.Partial("_CreateComment")
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            @Html.Partial("_ViewComment")
+                        </div>*@
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        @Html.Partial("_ViewComment")
-    </div>
-  </div> 
 
 
 
