@@ -66,7 +66,7 @@ namespace TV.web.ViewModels
         [DisplayName("Deposit")]
         public int? Deposit { get; set; }
 
-        [DisplayName("Amount Kept")]
+        [DisplayName("Amt Kept")]
         public int? AmountKept { get; set; }
 
         public bool? Confirmed { get; set; }
