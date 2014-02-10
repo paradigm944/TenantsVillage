@@ -149,11 +149,6 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreatePostViewModel inModel, IEnumerable<HttpPostedFileBase> files)
         {
-
-            if (files.Any())
-            {
-                var yo = "";
-            }
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();

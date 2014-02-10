@@ -4679,12 +4679,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #6666FF;
   border-color: #e7e7e7;
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: white;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4694,11 +4694,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-text {
-  color: #777777;
+  color: white;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
