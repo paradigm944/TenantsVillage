@@ -68,7 +68,8 @@ namespace TV.web.Controllers
                 Comments = comments,
                 AptNumber = post.AptNumber,
                 BuildingNumber = post.BuildingNumber,
-                Rating = post.Rating
+                Rating = post.Rating,
+                ZipCode = post.ZipCode
 
             };
 
