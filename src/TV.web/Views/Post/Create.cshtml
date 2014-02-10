@@ -33,6 +33,7 @@
         $(document).ready(function () {
             $('#navTab').each(function () {
                 $(this).removeClass('active');
+                $('streetTooltip').tooltip();
             });
 
             $('#postTab').addClass('active');
@@ -73,7 +74,7 @@
                 }
             });
         });
-
+        
     </script>
 }
 
@@ -115,7 +116,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="panel-title">
-                                    Landlord/Management Company Info
+                                    Landlord/Management Company Info<i id="streetTooltip" style="color:red; float: right" class="fa fa-asterisk" rel="tooltip" title="Spelling is critical, make sure to double check. There are separate fields that make up your full address, only fill in info that is requested."></i>
                                 </div>
                             </div>
                             <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
@@ -184,7 +185,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            @Html.LabelFor(m => m.Street)<br />
+                                            @Html.LabelFor(m => m.Street)&nbsp;&nbsp;<i id="streetTooltip" style="color:red" class="fa fa-asterisk" rel="tooltip" title="Fill in only the Street name. Spelling is critical.  "></i><br />
                                             @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })
                                             <br />
                                             @Html.ValidationMessageFor(m => m.Street)
