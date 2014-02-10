@@ -1,4 +1,28 @@
-﻿<h3>Links</h3>
+﻿@{
+    ViewBag.Title = "Create a New Post";
+}
+
+<head>
+    <title></title>
+</head>
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+            $('#navTab').each(function () {
+                $(this).removeClass('active');
+
+            });
+           
+            $('#linksTab').addClass('active');
+           
+        });
+       
+   </script>
+    }
+
+<h3>Links</h3>
 <br />
 <div class="row" style="padding-left:12px; padding-right:18px;">
     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
