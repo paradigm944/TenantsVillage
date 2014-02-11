@@ -218,11 +218,11 @@
                        
                     <div class="collapse in" id="slider">
                         
-                        <div id="slider1_container" style="margin:auto; position: relative; width: 1300px; height: 600px;">
+                        <div  class="img-responsive" id="slider1_container" style="margin:auto; position: relative; width: 1300px; height: 600px;">
                             <!-- Slides Container -->
                             <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 600px; overflow: hidden;">
                                 <!-- Slide -->
-                                <div>
+                                <div class="img-responsive">
                                     <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/slide-1.jpg")" />
                                     <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                 width: 600px; height: 150px;">
@@ -265,7 +265,7 @@
                                         <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
                                    height: 50px; color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
                                             @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            When making a post you can rate the location from 0 to 10 stars, upload images, and show rent plus the amount
+                                            When making a post you can rate the location from &frac12; to 10 stars, upload images, and show rent plus the amount
                                             of your desposit withheld.&nbsp; Also leave a description of your experience.&nbsp; Here is a sample
                                             @Html.ActionLink("POST", "Sample", "Post") .
                                         </div>
