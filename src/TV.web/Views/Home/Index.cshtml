@@ -3,8 +3,51 @@
     ViewBag.Title = "Home";
 }
 
-<style>
-    .shadow {
+
+    <!-- Direction Navigator Skin Begin -->
+    <style >
+    /* jssor slider direction navigator skin 20 css */
+    /*
+                            .jssord20l              (normal)
+                            .jssord20r              (normal)
+                            .jssord20l:hover        (normal mouseover)
+                            .jssord20r:hover        (normal mouseover)
+                            .jssord20ldn            (mousedown)
+                            .jssord20rdn            (mousedown)
+                            */
+    .jssord20l, .jssord20r, .jssord20ldn, .jssord20rdn {
+        position: absolute;
+        cursor: pointer;
+        display: block;
+        background: url(../img/d20.png) no-repeat;
+        overflow: hidden;
+    }
+
+    .jssord20l {
+        background-position: -3px -33px;
+    }
+
+    .jssord20r {
+        background-position: -63px -33px;
+    }
+
+    .jssord20l:hover {
+        background-position: -123px -33px;
+    }
+
+    .jssord20r:hover {
+        background-position: -183px -33px;
+    }
+
+    .jssord20ldn {
+        background-position: -243px -33px;
+    }
+
+    .jssord20rdn {
+        background-position: -303px -33px;
+    }
+
+   .shadow {
         -moz-box-shadow: 3px 3px 5px 6px #ccc;
         -webkit-box-shadow: 3px 3px 5px 6px #ccc;
         box-shadow: 3px 3px 5px 6px #ccc;
@@ -48,7 +91,10 @@
     .bricon {
         background: url(/Content/Slider/img/browser-icons.png);
     }
-   
+   .img{
+       max-width:100%;
+       height: auto;
+   }
 </style>
 
 <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
@@ -62,8 +108,6 @@
 
 @section Scripts {
 
-    <script src="@Url.Content("~/Scripts/jquery-2.0.3.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/Slider/jssor.core.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/Slider/jssor.utils.js")" type="text/javascript"></script>
@@ -101,17 +145,41 @@
 
             var options = {
                 $AutoPlay: true,
-                $AutoPlayInterval: 16000,                            //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlayInterval: 2000,
                 $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $SlideDuration: 900,                              //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $DirectionNavigatorOptions: {
+                    $Class: $JssorDirectionNavigator$,              //[Requried] Class to create direction navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                },
                 $CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
                     $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
                     $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
                     $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
-                    $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
-                }
+                    $PlayOutMode: 3
+                }//[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
             };
 
             var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+                var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+                if (parentWidth)
+                    jssor_slider1.$SetScaleWidth(parentWidth);
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+
+            //Scale slider immediately
+            ScaleSlider();
+
+            if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+                $(window).bind('resize', ScaleSlider);
+            }
+            //responsive code end
         });
 
         function resetPics() {
@@ -213,97 +281,110 @@
                         <i id="sliderPanel" class="fa fa-times"  onclick="hideMe()" style="float:right;" ></i>
                     </div>
                 </div>
-                <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                <div class="panel-body" style="padding-left: 1px; padding-bottom: 10px; padding-right: 0px;">
                     
                        
-                    <div class="collapse in" id="slider">
-                        
-                        <div  class="img-responsive" id="slider1_container" style="margin:auto; position: relative; width: 1300px; height: 600px;">
-                            <!-- Slides Container -->
-                            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 600px; overflow: hidden;">
-                                <!-- Slide -->
-                                <div class="img-responsive">
-                                    <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/slide-1.jpg")" />
-                                    <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
-                                width: 600px; height: 150px;">
-                                        <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
-                                    background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
-                                        </div>
-                                        <div style="position: absolute; padding-left:10px; padding-right:10px; top: 0px; left: 0px; width: 600px; height: 50px;
-                                        color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
-                                            @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            Tenant's Village is your source for landlord and management company reviews.&nbsp; Reviews are posted by
-                                            renters like you.&nbsp; Post the good and the bad, help people find the best place they can.
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide -->
-                                <div>
-                                    <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/02.jpg")" />
-                                    <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
-                                    width: 600px; height: 200px;">
-                                        <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 200px;
-                                    background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
-                                        </div>
-                                        <div style="position: absolute; padding-left: 10px; padding-right: 10px; top: 0px; left: 0px; width: 600px; height: 50px;
-                                     color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
-                                            @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            Search reviews by Zip, City, Street, or Landlord.&nbsp; Look up a location before you sign the lease
-                                            and find out what previous tenants thought.&nbsp; @Html.ActionLink("Register", "Register", "Account") an account
-                                            and begin your search today, it's <b>FREE</b>.&nbsp; All it takes to @Html.ActionLink("Register", "Register", "Account") is an email address.
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide -->
-                                <div>
-                                    <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/03.jpg")" />
-                                    <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                    <!-- Jssor Slider Begin -->
+                    <!-- You can move inline styles (except 'top', 'left', 'width' and 'height') to css file or css block. -->
+                    <div id="slider1_container" style="position: relative; width: 960px; height: 380px; overflow: hidden;">
+                        <!-- Slides Container -->
+                        <div u="slides" style="cursor: move; position: absolute; width: 960px; height: 380px; top: 0px;
+                        left: 0px; overflow: hidden;">
+
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/slide-1.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                        <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
-                                        </div>
-                                        <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
-                                            @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            When making a post you can rate the location from &frac12; to 10 stars, upload images, and show rent plus the amount
-                                            of your desposit withheld.&nbsp; Also leave a description of your experience.&nbsp; Here is a sample
-                                            @Html.ActionLink("POST", "Sample", "Post") .
-                                        </div>
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        Tenant's Village is your source for landlord and management company reviews.&nbsp; Reviews are posted by
+                                        renters like you.&nbsp; Post the good and the bad, help people find the best place they can.
+
+                                       
                                     </div>
                                 </div>
-                                <!-- Slide -->
-                                <div>
-                                    <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/04.jpg")" />
-                                    <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
-                                width: 600px; height: 100px;">
-                                        <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 100px;
-                                    background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
-                                        </div>
-                                        <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                    height: 50px; color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
-                                            @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            Users can delete photos and upload more, edit your Posts including delete, and delete comments left on your Posts.
-                                        </div>
+                            </div>
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/03.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                                    width: 600px; height: 150px;">
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        Search reviews by Zip, City, Street, or Landlord.&nbsp; Look up a location before you sign the lease
+                                        and find out what previous tenants thought.&nbsp; @Html.ActionLink("Register", "Register", "Account") an account
+                                        and begin your search today, it's <b>FREE</b>.&nbsp; All it takes to @Html.ActionLink("Register", "Register", "Account") is an email address.
+
+                                   
                                     </div>
                                 </div>
-                                <div>
-                                    <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/05.jpg")" />
-                                    <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
-                                width: 600px; height: 200px;">
-                                        <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
-                                    background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
-                                        </div>
-                                        <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                     height: 50px; color: White; font-size: 16px; font-weight: bold; line-height: 50px; text-align: left;">
-                                            @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                            Users have access to a links section specializing in Landlord/Tenant information.&nbsp; Including
-                                            City, State, and Federal sites dealing with tenant rights, legal aid, building code, and eviction.
-                                        </div>
+                            </div>
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/02.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                                    width: 600px; height: 150px;">
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        When making a post you can rate the location from &frac12; to 10 stars, upload images, and show rent plus the amount
+                                        of your desposit withheld.&nbsp; Also leave a description of your experience.&nbsp; Here is a sample
+                                        @Html.ActionLink("POST", "Sample", "Post") .
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/04.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                                    width: 600px; height: 150px;">
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        Users can delete photos and upload more, edit your Posts including delete, and delete comments left on your Posts.
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/05.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                                    width: 600px; height: 150px;">
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        Users have access to a links section specializing in Landlord/Tenant information.&nbsp; Including
+                                        City, State, and Federal sites dealing with tenant rights, legal aid, building code, and eviction.
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Arrow Left -->
+                        <span u="arrowleft" class="jssord20l" style="width: 55px; height: 55px; top: 123px; left: 8px;">
+                        </span>
+                        <!-- Arrow Right -->
+                        <span u="arrowright" class="jssord20r" style="width: 55px; height: 55px; top: 123px; right: 8px">
+                        </span>
+                        <!-- Direction Navigator Skin End -->
+                        <a style="display: none" href="http://www.jssor.com">Responsive Slider</a>
                     </div>
+                    <!-- Jssor Slider End -->
                     <br />
                     <br />
                 </div>
