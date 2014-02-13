@@ -605,17 +605,7 @@ namespace TV.web.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
-        public ActionResult UserProfile()
-        {
-            var user = _ctx.UserProfiles.Where(u => u.UserName == HttpContext.User.Identity.Name).SingleOrDefault();
-            var outModel = new ShowProfileViewModel
-            {
-                UserName = user.UserName,
-                UserId = user.UserId
-            };
-
-            return View(outModel);
-        }
+        
 
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)

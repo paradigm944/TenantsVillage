@@ -71,7 +71,7 @@ namespace TV.web.ViewModels
         [Range(0, 5000, ErrorMessage = "The amount must be from 0 to $5,000")]
         public int? Deposit { get; set; }
 
-        [DisplayName("Amount of deposit withheld from you")]
+        [DisplayName("Amount of deposit withheld")]
         [Range(0, 10000, ErrorMessage="The amount must be from 0 to $10,000")]
         public int? AmountKept { get; set; }
 

@@ -12,7 +12,7 @@ using WebMatrix.WebData;
 
 namespace MvcForums.Controllers
 {
-    [Authorize]
+    
     public class CommentController : Controller
     {
         private IForumRepository _repository;
