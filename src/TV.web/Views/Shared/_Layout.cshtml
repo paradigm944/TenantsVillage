@@ -58,17 +58,17 @@
                     <li id="postTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>&nbsp;Posts<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li id="crPostTab"><a href="@Url.Action("Create", "Post")"><i class="fa fa-pencil"></i> Create New Post</a></li>
-                            <li id="manageTab"><a href="@Url.Action("Manage", "Post", new { needStatusUpdate = false, statusMessage = 0}))"><i class="fa fa-wrench"></i> Manage Posts</a></li>
+                            <li  id="crPostTab"><a style="background-color: #b94a48; color: white" href="@Url.Action("Create", "Post")"><i class="fa fa-pencil"></i> Create New Post</a></li>
+                            <li  id="manageTab"><a style="background-color: #b94a48; color: white" href="@Url.Action("Manage", "Post", new { needStatusUpdate = false, statusMessage = 0}))"><i class="fa fa-wrench"></i> Manage Posts</a></li>
                         </ul>
                     </li>
 
                     <li id="userTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; @Context.User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li id="userTab1"><a href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
-                            <li id="userTab2"><a href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
-                            <li id="userTab3"><a href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
+                            <li id="userTab1"><a style="background-color: #b94a48; color: white" href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
+                            <li id="userTab2"><a style="background-color: #b94a48; color: white" href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
+                            <li id="userTab3"><a style="background-color: #b94a48; color: white" href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
                         </ul>
                     </li>
                 </ul>

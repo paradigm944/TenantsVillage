@@ -76,6 +76,8 @@
         background-color: rgba(0, 0, 0, 0.4);
     }
 
+   
+
     a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
         color: #ffffff;
         text-decoration: none;
@@ -286,25 +288,38 @@
                        
                     <!-- Jssor Slider Begin -->
                     <!-- You can move inline styles (except 'top', 'left', 'width' and 'height') to css file or css block. -->
-                    <div id="slider1_container" style="position: relative; width: 960px; height: 380px; overflow: hidden;">
+                    <div id="slider1_container" style="position: relative; width: 900px; height: 400px; overflow: hidden;">
                         <!-- Slides Container -->
-                        <div u="slides" style="cursor: move; position: absolute; width: 960px; height: 380px; top: 0px;
+                        <div u="slides" style="cursor: move; position: absolute; width: 900px; height: 400px; top: 0px;
                         left: 0px; overflow: hidden;">
 
                             <div>
                                 <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/slide-1.jpg")" />
                                 <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 80px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                   height: 50px; color: White; font-family:Calibri; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Tenant's Village is your source for landlord and management company reviews.&nbsp; Reviews are posted by
-                                        renters like you.&nbsp; Post the good and the bad, help people find the best place they can.
-
-                                       
+                                        renters like you.&nbsp; Post the good and the bad, help people find the best place they can.                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/souixCity.jpg")" />
+                                <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
+                                    width: 600px; height: 150px;">
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 80px;
+                                        background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
+                                    </div>
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
+                                   height: 50px; color: White; font-family:Calibri; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                        @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
+                                        Users are anonymous, we do not want to collect any of your personal information.  All you need to post is an 
+                                        email address. Feel safe to post and review accurate descriptions.
                                     </div>
                                 </div>
                             </div>
@@ -312,11 +327,11 @@
                                 <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/03.jpg")" />
                                 <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 120px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
-                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White;
+                                         font-family: Calibri; font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Search reviews by Zip, City, Street, or Landlord.&nbsp; Look up a location before you sign the lease
                                         and find out what previous tenants thought.&nbsp; @Html.ActionLink("Register", "Register", "Account") an account
@@ -330,11 +345,11 @@
                                 <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/02.jpg")" />
                                 <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 90px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
-                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White; font-family: Calibri;
+                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         When making a post you can rate the location from &frac12; to 10 stars, upload images, and show rent plus the amount
                                         of your desposit withheld.&nbsp; Also leave a description of your experience.&nbsp; Here is a sample
@@ -346,11 +361,11 @@
                                 <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/04.jpg")" />
                                 <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 50px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
-                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White; font-family: Calibri;
+                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Users can delete photos and upload more, edit your Posts including delete, and delete comments left on your Posts.
                                         
@@ -361,11 +376,11 @@
                                 <img u="image" src="@Url.Content("~/Content/Slider/img/landscape/05.jpg")" />
                                 <div u="caption" t="MCLIP|B" t2="T" style="position: absolute; top: 250px; left: 0px;
                                     width: 600px; height: 150px;">
-                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 150px;
+                                    <div style="position: absolute; top: 0px; left: 0px; width: 600px; height: 90px;
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
-                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                    <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White; font-family: Calibri;
+                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Users have access to a links section specializing in Landlord/Tenant information.&nbsp; Including
                                         City, State, and Federal sites dealing with tenant rights, legal aid, building code, and eviction.
