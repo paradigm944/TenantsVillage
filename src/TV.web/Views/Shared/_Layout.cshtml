@@ -46,15 +46,25 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="@Url.Action("Index", "Home")" class="navbar-brand">TenantsVillage</a>
+           
         </div>
-
+        
+                 
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            @if (Request.IsAuthenticated)
-            {
-                <ul class="nav navbar-nav">
+            
+                <ul class="nav navbar-nav col-lg-11">
+                @if (!Request.IsAuthenticated)
+                                    {
+                    <li><div class="col-sm-2"></div></li>
+                    <li><a id ="aboutTab" href="@Url.Action("About", "Home")"><b>About Us</b></a></li>
+                }
+                @if (Request.IsAuthenticated)
+                    {
+                    <li><div class="col-sm-2"></div></li>
                     <li id="homeTab" class="navTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
                     <li id="linksTab" class="navTab"><a href="@Url.Action("Links", "Home")"><i class="fa fa-external-link-square"></i>&nbsp;Links</a></li>
+                    <li><a id ="aboutTab" href="@Url.Action("About", "Home")">About</a></li>
                     <li id="postTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>&nbsp;Posts<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -63,7 +73,7 @@
                         </ul>
                     </li>
 
-                    <li id="userTab" class="navTab dropdown">
+                    <li id="userTab" style="float: right;" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; @Context.User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li id="userTab1"><a style="background-color: #b94a48; color: white" href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
@@ -71,8 +81,9 @@
                             <li id="userTab3"><a style="background-color: #b94a48; color: white" href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
                         </ul>
                     </li>
+                    }
                 </ul>
-            }
+          
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right navbar-user">
