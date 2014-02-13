@@ -118,7 +118,7 @@ namespace TV.web.Controllers
 
         public ActionResult About()
         {
-            throw new Exception("Test");       
+            return View();   
         }
 
         public ActionResult Contact()
