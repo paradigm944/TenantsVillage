@@ -205,6 +205,7 @@ namespace TV.web.Controllers
             post.BuildingNumber = inModel.BuildingNumber;
             post.IsCompleted = 1;
             post.City = inModel.City;
+            post.ZipCode = inModel.Zip;
 
             var errors = _ctx.GetValidationErrors();
 
