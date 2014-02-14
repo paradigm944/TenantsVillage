@@ -77,7 +77,7 @@ namespace non_profit.Controllers
                     image.Resize(250, ((250 * image.Height) / image.Width));
                 }
 
-                var filename = Path.GetFileName(image.FileName);
+                var filename = Path.GetFileName(image.FileName).Replace(" ", "");
                 image.Save(Path.Combine("~/Images", filename));
 
                 var postImage = new ImageModel
@@ -114,7 +114,7 @@ namespace non_profit.Controllers
             var post = _ctx.Post.Where(p => p.Id == postId).SingleOrDefault();
             image.Resize(110, 110, true, true);
 
-            var filename = Path.GetFileName(image.FileName);
+            var filename = Path.GetFileName(image.FileName).Replace(" ", "");
             image.Save(Path.Combine("~/Thumbnails", filename));
 
             var postImage = new ImageModel
