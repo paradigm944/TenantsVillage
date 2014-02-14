@@ -463,23 +463,47 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(DisassociateUserViewModel inModel)
         {
-            var user = _ctx.UserProfiles.Where(m => m.UserId == inModel.UserId).Where(m => m.Email == inModel.Email).
-                Where(m => m.UserName == inModel.UserName).SingleOrDefault();
+            //RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
 
-            var checkUserName = HttpContext.User.Identity.Name;
+            //if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            //{
+            //    ModelState.AddModelError("", "Captcha answer cannot be empty.");
+            //    return View(inModel);
+            //}
 
-            if (user.UserName != checkUserName)
-            {
-                ModelState.AddModelError("", "There is a problem deleting your account.  Please double check your entries.");
-                return View(inModel);
+            //RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            //if (recaptchaResult != RecaptchaVerificationResult.Success)
+            //{
+            //    ModelState.AddModelError("", "Incorrect captcha answer.");
+            //    return View(inModel);
+            //}
+
+            try { 
+                var user = _ctx.UserProfiles.Where(m => m.UserId == inModel.UserId).Where(m => m.Email == inModel.Email).
+                    Where(m => m.UserName == inModel.UserName).SingleOrDefault();
+ 
+                if(Membership.ValidateUser(inModel.UserName, inModel.Password) && user != null)
+                {
+                    WebSecurity.Logout();
+                    //OAuthWebSecurity.DeleteAccount("SimpleMembershipProvider", user.UserId.ToString())
+                    ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(user.UserName);
+                    
+                    //((SimpleMembershipProvider)Membership.Provider).DeleteUser(user.UserName, true); ;
+                    return View("DeleteAccountSuccess");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The password is incorrect");
+                    return View(inModel);
+                }
             }
-
-            Membership.DeleteUser(inModel.UserName);
-            return View("DeleteAccountSuccess");
+            catch {
+                ModelState.AddModelError("", "The username and email do not match");
+                return View(inModel);
+            }  
         }
         
-        // POST: /Account/ExternalLogin
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
