@@ -269,7 +269,7 @@
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.Rent)<br />
                                                 <div class="input-prepend input-append">
-                                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
+                                                    <div class="add-on"><b style="color: green">$</b></div>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
                                                 </div>
                                                 @Html.ValidationMessageFor(model => model.Rent)
                                             </div>
@@ -277,7 +277,7 @@
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.Deposit)<br />
                                                 <div class="input-prepend input-append">
-                                                    <span class="add-on"><b style="color: green">$</b></span>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
+                                                    <div class="add-on"><b style="color: green">$</b></div>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
 
                                                 </div>
                                                 @Html.ValidationMessageFor(model => model.Deposit)
@@ -285,12 +285,13 @@
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.AmountKept)<br />
                                                 <div class="input-prepend input-append">
-                                                    <span class="add-on"><b style="color: red">$</b></span>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span><br />
+                                                    <div class="add-on"><b style="color: red">$</b></div>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span><br />
 
                                                 </div>
                                                 @Html.ValidationMessageFor(model => model.AmountKept)
                                             </div>
                                         </div>
+                                        
                                         <br />
 
                                     </div>
