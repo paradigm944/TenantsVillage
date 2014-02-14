@@ -69,7 +69,8 @@ namespace TV.web.Controllers
                 AptNumber = post.AptNumber,
                 BuildingNumber = post.BuildingNumber,
                 Rating = post.Rating,
-                ZipCode = post.ZipCode
+                ZipCode = post.ZipCode,
+                City = post.City
 
             };
 
