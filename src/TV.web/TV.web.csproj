@@ -647,6 +647,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Content\TV.css" />
     <Content Include="favicon.ico" />
+    <Content Include="logo.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="grrengloabe.jpg" />
@@ -925,6 +926,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\DataTables-1.9.4\docs\media\js\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Thumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
