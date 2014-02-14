@@ -105,7 +105,7 @@ namespace TV.web.Controllers
                 var isZipCodeSearchable = Convert.ToBoolean(Request["bSearchable_5"]);
 
                 filteredPosts = DataRepository.GetPosts()
-                   .Where(c => c.ZipCode.ToString().Contains(param.sSearch) || c.LandLord.ToLower().Contains(param.sSearch.ToLower()) || c.Street.ToLower().Contains(param.sSearch.ToLower()) || c.City.ToLower().Contains(param.sSearch.ToLower()));
+                   .Where(c => c.ZipCode.ToString().Contains(param.sSearch) || c.LandLord.ToLower().Contains(param.sSearch.ToLower()) || c.Street.ToLower().Contains(param.sSearch.ToLower()) || c.City.ToLower().Contains(param.sSearch.ToLower()) || c.Title.ToLower().Contains(param.sSearch.ToLower()));
             }
             else
             {
@@ -167,7 +167,7 @@ namespace TV.web.Controllers
                 var isZipCodeSearchable = Convert.ToBoolean(Request["bSearchable_5"]);
 
                 filteredPosts = DataRepository.GetPosts()
-                   .Where(c => c.ZipCode.ToString().Contains(param.sSearch) || c.LandLord.ToLower().Contains(param.sSearch.ToLower()) || c.Street.ToLower().Contains(param.sSearch.ToLower()) || c.City.ToLower().Contains(param.sSearch.ToLower()));
+                   .Where(c => c.ZipCode.ToString().Contains(param.sSearch) || c.LandLord.ToLower().Contains(param.sSearch.ToLower()) || c.Street.ToLower().Contains(param.sSearch.ToLower()) || c.Title.ToLower().Contains(param.sSearch.ToLower()) || c.City.ToLower().Contains(param.sSearch.ToLower()));
             }
             else
             {
