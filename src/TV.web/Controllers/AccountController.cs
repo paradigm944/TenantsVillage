@@ -463,21 +463,21 @@ namespace TV.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(DisassociateUserViewModel inModel)
         {
-            //RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
 
-            //if (String.IsNullOrEmpty(recaptchaHelper.Response))
-            //{
-            //    ModelState.AddModelError("", "Captcha answer cannot be empty.");
-            //    return View(inModel);
-            //}
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(inModel);
+            }
 
-            //RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
 
-            //if (recaptchaResult != RecaptchaVerificationResult.Success)
-            //{
-            //    ModelState.AddModelError("", "Incorrect captcha answer.");
-            //    return View(inModel);
-            //}
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+                return View(inModel);
+            }
 
             try { 
                 var user = _ctx.UserProfiles.Where(m => m.UserId == inModel.UserId).Where(m => m.Email == inModel.Email).

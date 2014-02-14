@@ -1,4 +1,5 @@
-﻿@model TV.web.ViewModels.DisassociateUserViewModel
+﻿@using Recaptcha.Web.Mvc;
+@model TV.web.ViewModels.DisassociateUserViewModel
 
 @{
     ViewBag.Title = "Disassociate";
@@ -37,6 +38,12 @@
                         @Html.LabelFor(m => m.Password)
                         @Html.PasswordFor(m => m.Password)
                         @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-8">
+                        @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean);
                     </div>
                 </div>
             <br />
