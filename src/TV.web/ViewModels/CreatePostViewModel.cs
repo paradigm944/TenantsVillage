@@ -30,7 +30,6 @@ namespace TV.web.ViewModels
         public string Post { get; set; }
 
         [DisplayName("Building/House Number")]
-        [Range(0, 10000)]
         public int? BuildingNumber { get; set; }
 
         [DisplayName("Apt #/letter")]
@@ -80,6 +79,7 @@ namespace TV.web.ViewModels
         public string Street{ get; set; }
 
         [Required]
+        [MinLength(4, ErrorMessage="The title must be at least 4 characters long")]
         public string Title { get; set; }
 
         //used for editing
