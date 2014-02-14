@@ -29,7 +29,23 @@
         .validation-summary-errors 
         {
             color: red;
-        }    
+        }
+        .icon-logo {
+            background-image: url("/logo.ico");
+            background-position: center center;
+        }
+        [class^="icon-"],
+        [class*=" icon-"] {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            *margin-right: .3em;
+            line-height: 14px;
+            vertical-align: text-top;
+            background-position: 14px 14px;
+            background-repeat: no-repeat;
+            margin-top: 1px;
+        }
     </style>
 
 
@@ -45,15 +61,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="@Url.Action("Index", "Home")" class="navbar-brand">TenantsVillage</a>
-           
+            <div class="col-lg-4">
+               
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand ">TenantsVillage&nbsp;&nbsp;<small>beta</small></a>
+            </div>
         </div>
         
                  
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             
-                <ul class="nav navbar-nav col-lg-11">
+                <ul class="nav navbar-nav">
                 @if (!Request.IsAuthenticated)
                                     {
                     <li><div class="col-sm-2"></div></li>
@@ -64,7 +82,6 @@
                     <li><div class="col-sm-2"></div></li>
                     <li id="homeTab" class="navTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
                     <li id="linksTab" class="navTab"><a href="@Url.Action("Links", "Home")"><i class="fa fa-external-link-square"></i>&nbsp;Links</a></li>
-                    <li><a id ="aboutTab" href="@Url.Action("About", "Home")">About</a></li>
                     <li id="postTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>&nbsp;Posts<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -73,11 +90,12 @@
                         </ul>
                     </li>
 
-                    <li id="userTab" style="float: right;" class="navTab dropdown">
+                    <li id="userTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; @Context.User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li id="userTab1"><a style="background-color: #b94a48; color: white" href="@Url.Action("ResetPassword", "Account")">Change Passord</a></li>
                             <li id="userTab2"><a style="background-color: #b94a48; color: white" href="@Url.Action("Disassociate", "Account")">Delete Account</a></li>
+                            <li><a id="aboutTab" href="@Url.Action("About", "Home")"><b>About Us</b></a></li>
                             <li id="userTab3"><a style="background-color: #b94a48; color: white" href="@Url.Action("LogOff", "Account")">Log Off <i class="fa fa-power-off"></i> </a></li>
                         </ul>
                     </li>
@@ -96,7 +114,7 @@
 
     <div id="page-wrapper">
 
-
+        
 
         @RenderBody()
 
@@ -111,6 +129,7 @@
     <div class="row visible-lg visible-md"><br /><br /><br /></div>
     <footer style="text-align: center; position: relative; margin-top: 75px; height: 150px; clear: both; padding-top: 20px;">
         <br />
+        <div class="i" href="~/favicon.ico" rel="icon" type="image/icon" />&nbsp;
         &copy;2010-@DateTime.Now.Year &nbsp; paradigm software <br />
     </footer>
 
