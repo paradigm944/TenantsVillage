@@ -58,7 +58,7 @@ namespace TV.web.ViewModels
         [EmailAddress]
         public string LLemail { get; set; }
 
-        [DisplayName("Lease ends/ended in year:")]
+        [DisplayName("Lease end year")]
         [Range(1980, 2020, ErrorMessage="The year must be between 1980 and 2020")]
         public int? LeaseYear {get; set;}
 

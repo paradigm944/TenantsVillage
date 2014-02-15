@@ -18,7 +18,7 @@
     <style>
         body
         {
-            padding-top: 20px;
+            
             padding-bottom:100px
         }
         .field-validation-error 
@@ -51,8 +51,8 @@
 
 </head>
 
-<body style="margin-top: 0px; padding-top: 0px;">
-    <nav class="navbar navbar-default" role="navigation" style="margin-bottom:0px;border-bottom:none !important;">
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom:0px;border-bottom:none !important;">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -113,27 +113,28 @@
 
 
     <div id="page-wrapper">
-
-        
-
-        @RenderBody()
+        <div class="container">
 
 
 
+            @RenderBody()
 
 
-        <br />
-        <br />
+
+
+
+            <br />
+            <br />
+
+        </div>
+        <div class="row visible-lg visible-md"><br /><br /><br /></div>
+        <footer style="text-align: center; position: relative; margin-top: 75px; height: 150px; clear: both; padding-top: 20px;">
+            <br />
+            <div class="i" href="~/favicon.ico" rel="icon" type="image/icon" />&nbsp;
+            &copy;2010-@DateTime.Now.Year &nbsp; paradigm software <br />
+        </footer>
 
     </div>
-    <div class="row visible-lg visible-md"><br /><br /><br /></div>
-    <footer style="text-align: center; position: relative; margin-top: 75px; height: 150px; clear: both; padding-top: 20px;">
-        <br />
-        <div class="i" href="~/favicon.ico" rel="icon" type="image/icon" />&nbsp;
-        &copy;2010-@DateTime.Now.Year &nbsp; paradigm software <br />
-    </footer>
-
-
 
 
     @Scripts.Render("~/bundles/jquery")

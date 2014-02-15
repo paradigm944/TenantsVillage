@@ -106,11 +106,12 @@
 
             </div>
         </div>
-
+        <br />
+        <br />
         <br />
         <div class="row">
             <div class="col-lg-12">
-                <form class="form-inline" role="form">
+                
 
                     <div class="form-group has-error has-success">
                         <div class="span4">
@@ -119,7 +120,7 @@
                             <br />@Html.ValidationMessageFor(m => m.Title)
                         </div>
                     </div>
-                    <hr />
+                    
                     <div class="col-lg-11">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -268,26 +269,25 @@
                                             </div>
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.Rent)<br />
-                                                <div class="input-prepend input-append">
-                                                    <div class="add-on"><b style="color: green">$</b></div>@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
-                                                </div>
+                                                
+                                                <i class="fa fa-money fa-2x" style="color:green;"></i>&nbsp;@Html.TextBoxFor(model => model.Rent, new { style = "width:70px" })<br />
+                                                
                                                 @Html.ValidationMessageFor(model => model.Rent)
                                             </div>
 
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.Deposit)<br />
-                                                <div class="input-prepend input-append">
-                                                    <div class="add-on"><b style="color: green">$</b></div>@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<span class="add-on"><b style="color: green">.00</b></span><br />
+                                                
+                                                <i class="fa fa-money fa-2x" style="color:green;"></i>&nbsp;@Html.TextBoxFor(model => model.Deposit, new { style = "width:70px" })<br />
 
-                                                </div>
                                                 @Html.ValidationMessageFor(model => model.Deposit)
                                             </div>
                                             <div class="col-lg-3">
                                                 @Html.LabelFor(m => m.AmountKept)<br />
-                                                <div class="input-prepend input-append">
-                                                    <div class="add-on"><b style="color: red">$</b></div>@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span><br />
+                                               
+                                                <i class="fa fa-money fa-2x" style="color:red;"></i>&nbsp;@Html.TextBoxFor(model => model.AmountKept, new { style = "width:70px" })<br />
 
-                                                </div>
+                                                
                                                 @Html.ValidationMessageFor(model => model.AmountKept)
                                             </div>
                                         </div>
@@ -411,7 +411,7 @@
                         @Html.HiddenFor(m => m.Id)
                     </div>
 
-                </form>
+          
                 
             </div>
         </div>
