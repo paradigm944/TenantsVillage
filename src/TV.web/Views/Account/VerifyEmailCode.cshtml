@@ -1,50 +1,55 @@
-﻿@model TV.web.ViewModels.VerifyEmailCodeViewModel
+﻿@using Recaptcha.Web.Mvc;
+@model TV.web.ViewModels.VerifyEmailCodeViewModel
 
 @{
     ViewBag.Title = "VerifyEmailCode";
 }
-
-<h2>Verify Account</h2><br />
+<br />
+<br />
 @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-    <fieldset>
-        <legend></legend>
-        <div class="span7" style="padding-top:15px;
-                                    padding-bottom:15px;
-                                    padding-right:25px;
-                                    padding-left:45px;
-                                    -moz-box-shadow:3px 3px 5px 5px #ccc;
-                                    -webkit-box-shadow:3px 3px 5px 6px #ccc;
-                                    box-shadow:3px 3px 5px 5px rgb(184, 184, 184);
-                                    background-color:rgb(224,224,224);
-                                    -moz-border-radius: 15px;
-                                    border-radius: 15px;">
+   <div class="col-lg-7">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Verify Your Account
+                </div>
+            </div>
+            <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
             <div class="row">
-                <div class="span4">
+                <div class="col-lg-4">
                     @Html.LabelFor(m => m.UserName)
                     @Html.TextBoxFor(m => m.UserName)
                     @Html.ValidationMessageFor(m => m.UserName)
                 </div>
             </div>
+            <br />
             <div class="row">
-                <div class="span4">
+                <div class="col-lg-4">
                     @Html.LabelFor(m => m.Password)
                     @Html.PasswordFor(m => m.Password)
                     @Html.ValidationMessageFor(m => m.Password)
                 </div>
             </div>
-
             <br />
             <br />
-
             <div class="row">
-                <input class="btn btn-primary " type="submit" value="Verify" />
+                <div class="col-lg-8">
+                    @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-lg-4">
+                    <input class="btn btn-primary " type="submit" value="Verify" />
+                </div>
             </div>
         </div>
-    </fieldset>
-
+    </div>
+</div>
      @Html.HiddenFor(m => m.UserId)
      @Html.HiddenFor(m => m.UserName)
 

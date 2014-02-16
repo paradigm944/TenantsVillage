@@ -3,101 +3,99 @@
     ViewBag.Title = "Home";
 }
 
-<head><title> Tenants Village Housing Inspection Code Inforcement Renter Law Teneant Law</title></head>
-    <!-- Direction Navigator Skin Begin -->
-    <style >
-    /* jssor slider direction navigator skin 20 css */
-    /*
-                            .jssord20l              (normal)
-                            .jssord20r              (normal)
-                            .jssord20l:hover        (normal mouseover)
-                            .jssord20r:hover        (normal mouseover)
-                            .jssord20ldn            (mousedown)
-                            .jssord20rdn            (mousedown)
-                            */
-    .jssord20l, .jssord20r, .jssord20ldn, .jssord20rdn {
-        position: absolute;
-        cursor: pointer;
-        display: block;
-        background: url(../img/d20.png) no-repeat;
-        overflow: hidden;
-    }
+<head>
+    <title> Tenants Village Housing Inspection Code Inforcement Renter Law Teneant Law</title>
 
-    .jssord20l {
-        background-position: -3px -33px;
-    }
 
-    .jssord20r {
-        background-position: -63px -33px;
-    }
-
-    .jssord20l:hover {
-        background-position: -123px -33px;
-    }
-
-    .jssord20r:hover {
-        background-position: -183px -33px;
-    }
-
-    .jssord20ldn {
-        background-position: -243px -33px;
-    }
-
-    .jssord20rdn {
-        background-position: -303px -33px;
-    }
-
-   .shadow {
-        -moz-box-shadow: 3px 3px 5px 6px #ccc;
-        -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-        box-shadow: 3px 3px 5px 6px #ccc;
-    }
-
-    .captionheader{
-        color:lightsalmon;
-    }
-    
-     .captionOrange, .captionBlack {
-        color: #fff;
-        font-size: 20px;
-        line-height: 30px;
-        text-align: center;
-        border-radius: 4px;
-    }
-
-    .captionOrange {
-        background: #EB5100;
-        background-color: rgba(235, 81, 0, 0.6);
-    }
-
-    .captionBlack {
-        font-size: 16px;
-        background: #000;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-
-   
-
-    a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-        a.captionOrange:hover {
-            color: #eb5100;
-            text-decoration: underline;
-            background-color: #eeeeee;
-            background-color: rgba(238, 238, 238, 0.7);
+    <style>
+        .jssord20l, .jssord20r, .jssord20ldn, .jssord20rdn {
+            position: absolute;
+            cursor: pointer;
+            display: block;
+            background: url(../img/d20.png) no-repeat;
+            overflow: hidden;
         }
 
-    .bricon {
-        background: url(/Content/Slider/img/browser-icons.png);
-    }
-   .img{
-       max-width:100%;
-       height: auto;
-   }
-</style>
+        .jssord20l {
+            background-position: -3px -33px;
+        }
+
+        .jssord20r {
+            background-position: -63px -33px;
+        }
+
+        .jssord20l:hover {
+            background-position: -123px -33px;
+        }
+
+        .jssord20r:hover {
+            background-position: -183px -33px;
+        }
+
+        .jssord20ldn {
+            background-position: -243px -33px;
+        }
+
+        .jssord20rdn {
+            background-position: -303px -33px;
+        }
+
+        .shadow {
+            -moz-box-shadow: 3px 3px 5px 6px #ccc;
+            -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+            box-shadow: 3px 3px 5px 6px #ccc;
+        }
+
+        .captionheader {
+            color: lightsalmon;
+        }
+
+        .captionOrange, .captionBlack {
+            color: #fff;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .captionOrange {
+            background: #EB5100;
+            background-color: rgba(235, 81, 0, 0.6);
+        }
+
+        .captionBlack {
+            font-size: 16px;
+            background: #000;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+
+
+        a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            a.captionOrange:hover {
+                color: #eb5100;
+                text-decoration: underline;
+                background-color: #eeeeee;
+                background-color: rgba(238, 238, 238, 0.7);
+            }
+
+        .bricon {
+            background: url(/Content/Slider/img/browser-icons.png);
+        }
+
+        .img {
+            max-width: 100%;
+            height: auto;
+        }
+        .ui-tooltip {
+            width: 400px;
+        }
+    </style>
+</head>
 
 <link href="@Url.Content("~/Content/dataTables/Media/Css/demo_table.css")" rel="stylesheet" type="text/css" />
 <link href="@Url.Content("~/Content/jqueryUIsmoothness.css")" rel="stylesheet" type="text/css" />
@@ -154,13 +152,23 @@
             _CaptionTransitions["WAVE|L"] = { $Duration: 1500, $FlyDirection: 5, $Easing: { $Left: $JssorEasing$.$EaseLinear, $Top: $JssorEasing$.$EaseOutWave }, $ScaleVertical: 0.4, $Round: { $Top: 2.5 } };
             _CaptionTransitions["MCLIP|B"] = { $Duration: 600, $Clip: 8, $Move: true, $Easing: $JssorEasing$.$EaseOutExpo };
 
+            var _SlideshowTransitions = [{ $Duration: 1000, $Delay: 20, $Cols: 8, $Rows: 4, $Clip: 15, $During: { $Left: [0.3, 0.7], $Top: [0.3, 0.7] }, $FlyDirection: 9, $ChessMode: { $Column: 3, $Row: 3 }, $Easing: { $Left: $JssorEasing$.$EaseInWave, $Top: $JssorEasing$.$EaseInWave, $Clip: $JssorEasing$.$EaseOutQuad }, $ScaleHorizontal: 0.2, $ScaleVertical: 0.1, $Round: { $Left: 1.3, $Top: 2.5 } }];
             var options = {
                 $AutoPlay: true,
+                $PauseOnHover: 0,
                 $AutoPlayInterval: 18000,
                 $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
-                $SlideDuration: 900,                              //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $SlideDuration: 900,
+                $SlideshowOptions: {                                //Options which specifies enable slideshow or not
+                    $Class: $JssorSlideshowRunner$,                 //Class to create instance of slideshow
+                    $Transitions: _SlideshowTransitions,            //Transitions to play slide, see jssor slideshow transition builder
+                    $TransitionsOrder: 1,                           //The way to choose transition to play slide, 1 Sequence, 0 Random
+                    $ShowLink: 2,                                   //0 After Slideshow, 2 Always
+                    $ContentMode: false                             //Whether to trait content as slide, otherwise trait an image as slide
+                },                                                  //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500                                
                 $DirectionNavigatorOptions: {
-                    $Class: $JssorDirectionNavigator$,              //[Requried] Class to create direction navigator instance
+                    $Class: $JssorDirectionNavigator$,
+                                                                    //[Requried] Class to create direction navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
                     $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
@@ -311,7 +319,7 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-family:Calibri; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                   height: 50px; color: White; font-family:Calibri; font-size: 14px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Tenant's Village is your source for landlord and management company reviews.&nbsp; Reviews are posted by
                                         renters like you.&nbsp; Post the good and the bad, help people find the best place they can.                                      
@@ -326,7 +334,7 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px;
-                                   height: 50px; color: White; font-family:Calibri; font-size: 13px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
+                                   height: 50px; color: White; font-family:Calibri; font-size: 14px; font-weight: bold; padding-bottom:15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Users are anonymous, we do not want to collect any of your personal information.  All you need to post is an 
                                         email address. Feel safe to post and review accurate descriptions.
@@ -341,7 +349,7 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White;
-                                         font-family: Calibri; font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
+                                         font-family: Calibri; font-size: 14px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Search reviews by Zip, City, Street, or Landlord.&nbsp; Look up a location before you sign the lease
                                         and find out what previous tenants thought.&nbsp; @Html.ActionLink("Register", "Register", "Account") an account
@@ -359,7 +367,7 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White; font-family: Calibri;
-                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
+                                         font-size: 14px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         When making a post you can rate the location from &frac12; to 10 stars, upload images, and show rent plus the amount
                                         of your desposit withheld.&nbsp; Also leave a description of your experience.&nbsp; Here is a sample
@@ -375,9 +383,9 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 80px; color: White; font-family: Calibri;
-                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
+                                         font-size: 14px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
-                                        Users can delete photos and upload more, edit your Posts including delete, and delete comments left on your Posts.
+                                        Users can delete their photos and upload more, edit thier Posts including deleting it, and delete comments left on your Posts.
                                         
                                     </div>
                                 </div>
@@ -390,7 +398,7 @@
                                         background-color: Black; opacity: 0.5; filter: alpha(opacity=50);">
                                     </div>
                                     <div style="padding-left: 10px; padding-right: 10px; position: absolute; top: 0px; left: 0px; width: 600px; height: 50px; color: White; font-family: Calibri;
-                                         font-size: 13px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
+                                         font-size: 14px; font-weight: bold; padding-bottom: 15px; line-height: 35px; text-align: left;">
                                         @*Define both 't' and 't2': &lt;div u="caption" t="MCLIP|B" t2="T" ...&gt;&lt;div/&gt;*@
                                         Users have access to a links section specializing in Landlord/Tenant information.&nbsp; Including
                                         City, State, and Federal sites dealing with tenant rights, legal aid, building code, and eviction.
@@ -464,38 +472,38 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-offset-1 col-lg-2 col-xs-6 col-md-2">
+                                <div class="col-lg-offset-1 col-lg-2 col-md-2 col-sm-3  col-xs-3">
                                     <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic0Tooltip" title="Street: @Model.Pic_0.Post.Street &nbsp&nbsp LandLord: @Model.Pic_0.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_0.Post.Id" id="pic_0"><img id="pic0" class="img-rounded" src="@Model.Pic_0.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width:190px; height: 130px; display:block" /></a>
                                 </div>
-                                <div class="col-lg-2 col-md-2">
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
                                     <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic1Tooltip" title="Street: @Model.Pic_1.Post.Street &nbsp&nbsp Landlord: @Model.Pic_1.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_1.Post.Id" id="pic_1"><img id="pic1" class="img-rounded" src="@Model.Pic_1.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic2Tooltip" title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp landlord @Model.Pic_2.Post.LandLord " href=" @Url.Action("viewpost", "search") />@Model.Pic_2.Post.Id" id="pic_2"><img id="pic2" class="img-rounded" src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic2Tooltip" title="Street: @Model.Pic_2.Post.Street &nbsp&nbsp Landlord: @Model.Pic_2.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_2.Post.Id" id="pic_2"><img id="pic2" class="img-rounded" src="@Model.Pic_2.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic3Tooltip" title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp landlord @Model.Pic_3.Post.LandLord " href=" @Url.Action("viewpost", "search") />@Model.Pic_3.Post.Id" id="pic_3"><img id="pic3" class="img-rounded" src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic3Tooltip" title="Street: @Model.Pic_3.Post.Street &nbsp&nbsp Landlord: @Model.Pic_3.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_3.Post.Id" id="pic_3"><img id="pic3" class="img-rounded" src="@Model.Pic_3.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic4Tooltip" title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp landlord @Model.Pic_4.Post.LandLord " href=" @Url.Action("viewpost", "search") />@Model.Pic_4.Post.Id" id="pic_4"><img id="pic4" class="img-rounded" src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
-                                    </div>
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic4Tooltip" title="Street: @Model.Pic_4.Post.Street &nbsp&nbsp Landlord: @Model.Pic_4.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_4.Post.Id" id="pic_4"><img id="pic4" class="img-rounded" src="@Model.Pic_4.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                </div>
                             </div>
                             <br />
                             <div class="row">
-                                <div class="col-lg-offset-1 col-lg-2 col-xs-6 col-md-3">
-                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="streetTooltip2" title="Street:  title=" street @Model.Pic_5.Post.Street &nbsp&nbsp landlord @Model.Pic_5.Post.LandLord " href=" @Url.Action("viewpost", "search") />@Model.Pic_5.Post.Id" id="pic_5"><img id="pic5" class="img-rounded" src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block"></a>
+                                <div class="col-lg-offset-1 col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic5Tooltip" title="Street: @Model.Pic_5.Post.Street &nbsp&nbsp Landlord: @Model.Pic_5.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_5.Post.Id" id="pic_5"><img id="pic5" class="img-rounded" src="@Model.Pic_5.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block"></a>
                                 </div>
-                                <div class="col-xs-6 col-lg-2 col-md-3">
-                                    <a class="thumbnail" title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp LandLord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_6.Post.Id" id="pic_6"><img id="pic6" class="img-rounded" src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic6Tooltip" title="Street: @Model.Pic_6.Post.Street &nbsp&nbsp Landlord: @Model.Pic_6.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_6.Post.Id" id="pic_6"><img id="pic6" class="img-rounded" src="@Model.Pic_6.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-xs-6 col-lg-2 col-md-3">
-                                    <a class="thumbnail" title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp LandLord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_7.Post.Id" id="pic_7"><img id="pic7" class="img-rounded" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic7Tooltip" title="Street: @Model.Pic_7.Post.Street &nbsp&nbsp Landlord: @Model.Pic_7.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_7.Post.Id" id="pic_7"><img id="pic7" class="img-rounded" src="@Model.Pic_7.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-xs-6 col-lg-2 col-md-3">
-                                    <a class="thumbnail" title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp LandLord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_8.Post.Id" id="pic_8"><img id="pic8" class="img-rounded" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic8Tooltip" title="Street: @Model.Pic_8.Post.Street &nbsp&nbsp Landlord: @Model.Pic_8.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_8.Post.Id" id="pic_8"><img id="pic8" class="img-rounded" src="@Model.Pic_8.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
-                                <div class="col-xs-6 col-lg-2 col-md-3">
-                                    <a class="thumbnail" title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp LandLord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost","search")/@Model.Pic_9.Post.Id" id="pic_9"><img id="pic9" class="img-rounded" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
+                                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+                                    <a class="thumbnail" data-toggle="tooltip" data-placement="right" id="pic9Tooltip" title="Street: @Model.Pic_9.Post.Street &nbsp&nbsp Landlord: @Model.Pic_9.Post.LandLord" href="@Url.Action("viewpost", "search")/@Model.Pic_9.Post.Id" id="pic_9"><img id="pic9" class="img-rounded" src="@Model.Pic_9.ImageUrl" alt="https://cloud.google.com/images/solutions/landing/mobile-icon.png" style="width: 190px; height: 130px; display: block" /></a>
                                 </div>
                             </div>
                             <div class="row">

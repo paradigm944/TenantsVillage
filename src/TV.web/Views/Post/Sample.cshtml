@@ -26,11 +26,11 @@
     <script src="@Url.Content("~/Scripts/RateIt/jquery.rateit.min.js.map")" type="text/javascript"></script>
     <script>
 
-    $(document).ready(function () {
-        $('#bookmarkButton').prop('disabled', true);
-        $('#commentButton').prop('disabled', true);
-        $('#bookmarkIcon').hide();
-    });
+        $(document).ready(function () {
+            $('#bookmarkIcon').hide();
+            $('#bookmarkButton').prop('disabled', true);
+
+        });
 
     $('body').on('hidden.bs.modal', '.modal', function () {
         console.log("Goolviyygli;hu");
@@ -64,7 +64,7 @@
             type: 'POST',
             success: function (data) {
                 $('#bookmarkButton').hide();
-                alert(data);
+                $('#bookmarkIcon').show();
             },
             error: function (data) {
                 console.log(e.error);
@@ -75,7 +75,7 @@
     </script>
 }
 <div class="body">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="panel-title" style="padding-left:100px;">
@@ -102,7 +102,7 @@
                     <br />
                 </div>
                 <div class="row">
-                    <div class="col-lg-5 col-lg-offset-0">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -122,7 +122,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 hidden-sm hidden-xs" style="float: right;">
+                                    <div class="col-lg-6 hidden-sm hidden-xs" style="float: right;">
                                         <div class="panel panel-danger">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
@@ -200,7 +200,7 @@
                     </div>
 
 
-                    <div class="col-lg-6 col-lg-offset-1">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -216,7 +216,7 @@
                                             {
                                                 <div class="col-lg-4 col-md-3" style="padding-bottom:10px;">
 
-                                                    <img src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; width:145px;height:120px; padding-bottom:6px;" />&nbsp;
+                                                    <img class="thumbnail" src="@x.ImageUrl" onclick="showImage('@x.ImageUrl')" style="cursor: pointer; width:145px;height:120px; padding-bottom:6px;" />&nbsp;
 
                                                 </div>
 
@@ -230,7 +230,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-5 col-lg-offset-0">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -249,7 +249,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 col-lg-offset-1">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -282,7 +282,7 @@
                                     <div class="col-lg-3">
                                         @Html.LabelFor(m => m.AmountKept)<br />
                                         <div class="input-prepend input-append">
-                                            <span class="add-on"><b style="color: red">$</b></span>@Html.DisplayFor(model => model.AmountKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span>
+                                            <span class="add-on"><b style="color: red">$</b></span>@Html.DisplayFor(model => model.AmtKept, new { style = "width:70px" })<span class="add-on"><b style="color: red">.00</b></span>
 
                                         </div>
 
@@ -292,7 +292,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-lg-offset-3">
+                <div class="col-lg-6 col-lg-offset-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="panel-title">
@@ -354,5 +354,4 @@
             @Html.Partial("_ViewComment")
         </div>
     </div>
-
-
+</div>
