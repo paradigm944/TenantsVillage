@@ -647,6 +647,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Content\TV.css" />
     <Content Include="favicon.ico" />
+    <Content Include="jssor_slider_transitions_code.txt" />
     <Content Include="logo.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
