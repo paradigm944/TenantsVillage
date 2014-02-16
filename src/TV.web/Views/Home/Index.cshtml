@@ -152,7 +152,20 @@
             _CaptionTransitions["WAVE|L"] = { $Duration: 1500, $FlyDirection: 5, $Easing: { $Left: $JssorEasing$.$EaseLinear, $Top: $JssorEasing$.$EaseOutWave }, $ScaleVertical: 0.4, $Round: { $Top: 2.5 } };
             _CaptionTransitions["MCLIP|B"] = { $Duration: 600, $Clip: 8, $Move: true, $Easing: $JssorEasing$.$EaseOutExpo };
 
-            var _SlideshowTransitions = [{ $Duration: 1000, $Delay: 20, $Cols: 8, $Rows: 4, $Clip: 15, $During: { $Left: [0.3, 0.7], $Top: [0.3, 0.7] }, $FlyDirection: 9, $ChessMode: { $Column: 3, $Row: 3 }, $Easing: { $Left: $JssorEasing$.$EaseInWave, $Top: $JssorEasing$.$EaseInWave, $Clip: $JssorEasing$.$EaseOutQuad }, $ScaleHorizontal: 0.2, $ScaleVertical: 0.1, $Round: { $Left: 1.3, $Top: 2.5 } }];
+            var _SlideshowTransitions = [{
+                $Duration: 1000,
+                $Delay: 20,
+                $Cols: 8,
+                $Rows: 4,
+                $Clip: 15,
+                $During: { $Left: [0.3, 0.7], $Top: [0.3, 0.7] },
+                $FlyDirection: 9, $ChessMode: { $Column: 3, $Row: 3 },
+                $Easing: { $Left: $JssorEasing$.$EaseInWave,
+                    $Top: $JssorEasing$.$EaseInWave,
+                    $Clip: $JssorEasing$.$EaseOutQuad
+                },
+                $ScaleHorizontal: 0.2, $ScaleVertical: 0.1, $Round: { $Left: 1.3, $Top: 2.5 }
+            }];
             var options = {
                 $AutoPlay: true,
                 $PauseOnHover: 0,
@@ -301,7 +314,7 @@
                         <i id="sliderPanel" class="fa fa-times"  onclick="hideMe()" style="float:right;" ></i>
                     </div>
                 </div>
-                <div class="panel-body" style="padding-left: 1px; padding-bottom: 10px; padding-right: 0px;">
+                <div class="panel-body" style="padding-right:0px; padding-left: 0px; padding-bottom: 10px;">
                     
                        
                     <!-- Jssor Slider Begin -->
