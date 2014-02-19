@@ -22,6 +22,7 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
+        [AllowAnonymous]
         public ActionResult NearMe()
         {
             return View();
