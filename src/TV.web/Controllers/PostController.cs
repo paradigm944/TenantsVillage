@@ -22,6 +22,11 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
+        public ActionResult NearMe()
+        {
+            return View();
+        }
+
         public ActionResult UploadPhotos()
         {
             return View("UploadTest");

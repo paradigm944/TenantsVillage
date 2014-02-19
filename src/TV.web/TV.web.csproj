@@ -523,6 +523,7 @@
     <Content Include="Content\FileUpload\img\glyphicons-halflings-white.png" />
     <Content Include="Content\FileUpload\img\glyphicons-halflings.png" />
     <Content Include="Content\FileUpload\img\loading.gif" />
+    <Content Include="Content\FileUpload\img\newloading.gif" />
     <Content Include="Content\FileUpload\img\progressbar.gif" />
     <Content Include="Content\FileUpload\img\progressblue.gif" />
     <Content Include="Content\jquery.fileupload.css" />
@@ -918,6 +919,7 @@
     <Content Include="Views\Post\Sample.cshtml" />
     <Content Include="Views\Shared\UploadTest.cshtml" />
     <Content Include="Views\BackloadDemo\Index.cshtml" />
+    <Content Include="Views\Post\NearMe.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd">
       <SubType>Designer</SubType>
