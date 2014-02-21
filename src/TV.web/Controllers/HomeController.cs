@@ -27,7 +27,18 @@ namespace TV.web.Controllers
             return View();
         }
 
-        
+        public JsonResult GetAddresses(int zipCode)
+        {
+            var postAddresses = new List<string>();
+
+            postAddresses.Add("265 Clymer Rd, 52233");
+            postAddresses.Add("200 Center Point Rd, 52233");
+            postAddresses.Add("265 Boyson Rd, 52233");
+            postAddresses.Add("265 Center Point Rd, 52233");
+
+            return Json(postAddresses, JsonRequestBehavior.AllowGet);
+        } 
+
         public ActionResult Index()
         {
 
