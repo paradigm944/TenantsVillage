@@ -194,9 +194,9 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-3">
-                                            @Html.LabelFor(m => m.Street)&nbsp;&nbsp;<i class="fa fa-info-circle" style="color:blue;" data-toggle="tooltip" data-placement="right" id="streetTooltip2" title="Spelling is critical, make sure to double check. There are separate fields that make up your full address, only fill in info that is requested."></i><br />
-                                            @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })
+                                        <div class="col-lg-4" style="padding-right:50px">
+                                            @Html.LabelFor(m => m.Street)&nbsp;&nbsp;<i class="fa fa-info-circle" style="color:blue; float:right;" data-toggle="tooltip" data-placement="right" id="streetTooltip2" title="Spelling is critical, make sure to double check. There are separate fields that make up your full address, only fill in info that is requested."></i><br />
+                                            @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })&nbsp;&nbsp;@Html.DropDownListFor(m => m.StreetSuffix, new SelectList(Model.StreetList))
                                             <br />
                                             @Html.ValidationMessageFor(m => m.Street)
                                         </div>

@@ -30,11 +30,21 @@ namespace TV.web.Controllers
         public JsonResult GetAddresses(int zipCode)
         {
             var postAddresses = new List<string>();
+            var posts = _ctx.Post.Where(m => m.ZipCode == zipCode).ToList<PostModel>();
 
-            postAddresses.Add("265 Clymer Rd, 52233");
-            postAddresses.Add("200 Center Point Rd, 52233");
-            postAddresses.Add("265 Boyson Rd, 52233");
-            postAddresses.Add("265 Center Point Rd, 52233");
+            if (posts.Count > 0)
+            {
+                for (int i = 0; i < posts.Count; i++)
+                {
+                    var address = posts[i].BuildingNumber + " " + posts[i].Street + " " + posts[i].StreetSuffix + ", " + posts[i].ZipCode;
+                    postAddresses.Add(address);
+                }
+            }
+
+            //postAddresses.Add("265 Clymer Rd, 52233");
+            //postAddresses.Add("200 Center Point Rd, 52233");
+            //postAddresses.Add("265 Boyson Rd, 52233");
+            //postAddresses.Add("265 Center Point Rd, 52233");
 
             return Json(postAddresses, JsonRequestBehavior.AllowGet);
         } 
