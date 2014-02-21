@@ -15,6 +15,11 @@ namespace TV.web.Controllers
     [Authorize]
     public class PostController : Controller
     {
+        public List<string> streetList = new List<string>
+        {
+            "Pl", "Rd", "St", "Ave", "Blvd", "Cr", "Ct", "Way", "Ln"
+        };
+
         private readonly TVContext _ctx;
 
         public PostController(TVContext ctx)
@@ -117,6 +122,7 @@ namespace TV.web.Controllers
             };
             
             outModel.UserId = user.UserId;
+            outModel.StreetList = streetList;
             _ctx.Post.Add(post);
             _ctx.SaveChanges();
             outModel.Id = post.Id;
@@ -209,6 +215,7 @@ namespace TV.web.Controllers
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
+            post.StreetSuffix = inModel.StreetSuffix;
             post.IsCompleted = 1;
             post.City = inModel.City;
             post.ZipCode = inModel.Zip;
@@ -252,6 +259,8 @@ namespace TV.web.Controllers
                 Images = images,
                 IsEDitMode = true,
                 BuildingNumber = post.BuildingNumber,
+                StreetSuffix = post.StreetSuffix,
+                StreetList = streetList,
                 Street = post.Street,
                 Comments = commentz,
                 Rating = post.Rating, 
@@ -315,7 +324,7 @@ namespace TV.web.Controllers
             post.Deposit = inModel.Deposit;
             post.AmountKept = inModel.AmountKept;
             post.Street = inModel.Street;
-           
+            post.StreetSuffix = inModel.StreetSuffix;
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
@@ -475,7 +484,7 @@ namespace TV.web.Controllers
                 AptNumber = "1",
                 Images = images,
                 BuildingNumber = 419,
-                Street = "Poplar",
+                Street = "Poplar Rd",
                 UserName = "samplePostUser",
                 City = "Iowa City",
                 ZipCode = 52246,
