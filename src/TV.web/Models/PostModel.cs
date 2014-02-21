@@ -27,6 +27,9 @@ namespace TV.web.Models
         [Column("Post")]
         public string Post { get; set; }
 
+        [Column("StreetSuffix")]
+        public string StreetSuffix { get; set; }
+
         [Column("IsCompleted")]
         public int IsCompleted { get; set; }
 

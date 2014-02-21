@@ -47,6 +47,7 @@ namespace TV.web.Migrations
             {
                 new PostModel
                 {
+                    BuildingNumber = 285,
                     LandLord = "ANC",
                     LLemail = "1@f.com",
                     Post = "All work and no play makes Jack  dull boy",
@@ -58,7 +59,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington",
+                    Street = "Clymer",
+                    StreetSuffix = "Rd",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -66,6 +68,7 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
+                    BuildingNumber = 265,
                     LandLord = "ANC",
                     LLemail = "1@f.com",
                     Post = "All work and no play makes Jack  dull boy",
@@ -77,7 +80,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington",
+                    Street = "Clymer",
+                    StreetSuffix = "Rd",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -85,6 +89,7 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
+                    BuildingNumber = 3556,
                     LandLord = "ANC",
                     LLemail = "1@f.com",
                     Post = "All work and no play makes Jack  dull boy",
@@ -96,7 +101,8 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
-                    Street = "Burlington",
+                    Street = "Longfellow",
+                    StreetSuffix = "Dr",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -104,6 +110,133 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
+                    BuildingNumber = 3556,
+                    LandLord = "Heritage",
+                    LLemail = "1hhh@fkkkk.com",
+                    DatePosted = DateTime.Now.ToString(),
+                    Post = "Hope is a good thing, maybe the best of things",
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Robyns",
+                    StreetSuffix = "Rd",
+                    Rating = 3,
+                    City = "Hiawatha",
+                    ZipCode = 52233
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 3556,
+                    LandLord = "Apts Downtown",
+                    LLemail = "apt@dog.edu",
+                    Post = "There but for the grace of god go I",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Boyson",
+                    StreetSuffix = "Rd",
+                    Rating = 3,
+                    City = "Hiawatha",
+                    ZipCode = 52232
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 788,
+                    LandLord = "Micheals",
+                    LLemail = "micheals@bbbb.com",
+                    Post = "Now yous's can't leave",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Blair's Ferry",
+                    StreetSuffix = "Rd",
+                    Rating = 3,
+                    City = "Hiawatha",
+                    ZipCode = 52232
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 788,
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Blair's Ferry",
+                    StreetSuffix = "Rd",
+                    Rating = 3,
+                    City = "Hiawatha",
+                    ZipCode = 52240
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 788,
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Johnson",
+                    StreetSuffix = "St",
+                    Rating = 3,
+                    City = "Iowa City",
+                    ZipCode = 52240
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 2200,
+                    LandLord = "ANC",
+                    LLemail = "1@f.com",
+                    Post = "All work and no play makes Jack  dull boy",
+                    DatePosted = DateTime.Now.ToString(),
+                    User = user,
+                    IsDeleted = false,
+                    Title = "Seeded",
+                    LeaseYear = 2012,
+                    Rent = 900,
+                    Deposit = 750,
+                    IsCompleted = 1,
+                    Street = "Clinton",
+                    StreetSuffix = "St",
+                    Rating = 3,
+                    City = "Iowa City",
+                    ZipCode = 52244
+
+                },
+                new PostModel
+                {
+                    BuildingNumber = 2200,
                     LandLord = "Heritage",
                     LLemail = "1hhh@fkkkk.com",
                     DatePosted = DateTime.Now.ToString(),
@@ -116,13 +249,15 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Burlington",
+                    StreetSuffix = "St",
                     Rating = 3,
-                    City = "Hiawatha",
-                    ZipCode = 52233
+                    City = "Iowa City",
+                    ZipCode = 52244
 
                 },
                 new PostModel
                 {
+                    BuildingNumber = 2200,
                     LandLord = "Apts Downtown",
                     LLemail = "apt@dog.edu",
                     Post = "There but for the grace of god go I",
@@ -135,13 +270,15 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Burlington",
+                    StreetSuffix = "St",
                     Rating = 3,
-                    City = "Hiawatha",
-                    ZipCode = 52233
+                    City = "Iowa City",
+                    ZipCode = 52248
 
                 },
                 new PostModel
                 {
+                    BuildingNumber = 180,
                     LandLord = "Micheals",
                     LLemail = "micheals@bbbb.com",
                     Post = "Now yous's can't leave",
@@ -154,123 +291,10 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Burlington",
-                    Rating = 3,
-                    City = "Hiawatha",
-                    ZipCode = 52233
-
-                },
-                new PostModel
-                {
-                    LandLord = "ANC",
-                    LLemail = "1@f.com",
-                    Post = "All work and no play makes Jack  dull boy",
-                    DatePosted = DateTime.Now.ToString(),
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
-                    Rating = 3,
-                    City = "Hiawatha",
-                    ZipCode = 52233
-
-                },
-                new PostModel
-                {
-                    LandLord = "ANC",
-                    LLemail = "1@f.com",
-                    Post = "All work and no play makes Jack  dull boy",
-                    DatePosted = DateTime.Now.ToString(),
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
+                    StreetSuffix = "St",
                     Rating = 3,
                     City = "Iowa City",
-                    ZipCode = 52246
-
-                },
-                new PostModel
-                {
-                    LandLord = "ANC",
-                    LLemail = "1@f.com",
-                    Post = "All work and no play makes Jack  dull boy",
-                    DatePosted = DateTime.Now.ToString(),
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
-                    Rating = 3,
-                    City = "Iowa City",
-                    ZipCode = 52246
-
-                },
-                new PostModel
-                {
-                    LandLord = "Heritage",
-                    LLemail = "1hhh@fkkkk.com",
-                    DatePosted = DateTime.Now.ToString(),
-                    Post = "Hope is a good thing, maybe the best of things",
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
-                    Rating = 3,
-                    City = "Iowa City",
-                    ZipCode = 52246
-
-                },
-                new PostModel
-                {
-                    LandLord = "Apts Downtown",
-                    LLemail = "apt@dog.edu",
-                    Post = "There but for the grace of god go I",
-                    DatePosted = DateTime.Now.ToString(),
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
-                    Rating = 3,
-                    City = "Iowa City",
-                    ZipCode = 52246
-
-                },
-                new PostModel
-                {
-                    LandLord = "Micheals",
-                    LLemail = "micheals@bbbb.com",
-                    Post = "Now yous's can't leave",
-                    DatePosted = DateTime.Now.ToString(),
-                    User = user,
-                    IsDeleted = false,
-                    Title = "Seeded",
-                    LeaseYear = 2012,
-                    Rent = 900,
-                    Deposit = 750,
-                    IsCompleted = 1,
-                    Street = "Burlington",
-                    Rating = 3,
-                    City = "Iowa City",
-                    ZipCode = 52246
+                    ZipCode = 52248
 
                 },
             };

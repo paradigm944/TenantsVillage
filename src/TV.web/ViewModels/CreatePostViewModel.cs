@@ -36,7 +36,9 @@ namespace TV.web.ViewModels
         [RegularExpression("^[a-zA-Z0-9]+$")]
         public string AptNumber { get; set; }
 
-        [DisplayName("Street")]
+        [DisplayName("Street Suffix")]
+        public string StreetSuffix { get; set; }
+        
         public IList<String> StreetList { get; set; }
 
         [DisplayName("City")]
