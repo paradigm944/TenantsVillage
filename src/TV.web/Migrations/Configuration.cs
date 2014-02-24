@@ -47,7 +47,7 @@ namespace TV.web.Migrations
             {
                 new PostModel
                 {
-                    BuildingNumber = 285,
+                    BuildingNumber = 365,
                     LandLord = "ANC",
                     LLemail = "1@f.com",
                     Post = "All work and no play makes Jack  dull boy",
