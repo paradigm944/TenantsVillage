@@ -47,8 +47,9 @@
         })
     }
 
-    function initialize() {
-        if (zipSearch) {        
+        function initialize() {
+            console.log(zipSearch);
+        if (zipSearch.toString() == "True") {        
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': FormZipCode }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) { 
@@ -81,49 +82,55 @@
 
                     coden(mapProp, map, FormZipCode);
                 }
-             })
-        }
+                })
+            }
         else {
-            if (navigator.geolocation) {
-                browserSupportFlag = true;
-                navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("else");
+                if (navigator.geolocation) {
+                    browserSupportFlag = true;
+                    navigator.geolocation.getCurrentPosition(function (position) {
 
-                    UserCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        UserCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-                    var mapProp = {
-                        center: UserCoords,
-                        zoom: 12,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
+                        var mapProp = {
+                            center: UserCoords,
+                            zoom: 12,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
 
-                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-                    var marker = new google.maps.Marker({
-                        position: UserCoords,
-                        title: "You are approximately here"
-                    });
+                        var marker = new google.maps.Marker({
+                            position: UserCoords,
+                            title: "You are approximately here"
+                        });
 
-                    marker.setMap(map);
+                        marker.setMap(map);
 
-                    var infowindow = new google.maps.InfoWindow({
-                        content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
-                    });
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
+                        });
 
-                    google.maps.event.addListener(marker, 'click', function () {
-                        infowindow.open(map, marker);
-                    });
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.open(map, marker);
+                        });
 
-                    geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({ 'latLng': UserCoords }, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            var zip = results[0].address_components[7].short_name;
-                            coden(mapProp, map, zip);
-                        }
-                    })     
-                 })
-               }
-             }
-          }
+                        geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({ 'latLng': UserCoords }, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                var zip = results[0].address_components[7].short_name;
+                                coden(mapProp, map, zip);
+                            }
+
+                            //add status check and log results array
+
+                        })
+
+                        
+                    })
+                }
+            }
+        }
 
 
         google.maps.event.addDomListener(window, 'load', initialize);
