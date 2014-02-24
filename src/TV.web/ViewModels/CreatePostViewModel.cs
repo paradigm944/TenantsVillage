@@ -37,6 +37,7 @@ namespace TV.web.ViewModels
         public string AptNumber { get; set; }
 
         [DisplayName("Street Suffix")]
+        [Required(ErrorMessage="Please choose a Street Suffix from the dropdown list")]
         public string StreetSuffix { get; set; }
         
         public IList<String> StreetList { get; set; }
