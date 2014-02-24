@@ -17,7 +17,8 @@ namespace TV.web.Controllers
     {
         public List<string> streetList = new List<string>
         {
-            "Pl", "Rd", "St", "Ave", "Blvd", "Cr", "Ct", "Way", "Ln"
+            "-", "Pl", "Rd", "St", "Ave", "Blvd", "Cr", "Ct", "Way", "Ln",
+            "Dr"
         };
 
         private readonly TVContext _ctx;
@@ -30,8 +31,45 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult NearMe()
         {
-            return View();
+            var outModel = new AddressViewModel
+            {
+                IsZipSearch = false
+            };
+
+         
+            return View(outModel);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult NearMe(AddressViewModel inModel)
+        {
+            var outModel = new AddressViewModel{
+                ZipCode = inModel.ZipCode,
+                IsZipSearch = true
+            };
+
+
+            return View(outModel);
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetAddresses(int zipCode)
+        {
+            var postAddresses = new List<string>();
+            var posts = _ctx.Post.Where(m => m.ZipCode == zipCode).ToList<PostModel>();
+
+            if (posts.Count > 0)
+            {
+                for (int i = 0; i < posts.Count; i++)
+                {
+                    var address = posts[i].BuildingNumber + " " + posts[i].Street + ",  " + posts[i].ZipCode;
+                    postAddresses.Add(address);
+                }
+            }
+
+            return Json(postAddresses, JsonRequestBehavior.AllowGet);
+        } 
 
         public ActionResult UploadPhotos()
         {

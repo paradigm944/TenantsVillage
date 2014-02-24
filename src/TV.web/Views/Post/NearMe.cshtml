@@ -1,4 +1,4 @@
-﻿
+﻿@model TV.web.ViewModels.AddressViewModel
 
 <!DOCTYPE html>
 <html>
@@ -8,52 +8,87 @@
     </script>
 
     <script>
+        var FormZipCode = '@Model.ZipCode';
+        var zipSearch = '@Model.IsZipSearch';
+        //google.maps.event.trigger(map, 'resize');
 
-        //console.log(data);
-        //var myCenter = new google.maps.LatLng(51.508742, -0.120850);
-        //var myCenter2 = new google.maps.LatLng(50.508742, -0.120850);
+    function coden(MapProperties, Map, ZipCode) {
+        $.getJSON('@Url.Content("~/Post/GetAddresses/?zipCode=")' + FormZipCode, function (data) {
+            //var geoCodeResults = new Array();
+            geocoder = new google.maps.Geocoder();
+            $.each(data, function (i, item) {
+                geocoder.geocode({ 'address': data[i] }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        //geoCodeResults[i] = results[0].geometry.location;
+                        //console.log(data[i]);
 
-        function coden(MapProperties, Map) {
-            $.getJSON('@Url.Content("~/Home/GetAddresses/?zipCode=52233")', function (data) {
-                //var geoCodeResults = new Array();
-                geocoder = new google.maps.Geocoder();
-                $.each(data, function (i, item) {
-                    geocoder.geocode({ 'address': data[i] }, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            //geoCodeResults[i] = results[0].geometry.location;
-                            console.log(data[i]);
+                        var marker = new google.maps.Marker({
+                            position: UserCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e),
+                            map: Map,
+                            title: data[i]
+                        });
 
-                            var marker = new google.maps.Marker({
-                                position: UserCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e),
-                                map: Map,
-                                title: data[i]
-                            });
+                        marker.setIcon('@Url.Content("~/Content/blue-dot.png")')
 
-                            marker.setMap(Map);
+                        marker.setMap(Map);
 
-                            var infowindow = new google.maps.InfoWindow({
-                                content: "<div class='infoDiv'><h2>" + data[i] + "</h2>" + "<div><h4>Opening hours: ???????  </h4></div></div>"
-                            });
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "<div class='infoDiv'><h4>" + data[i] + "</h2>" + "<div><h4></h4></div></div>"
+                        });
 
-                            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
-                            google.maps.event.addListener(marker, 'click', function () {
-                                infowindow.open(Map, marker);
-                            });
+                        // onClick listener
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.open(Map, marker);
+                        });
 
-                        }
-                    })
+                    }
                 })
             })
-        }
+        })
+    }
 
-        function initialize() {
+    function initialize() {
+        if (zipSearch) {        
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': FormZipCode }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) { 
+                    UserCoords2 = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e);
+                    console.log(UserCoords2);
+
+                    var mapProp = {
+                        center: UserCoords2,
+                        zoom: 12,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+
+                    var marker = new google.maps.Marker({
+                        position: UserCoords2,
+                        title: "You"
+                    });
+
+                    marker.setMap(map);
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                    coden(mapProp, map, FormZipCode);
+                }
+             })
+        }
+        else {
             if (navigator.geolocation) {
                 browserSupportFlag = true;
                 navigator.geolocation.getCurrentPosition(function (position) {
 
                     UserCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    UserCoords2 = new google.maps.LatLng(position.coords.latitude - .5, position.coords.longitude);
-
 
                     var mapProp = {
                         center: UserCoords,
@@ -74,24 +109,108 @@
                         content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
                     });
 
-                    // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
                     google.maps.event.addListener(marker, 'click', function () {
                         infowindow.open(map, marker);
                     });
 
-                    coden(mapProp, map);
-                })
-            }
-        }
+                    geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({ 'latLng': UserCoords }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            var zip = results[0].address_components[7].short_name;
+                            coden(mapProp, map, zip);
+                        }
+                    })     
+                 })
+               }
+             }
+          }
+
 
         google.maps.event.addDomListener(window, 'load', initialize);
+
+
     </script>
 </head>
 
-<body>
-    <div id="googleMap" style="width:1000px;height:760px;"></div>
-</body>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    
+    <body>
+        <div class="row">
+            <div class="col-lg-4">
+                @Html.LabelFor(m => m.ZipCode)<br />
+                @Html.TextBoxFor(m => m.ZipCode)
+            </div>
+            <div class="col-lg-4">
+                <br />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="googleMap" style="width:1000px;height:760px;"></div>
+            </div>
+        </div>
+        </body>
+}
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
