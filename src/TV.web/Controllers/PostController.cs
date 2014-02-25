@@ -50,6 +50,11 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult NearMe(AddressViewModel inModel)
         {
+            if (inModel.ZipCode.HasValue && inModel.City != null)
+            {
+                ModelState.AddModelError("", "Both Zip and City cannot be filled in");
+                return View(inModel);
+            }
             if (inModel.ZipCode.HasValue)
             {
                 var outModel = new AddressViewModel

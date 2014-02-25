@@ -253,7 +253,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(false)
+    @Html.ValidationSummary(true)
 
     
     <body>
@@ -263,7 +263,7 @@
                 @Html.TextBoxFor(m => m.ZipCode)
             </div>
             <div class="col-lg-1" style="text-align:center">
-                <b><em>OR</em></b>
+                <b style="font-size:larger; color:red;" ><em><br />-OR-</em></b>
             </div>
             <div class="col-lg-2">
                 @Html.LabelFor(m => m.City)<br />
@@ -277,7 +277,7 @@
         <br />
         <div class="row">
             <div class="col-lg-12">
-                <div id="googleMap" style="width:1000px;height:760px;"></div>
+                <div  class="thumbnail" id="googleMap" style="width:1000px;height:760px;"></div>
             </div>
         </div>
         </body>
