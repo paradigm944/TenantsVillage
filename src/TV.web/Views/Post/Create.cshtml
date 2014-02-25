@@ -194,12 +194,23 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-4" style="padding-right:50px">
+                                        @if (Model.IsEDitMode == true)
+                                        {
+                                          <div class="col-lg-4" style="padding-right:50px">
                                             @Html.LabelFor(m => m.Street)&nbsp;&nbsp;<i class="fa fa-info-circle" style="color:blue; float:right;" data-toggle="tooltip" data-placement="right" id="streetTooltip2" title="Spelling is critical, make sure to double check. There are separate fields that make up your full address, only fill in info that is requested."></i><br />
-                                            @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })&nbsp;&nbsp;@Html.DropDownListFor(m => m.StreetSuffix, new SelectList(Model.StreetList))
+                                            @Html.DropDownListFor(m => m.StreetPrefix, new SelectList(Model.StreetPrefixList, Model.StreetPrefix)) @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })&nbsp;&nbsp;@Html.DropDownListFor(m => m.StreetSuffix, new SelectList(Model.StreetSuffixList, Model.StreetSuffix))
                                             <br />
                                             @Html.ValidationMessageFor(m => m.Street)
                                         </div>
+                                        }
+                                        else { 
+                                        <div class="col-lg-4" style="padding-right:50px">
+                                            @Html.LabelFor(m => m.Street)&nbsp;&nbsp;<i class="fa fa-info-circle" style="color:blue; float:right;" data-toggle="tooltip" data-placement="right" id="streetTooltip2" title="Spelling is critical, make sure to double check. There are separate fields that make up your full address, only fill in info that is requested."></i><br />
+                                            @Html.DropDownListFor(m => m.StreetPrefix, new SelectList(Model.StreetPrefixList)) @Html.TextBoxFor(m => m.Street, new { style = "width:200px;" })&nbsp;&nbsp;@Html.DropDownListFor(m => m.StreetSuffix, new SelectList(Model.StreetSuffixList))
+                                            <br />
+                                            @Html.ValidationMessageFor(m => m.Street)
+                                        </div>
+                                        }
                                         <div class="col-lg-2">
                                             @Html.LabelFor(m => m.Zip)<br />
                                             @Html.TextBoxFor(m => m.Zip, new { style = "width:80px;" })
