@@ -30,6 +30,9 @@ namespace TV.web.Models
         [Column("StreetSuffix")]
         public string StreetSuffix { get; set; }
 
+        [Column("StreetPrefix")]
+        public string StreetPrefix { get; set; }
+
         [Column("IsCompleted")]
         public int IsCompleted { get; set; }
 

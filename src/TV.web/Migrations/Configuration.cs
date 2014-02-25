@@ -61,6 +61,7 @@ namespace TV.web.Migrations
                     IsCompleted = 1,
                     Street = "Clymer",
                     StreetSuffix = "Rd",
+                    StreetPrefix = " ",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -82,6 +83,7 @@ namespace TV.web.Migrations
                     IsCompleted = 1,
                     Street = "Clymer",
                     StreetSuffix = "Rd",
+                    StreetPrefix = " ",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -102,6 +104,7 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Longfellow",
+                    StreetPrefix = " ",
                     StreetSuffix = "Dr",
                     Rating = 3,
                     City = "Hiawatha",
@@ -124,6 +127,7 @@ namespace TV.web.Migrations
                     IsCompleted = 1,
                     Street = "Robyns",
                     StreetSuffix = "Rd",
+                    StreetPrefix = " ",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52233
@@ -145,6 +149,7 @@ namespace TV.web.Migrations
                     IsCompleted = 1,
                     Street = "Boyson",
                     StreetSuffix = "Rd",
+                    StreetPrefix = " ",
                     Rating = 3,
                     City = "Hiawatha",
                     ZipCode = 52232
@@ -165,6 +170,7 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Blair's Ferry",
+                    StreetPrefix = " ",
                     StreetSuffix = "Rd",
                     Rating = 3,
                     City = "Hiawatha",
@@ -186,6 +192,7 @@ namespace TV.web.Migrations
                     Deposit = 750,
                     IsCompleted = 1,
                     Street = "Blair's Ferry",
+                    StreetPrefix = " ",
                     StreetSuffix = "Rd",
                     Rating = 3,
                     City = "Hiawatha",
@@ -208,6 +215,7 @@ namespace TV.web.Migrations
                     IsCompleted = 1,
                     Street = "Johnson",
                     StreetSuffix = "St",
+                    StreetPrefix = " ",
                     Rating = 3,
                     City = "Iowa City",
                     ZipCode = 52240
@@ -215,7 +223,7 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
-                    BuildingNumber = 2200,
+                    BuildingNumber = 615,
                     LandLord = "ANC",
                     LLemail = "1@f.com",
                     Post = "All work and no play makes Jack  dull boy",
@@ -227,6 +235,7 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
+                    StreetPrefix = "S",
                     Street = "Clinton",
                     StreetSuffix = "St",
                     Rating = 3,
@@ -236,7 +245,7 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
-                    BuildingNumber = 2200,
+                    BuildingNumber = 308,
                     LandLord = "Heritage",
                     LLemail = "1hhh@fkkkk.com",
                     DatePosted = DateTime.Now.ToString(),
@@ -248,6 +257,7 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
+                    StreetPrefix = "E",
                     Street = "Burlington",
                     StreetSuffix = "St",
                     Rating = 3,
@@ -257,7 +267,7 @@ namespace TV.web.Migrations
                 },
                 new PostModel
                 {
-                    BuildingNumber = 2200,
+                    BuildingNumber = 340,
                     LandLord = "Apts Downtown",
                     LLemail = "apt@dog.edu",
                     Post = "There but for the grace of god go I",
@@ -269,6 +279,7 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
+                    StreetPrefix = "E",
                     Street = "Burlington",
                     StreetSuffix = "St",
                     Rating = 3,
@@ -290,6 +301,7 @@ namespace TV.web.Migrations
                     Rent = 900,
                     Deposit = 750,
                     IsCompleted = 1,
+                    StreetPrefix = "E",
                     Street = "Burlington",
                     StreetSuffix = "St",
                     Rating = 3,
