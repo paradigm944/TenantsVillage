@@ -10,10 +10,12 @@
     <script>
         var FormZipCode = '@Model.ZipCode';
         var zipSearch = '@Model.IsZipSearch';
+        var FormCity = '@Model.City';
+        var citySearch = '@Model.IsCitySearch';
         //google.maps.event.trigger(map, 'resize');
 
-    function coden(MapProperties, Map, ZipCode) {
-        $.getJSON('@Url.Content("~/Post/GetAddresses/?zipCode=")' + FormZipCode, function (data) {
+    function MarkByZip(MapProperties, Map, ZipCode) {
+        $.getJSON('@Url.Content("~/Post/GetZipAddresses/?zipCode=")' + FormZipCode, function (data) {
             //var geoCodeResults = new Array();
             geocoder = new google.maps.Geocoder();
             $.each(data, function (i, item) {
@@ -33,7 +35,7 @@
                         marker.setMap(Map);
 
                         var infowindow = new google.maps.InfoWindow({
-                            content: "<div class='infoDiv'><h4>" + data[i] + "</h2>" + "<div><h4></h4></div></div>"
+                            content: "<div class='infoDiv'><strong>" + data[i].Title + "</strong>" + "<div><h4></h4></div></div>"
                         });
 
                         // onClick listener
@@ -46,7 +48,78 @@
             })
         })
     }
+        function MarkByCity(MapProperties, Map, city) {
+            $.getJSON('@Url.Content("~/Post/GetCityAddresses/?city=")' + FormCity, function (data) {
+                //var geoCodeResults = new Array();
+                geocoder = new google.maps.Geocoder();
+                $.each(data, function (i, item) {
+                    geocoder.geocode({ 'address': data[i] }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            //geoCodeResults[i] = results[0].geometry.location;
+                            //console.log(data[i]);
 
+                            var marker = new google.maps.Marker({
+                                position: UserCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e),
+                                map: Map,
+                                title: data[i]
+                            });
+
+                            marker.setIcon('@Url.Content("~/Content/blue-dot.png")')
+
+                            marker.setMap(Map);
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: "<div class='infoDiv'><strong>" + data[i] + "</strong>" + "<div><h4></h4></div></div>"
+                            });
+
+                            // onClick listener
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infowindow.open(Map, marker);
+                            });
+
+                        }
+                    })
+                })
+            })
+        }
+        function MarkByBrowser(MapProperties, Map, ZipCode) {
+            console.log(ZipCode);
+            $.getJSON('@Url.Content("~/Post/GetZipAddresses/?zipCode=")' + ZipCode, function (data) {
+                //var geoCodeResults = new Array();
+                geocoder = new google.maps.Geocoder();
+                $.each(data, function (i, item) {
+                    //console.log()
+                    geocoder.geocode({ 'address': data[i].StreetPrefix+" "+data[i].Street+" "+data[i].StreetSuffix+", "+data[i].ZipCode }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            //geoCodeResults[i] = results[0].geometry.location;
+                            //console.log(data[i]);
+
+                            var marker = new google.maps.Marker({
+                                position: UserCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e),
+                                map: Map,
+                                title: data[i].Title
+                            });
+
+                            marker.setIcon('@Url.Content("~/Content/blue-dot.png")')
+
+                            marker.setMap(Map);
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: "<div class='infoDiv col-md-12'><div class='row'><strong>" + data[i].StreetPrefix + " " + data[i].Street + " " + data[i].StreetSuffix + ", " + data[i].ZipCode +
+                                    "</strong>" + "</div><div class='row'>Rent:&nbsp;&nbsp;<strong>" + data[i].Rent + "</strong></div><div class='row'>LandLord:&nbsp;<strong>" + data[i].LandLord +
+                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a>&nbsp;&nbsp;<a href='@Url.Content("~/UserBookmark/Bookmark/")"+data[i].Id+"'>Bookmark</a></div></div>"
+                            });
+
+                            // onClick listener
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infowindow.open(Map, marker);
+                            });
+
+                        }
+                    })
+                })
+            })
+        }
         function initialize() {
             console.log(zipSearch);
         if (zipSearch.toString() == "True") {        
@@ -67,25 +140,63 @@
 
                     var marker = new google.maps.Marker({
                         position: UserCoords2,
-                        title: "You"
+                        title: "You are approximately here"
                     });
 
                     marker.setMap(map);
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
+                        content: "<div class='infoDiv'><strong>" + marker.title + "</strong>" + "<div><h4></h4></div></div>"
                     });
 
                     google.maps.event.addListener(marker, 'click', function () {
                         infowindow.open(map, marker);
                     });
 
-                    coden(mapProp, map, FormZipCode);
+                    MarkByZip(mapProp, map, FormZipCode);
                 }
                 })
             }
         else {
-            console.log("else");
+            if (citySearch.toString() == "True") {
+                geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': FormCity }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        UserCoords2 = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e);
+                        console.log(UserCoords2);
+
+                        var mapProp = {
+                            center: UserCoords2,
+                            zoom: 12,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+
+                        var marker = new google.maps.Marker({
+                            position: UserCoords2,
+                            title: "You are approximately here"
+                        });
+
+                        marker.setMap(map);
+
+                        var infowindow = new google.maps.InfoWindow({
+                            
+                            content: "<div class='infoDiv'><strong>" + marker.title + "</strong>" + "<div><h4></h4></div></div>"
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.open(map, marker);
+                        });
+
+                        MarkByCity(mapProp, map, FormCity);
+                    }
+                })
+
+            }
+            else {
+                console.log("else");
                 if (navigator.geolocation) {
                     browserSupportFlag = true;
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -108,7 +219,7 @@
                         marker.setMap(map);
 
                         var infowindow = new google.maps.InfoWindow({
-                            content: "<div class='infoDiv'><h2>" + marker.title + "</h2>" + "<div><h4></h4></div></div>"
+                            content: "<div class='infoDiv'><strong>" + marker.title + "</strong>" + "<div><h4></h4></div></div>"
                         });
 
                         google.maps.event.addListener(marker, 'click', function () {
@@ -118,17 +229,19 @@
                         geocoder = new google.maps.Geocoder();
                         geocoder.geocode({ 'latLng': UserCoords }, function (results, status) {
                             if (status == google.maps.GeocoderStatus.OK) {
+
                                 var zip = results[0].address_components[7].short_name;
-                                coden(mapProp, map, zip);
+                                MarkByBrowser(mapProp, map, zip);
                             }
 
                             //add status check and log results array
 
                         })
 
-                        
+
                     })
                 }
+            }
             }
         }
 
@@ -147,9 +260,16 @@
     
     <body>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-2">
                 @Html.LabelFor(m => m.ZipCode)<br />
                 @Html.TextBoxFor(m => m.ZipCode)
+            </div>
+            <div class="col-lg-1" style="text-align:center">
+                <b><em>OR</em></b>
+            </div>
+            <div class="col-lg-2">
+                @Html.LabelFor(m => m.City)<br />
+                @Html.TextBoxFor(m => m.City)
             </div>
             <div class="col-lg-4">
                 <br />
