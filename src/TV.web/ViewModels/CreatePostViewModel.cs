@@ -39,8 +39,14 @@ namespace TV.web.ViewModels
         [DisplayName("Street Suffix")]
         [Required(ErrorMessage="Please choose a Street Suffix from the dropdown list")]
         public string StreetSuffix { get; set; }
+
+        [DisplayName("Street Prefix")]
+        //[Required(ErrorMessage = "Please choose a Street Prefix from the dropdown list")]
+        public string StreetPrefix { get; set; }
         
-        public IList<String> StreetList { get; set; }
+        public IList<String> StreetSuffixList { get; set; }
+
+        public IList<String> StreetPrefixList { get; set; }
 
         [DisplayName("City")]
         [Required(ErrorMessage = "Please provide a City")]

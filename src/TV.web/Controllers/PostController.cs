@@ -15,10 +15,15 @@ namespace TV.web.Controllers
     [Authorize]
     public class PostController : Controller
     {
-        public List<string> streetList = new List<string>
+        public List<string> streetSuffixList = new List<string>
         {
             "-", "Pl", "Rd", "St", "Ave", "Blvd", "Cr", "Ct", "Way", "Ln",
             "Dr"
+        };
+
+        public List<string> streetPrefixList = new List<string>
+        {
+            " ", "N", "NE", "NW", "S", "SE", "SW", "W", "E"
         };
 
         private readonly TVContext _ctx;
@@ -33,7 +38,8 @@ namespace TV.web.Controllers
         {
             var outModel = new AddressViewModel
             {
-                IsZipSearch = false
+                IsZipSearch = false,
+                IsCitySearch = false,
             };
 
          
@@ -44,26 +50,62 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public ActionResult NearMe(AddressViewModel inModel)
         {
-            var outModel = new AddressViewModel{
-                ZipCode = inModel.ZipCode,
-                IsZipSearch = true
-            };
+            if (inModel.ZipCode.HasValue)
+            {
+                var outModel = new AddressViewModel
+                {
+                    ZipCode = inModel.ZipCode,
+                    IsZipSearch = true,
+                    IsCitySearch = false
+                };
+                
+                return View(outModel);
+            }
+            else
+            {
+                var outModel = new AddressViewModel
+                {
+                    City = inModel.City,
+                    IsZipSearch = false,
+                    IsCitySearch = true
+                };
+                
+                return View(outModel);
+            }
 
-
-            return View(outModel);
+            
         }
 
         [AllowAnonymous]
-        public JsonResult GetAddresses(int zipCode)
+        public JsonResult GetZipAddresses(int zipCode)
         {
-            var postAddresses = new List<string>();
+            var postAddresses = new List<PostModel>();
             var posts = _ctx.Post.Where(m => m.ZipCode == zipCode).ToList<PostModel>();
 
             if (posts.Count > 0)
             {
                 for (int i = 0; i < posts.Count; i++)
                 {
-                    var address = posts[i].BuildingNumber + " " + posts[i].Street + ",  " + posts[i].ZipCode;
+                    //var address = posts[i].BuildingNumber + " "+ posts[i].StreetPrefix + " " + posts[i].Street + ",  " + posts[i].ZipCode;
+                    var address = posts[i];
+                    postAddresses.Add(address);
+                }
+            }
+
+            return Json(postAddresses, JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetCityAddresses(string city)
+        {
+            var postAddresses = new List<string>();
+            var posts = _ctx.Post.Where(m => m.City == city && m.IsCompleted == 1 && m.IsDeleted == false).ToList<PostModel>();
+
+            if (posts.Count > 0)
+            {
+                for (int i = 0; i < posts.Count; i++)
+                {
+                    var address = posts[i].BuildingNumber + " " + posts[i].StreetPrefix + " " + posts[i].Street + ",  " + posts[i].ZipCode;
                     postAddresses.Add(address);
                 }
             }
@@ -160,7 +202,8 @@ namespace TV.web.Controllers
             };
             
             outModel.UserId = user.UserId;
-            outModel.StreetList = streetList;
+            outModel.StreetSuffixList = streetSuffixList;
+            outModel.StreetPrefixList = streetPrefixList;
             _ctx.Post.Add(post);
             _ctx.SaveChanges();
             outModel.Id = post.Id;
@@ -254,6 +297,7 @@ namespace TV.web.Controllers
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
             post.StreetSuffix = inModel.StreetSuffix;
+            post.StreetPrefix = inModel.StreetPrefix;
             post.IsCompleted = 1;
             post.City = inModel.City;
             post.ZipCode = inModel.Zip;
@@ -298,7 +342,9 @@ namespace TV.web.Controllers
                 IsEDitMode = true,
                 BuildingNumber = post.BuildingNumber,
                 StreetSuffix = post.StreetSuffix,
-                StreetList = streetList,
+                StreetPrefix = post.StreetPrefix,
+                StreetSuffixList = streetSuffixList,
+                StreetPrefixList = streetPrefixList,
                 Street = post.Street,
                 Comments = commentz,
                 Rating = post.Rating, 
@@ -363,6 +409,7 @@ namespace TV.web.Controllers
             post.AmountKept = inModel.AmountKept;
             post.Street = inModel.Street;
             post.StreetSuffix = inModel.StreetSuffix;
+            post.StreetPrefix = inModel.StreetPrefix;
             post.IsDeleted = false;
             post.AptNumber = inModel.AptNumber;
             post.BuildingNumber = inModel.BuildingNumber;
