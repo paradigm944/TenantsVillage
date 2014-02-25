@@ -80,14 +80,14 @@ namespace TV.web.Controllers
         public JsonResult GetZipAddresses(int zipCode)
         {
             var postAddresses = new List<PostModel>();
-            var posts = _ctx.Post.Where(m => m.ZipCode == zipCode).ToList<PostModel>();
+            var posts = _ctx.Post.Where(m => m.ZipCode == zipCode && m.IsCompleted == 1 && m.IsDeleted == false).ToList<PostModel>();
 
             if (posts.Count > 0)
             {
                 for (int i = 0; i < posts.Count; i++)
                 {
-                    //var address = posts[i].BuildingNumber + " "+ posts[i].StreetPrefix + " " + posts[i].Street + ",  " + posts[i].ZipCode;
                     var address = posts[i];
+                    //var address = posts[i];
                     postAddresses.Add(address);
                 }
             }
@@ -98,14 +98,14 @@ namespace TV.web.Controllers
         [AllowAnonymous]
         public JsonResult GetCityAddresses(string city)
         {
-            var postAddresses = new List<string>();
+            var postAddresses = new List<PostModel>();
             var posts = _ctx.Post.Where(m => m.City == city && m.IsCompleted == 1 && m.IsDeleted == false).ToList<PostModel>();
 
             if (posts.Count > 0)
             {
                 for (int i = 0; i < posts.Count; i++)
                 {
-                    var address = posts[i].BuildingNumber + " " + posts[i].StreetPrefix + " " + posts[i].Street + ",  " + posts[i].ZipCode;
+                    var address = posts[i];
                     postAddresses.Add(address);
                 }
             }
