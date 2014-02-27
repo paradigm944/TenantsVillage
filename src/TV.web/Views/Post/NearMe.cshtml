@@ -4,7 +4,7 @@
 <html>
 <head>
     <title></title>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmNSdpBTBZpMlE7CA7HE4AwPNgQg8sJxg&sensor=false">
     </script>
 
     <script>
@@ -49,6 +49,7 @@
                 })
             })
         })
+        hideLoading();
     }
         function MarkByCity(MapProperties, Map, city) {
             $.getJSON('@Url.Content("~/Post/GetCityAddresses/?city=")' + FormCity, function (data) {
@@ -81,6 +82,7 @@
                     })
                 })
             })
+            hideLoading();
         }
         function MarkByBrowser(MapProperties, Map, ZipCode) {            
             $.getJSON('@Url.Content("~/Post/GetZipAddresses/?zipCode=")' + ZipCode, function (data) {
