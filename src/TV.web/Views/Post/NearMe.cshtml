@@ -8,7 +8,23 @@
     </script>
 
     <script>
-        
+        function Bookmark() {
+
+            
+            $.ajax({
+                url: '@Url.Content("~/UserBookmark/Bookmark/")',
+                data: { postId: postId },
+                type: 'POST',
+                success: function (data) {
+                    $('#bookmarkButton').hide();
+                    $('#bookmarkIcon').show();
+                },
+                error: function (data) {
+                    console.log(e.error);
+                }
+            });
+        }
+
         function hideLoading() {
             $('#loadingGif').hide();
         };
@@ -37,7 +53,7 @@
                         var infowindow = new google.maps.InfoWindow({
                             content: "<div class='infoDiv col-md-12'><div class='row'><strong>" + data[i].BuildingNumber + " "  +data[i].StreetPrefix + " " + data[i].Street + " " + data[i].StreetSuffix + ", " + data[i].ZipCode +
                                     "</strong>" + "</div><div class='row'>Rent:&nbsp;&nbsp;<strong>" + data[i].Rent + "</strong></div><div class='row'>LandLord:&nbsp;<strong>" + data[i].LandLord +
-                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a>&nbsp;&nbsp;<a href='@Url.Content("~/UserBookmark/Bookmark/")"+data[i].Id+"'>Bookmark</a></div></div>"
+                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a></div></div>"
                         });
 
                         // onClick listener
@@ -70,7 +86,7 @@
                             var infowindow = new google.maps.InfoWindow({
                                 content: "<div class='infoDiv col-md-12'><div class='row'><strong>" + data[i].BuildingNumber +" "+ data[i].StreetPrefix + " " + data[i].Street + " " + data[i].StreetSuffix + ", " + data[i].ZipCode +
                                     "</strong>" + "</div><div class='row'>Rent:&nbsp;&nbsp;<strong>" + data[i].Rent + "</strong></div><div class='row'>LandLord:&nbsp;<strong>" + data[i].LandLord +
-                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a>&nbsp;&nbsp;<a href='@Url.Content("~/UserBookmark/Bookmark/")"+data[i].Id+"'>Bookmark</a></div></div>"
+                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a></div></div>"
                             });
 
                             // onClick listener
@@ -109,7 +125,7 @@
                             var infowindow = new google.maps.InfoWindow({
                                 content: "<div class='infoDiv col-md-12'><div class='row'><strong>" + data[i].BuildingNumber + " " + data[i].StreetPrefix + " " + data[i].Street + " " + data[i].StreetSuffix + ", " + data[i].ZipCode +
                                     "</strong>" + "</div><div class='row'>Rent:&nbsp;&nbsp;<strong>" + data[i].Rent + "</strong></div><div class='row'>LandLord:&nbsp;<strong>" + data[i].LandLord +
-                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a>&nbsp;&nbsp;<a href='@Url.Content("~/UserBookmark/Bookmark/")"+data[i].Id+"'>Bookmark</a></div></div>"
+                                    "</strong></div><div class='row'><a href='@Url.Content("~/Search/ViewPost/")"+data[i].Id+"'>View</a></div></div>"
                             });
 
                             // onClick listener

@@ -123,9 +123,7 @@
 
         $(document).ready(function () {
             $('#showPanel').hide();
-            $('#navTab').each(function () {
-                $(this).removeClass('active');
-            });
+            
             $('#pic0Tooltip').tooltip();
             $('#pic1Tooltip').tooltip();
             $('#pic2Tooltip').tooltip();
@@ -136,7 +134,7 @@
             $('#pic7Tooltip').tooltip();
             $('#pic8Tooltip').tooltip();
             $('#pic9Tooltip').tooltip();
-            $('#homeTab').addClass('active');
+            
             $('#resetButton').hide();
 
             var _CaptionTransitions = [];

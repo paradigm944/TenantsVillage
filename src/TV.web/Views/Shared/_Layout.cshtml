@@ -80,7 +80,7 @@
                 @if (Request.IsAuthenticated)
                     {
                     <li><div class="col-sm-2"></div></li>
-                    <li id="homeTab" class="navTab"><a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i> Home</a></li>
+                    <li id="homeTab" class="navTab"><a href="@Url.Action("NearMe", "Post")"><i class="fa fa-map-marker"></i> Near Me</a></li>
                     <li id="linksTab" class="navTab"><a href="@Url.Action("Links", "Home")"><i class="fa fa-external-link-square"></i>&nbsp;Links</a></li>
                     <li id="postTab" class="navTab dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>&nbsp;Posts<b class="caret"></b></a>
