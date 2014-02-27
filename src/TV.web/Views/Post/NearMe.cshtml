@@ -82,18 +82,17 @@
                 })
             })
         }
-        function MarkByBrowser(MapProperties, Map, ZipCode) {
-            //console.log(ZipCode);
+        function MarkByBrowser(MapProperties, Map, ZipCode) {            
             $.getJSON('@Url.Content("~/Post/GetZipAddresses/?zipCode=")' + ZipCode, function (data) {
-                //var geoCodeResults = new Array();
+                console.log(data);
                 geocoder = new google.maps.Geocoder();
                 $.each(data, function (i, item) {
-                    
                     geocoder.geocode({ 'address': data[i].BuildingNumber + " " + data[i].StreetPrefix + " " + data[i].Street + " " + data[i].StreetSuffix + ",  " + data[i].ZipCode }, function (results, status) {
-                        //console.log(status);
+                        console.log(status);
                         if (status == google.maps.GeocoderStatus.OK) {
                             //geoCodeResults[i] = results[0].geometry.location;
-                            //console.log(data[i]);
+                            console.log(item[i]);
+                            console.log(results[0]);
 
                             var marker = new google.maps.Marker({
                                 position: UserCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e),
@@ -255,7 +254,7 @@
                                     var zip = results[0].address_components[7].short_name;
                                 }
 
-                                //console.log(navigator.appName);
+                                console.log(navigator.appName);
                                 MarkByBrowser(mapProp, map, zip);
                             }
 
