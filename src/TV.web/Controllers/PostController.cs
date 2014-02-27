@@ -33,21 +33,41 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
-        [AllowAnonymous]
-        public ActionResult NearMe()
+        public ActionResult ViewMapSinglePost(int? postId)
         {
-            var outModel = new AddressViewModel
-            {
-                IsZipSearch = false,
-                IsCitySearch = false,
-            };
+           var post = _ctx.Post.Where(m => m.Id == postId).SingleOrDefault();
 
+            var outModel = new ViewPostViewModel();
+
+            outModel.PostAddress = post.BuildingNumber + " " + post.StreetPrefix + " " + post.Street + " " + post.StreetSuffix + ", " + post.ZipCode;
+
+            return View("_ViewMap", outModel);
+        }
+        
+        public ActionResult NearMe(int? postId)
+        {
+            var outModel = new AddressViewModel();
+
+            if (postId != null)
+            {
+                var post = _ctx.Post.Where(m => m.Id == postId).SingleOrDefault();
+                outModel.SinglePost = post;
+                outModel.IsZipSearch = false;
+                outModel.IsCitySearch = false;
+                outModel.IsSinglePost = true;
+            }
+            else
+            {
+                outModel.SinglePost = null;
+                outModel.IsZipSearch = false;
+                outModel.IsCitySearch = false;
+                outModel.IsSinglePost = false;
+            }
          
             return View(outModel);
         }
 
-        [HttpPost]
-        [AllowAnonymous]
+        [HttpPost]       
         public ActionResult NearMe(AddressViewModel inModel)
         {
             if (inModel.ZipCode.HasValue && inModel.City != null)
@@ -61,7 +81,9 @@ namespace TV.web.Controllers
                 {
                     ZipCode = inModel.ZipCode,
                     IsZipSearch = true,
-                    IsCitySearch = false
+                    IsCitySearch = false,
+                    IsSinglePost = false,
+                    SinglePost = inModel.SinglePost
                 };
                 
                 return View(outModel);
@@ -72,7 +94,9 @@ namespace TV.web.Controllers
                 {
                     City = inModel.City,
                     IsZipSearch = false,
-                    IsCitySearch = true
+                    IsCitySearch = true,
+                    SinglePost = inModel.SinglePost,
+                    IsSinglePost = false
                 };
                 
                 return View(outModel);
@@ -80,8 +104,7 @@ namespace TV.web.Controllers
 
             
         }
-
-        [AllowAnonymous]
+      
         public JsonResult GetZipAddresses(int zipCode)
         {
             var postAddresses = new List<PostModel>();
@@ -118,11 +141,7 @@ namespace TV.web.Controllers
             return Json(postAddresses, JsonRequestBehavior.AllowGet);
         } 
 
-        public ActionResult UploadPhotos()
-        {
-            return View("UploadTest");
-        }
-
+        
         //[SessionExpireFilter]
         public ActionResult Manage(bool? needStatusUpdate, int? statusMessage)
         {

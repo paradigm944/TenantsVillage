@@ -109,6 +109,7 @@
                                 </div>
                             </div>
                             <div class="panel-body" style="padding-left: 15px; padding-bottom: 10px; padding-right: 15px;">
+                                <a class="btn btn-success"  href="@Url.Content("~/Post/NearMe/?postId="+ Model.Id)">Map Me</a>
                                 <div class="form-group has-error has-success">
                                     <div class="row">
                                         <div class="col-lg-4">
@@ -323,7 +324,18 @@
                                     <button class="btn btn-primary btn-sm" style="float:right;" data-toggle="modal" data-target="#myModal">
                                         Comment
                                     </button>
+                                   
                                 </div>
+                            @Html.ActionLink("Map Me", "ViewMapSinglePost", "Post", new { postId = Model.Id }, new
+                                        {
+                                            @style = "color: white;",
+                                            @data_toggle = "modal",
+                                            @data_target = "#viewMapModal",
+                                            @class = "btn btn-sm btn-success"
+                                        })
+                            <div class="modal fade" id="viewMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                @Html.Partial("_ViewMap")
+                            </div>
                             </div>
                             
                         </div>

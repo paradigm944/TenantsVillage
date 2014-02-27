@@ -89,7 +89,7 @@ namespace TV.web.ViewModels
 
         public IEnumerable<Comment> Comments { get; set; }
 
-       
+        public string PostAddress { get; set; }
 
         public string Author { get; set; }
 
