@@ -33,24 +33,15 @@ namespace TV.web.Controllers
             _ctx = ctx;
         }
 
-        public ActionResult ViewMapSinglePost(int? postId)
-        {
-           var post = _ctx.Post.Where(m => m.Id == postId).SingleOrDefault();
-
-            var outModel = new ViewPostViewModel();
-
-            outModel.PostAddress = post.BuildingNumber + " " + post.StreetPrefix + " " + post.Street + " " + post.StreetSuffix + ", " + post.ZipCode;
-
-            return View("_ViewMap", outModel);
-        }
-        
         public ActionResult NearMe(int? postId)
         {
             var outModel = new AddressViewModel();
+            var dummy = _ctx.Post.Where(m => m.Id == 1).SingleOrDefault();
+            var post = new PostModel();
 
             if (postId != null)
             {
-                var post = _ctx.Post.Where(m => m.Id == postId).SingleOrDefault();
+                post = _ctx.Post.Where(m => m.Id == postId).SingleOrDefault();
                 outModel.SinglePost = post;
                 outModel.IsZipSearch = false;
                 outModel.IsCitySearch = false;
@@ -58,7 +49,7 @@ namespace TV.web.Controllers
             }
             else
             {
-                outModel.SinglePost = null;
+                outModel.SinglePost = dummy;
                 outModel.IsZipSearch = false;
                 outModel.IsCitySearch = false;
                 outModel.IsSinglePost = false;
@@ -70,9 +61,12 @@ namespace TV.web.Controllers
         [HttpPost]       
         public ActionResult NearMe(AddressViewModel inModel)
         {
+            var dummy = _ctx.Post.Where(m => m.Id == 1).SingleOrDefault();
+
             if (inModel.ZipCode.HasValue && inModel.City != null)
             {
                 ModelState.AddModelError("", "Both Zip and City cannot be filled in");
+                inModel.SinglePost = dummy;
                 return View(inModel);
             }
             if (inModel.ZipCode.HasValue)
@@ -83,7 +77,7 @@ namespace TV.web.Controllers
                     IsZipSearch = true,
                     IsCitySearch = false,
                     IsSinglePost = false,
-                    SinglePost = inModel.SinglePost
+                    SinglePost = dummy
                 };
                 
                 return View(outModel);
@@ -95,7 +89,7 @@ namespace TV.web.Controllers
                     City = inModel.City,
                     IsZipSearch = false,
                     IsCitySearch = true,
-                    SinglePost = inModel.SinglePost,
+                    SinglePost = dummy,
                     IsSinglePost = false
                 };
                 
