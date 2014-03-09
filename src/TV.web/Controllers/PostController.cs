@@ -269,7 +269,8 @@ namespace TV.web.Controllers
             var user = _ctx.UserProfiles.Where(u => u.UserId == inModel.UserId).SingleOrDefault();
             var post = _ctx.Post.Where(m => m.Id == inModel.Id).SingleOrDefault();
             var images = _ctx.Image.Where(m => m.Post.Id == post.Id).ToList<ImageModel>();
-
+            inModel.StreetSuffixList = streetSuffixList;
+            inModel.StreetPrefixList = streetPrefixList;
             //Check for use of back button after cancel was pressed
             if (post.IsDeleted)
             {
@@ -280,6 +281,7 @@ namespace TV.web.Controllers
             {
                 ModelState.AddModelError("", "Please provide a rating");
                 ModelState.AddModelError("", "Any pictures Upload are already saved.");
+                
                 return View(inModel);
             }
 
@@ -328,6 +330,7 @@ namespace TV.web.Controllers
 
             var errors = _ctx.GetValidationErrors();
 
+            var err = errors;
             _ctx.SaveChanges();
 
             return RedirectToAction("Manage", "Post", new { needStatusUpdate = true, statusMessage = 4 });

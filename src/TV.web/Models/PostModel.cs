@@ -64,7 +64,7 @@ namespace TV.web.Models
         [Column("State")]
         public string State { get; set; }
 
-        [Range(2000, 2013)]
+        [Range(2000, 2020)]
         [Column("LeaseYear")]
         public int? LeaseYear { get; set; }
 
