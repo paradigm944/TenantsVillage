@@ -57,6 +57,7 @@ namespace TV.web.ViewModels
 
         [DisplayName("Zip Code")]
         [Required(ErrorMessage = "Please provide a Zip")]
+        [RegularExpression(@"^\d{5}(-\d{4})?$", ErrorMessage = "Invalid Zip")]
         public int? Zip { get; set; }
 
         [Required(ErrorMessage = "Please provide a Landlord/Mgmt Company")]
