@@ -23,7 +23,7 @@ namespace TV.web.Controllers
 
         public List<string> streetPrefixList = new List<string>
         {
-            " ", "N", "NE", "NW", "S", "SE", "SW", "W", "E"
+            "-", "N", "NE", "NW", "S", "SE", "SW", "W", "E"
         };
 
         private readonly TVContext _ctx;
@@ -63,6 +63,12 @@ namespace TV.web.Controllers
         {
             var dummy = _ctx.Post.Where(m => m.Id == 1).SingleOrDefault();
 
+            if (!inModel.ZipCode.HasValue && inModel.City == null)
+            {
+                ModelState.AddModelError("", " Please indicate a City or Zip Code");
+                inModel.SinglePost = dummy;
+                return View(inModel);
+            }
             if (inModel.ZipCode.HasValue && inModel.City != null)
             {
                 ModelState.AddModelError("", "Both Zip and City cannot be filled in");
