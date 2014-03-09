@@ -4,7 +4,7 @@
 <html>
 <head>
     <title></title>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmNSdpBTBZpMlE7CA7HE4AwPNgQg8sJxg&sensor=false">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCF8U-SCjQheqgw0k0yYD4y0m5rlG1ydhs&sensor=false">
     </script>
 
     <script>
@@ -219,7 +219,7 @@
                         var addr = '@Model.SinglePost.BuildingNumber' + " " + '@Model.SinglePost.StreetPrefix' + " " + '@Model.SinglePost.Street' + " " + '@Model.SinglePost.StreetSuffix' + ",  " + '@Model.SinglePost.ZipCode';
                         console.log(addr);
                         geocoder.geocode({ 'address': addr }, function (results, status) {
-                            console.log(status);
+                            
                             if (status == google.maps.GeocoderStatus.OK) {
                                 PostCoords = new google.maps.LatLng(results[0].geometry.location.d, results[0].geometry.location.e);
 
@@ -259,13 +259,14 @@
 
 
                     else {
-
+                        console.log("else");
                         if (navigator.geolocation) {
+                            console.log("nav good");
                             browserSupportFlag = true;
                             navigator.geolocation.getCurrentPosition(function (position) {
-
+                                console.log(position);
                                 UserCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+                                console.log(UserCoords);
                                 var mapProp = {
                                     center: UserCoords,
                                     zoom: 12,
@@ -305,7 +306,7 @@
 
                                 geocoder = new google.maps.Geocoder();
                                 geocoder.geocode({ 'latLng': UserCoords }, function (results, status) {
-                                    //console.log(status);
+                                    console.log(status);
                                     if (status == google.maps.GeocoderStatus.OK) {
                                         browsername = navigator.appName;
                                         //console.log(browsername);
@@ -325,6 +326,8 @@
                                 })
 
 
+                            }, function (error) {
+                                console.log(error);
                             })
                         }
                     }
