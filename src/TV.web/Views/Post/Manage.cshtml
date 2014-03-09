@@ -61,15 +61,15 @@
                 </div>
             </div>
             <div class="panel-body">
-                <div class=" table table-responsive">
-                    <table class="display ">
+                
+                    <table class="table table-responsive table-striped">
                         <thead>
                             <tr style="color:#d5d7bf">
                                 <th></th>
                                 <th>Landlord</th>
                                 <th>Title</th>
                                 <th>Street</th>
-                                <th>Rating</th>
+                                
 
                             </tr>
                         </thead>
@@ -84,15 +84,12 @@
                                     <td>@Model.Bookmarks[i].Post.LandLord</td>
                                     <td>@Model.Bookmarks[i].Post.Title</td>
                                     <td>@Model.Bookmarks[i].Post.Street</td>
-                                    <td><div id="rating">
-                                            <div class="rateit" data-rateit-max="10" data-rateit-value="@Model.Bookmarks[i].Post.Rating" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                                        </div>
-                                    </td>
+                                    
                                 </tr>
                             }
                         </tbody>
                     </table>
-                </div>
+               
             </div>
         </div>
     </div>
